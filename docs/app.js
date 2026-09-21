@@ -6,7 +6,7 @@ function tierClass(t) {
   if (!t) return 'neutral';
   if (t === 'Strong edge' || t === 'BET' || t === 'Side') return 'good';
   if (t === 'Edge' || t === 'LEAN') return 'lean';
-  if (t === 'Pass' || t === 'No bet: FCS' || t === 'Skip: 60+ total') return 'neutral';
+  if (t === 'Pass' || t === 'No bet: FCS') return 'neutral';
   if (t === 'Check news') return 'bad';
   return 'neutral';
 }
@@ -30,6 +30,7 @@ function render() {
   renderBestBets();
   renderGames();
   renderRatings();
+  renderQB();
 }
 
 function renderTop3() {
@@ -103,6 +104,17 @@ function renderRatings() {
       <td>${r.net.toFixed(3)}</td>
       <td>${r.sp ?? '—'}</td>
       <td>${r.pace ?? '—'}</td>
+    </tr>`).join('');
+}
+
+function renderQB() {
+  const body = document.getElementById('qbBody');
+  body.innerHTML = (DATA.qb_values || []).map(q => `
+    <tr>
+      <td>${q.team}</td>
+      <td>${q.starter}</td>
+      <td>${q.backup}</td>
+      <td>${q.value.toFixed(1)}</td>
     </tr>`).join('');
 }
 

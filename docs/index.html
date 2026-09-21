@@ -18,6 +18,7 @@
   <button class="tab-btn active" data-tab="bets">Best Bets</button>
   <button class="tab-btn" data-tab="games">All Games</button>
   <button class="tab-btn" data-tab="ratings">Ratings</button>
+  <button class="tab-btn" data-tab="qb">QB Values</button>
 </nav>
 
 <main id="app">
@@ -43,7 +44,7 @@
           <tr>
             <th data-key="kickoff_iso">Kickoff</th>
             <th data-key="matchup">Game</th>
-            <th data-key="side_pick">Spread Pick</th>
+            <th data-key="side_pick">Model Spread (info only)</th>
             <th data-key="edge">Edge</th>
             <th data-key="side_tier">Tier</th>
             <th data-key="total_pick">Total Pick</th>
@@ -68,9 +69,23 @@
       </table>
     </div>
   </section>
+
+  <section id="tab-qb" class="tab-panel">
+    <p class="sub" style="margin:0 0 10px;">Points a team's total drops if its starting QB sits, from backup EPA/play and snap share. Reference only &mdash; not applied automatically without a confirmed injury.</p>
+    <div class="table-wrap">
+      <table id="qbTable">
+        <thead>
+          <tr>
+            <th>Team</th><th>Starter</th><th>Backup</th><th>Value if starter sits</th>
+          </tr>
+        </thead>
+        <tbody id="qbBody"></tbody>
+      </table>
+    </div>
+  </section>
 </main>
 
-<footer class="foot">Model: opponent-adjusted EPA blended with SP+ and FPI, weighted against the market line. Not financial advice &mdash; for entertainment/research only.</footer>
+<footer class="foot">Model: opponent-adjusted EPA blended with SP+ and FPI, weighted against the market line and priced for blowout garbage-time scoring and option-team offenses. Totals only &mdash; the model found no side-betting edge, so spreads shown are informational. Not financial advice &mdash; for entertainment/research only.</footer>
 
 <script src="app.js"></script>
 </body>

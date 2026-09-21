@@ -12,7 +12,20 @@ import os, sys, json, argparse, datetime, math
 sys.path.insert(0, os.path.dirname(__file__))
 import cfb_engine as E
 
-D_IN = E.DEFAULT_INPUTS
+# Mirrors the Inputs-tab defaults in cfb_engine.py's build() (the `inp` list).
+# cfb_engine.py itself gets swapped out wholesale when the model is updated, so
+# this default set lives here rather than in the engine file - keep it in sync
+# by hand when the Inputs defaults change. blow/opta/opt_teams come straight
+# from CONSTS since those are the engine's own canonical values.
+D_IN = dict(
+    hfa=3.0, w_epa=0.34, w_sp=0.33, w_fpi=0.33,
+    trust_sides=0.85, trust_totals=0.75,
+    sd_margin=15.25, sd_total=15.64,
+    side_strong=5, side_edge=3.5,
+    total_bet=4, total_lean=3, total_checknews=9,
+    big_spread=24, wind_thresh=12, wind_pen=0.3,
+    blow=E.CONSTS['C_SPREAD'], opta=E.CONSTS['OPT_ADJ'], opt_teams=set(E.CONSTS['OPT_TEAMS']),
+)
 
 
 def normsdist(x):
@@ -27,18 +40,13 @@ def ceil_half(x):
     return math.ceil(x * 2) / 2
 
 
-def bet_line_for(typ, bet, s):
-    """'Bet only if line is' guidance: how far the line can move before the edge is gone."""
-    if typ == 'Total':
-        mt = s['model_total_adj']
-        if bet.startswith('Over'):
-            return f"at or below {floor_half(mt - D_IN['total_bet']):.1f}"
-        return f"at or above {ceil_half(mt + D_IN['total_bet']):.1f}"
-    home = s['se'] > 0
-    mm = s['model_margin']
-    if home:
-        return f"{s['home']} {ceil_half(D_IN['side_strong'] - mm):+.1f} or better"
-    return f"{s['away']} {ceil_half(D_IN['side_strong'] + mm):+.1f} or better"
+def bet_line_for(bet, s):
+    """'Bet only if line is' guidance: how far the total can move before the
+    edge is gone. Totals only - sides aren't bet, so there's no spread branch."""
+    mt = s['model_total_adj']
+    if bet.startswith('Over'):
+        return f"at or below {floor_half(mt - D_IN['total_bet']):.1f}"
+    return f"at or above {ceil_half(mt + D_IN['total_bet']):.1f}"
 
 
 def autoweek(season):
@@ -106,6 +114,7 @@ def build_games(D, games_wk, injuries):
     SBE, SLE = D_IN['side_strong'], D_IN['side_edge']
     TBE, TLE, TCN = D_IN['total_bet'], D_IN['total_lean'], D_IN['total_checknews']
     BIG, WTH, WPEN = D_IN['big_spread'], D_IN['wind_thresh'], D_IN['wind_pen']
+    BLOW, OPTA, OPT_TEAMS = D_IN['blow'], D_IN['opta'], D_IN['opt_teams']
 
     games = []
     sel = []
@@ -124,10 +133,10 @@ def build_games(D, games_wk, injuries):
         open_spread = dk.get('spreadOpen') if dk else None
         open_total = dk.get('overUnderOpen') if dk else None
         bv_spread = bv.get('spread') if bv else None
-        bv_total = bv.get('overUnder') if bv else None
         home_ml = dk.get('homeMoneyline') if dk else None
         away_ml = dk.get('awayMoneyline') if dk else None
 
+        # --- Margin model (informational only on the site - sides aren't bet) ---
         sp_margin = None
         if SP.get(g['homeTeam']) is not None and SP.get(g['awayTeam']) is not None:
             sp_margin = SP[g['homeTeam']] - SP[g['awayTeam']] + (0 if neutral else HFA)
@@ -175,25 +184,28 @@ def build_games(D, games_wk, injuries):
             else:
                 side_tier = 'Pass'
 
+        # --- Totals model ---
         w = D['_weather'].get(gid)
         wind = w[1] if w and w[1] is not None else None
         rain = w[2] if w else None
         temp = w[3] if w else None
         venue = w[0] if w else 'n/a'
         weather_adj = -max(0, (wind or 0) - WTH) * WPEN if wind is not None else 0.0
-        epa_total = round(E.total_from_spread(x, dk_spread), 2)
+        blowout_adj = BLOW * abs(dk_spread) if dk_spread is not None else 0.0
+        option_adj = OPTA if (g['homeTeam'] in OPT_TEAMS or g['awayTeam'] in OPT_TEAMS) else 0.0
+        epa_total = round(x['pt'], 2)
+        adj_total = epa_total + blowout_adj + option_adj + weather_adj
 
         total_edge = total_pick = total_prob = total_tier = final_total = over_prob = None
         if dk_total is not None:
-            total_edge = epa_total + weather_adj - dk_total
-            final_total = TRT * dk_total + (1 - TRT) * (epa_total + weather_adj)
+            total_edge = adj_total - dk_total
+            final_total = TRT * dk_total + (1 - TRT) * adj_total
             over_prob = 1 - normsdist((dk_total - final_total) / SDT)
             total_prob = max(over_prob, 1 - over_prob)
             total_pick = f"Over {dk_total:g}" if over_prob >= 0.5 else f"Under {dk_total:g}"
+            # No 60+ skip rule: walk-forward testing showed 60+ totals still hit ~55%.
             if fcs:
                 total_tier = 'No bet: FCS'
-            elif dk_total >= 60:
-                total_tier = 'Skip: 60+ total'
             elif abs(total_edge) >= TCN:
                 moving_with = open_total is not None and ((dk_total - open_total > 0) == (total_edge > 0))
                 total_tier = 'BET' if moving_with else 'Check news'
@@ -221,65 +233,50 @@ def build_games(D, games_wk, injuries):
             model_margin=round(model_margin, 2), market_margin=market_margin,
             edge=round(edge, 2) if edge is not None else None, agree=agree,
             side_pick=side_pick, side_prob=round(side_prob, 4) if side_prob is not None else None, side_tier=side_tier,
-            model_total=epa_total, total_edge=round(total_edge, 2) if total_edge is not None else None,
+            model_total=epa_total, blowout_adj=round(blowout_adj, 2), option_adj=option_adj,
+            total_edge=round(total_edge, 2) if total_edge is not None else None,
             total_pick=total_pick, total_prob=round(total_prob, 4) if total_prob is not None else None, total_tier=total_tier,
             home_ml=home_ml, away_ml=away_ml, ml_edge=round(ml_edge, 4) if ml_edge is not None else None,
         )
         games.append(row)
 
-        if dk_spread is not None and dk_total is not None and not fcs:
-            comps = [epa_margin]
-            h = 0 if neutral else HFA
-            if sp_margin is not None:
-                comps.append(sp_margin)
-            if fpi_margin is not None:
-                comps.append(fpi_margin)
-            mk = -dk_spread
-            bl = (WE * comps[0] + WS * comps[1] + WF * comps[2]) if len(comps) == 3 else comps[0]
-            se = bl - mk
-            ag = sum(1 for c in comps if (c - mk > 0) == (se > 0)) if len(comps) == 3 else 0
-            sel.append(dict(key=row['matchup'], gid=gid, kick=g['startDate'], te=total_edge, mv=(dk_total - open_total) if open_total else 0,
-                             ou=dk_total, sp=dk_spread, se=se, agree=ag, home=g['homeTeam'], away=g['awayTeam'], wind=wind or 0,
-                             model_margin=model_margin, model_total_adj=epa_total + weather_adj))
+        if dk_total is not None and not fcs:
+            sel.append(dict(key=row['matchup'], gid=gid, kick=g['startDate'], te=total_edge,
+                             mv=(dk_total - open_total) if open_total else 0, ou=dk_total,
+                             sp=dk_spread if dk_spread is not None else 0, wind=wind or 0,
+                             option=option_adj != 0, model_total_adj=adj_total))
     return games, sel
 
 
 def build_best_bets(sel):
+    """Totals only - sides are not bet (walk-forward tuning found no side edge)."""
     picks = []
     for s in sel:
-        if s['te'] is None:
-            continue
-        if s['ou'] is not None and s['ou'] >= 60:
-            continue  # skip total bets when market O/U is 60+
         a = abs(s['te'])
+        note_opt = ' Option-team total adj applied.' if s['option'] else ''
         if a >= 9 and s['mv'] != 0 and (s['mv'] > 0) == (s['te'] > 0):
-            picks.append(('2', s, 'Total', f"{'Over' if s['te'] > 0 else 'Under'} {s['ou']:g}", '7+ pt edge, line already moving our way. Half stake.'))
+            picks.append(('2', s, f"{'Over' if s['te'] > 0 else 'Under'} {s['ou']:g}",
+                          '7+ pt edge, line already moving our way. Half stake.' + note_opt))
         elif a >= 9:
-            picks.append(('Pass', s, 'Total', f"{'Over' if s['te'] > 0 else 'Under'} {s['ou']:g}", 'Edge too big: check news (injury/weather) first.'))
+            picks.append(('Pass', s, f"{'Over' if s['te'] > 0 else 'Under'} {s['ou']:g}",
+                          'Edge too big: check news (injury/weather) first.' + note_opt))
         elif a >= 4:
-            note = 'Totals edge in the backtested 4-7+ pt range.'
+            note = 'Totals edge in the backtested 4-7+ pt range.' + note_opt
             if s['wind'] >= 12:
                 note += f" Wind {round(s['wind'])} mph."
-            picks.append(('1' if abs(s['sp']) < 24 else '2', s, 'Total', f"{'Over' if s['te'] > 0 else 'Under'} {s['ou']:g}", note))
-    for s in sel:
-        if abs(s['se']) >= D_IN['side_strong'] and s['agree'] == 3 and abs(s['sp']) < 24:
-            side = s['home'] if s['se'] > 0 else s['away']
-            line = s['sp'] if s['se'] > 0 else -s['sp']
-            picks.append(('Side', s, 'Spread', f"{side} {line:+g}", 'All 3 ratings agree. Side edges beat OPENING lines in backtest (~53%, +CLV), not closing. Bet early or pass.'))
-    order = {'1': 0, '2': 1, 'Side': 2, 'Pass': 3}
+            picks.append(('1' if abs(s['sp']) < 24 else '2', s, f"{'Over' if s['te'] > 0 else 'Under'} {s['ou']:g}", note))
+    order = {'1': 0, '2': 1, 'Pass': 3}
     picks.sort(key=lambda p: (order[p[0]], p[1]['kick']))
-    out = [dict(tier=t, game=s['key'], kickoff=et(s['kick']), bet=bet, type=typ,
-                edge=round(s['te'] if typ == 'Total' else s['se'], 2), note=note,
-                bet_only_if=bet_line_for(typ, bet, s))
-           for (t, s, typ, bet, note) in picks]
+    out = [dict(tier=t, game=s['key'], kickoff=et(s['kick']), bet=bet, type='Total',
+                edge=round(s['te'], 2), note=note, bet_only_if=bet_line_for(bet, s))
+           for (t, s, bet, note) in picks]
 
-    # Top 3 rule: totals only, largest absolute edge first, no 4-7 pt preference.
-    # 9+ edges still excluded unless the line has moved toward our side (tier '2', not 'Pass').
-    top = sorted((p for p in picks if p[2] == 'Total' and p[0] != 'Pass'), key=lambda p: -abs(p[1]['te']))[:3]
-    top3 = [dict(rank=i + 1, game=s['key'], kickoff=et(s['kick']), bet=bet, type=typ,
-                 edge=round(s['te'] if typ == 'Total' else s['se'], 2),
-                 bet_only_if=bet_line_for(typ, bet, s))
-            for i, (t, s, typ, bet, note) in enumerate(top)]
+    # Top 3: largest absolute total edge first, no 4-7 pt preference. 9+ edges
+    # still excluded unless the line moved toward our side (tier '2', not 'Pass').
+    top = sorted((p for p in picks if p[0] != 'Pass'), key=lambda p: -abs(p[1]['te']))[:3]
+    top3 = [dict(rank=i + 1, game=s['key'], kickoff=et(s['kick']), bet=bet, type='Total',
+                 edge=round(s['te'], 2), bet_only_if=bet_line_for(bet, s))
+            for i, (t, s, bet, note) in enumerate(top)]
     return out, top3
 
 
@@ -291,6 +288,14 @@ def build_ratings(ratings, D):
                          net=round(r['off'] - r['deff'], 3), pace=round(r['pace'], 1) if r['pace'] else None,
                          talent=r['tal'], sp=SP.get(r['team'])))
     return out
+
+
+def build_qb_values(qbv):
+    out = []
+    for r in qbv:
+        out.append(dict(team=r['team'], starter=r['starter'], backup=r['backup'],
+                         value=round(r['val'], 1)))
+    return sorted(out, key=lambda r: -r['value'])
 
 
 def main():
@@ -308,14 +313,18 @@ def main():
     D['_weather'] = E.weather(D, games_wk)
     injuries = load_injuries(a.injuries)
 
+    proj, cur = E.player_proj(D, a.season, week, games_wk)
+    qbv = E.qb_values(D, a.season, cur, ratings)
+
     games, sel = build_games(D, games_wk, injuries)
     best_bets, top3 = build_best_bets(sel)
     rat = build_ratings(ratings, D)
+    qb_vals = build_qb_values(qbv)
 
     payload = dict(
         meta=dict(season=a.season, week=week, generated_at=datetime.datetime.now(datetime.timezone.utc).isoformat(),
                    cfbd_calls=E.CALLS[0], games=len(games)),
-        games=games, best_bets=best_bets, top3=top3, ratings=rat,
+        games=games, best_bets=best_bets, top3=top3, ratings=rat, qb_values=qb_vals,
     )
 
     os.makedirs(os.path.dirname(a.out), exist_ok=True)
