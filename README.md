@@ -1,4 +1,4 @@
-# CFB Model
+# Vegas Gonzo Picks
 
 Automated college football picks site. `web/cfb_engine.py` is the original model
 (opponent-adjusted EPA ratings blended with SP+ and FPI, weighted against the market
