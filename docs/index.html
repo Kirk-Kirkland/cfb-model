@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CFB Model</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <h1>CFB Model</h1>
+    <div id="meta" class="meta"></div>
+  </div>
+</header>
+
+<nav class="tabs">
+  <button class="tab-btn active" data-tab="bets">Best Bets</button>
+  <button class="tab-btn" data-tab="games">All Games</button>
+  <button class="tab-btn" data-tab="ratings">Ratings</button>
+</nav>
+
+<main id="app">
+  <section id="tab-bets" class="tab-panel active">
+    <div id="top3" class="top3"></div>
+    <div id="bestbets" class="card-list"></div>
+  </section>
+
+  <section id="tab-games" class="tab-panel">
+    <div class="filters">
+      <input type="text" id="search" placeholder="Search team...">
+      <select id="tierFilter">
+        <option value="">All tiers</option>
+        <option value="Strong edge">Strong edge</option>
+        <option value="Edge">Edge</option>
+        <option value="BET">BET (total)</option>
+        <option value="LEAN">LEAN (total)</option>
+      </select>
+    </div>
+    <div class="table-wrap">
+      <table id="gamesTable">
+        <thead>
+          <tr>
+            <th data-key="kickoff_iso">Kickoff</th>
+            <th data-key="matchup">Game</th>
+            <th data-key="side_pick">Spread Pick</th>
+            <th data-key="edge">Edge</th>
+            <th data-key="side_tier">Tier</th>
+            <th data-key="total_pick">Total Pick</th>
+            <th data-key="total_edge">Edge</th>
+            <th data-key="total_tier">Tier</th>
+          </tr>
+        </thead>
+        <tbody id="gamesBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="tab-ratings" class="tab-panel">
+    <div class="table-wrap">
+      <table id="ratingsTable">
+        <thead>
+          <tr>
+            <th>#</th><th>Team</th><th>Off EPA/play</th><th>Def EPA/play</th><th>Net</th><th>SP+</th><th>Pace</th>
+          </tr>
+        </thead>
+        <tbody id="ratingsBody"></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">Model: opponent-adjusted EPA blended with SP+ and FPI, weighted against the market line. Not financial advice &mdash; for entertainment/research only.</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
