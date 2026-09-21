@@ -6,7 +6,7 @@ function tierClass(t) {
   if (!t) return 'neutral';
   if (t === 'Strong edge' || t === 'BET' || t === 'Side') return 'good';
   if (t === 'Edge' || t === 'LEAN') return 'lean';
-  if (t === 'Pass' || t === 'No bet: FCS') return 'neutral';
+  if (t === 'Pass' || t === 'No bet: FCS' || t === 'Skip: 60+ total') return 'neutral';
   if (t === 'Check news') return 'bad';
   return 'neutral';
 }

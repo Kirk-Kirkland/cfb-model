@@ -8,7 +8,7 @@ on:
     - cron: '0 16 * * 0'
     # Tue 09:00 ET (13:00 UTC) - main picks run, fresh lines/injuries after MNF
     - cron: '0 13 * * 2'
-    # Sat 08:00 ET (12:00 UTC) - weather check only (still a full run; catches
+    # Sat 08:00 ET (12:00 UTC) - weather refresh (still a full run; catches
     # wind/rain shifts close to kickoff, not meant to redefine the week's picks)
     - cron: '0 12 * * 6'
   workflow_dispatch:

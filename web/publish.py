@@ -181,7 +181,7 @@ def build_games(D, games_wk, injuries):
         temp = w[3] if w else None
         venue = w[0] if w else 'n/a'
         weather_adj = -max(0, (wind or 0) - WTH) * WPEN if wind is not None else 0.0
-        epa_total = round(x['pt'], 2)
+        epa_total = round(E.total_from_spread(x, dk_spread), 2)
 
         total_edge = total_pick = total_prob = total_tier = final_total = over_prob = None
         if dk_total is not None:
@@ -193,7 +193,7 @@ def build_games(D, games_wk, injuries):
             if fcs:
                 total_tier = 'No bet: FCS'
             elif dk_total >= 60:
-                total_tier = 'Pass: O/U>=60'
+                total_tier = 'Skip: 60+ total'
             elif abs(total_edge) >= TCN:
                 moving_with = open_total is not None and ((dk_total - open_total > 0) == (total_edge > 0))
                 total_tier = 'BET' if moving_with else 'Check news'
@@ -273,10 +273,9 @@ def build_best_bets(sel):
                 bet_only_if=bet_line_for(typ, bet, s))
            for (t, s, typ, bet, note) in picks]
 
-    def rank(p):
-        a = abs(p[1]['te']) if p[2] == 'Total' else abs(p[1]['se'])
-        return (9, 0) if p[0] == 'Pass' else (0, -a)
-    top = [p for p in sorted(picks, key=rank) if rank(p)[0] < 9][:3]
+    # Top 3 rule: totals only, largest absolute edge first, no 4-7 pt preference.
+    # 9+ edges still excluded unless the line has moved toward our side (tier '2', not 'Pass').
+    top = sorted((p for p in picks if p[2] == 'Total' and p[0] != 'Pass'), key=lambda p: -abs(p[1]['te']))[:3]
     top3 = [dict(rank=i + 1, game=s['key'], kickoff=et(s['kick']), bet=bet, type=typ,
                  edge=round(s['te'] if typ == 'Total' else s['se'], 2),
                  bet_only_if=bet_line_for(typ, bet, s))

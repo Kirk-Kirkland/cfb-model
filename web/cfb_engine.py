@@ -91,10 +91,17 @@ def team_model(D,season,week):
         oh,dh=R.get(ht,P.get(ht,(0,0)));oa,da=R.get(at,P.get(at,(0,0)))
         eh,ea=oh+da,oa+dh;pc=PACE.get(ht,64)+PACE.get(at,64);E=eh+ea
         pm=A[0]*(eh-ea)+A[1]*(0 if g['neutralSite'] else 1)
-        pt=C[0]*E+C[1]*pc+C[2]*E*pc+C[3]+C[4]*abs(pm)
-        out.append(dict(g=g,fcs='FCS' in (ht,at),pm=pm,pt=pt))
+        # Total (pt) needs the market spread (5th term), which isn't known here -
+        # it's filled in downstream once the DraftKings line is looked up (falls
+        # back to |pm| when no line is posted yet). See `total_from_spread`.
+        out.append(dict(g=g,fcs='FCS' in (ht,at),pm=pm,E=E,pace=pc))
     ratings=[dict(team=t,off=R[t][0],deff=R[t][1],pace=PACE.get(t),pri_o=P[t][0],pri_d=P[t][1],ret=RET.get(t),tal=TAL.get(t)) for t in FBS[season] if t in R]
     return out,ratings,G
+def total_from_spread(x,dk_spread):
+    """EPA model total: x is a team_model() game row (has E, pace, pm). dk_spread
+    is the market home spread for that game (None falls back to |model margin|)."""
+    C=CONSTS['C'];sp=abs(dk_spread) if dk_spread is not None else abs(x['pm'])
+    return C[0]*x['E']+C[1]*x['pace']+C[2]*x['E']*x['pace']+C[3]+C[4]*sp
 # ------------------------------------------------------------------ player logs
 def parse_logs(raw):
     rows={}
@@ -277,7 +284,7 @@ def build(path,season,week,D,games_wk,ratings,G,proj,cur_logs,wx,prev):
           'FCS in game':'Y' if x['fcs'] else 'N','Open home spread':dk and dk.get('spreadOpen'),'DK home spread':dk and dk.get('spread'),'Bovada home spread':bv and bv.get('spread'),
           'EPA model margin':round(x['pm'],2),'Away SP+':SP.get(g['awayTeam']),'Home SP+':SP.get(g['homeTeam']),'Away FPI':fpi.get(g['awayId']),'Home FPI':fpi.get(g['homeId']),'Manual adj (home +)':0,
           'Venue':(w[0] if w else 'n/a'),'Wind (mph)':(w[1] if w else None),'Rain %':(w[2] if w else None),'Temp (F)':(w[3] if w else None),
-          'Open total':dk and dk.get('overUnderOpen'),'DK total':dk and dk.get('overUnder'),'Bovada total':bv and bv.get('overUnder'),'EPA model total':round(x['pt'],2),'Home ML':dk and dk.get('homeMoneyline'),'Away ML':dk and dk.get('awayMoneyline')}
+          'Open total':dk and dk.get('overUnderOpen'),'DK total':dk and dk.get('overUnder'),'Bovada total':bv and bv.get('overUnder'),'EPA model total':round(total_from_spread(x,dk.get('spread') if dk else None),2),'Home ML':dk and dk.get('homeMoneyline'),'Away ML':dk and dk.get('awayMoneyline')}
         for n,v in vals.items():
             c=wm.cell(row=r,column=cols.index(n)+1,value=v);c.font=BLUE if n in INP else BLK
         wm.cell(row=r,column=cols.index('Manual adj (home +)')+1).fill=YEL
@@ -306,7 +313,7 @@ def build(path,season,week,D,games_wk,ratings,G,proj,cur_logs,wx,prev):
         'Total pick':f'=IF({C("Over prob")}="","",IF({C("Over prob")}>=0.5,"Over "&{C("DK total")},"Under "&{C("DK total")}))',
         'Total prob':f'=IF({C("Over prob")}="","",MAX({C("Over prob")},1-{C("Over prob")}))',
         'Best total for pick':f'=IF({C("Over prob")}="","",IF({C("Over prob")}>=0.5,IF({C("Bovada total")}="",{C("DK total")},MIN({C("DK total")},{C("Bovada total")})),IF({C("Bovada total")}="",{C("DK total")},MAX({C("DK total")},{C("Bovada total")}))))',
-        'Total tier':f'=IF({C("Total edge")}="","",IF({C("FCS in game")}="Y","No bet: FCS",IF({C("DK total")}>=60,"Pass: O/U>=60",IF(ABS({C("Total edge")})>={TCN},IF(AND({C("Open total")}<>"",SIGN({C("DK total")}-{C("Open total")})=SIGN({C("Total edge")})),"BET","Check news"),IF(ABS({C("Total edge")})>={TBE},IF(ABS({C("DK home spread")})>={BIG},"LEAN","BET"),IF(ABS({C("Total edge")})>={TLE},"LEAN","Pass"))))))',
+        'Total tier':f'=IF({C("Total edge")}="","",IF({C("FCS in game")}="Y","No bet: FCS",IF({C("DK total")}>=60,"Skip: 60+ total",IF(ABS({C("Total edge")})>={TCN},IF(AND({C("Open total")}<>"",SIGN({C("DK total")}-{C("Open total")})=SIGN({C("Total edge")})),"BET","Check news"),IF(ABS({C("Total edge")})>={TBE},IF(ABS({C("DK home spread")})>={BIG},"LEAN","BET"),IF(ABS({C("Total edge")})>={TLE},"LEAN","Pass"))))))',
         'Home no-vig prob':f'=IF(OR({C("Home ML")}="",{C("Away ML")}=""),"",IF({C("Home ML")}<0,-{C("Home ML")}/(-{C("Home ML")}+100),100/({C("Home ML")}+100))/(IF({C("Home ML")}<0,-{C("Home ML")}/(-{C("Home ML")}+100),100/({C("Home ML")}+100))+IF({C("Away ML")}<0,-{C("Away ML")}/(-{C("Away ML")}+100),100/({C("Away ML")}+100))))',
         'Model home win prob':f'=IF({C("Final proj margin")}="","",NORMSDIST({C("Final proj margin")}/{SDM}))',
         'ML edge (home)':f'=IF(OR({C("Home no-vig prob")}="",{C("Model home win prob")}=""),"",{C("Model home win prob")}-{C("Home no-vig prob")})'}
@@ -316,7 +323,7 @@ def build(path,season,week,D,games_wk,ratings,G,proj,cur_logs,wx,prev):
         # python mirror for Best Bets selection (default inputs)
         if dk and dk.get('spread') is not None and dk.get('overUnder') is not None and not x['fcs']:
             wind=w[1] if w and w[1] is not None else 0
-            te=x['pt']-max(0,wind-12)*0.3-dk['overUnder'];mv=(dk['overUnder']-dk['overUnderOpen']) if dk.get('overUnderOpen') else 0
+            te=total_from_spread(x,dk['spread'])-max(0,wind-12)*0.3-dk['overUnder'];mv=(dk['overUnder']-dk['overUnderOpen']) if dk.get('overUnderOpen') else 0
             comps=[x['pm']];h=0 if g['neutralSite'] else 3.0
             if SP.get(g['homeTeam']) is not None and SP.get(g['awayTeam']) is not None: comps.append(SP[g['homeTeam']]-SP[g['awayTeam']]+h)
             if fpi.get(g['homeId']) is not None and fpi.get(g['awayId']) is not None: comps.append(fpi[g['homeId']]-fpi[g['awayId']]+h)
@@ -370,11 +377,9 @@ def build(path,season,week,D,games_wk,ratings,G,proj,cur_logs,wx,prev):
         fill={'1':GOOD,'2':LEANF,'Side':GREY}.get(tier,RED)
         for c in range(1,9): wbb.cell(row=r,column=c).fill=fill
     if not picks: wbb.cell(row=5,column=1,value='No qualifying plays this build.')
-    # Top 3 rule: largest absolute edge first, across sides and totals alike
-    def rank(p):
-        t,s,typ,bet,n=p;a=abs(s['te']) if typ=='Total' else abs(s['se'])
-        return (9,0) if t=='Pass' else (0,-a)
-    top=[p for p in sorted(picks,key=rank) if rank(p)[0]<9][:3]
+    # Top 3 rule: totals only, largest absolute edge first, no 4-7 pt preference.
+    # 9+ edges still excluded unless the line has moved toward our side (tier='2', not 'Pass').
+    top=sorted((p for p in picks if p[2]=='Total' and p[0]!='Pass'),key=lambda p:-abs(p[1]['te']))[:3]
     r0=len(picks)+7
     wbb.cell(row=r0,column=1,value='TOP 3: the week\'s strongest plays, budget split evenly').font=Font(name=AR,bold=True,size=12)
     hdr(wbb,r0+1,['#','Game','Kick (ET)','Bet','Type','Model edge (pts)','Stake ($)','','Rule'])
