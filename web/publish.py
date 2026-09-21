@@ -192,6 +192,8 @@ def build_games(D, games_wk, injuries):
             total_pick = f"Over {dk_total:g}" if over_prob >= 0.5 else f"Under {dk_total:g}"
             if fcs:
                 total_tier = 'No bet: FCS'
+            elif dk_total >= 60:
+                total_tier = 'Pass: O/U>=60'
             elif abs(total_edge) >= TCN:
                 moving_with = open_total is not None and ((dk_total - open_total > 0) == (total_edge > 0))
                 total_tier = 'BET' if moving_with else 'Check news'
@@ -245,9 +247,11 @@ def build_games(D, games_wk, injuries):
 def build_best_bets(sel):
     picks = []
     for s in sel:
-        a = abs(s['te']) if s['te'] is not None else 0
         if s['te'] is None:
             continue
+        if s['ou'] is not None and s['ou'] >= 60:
+            continue  # skip total bets when market O/U is 60+
+        a = abs(s['te'])
         if a >= 9 and s['mv'] != 0 and (s['mv'] > 0) == (s['te'] > 0):
             picks.append(('2', s, 'Total', f"{'Over' if s['te'] > 0 else 'Under'} {s['ou']:g}", '7+ pt edge, line already moving our way. Half stake.'))
         elif a >= 9:
@@ -271,13 +275,7 @@ def build_best_bets(sel):
 
     def rank(p):
         a = abs(p[1]['te']) if p[2] == 'Total' else abs(p[1]['se'])
-        if p[2] == 'Total' and 4 <= a < 7:
-            return (0, -a)
-        if p[2] == 'Total' and p[0] == '2':
-            return (1, -a)
-        if p[2] == 'Spread':
-            return (2, -a)
-        return (9, 0)
+        return (9, 0) if p[0] == 'Pass' else (0, -a)
     top = [p for p in sorted(picks, key=rank) if rank(p)[0] < 9][:3]
     top3 = [dict(rank=i + 1, game=s['key'], kickoff=et(s['kick']), bet=bet, type=typ,
                  edge=round(s['te'] if typ == 'Total' else s['se'], 2),
