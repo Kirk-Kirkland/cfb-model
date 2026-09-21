@@ -19,6 +19,28 @@ def normsdist(x):
     return 0.5 * (1 + math.erf(x / math.sqrt(2)))
 
 
+def floor_half(x):
+    return math.floor(x * 2) / 2
+
+
+def ceil_half(x):
+    return math.ceil(x * 2) / 2
+
+
+def bet_line_for(typ, bet, s):
+    """'Bet only if line is' guidance: how far the line can move before the edge is gone."""
+    if typ == 'Total':
+        mt = s['model_total_adj']
+        if bet.startswith('Over'):
+            return f"at or below {floor_half(mt - D_IN['total_bet']):.1f}"
+        return f"at or above {ceil_half(mt + D_IN['total_bet']):.1f}"
+    home = s['se'] > 0
+    mm = s['model_margin']
+    if home:
+        return f"{s['home']} {ceil_half(D_IN['side_strong'] - mm):+.1f} or better"
+    return f"{s['away']} {ceil_half(D_IN['side_strong'] + mm):+.1f} or better"
+
+
 def autoweek(season):
     """CFBD's calendar weeks are contiguous, non-overlapping windows covering the
     whole season, so `now` falls in exactly one of them - the week whose games
@@ -215,7 +237,8 @@ def build_games(D, games_wk, injuries):
             se = bl - mk
             ag = sum(1 for c in comps if (c - mk > 0) == (se > 0)) if len(comps) == 3 else 0
             sel.append(dict(key=row['matchup'], gid=gid, kick=g['startDate'], te=total_edge, mv=(dk_total - open_total) if open_total else 0,
-                             ou=dk_total, sp=dk_spread, se=se, agree=ag, home=g['homeTeam'], away=g['awayTeam'], wind=wind or 0))
+                             ou=dk_total, sp=dk_spread, se=se, agree=ag, home=g['homeTeam'], away=g['awayTeam'], wind=wind or 0,
+                             model_margin=model_margin, model_total_adj=epa_total + weather_adj))
     return games, sel
 
 
@@ -242,7 +265,8 @@ def build_best_bets(sel):
     order = {'1': 0, '2': 1, 'Side': 2, 'Pass': 3}
     picks.sort(key=lambda p: (order[p[0]], p[1]['kick']))
     out = [dict(tier=t, game=s['key'], kickoff=et(s['kick']), bet=bet, type=typ,
-                edge=round(s['te'] if typ == 'Total' else s['se'], 2), note=note)
+                edge=round(s['te'] if typ == 'Total' else s['se'], 2), note=note,
+                bet_only_if=bet_line_for(typ, bet, s))
            for (t, s, typ, bet, note) in picks]
 
     def rank(p):
@@ -256,7 +280,8 @@ def build_best_bets(sel):
         return (9, 0)
     top = [p for p in sorted(picks, key=rank) if rank(p)[0] < 9][:3]
     top3 = [dict(rank=i + 1, game=s['key'], kickoff=et(s['kick']), bet=bet, type=typ,
-                 edge=round(s['te'] if typ == 'Total' else s['se'], 2))
+                 edge=round(s['te'] if typ == 'Total' else s['se'], 2),
+                 bet_only_if=bet_line_for(typ, bet, s))
             for i, (t, s, typ, bet, note) in enumerate(top)]
     return out, top3
 
