@@ -129,6 +129,7 @@ def player_proj(D,season,week,games_wk):
     prior=collections.defaultdict(list);[prior[r['pid']].append(r) for r in prv]
     allowed=collections.defaultdict(lambda:collections.defaultdict(float))
     for r in cur:
+        if r['week']>=week: continue          # leakage guard: never use current-week results
         for s in STATS: allowed[(r['opp'],r['gid'])][s]+=r[s]
     acc=collections.defaultdict(lambda:collections.defaultdict(list))
     for (opp,gid),d in allowed.items():
@@ -141,7 +142,9 @@ def player_proj(D,season,week,games_wk):
     for x in games_wk:
         g=x['g'];sched[g['homeTeam']]=(g,g['awayTeam']);sched[g['awayTeam']]=(g,g['homeTeam'])
     rows=[]
+    byp={k:[r for r in v if r['week']<week] for k,v in byp.items()}   # leakage guard
     for pid,h in byp.items():
+        if not h: continue
         team=h[-1]['team']
         if team not in sched: continue
         g,opp=sched[team];name=h[-1]['name']
@@ -264,7 +267,7 @@ def build(path,season,week,D,games_wk,ratings,G,proj,cur_logs,wx,prev,qbv=()):
     ('Std dev: margin vs spread',15.25,'CFBD 2022-25.'),('Std dev: total vs O/U',15.64,'CFBD 2022-25.'),
     ('Side "Strong edge" (pts)',5,'All 3 ratings agree. Sides backtest ~51% vs closing lines: bet these early in the week.'),('Side "Edge" (pts)',3.5,'2 of 3 agree.'),
     ('Total BET edge (pts)',4,'True walk-forward 2023-25: 4+ pt edges hit ~53.5-54% at open or close. 2025 alone ~50-53%.'),('Total LEAN edge (pts)',3,''),('Total "check news" edge (pts)',9,'Huge edges usually = market knows something.'),('Skip totals at or above (O/U)',999,'Rule removed 9/22: true walk-forward test showed 60+ totals hit 55%. Set a number here only if you want a cap.'),('Blowout pts per spread point',CONSTS['C_SPREAD'],'Totals add ~0.11 pts per point of spread (garbage-time scoring). Fit 2022-25.'),('Option-team total adj (pts)',CONSTS['OPT_ADJ'],'Army/Navy/Air Force games: model overprojected totals by 3.4 pts in walk-forward test (78 games).'),
-    ('Big spread cutoff (pts)',24,'Downgrade one tier.'),('Wind threshold (mph)',12,'Assumption, not backtested yet.'),('Total pts removed per mph over threshold',0.3,'Assumption. ~3 pts at 22 mph.'),
+    ('Big spread cutoff (pts)',24,'Downgrade one tier.'),('Wind threshold (mph)',12,'Validated 9/22 on 1,927 games (CFBD weather).'),('Total pts removed per mph over threshold',0.3,'Validated: model runs ~1.2 pts high at 10-20 mph wind, ~3 pts at 20+.'),
     ('Prop PLAY edge (prob over break-even)',0.05,'Pick must beat its break-even by this much.'),('Prop LEAN edge',0.025,''),
     ('Weekly Top 3 budget ($)',100,'Split evenly across the 3 strongest plays (Best Bets, top section).'),('Bankroll ($)',500,'Yours.'),('Unit size (% bankroll)',0.02,'BET = 1 unit, LEAN = 0.5.')]
     title(wi,f'Inputs  |  {season} Week {week}  (blue/yellow = edit; your edits carry forward each week)')
@@ -610,7 +613,7 @@ def build(path,season,week,D,games_wk,ratings,G,proj,cur_logs,wx,prev,qbv=()):
     wt=wb.create_sheet('Backtest');title(wt,'Backtests (real data, CFBD)','Break-even at -110 = 52.4%.')
     blocks=[('Sides vs CLOSING line (out of sample 2024-25)',[['0-2 pts','47.1%'],['2-4','51.0%'],['4-7','50.8%'],['7+','51.3%'],['Verdict','No edge at closing numbers']]),
     ('Sides vs OPENING line (2022-25)',[['0-2 pts','51.9%, CLV +0.16'],['2-4','49.1%, CLV +0.12'],['4-7','51.1%, CLV +0.40'],['7+','53.2%, CLV +0.71'],['Verdict','Model moves WITH the market: bet sides early in the week']]),
-    ('TRUE WALK-FORWARD 2023-25 (9/22): each season predicted only with earlier seasons',[['Totals edge 4+, bet at open','433-368, 54.1% (2023 57.4 / 2024 53.4 / 2025 50.8)'],['Totals edge 4+ with blowout term, at close','456-395, 53.6%'],['Sides edge 5+ vs open / close','46.0% / 50.2%: NO EDGE, sides dropped'],['60+ totals','55%: skip rule removed'],['Option-team games','model +3.4 pts too high: adjustment added'],['Possession-based totals model','no improvement: not adopted'],['Win-probability garbage filter','no clear improvement over CFBD filter: not adopted'],['New head coach + defensive returning production in prior','prior R2 0.31 -> 0.32: adopted'],['Probability calibration (totals)','56%+ picks hit 56.5% at open: calibrated']]),
+    ('TRUE WALK-FORWARD 2023-25 (9/22): each season predicted only with earlier seasons',[['Totals edge 4+, bet at open','433-368, 54.1% (2023 57.4 / 2024 53.4 / 2025 50.8)'],['Totals edge 4+ with blowout term, at close','456-395, 53.6%'],['Sides edge 5+ vs open / close','46.0% / 50.2%: NO EDGE, sides dropped'],['60+ totals','55%: skip rule removed'],['Option-team games','model +3.4 pts too high: adjustment added'],['Possession-based totals model','no improvement: not adopted'],['Win-probability garbage filter','no clear improvement over CFBD filter: not adopted'],['New head coach + defensive returning production in prior','prior R2 0.31 -> 0.32: adopted'],['Probability calibration (totals)','56%+ picks hit 56.5% at open: calibrated'],['Weather (CFBD Tier 1, 1,927 games)','Market already prices wind. Model w/o weather runs ~1.2 pts high at 10-20 mph, ~3 pts high at 20+. Wind rule (0.3/mph over 12) validated: 53.7% -> 54.0%. Cold and rain: no measurable effect.'],['CFBD adjusted EPA (WEPA) as preseason input','Offense prior got worse, defense +0.01 R2: not adopted']]),
     ('Earlier leave-one-season-out results (superseded, had leakage)',[['Edge 4+ (current model)','641-564, 53.2%'],['Edge 4+ with blowout term','639-551, 53.7%'],['Bet at OPENING line, edge 4+','616-515, 54.5%, CLV +0.21'],['4-7 pts vs 7+','52.5% vs 54.1%: no sweet spot, rank by edge'],['Weeks 3-6 / 7-10 / 11-14','57.9% / 48.3% / 53.7%'],['Overs / Unders','54.4% / 51.1%'],['P4 vs P4 / G5 vs G5','54.6% / 51.2%'],['O/U 45-52 / 52-60 / 60+','56.1% / 54.9% / 49.6% (60+ now skipped)'],['Verdict','Real but thin edge. Bet early, skip 60+, judge over 100+ bets.']]),
     ('Totals vs OPENING (2022-25)',[['4-7 pts','53.1%, CLV +0.29'],['7+','56.3%, CLV +0.48']]),
     ('Props projections (2025 wks 5-14, 20,653 player-games)',[['Rush Yds MAE','30.5 vs 32.2 naive average'],['Rec Yds MAE','26.5 vs 27.9'],['Pass Yds MAE','70.0 vs 71.5'],['If line = projection: Rush Yds over hits','46.1% (Less wins 54%)'],['If line = projection: Rec Yds over hits','46.8% (Less wins 53%)'],['If line = projection: Pass Yds over hits','50.7%'],['Verdict','Yardage props are right-skewed. Lean Less on rush/rec yards unless the line is well below projection. Prop lines not backtested yet: the Props Log will do that.']]),
@@ -621,6 +624,24 @@ def build(path,season,week,D,games_wk,ratings,G,proj,cur_logs,wx,prev,qbv=()):
         for a,b_ in rows: wt.cell(row=r,column=1,value=a);wt.cell(row=r,column=2,value=b_);r+=1
         r+=1
     widths(wt,{'A':48,'B':80})
+    # ---- Leakage protocol
+    wlk=wb.create_sheet('Leakage Protocol');title(wlk,'Data leakage protocol','The rule: every number in a prediction must have existed before kickoff. Anything else invalidates the backtest.')
+    hdr(wlk,4,['Check','What it means','Status in this model'])
+    lk=[('1. Time cutoff','Ratings use only games from BEFORE the target week. Never season totals, never final records.','Enforced in code (weekly refit + week guards in player projections).'),
+    ('2. Fitting cutoff','Coefficients trained only on seasons before the test season, including priors, blowout term and option adjustment.','Walk-forward refits every fold. NEVER backtest with the constants baked into the engine: they were fit on 2022-25.'),
+    ('3. Line cutoff','Grade a bet against the line you could actually have bet. Do not price an edge off the opener and grade it at the close.','Walk-forward grades open-to-open and close-to-close separately.'),
+    ('4. Rule discovery','A rule found by slicing results is not validated by those same results. It needs a fresh season.','The 60+ totals skip failed this test and was reverted.'),
+    ('5. Sample size','Under 300 test bets, a 2-3 pt edge is inside the noise. Report it, do not act on it.','Totals: 883 test bets. Props: not yet validated.'),
+    ('Red flag: >56% backtest','Nobody beats closing lines by that much. Assume leakage.',''),
+    ('Red flag: test >= train','Out of sample should be slightly worse, not better.',''),
+    ('Red flag: one great segment','A rule that only works in one slice is usually noise.',''),
+    ('What cannot be gamed','CLV on live bets. You cannot leak the future into a bet already placed.','Bet Log tracks it.'),
+    ('When a check fails','Rerun walk-forward with the fix, use the corrected number, and say the old one was wrong.','Sides went from "53% at openers" to no edge this way and were dropped.')]
+    for i,(a,b_,c_) in enumerate(lk,5):
+        for j,v in enumerate((a,b_,c_),1):
+            cc=wlk.cell(row=i,column=j,value=v);cc.font=B if j==1 else BLK;cc.alignment=Alignment(wrap_text=True,vertical='top')
+        wlk.row_dimensions[i].height=32
+    widths(wlk,{'A':26,'B':72,'C':72})
     # ---- How to update
     wh=wb.create_sheet('How To Update');title(wh,'Weekly routine')
     steps=[('Sunday/Monday','Send Claude: this workbook + cfb_engine.py + your CFBD key, and say "run week N". Engine grades last week, re-rates everyone, pulls opening lines. BET THE TOP 3 AND ANY SIDES NOW.'),
@@ -634,7 +655,7 @@ def build(path,season,week,D,games_wk,ratings,G,proj,cur_logs,wx,prev,qbv=()):
     for i,(a,b_) in enumerate(steps,4):
         wh.cell(row=i,column=1,value=a).font=B;c=wh.cell(row=i,column=2,value=b_);c.alignment=Alignment(wrap_text=True);wh.row_dimensions[i].height=32
     widths(wh,{'A':16,'B':120})
-    order=['Best Bets','Season Dashboard','Props Board','Model','Projections','Bet Log','Props Log','Entries','Injuries','QB Values','Inputs','Payouts','Ratings','Prop Dist','Key Numbers','Backtest','How To Update']
+    order=['Best Bets','Season Dashboard','Props Board','Model','Projections','Bet Log','Props Log','Entries','Injuries','QB Values','Inputs','Payouts','Ratings','Prop Dist','Key Numbers','Backtest','Leakage Protocol','How To Update']
     wb._sheets=[wb[n] for n in order]
     wb.save(path);return picks
 def main():

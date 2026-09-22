@@ -59,3 +59,11 @@ also tracks personal bet history, props entries, and payouts - those need real
 bets entered by hand, so they're intentionally left out of the automated site.
 Run `python web/cfb_engine.py --week N` directly if you still want that Excel
 workbook for your own tracking.
+
+## Reference tools (not part of the publish workflow)
+
+`web/backtest.py` and `web/ev_tools.py` are standalone scripts for offline
+model validation and bet-sizing math - `publish.py` and the GitHub Actions
+workflow never import them. `backtest.py` needs `pandas`/`scikit-learn` (not
+in `requirements.txt`, since CI doesn't need them); install separately to use
+it locally.
