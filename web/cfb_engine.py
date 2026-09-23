@@ -266,10 +266,10 @@ def build(path,season,week,D,games_wk,ratings,G,proj,cur_logs,wx,prev,qbv=()):
     ('Market trust (sides)',0.85,'Walk-forward log-loss tuning picked 1.00 (model adds nothing on sides). Sides are NOT bet.'),('Market trust (totals)',0.75,'Walk-forward log-loss tuning 2023-25 picked 0.65-0.80.'),
     ('Std dev: margin vs spread',15.25,'CFBD 2022-25.'),('Std dev: total vs O/U',15.64,'CFBD 2022-25.'),
     ('Side "Strong edge" (pts)',5,'All 3 ratings agree. Sides backtest ~51% vs closing lines: bet these early in the week.'),('Side "Edge" (pts)',3.5,'2 of 3 agree.'),
-    ('Total BET edge (pts)',4,'True walk-forward 2023-25: 4+ pt edges hit ~53.5-54% at open or close. 2025 alone ~50-53%.'),('Total LEAN edge (pts)',3,''),('Total "check news" edge (pts)',9,'Huge edges usually = market knows something.'),('Skip totals at or above (O/U)',999,'Rule removed 9/22: true walk-forward test showed 60+ totals hit 55%. Set a number here only if you want a cap.'),('Blowout pts per spread point',CONSTS['C_SPREAD'],'Totals add ~0.11 pts per point of spread (garbage-time scoring). Fit 2022-25.'),('Option-team total adj (pts)',CONSTS['OPT_ADJ'],'Army/Navy/Air Force games: model overprojected totals by 3.4 pts in walk-forward test (78 games).'),
+    ('Total BET edge (pts)',4,'True walk-forward 2023-25: 4+ pt edges hit ~53.5-54% at open or close. 2025 alone ~50-53%.'),('Total LEAN edge (pts)',3,''),('Big-edge news check (pts)',10,'Edges this big hit 63% in walk-forward testing: BET them, but glance at injury/weather news first.'),('Skip totals at or above (O/U)',999,'Rule removed 9/22: true walk-forward test showed 60+ totals hit 55%. Set a number here only if you want a cap.'),('Blowout pts per spread point',CONSTS['C_SPREAD'],'Totals add ~0.11 pts per point of spread (garbage-time scoring). Fit 2022-25.'),('Option-team total adj (pts)',CONSTS['OPT_ADJ'],'Army/Navy/Air Force games: model overprojected totals by 3.4 pts in walk-forward test (78 games).'),
     ('Big spread cutoff (pts)',24,'Downgrade one tier.'),('Wind threshold (mph)',12,'Validated 9/22 on 1,927 games (CFBD weather).'),('Total pts removed per mph over threshold',0.3,'Validated: model runs ~1.2 pts high at 10-20 mph wind, ~3 pts at 20+.'),
     ('Prop PLAY edge (prob over break-even)',0.05,'Pick must beat its break-even by this much.'),('Prop LEAN edge',0.025,''),
-    ('Weekly Top 3 budget ($)',100,'Split evenly across the 3 strongest plays (Best Bets, top section).'),('Bankroll ($)',500,'Yours.'),('Unit size (% bankroll)',0.02,'BET = 1 unit, LEAN = 0.5.')]
+    ('Weekly Top 3 budget ($)',100,'Split evenly across the 3 strongest plays (Best Bets, top section).'),('Bets per week (Top N)',3,'Walk-forward: top 3 by edge hit 55-56%. Top 5 drops to 53.7%.'),('Bankroll ($)',500,'Yours.'),('Unit size (% bankroll)',0.02,'BET = 1 unit, LEAN = 0.5.')]
     title(wi,f'Inputs  |  {season} Week {week}  (blue/yellow = edit; your edits carry forward each week)')
     hdr(wi,3,['Input','Value','Why / Source']);I={}
     for i,(k,v,n) in enumerate(inp,4):
@@ -337,7 +337,7 @@ def build(path,season,week,D,games_wk,ratings,G,proj,cur_logs,wx,prev,qbv=()):
         'Total pick':f'=IF({C("Over prob")}="","",IF({C("Over prob")}>=0.5,"Over "&{C("DK total")},"Under "&{C("DK total")}))',
         'Total prob':f'=IF({C("Over prob")}="","",MAX({C("Over prob")},1-{C("Over prob")}))',
         'Best total for pick':f'=IF({C("Over prob")}="","",IF({C("Over prob")}>=0.5,IF({C("Bovada total")}="",{C("DK total")},MIN({C("DK total")},{C("Bovada total")})),IF({C("Bovada total")}="",{C("DK total")},MAX({C("DK total")},{C("Bovada total")}))))',
-        'Total tier':f'=IF({C("Total edge")}="","",IF({C("FCS in game")}="Y","No bet: FCS",IF({C("DK total")}>={SKIP60},"Skip: over cap",IF(ABS({C("Total edge")})>={TCN},IF(AND({C("Open total")}<>"",SIGN({C("DK total")}-{C("Open total")})=SIGN({C("Total edge")})),"BET","Check news"),IF(ABS({C("Total edge")})>={TBE},IF(ABS({C("DK home spread")})>={BIG},"LEAN","BET"),IF(ABS({C("Total edge")})>={TLE},"LEAN","Pass"))))))',
+        'Total tier':f'=IF({C("Total edge")}="","",IF({C("FCS in game")}="Y","No bet: FCS",IF({C("DK total")}>={SKIP60},"Skip: over cap",IF(ABS({C("Total edge")})>={TCN},"BET (check news)",IF(ABS({C("Total edge")})>={TBE},IF(ABS({C("DK home spread")})>={BIG},"LEAN","BET"),IF(ABS({C("Total edge")})>={TLE},"LEAN","Pass"))))))',
         'Home no-vig prob':f'=IF(OR({C("Home ML")}="",{C("Away ML")}=""),"",IF({C("Home ML")}<0,-{C("Home ML")}/(-{C("Home ML")}+100),100/({C("Home ML")}+100))/(IF({C("Home ML")}<0,-{C("Home ML")}/(-{C("Home ML")}+100),100/({C("Home ML")}+100))+IF({C("Away ML")}<0,-{C("Away ML")}/(-{C("Away ML")}+100),100/({C("Away ML")}+100))))',
         'Model home win prob':f'=IF({C("Final proj margin")}="","",NORMSDIST({C("Final proj margin")}/{SDM}))',
         'ML edge (home)':f'=IF(OR({C("Home no-vig prob")}="",{C("Model home win prob")}=""),"",{C("Model home win prob")}-{C("Home no-vig prob")})'}
@@ -361,20 +361,19 @@ def build(path,season,week,D,games_wk,ratings,G,proj,cur_logs,wx,prev,qbv=()):
     wm.conditional_formatting.add(f'A2:{st_}{last}',FormulaRule(formula=[f'${st_}2="Strong edge"'],fill=GOOD))
     wm.conditional_formatting.add(f'A2:{st_}{last}',FormulaRule(formula=[f'${st_}2="Edge"'],fill=LEANF))
     rg=f'{cl["Venue"]}2:{tt}{last}'
-    wm.conditional_formatting.add(rg,FormulaRule(formula=[f'${tt}2="BET"'],fill=GOOD));wm.conditional_formatting.add(rg,FormulaRule(formula=[f'${tt}2="LEAN"'],fill=LEANF));wm.conditional_formatting.add(rg,FormulaRule(formula=[f'${tt}2="Check news"'],fill=RED));wm.conditional_formatting.add(rg,FormulaRule(formula=[f'LEFT(${tt}2,4)="Skip"'],fill=GREY))
+    wm.conditional_formatting.add(rg,FormulaRule(formula=[f'${tt}2="BET"'],fill=GOOD));wm.conditional_formatting.add(rg,FormulaRule(formula=[f'${tt}2="LEAN"'],fill=LEANF));wm.conditional_formatting.add(rg,FormulaRule(formula=[f'${tt}2="BET (check news)"'],fill=GOOD));wm.conditional_formatting.add(rg,FormulaRule(formula=[f'LEFT(${tt}2,4)="Skip"'],fill=GREY))
     wm.auto_filter.ref=f'A1:{CL(len(cols))}{last}'
     wm.cell(row=last+2,column=1,value='DK columns fall back to another book (e.g., ESPN Bet) when DraftKings has not posted yet. Sources: CFBD (EPA, SP+, DraftKings/Bovada lines), ESPN (FPI), Open-Meteo (forecast at kickoff). EPA margin/total are engine outputs; everything else recalculates.').font=IT
     MR=lambda n:f"Model!${cl[n]}:${cl[n]}"
     # ---- Best Bets
     wbb=wb.create_sheet('Best Bets',0)
     title(wbb,f'Best Bets  |  {season} Week {week}',f'Built {datetime.datetime.now().strftime("%a %m/%d")}. Totals only: sides showed no edge in walk-forward testing. Props: enter lines on Props Board.')
-    hdr(wbb,4,['Tier','Game','Kick (ET)','Bet','Type','Model edge (pts)','Model tier (live)','Stake ($)','Note','Bet only if line is','Model number'],32)
+    hdr(wbb,4,['Tier','Game','Kick (ET)','Bet','Type','Model edge (pts)','Confidence (backtest)','Model tier (live)','Stake ($)','Note','Bet only if line is','Model number'],32)
     picks=[]
     for s in sel:
         a=abs(s['te'])
-        if a>=9 and np.sign(s['mv'])==np.sign(s['te']) and s['mv']!=0: picks.append(('2',s,'Total',f"{'Over' if s['te']>0 else 'Under'} {s['ou']}",'7+ pt edge, line already moving our way. Half stake.'))
-        elif a>=9: picks.append(('Pass',s,'Total',f"{'Over' if s['te']>0 else 'Under'} {s['ou']}",'Edge too big: check news (injury/weather) first.'))
-        elif a>=4: picks.append(('1' if abs(s['sp'])<24 else '2',s,'Total',f"{'Over' if s['te']>0 else 'Under'} {s['ou']}",'Totals edge 4+ pts. Bet early in the week (opening lines hit 54.5% in backtest).' + (' Wind %s mph.'%round(s['wind']) if s['wind']>=12 else '')))
+        if a>=10: picks.append(('1',s,'Total',f"{'Over' if s['te']>0 else 'Under'} {s['ou']}",'10+ pt edge: strongest bucket in walk-forward testing (63%). Glance at injury and weather news, then bet.'))
+        elif a>=4: picks.append(('1' if abs(s['sp'])<24 else '2',s,'Total',f"{'Over' if s['te']>0 else 'Under'} {s['ou']}",'Totals edge 4+ pts.' + (' Wind %s mph.'%round(s['wind']) if s['wind']>=12 else '')))
     for s in []:
         if abs(s['se'])>=5 and s['agree']==3 and abs(s['sp'])<24:
             side=s['home'] if s['se']>0 else s['away'];line=s['sp'] if s['se']>0 else -s['sp']
@@ -385,9 +384,10 @@ def build(path,season,week,D,games_wk,ratings,G,proj,cur_logs,wx,prev,qbv=()):
         wbb.cell(row=r,column=1,value=tier).font=B;wbb.cell(row=r,column=2,value=s['key']).font=BLUE;wbb.cell(row=r,column=3,value='='+M('Kick (ET)')).font=GRN
         wbb.cell(row=r,column=4,value=bet).font=B;wbb.cell(row=r,column=5,value=typ)
         wbb.cell(row=r,column=6,value='='+M('Total edge' if typ=='Total' else 'Edge (pts, + = home)')).font=GRN;wbb.cell(row=r,column=6).number_format='+0.0;-0.0;0.0'
-        wbb.cell(row=r,column=7,value='='+M('Total tier' if typ=='Total' else 'Side tier')).font=GRN
-        wbb.cell(row=r,column=8,value=f'=IF(A{r}="1",{UNIT},IF(OR(A{r}="2",A{r}="Side"),{UNIT}*0.5,0))').number_format='$#,##0.00'
-        wbb.cell(row=r,column=9,value=note)
+        cf=wbb.cell(row=r,column=7,value=f'=IFERROR(INDEX(Backtest!$C$4:$C$8,MATCH(ABS(F{r}),Backtest!$A$4:$A$8,1)),"")');cf.number_format='0.0%'
+        wbb.cell(row=r,column=8,value='='+M('Total tier' if typ=='Total' else 'Side tier')).font=GRN
+        wbb.cell(row=r,column=9,value=f'=IF(A{r}="1",{UNIT},IF(OR(A{r}="2",A{r}="Side"),{UNIT}*0.5,0))').number_format='$#,##0.00'
+        wbb.cell(row=r,column=10,value=note)
         if typ=='Total':
             mt='('+M('EPA model total')+'+'+M('Blowout adj')+'+'+M('Option adj')+'+'+M('Weather adj')+')'
             wbb.cell(row=r,column=11,value='='+mt).number_format='0.0'
@@ -398,7 +398,7 @@ def build(path,season,week,D,games_wk,ratings,G,proj,cur_logs,wx,prev,qbv=()):
             wbb.cell(row=r,column=10,value=(f'="{s["home"]} "&TEXT(CEILING({SBE}-K{r},0.5),"+0.0;-0.0")&" or better"' if home else f'="{s["away"]} "&TEXT(CEILING({SBE}+K{r},0.5),"+0.0;-0.0")&" or better"'))
         wbb.cell(row=r,column=10).font=B
         fill={'1':GOOD,'2':LEANF,'Side':GREY}.get(tier,RED)
-        for c in range(1,9): wbb.cell(row=r,column=c).fill=fill
+        for c in range(1,11): wbb.cell(row=r,column=c).fill=fill
     if not picks: wbb.cell(row=5,column=1,value='No qualifying plays this build.')
     # Top 3 rule: totals with 4 <= |edge| < 7 ranked by edge, then 7+ totals moving our way, then strong sides
     def rank(p):
@@ -409,15 +409,16 @@ def build(path,season,week,D,games_wk,ratings,G,proj,cur_logs,wx,prev,qbv=()):
     top=[p for p in sorted(picks,key=rank) if rank(p)[0]<9][:3]
     r0=len(picks)+7
     wbb.cell(row=r0,column=1,value='TOP 3: the week\'s strongest plays, budget split evenly').font=Font(name=AR,bold=True,size=12)
-    hdr(wbb,r0+1,['#','Game','Kick (ET)','Bet','Type','Model edge (pts)','Stake ($)','','Rule'])
+    hdr(wbb,r0+1,['#','Game','Kick (ET)','Bet','Type','Model edge (pts)','Stake ($)','Confidence (backtest)','Rule'])
     for j,(t,s,typ,bet,n) in enumerate(top,1):
         rr=r0+1+j
         wbb.cell(row=rr,column=1,value=j);wbb.cell(row=rr,column=2,value=s['key']);wbb.cell(row=rr,column=3,value=et(s['kick']));wbb.cell(row=rr,column=4,value=bet).font=B;wbb.cell(row=rr,column=5,value=typ)
         wbb.cell(row=rr,column=6,value=round(s['te'] if typ=='Total' else s['se'],1))
         wbb.cell(row=rr,column=7,value=f"={I['Weekly Top 3 budget ($)']}/{len(top)}").number_format='$#,##0.00'
-        for c in range(1,8): wbb.cell(row=rr,column=c).fill=GOOD
-    wbb.cell(row=r0+2,column=9,value='Ranked by totals edge, biggest first. Sides are not bet (no edge in walk-forward test). Check the "Bet only if line is" cutoff above before betting.')
-    widths(wbb,{'A':6,'B':13,'C':17,'D':26,'E':8,'F':10,'G':12,'H':10,'I':70,'J':24,'K':10})
+        cf=wbb.cell(row=rr,column=8,value=f'=IFERROR(INDEX(Backtest!$C$4:$C$8,MATCH(ABS(F{rr}),Backtest!$A$4:$A$8,1)),"")');cf.number_format='0.0%'
+        for c in range(1,9): wbb.cell(row=rr,column=c).fill=GOOD
+    wbb.cell(row=r0+2,column=9,value='Ranked by totals edge, biggest first. Walk-forward: top 3 per week hit 55-56%, top 5 only 53.7%. Sides are not bet. Check the "Bet only if line is" cutoff before betting.')
+    widths(wbb,{'A':6,'B':13,'C':17,'D':26,'E':8,'F':10,'G':13,'H':12,'I':10,'J':55,'K':24,'L':10})
     # ---- Projections (players)
     wp=wb.create_sheet('Projections')
     title(wp,f'Player projections  |  Week {week}','Base = per-game average (2026, blended with 2025 prior). Opp factor = what the defense allows vs average. Volume = implied team total vs team average. Updates live if Model lines change.')
@@ -611,6 +612,12 @@ def build(path,season,week,D,games_wk,ratings,G,proj,cur_logs,wx,prev,qbv=()):
             for j in (1,2,3): wk.cell(row=i,column=j).fill=LEANF
     # ---- Backtest
     wt=wb.create_sheet('Backtest');title(wt,'Backtests (real data, CFBD)','Break-even at -110 = 52.4%.')
+    for j,v in enumerate(['Edge from','Edge to','Hit rate (walk-forward 2023-25)'],1):
+        cc=wt.cell(row=3,column=j,value=v);cc.font=H;cc.fill=HF
+    for i,(a_,b_,c_) in enumerate([(4,5,0.528),(5,6,0.532),(6,8,0.520),(8,10,0.550),(10,99,0.630)],4):
+        wt.cell(row=i,column=1,value=a_).font=BLUE;wt.cell(row=i,column=2,value=b_).font=BLUE
+        cc=wt.cell(row=i,column=3,value=c_);cc.font=BLUE;cc.number_format='0.0%'
+    wt.cell(row=9,column=1,value='Confidence lookup used by Best Bets. 4-8 pt edges are all about the same bet; 10+ was the strongest bucket (n=181). Rule change 9/22: the old pass-on-9+ rule cost 7 pts of win rate and was removed.').font=IT
     blocks=[('Sides vs CLOSING line (out of sample 2024-25)',[['0-2 pts','47.1%'],['2-4','51.0%'],['4-7','50.8%'],['7+','51.3%'],['Verdict','No edge at closing numbers']]),
     ('Sides vs OPENING line (2022-25)',[['0-2 pts','51.9%, CLV +0.16'],['2-4','49.1%, CLV +0.12'],['4-7','51.1%, CLV +0.40'],['7+','53.2%, CLV +0.71'],['Verdict','Model moves WITH the market: bet sides early in the week']]),
     ('TRUE WALK-FORWARD 2023-25 (9/22): each season predicted only with earlier seasons',[['Totals edge 4+, bet at open','433-368, 54.1% (2023 57.4 / 2024 53.4 / 2025 50.8)'],['Totals edge 4+ with blowout term, at close','456-395, 53.6%'],['Sides edge 5+ vs open / close','46.0% / 50.2%: NO EDGE, sides dropped'],['60+ totals','55%: skip rule removed'],['Option-team games','model +3.4 pts too high: adjustment added'],['Possession-based totals model','no improvement: not adopted'],['Win-probability garbage filter','no clear improvement over CFBD filter: not adopted'],['New head coach + defensive returning production in prior','prior R2 0.31 -> 0.32: adopted'],['Probability calibration (totals)','56%+ picks hit 56.5% at open: calibrated'],['Weather (CFBD Tier 1, 1,927 games)','Market already prices wind. Model w/o weather runs ~1.2 pts high at 10-20 mph, ~3 pts high at 20+. Wind rule (0.3/mph over 12) validated: 53.7% -> 54.0%. Cold and rain: no measurable effect.'],['CFBD adjusted EPA (WEPA) as preseason input','Offense prior got worse, defense +0.01 R2: not adopted']]),
@@ -618,7 +625,7 @@ def build(path,season,week,D,games_wk,ratings,G,proj,cur_logs,wx,prev,qbv=()):
     ('Totals vs OPENING (2022-25)',[['4-7 pts','53.1%, CLV +0.29'],['7+','56.3%, CLV +0.48']]),
     ('Props projections (2025 wks 5-14, 20,653 player-games)',[['Rush Yds MAE','30.5 vs 32.2 naive average'],['Rec Yds MAE','26.5 vs 27.9'],['Pass Yds MAE','70.0 vs 71.5'],['If line = projection: Rush Yds over hits','46.1% (Less wins 54%)'],['If line = projection: Rec Yds over hits','46.8% (Less wins 53%)'],['If line = projection: Pass Yds over hits','50.7%'],['Verdict','Yardage props are right-skewed. Lean Less on rush/rec yards unless the line is well below projection. Prop lines not backtested yet: the Props Log will do that.']]),
     ('Rest / bye weeks',[['Home off bye','51.2%: market prices it'],['Road off bye','49.5%: market prices it']])]
-    r=3
+    r=11
     for t,rows in blocks:
         wt.cell(row=r,column=1,value=t).font=Font(name=AR,bold=True,size=12);r+=1
         for a,b_ in rows: wt.cell(row=r,column=1,value=a);wt.cell(row=r,column=2,value=b_);r+=1

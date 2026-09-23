@@ -22,10 +22,24 @@ D_IN = dict(
     trust_sides=0.85, trust_totals=0.75,
     sd_margin=15.25, sd_total=15.64,
     side_strong=5, side_edge=3.5,
-    total_bet=4, total_lean=3, total_checknews=9,
+    total_bet=4, total_lean=3, total_bigedge=10,
     big_spread=24, wind_thresh=12, wind_pen=0.3,
     blow=E.CONSTS['C_SPREAD'], opta=E.CONSTS['OPT_ADJ'], opt_teams=set(E.CONSTS['OPT_TEAMS']),
+    top_n=3,
 )
+
+# Confidence lookup (Backtest tab): largest breakpoint <= |edge| wins, ascending order.
+CONF_TABLE = [(4, 0.528), (5, 0.532), (6, 0.520), (8, 0.550), (10, 0.630)]
+
+
+def confidence_for(edge):
+    val = None
+    for threshold, rate in CONF_TABLE:
+        if abs(edge) >= threshold:
+            val = rate
+        else:
+            break
+    return val
 
 
 def normsdist(x):
@@ -112,7 +126,7 @@ def build_games(D, games_wk, injuries):
     TRS, TRT = D_IN['trust_sides'], D_IN['trust_totals']
     SDM, SDT = D_IN['sd_margin'], D_IN['sd_total']
     SBE, SLE = D_IN['side_strong'], D_IN['side_edge']
-    TBE, TLE, TCN = D_IN['total_bet'], D_IN['total_lean'], D_IN['total_checknews']
+    TBE, TLE, TCN = D_IN['total_bet'], D_IN['total_lean'], D_IN['total_bigedge']
     BIG, WTH, WPEN = D_IN['big_spread'], D_IN['wind_thresh'], D_IN['wind_pen']
     BLOW, OPTA, OPT_TEAMS = D_IN['blow'], D_IN['opta'], D_IN['opt_teams']
 
@@ -204,11 +218,12 @@ def build_games(D, games_wk, injuries):
             total_prob = max(over_prob, 1 - over_prob)
             total_pick = f"Over {dk_total:g}" if over_prob >= 0.5 else f"Under {dk_total:g}"
             # No 60+ skip rule: walk-forward testing showed 60+ totals still hit ~55%.
+            # No check-news pass either: 10+ edges hit 63% in walk-forward testing,
+            # so they're a BET (with a nudge to glance at news first), not a pass.
             if fcs:
                 total_tier = 'No bet: FCS'
             elif abs(total_edge) >= TCN:
-                moving_with = open_total is not None and ((dk_total - open_total > 0) == (total_edge > 0))
-                total_tier = 'BET' if moving_with else 'Check news'
+                total_tier = 'BET (check news)'
             elif abs(total_edge) >= TBE:
                 total_tier = 'LEAN' if (dk_spread is not None and abs(dk_spread) >= BIG) else 'BET'
             elif abs(total_edge) >= TLE:
@@ -242,40 +257,39 @@ def build_games(D, games_wk, injuries):
 
         if dk_total is not None and not fcs:
             sel.append(dict(key=row['matchup'], gid=gid, kick=g['startDate'], te=total_edge,
-                             mv=(dk_total - open_total) if open_total else 0, ou=dk_total,
-                             sp=dk_spread if dk_spread is not None else 0, wind=wind or 0,
+                             ou=dk_total, sp=dk_spread if dk_spread is not None else 0, wind=wind or 0,
                              option=option_adj != 0, model_total_adj=adj_total))
     return games, sel
 
 
 def build_best_bets(sel):
-    """Totals only - sides are not bet (walk-forward tuning found no side edge)."""
+    """Totals only - sides are not bet (walk-forward tuning found no side edge).
+    No check-news pass: 10+ pt edges hit 63% in walk-forward testing and are a
+    BET (with a nudge to glance at news first), not a pass - the old pass rule
+    cost 7 points of win rate."""
     picks = []
     for s in sel:
         a = abs(s['te'])
         note_opt = ' Option-team total adj applied.' if s['option'] else ''
-        if a >= 9 and s['mv'] != 0 and (s['mv'] > 0) == (s['te'] > 0):
-            picks.append(('2', s, f"{'Over' if s['te'] > 0 else 'Under'} {s['ou']:g}",
-                          '7+ pt edge, line already moving our way. Half stake.' + note_opt))
-        elif a >= 9:
-            picks.append(('Pass', s, f"{'Over' if s['te'] > 0 else 'Under'} {s['ou']:g}",
-                          'Edge too big: check news (injury/weather) first.' + note_opt))
-        elif a >= 4:
-            note = 'Totals edge in the backtested 4-7+ pt range.' + note_opt
+        if a >= D_IN['total_bigedge']:
+            picks.append(('1', s, f"{'Over' if s['te'] > 0 else 'Under'} {s['ou']:g}",
+                          '10+ pt edge: strongest bucket in walk-forward testing (63%). Glance at injury and weather news, then bet.' + note_opt))
+        elif a >= D_IN['total_bet']:
+            note = 'Totals edge 4+ pts.' + note_opt
             if s['wind'] >= 12:
                 note += f" Wind {round(s['wind'])} mph."
             picks.append(('1' if abs(s['sp']) < 24 else '2', s, f"{'Over' if s['te'] > 0 else 'Under'} {s['ou']:g}", note))
-    order = {'1': 0, '2': 1, 'Pass': 3}
+    order = {'1': 0, '2': 1}
     picks.sort(key=lambda p: (order[p[0]], p[1]['kick']))
     out = [dict(tier=t, game=s['key'], kickoff=et(s['kick']), bet=bet, type='Total',
-                edge=round(s['te'], 2), note=note, bet_only_if=bet_line_for(bet, s))
+                edge=round(s['te'], 2), confidence=confidence_for(s['te']), note=note,
+                bet_only_if=bet_line_for(bet, s))
            for (t, s, bet, note) in picks]
 
-    # Top 3: largest absolute total edge first, no 4-7 pt preference. 9+ edges
-    # still excluded unless the line moved toward our side (tier '2', not 'Pass').
-    top = sorted((p for p in picks if p[0] != 'Pass'), key=lambda p: -abs(p[1]['te']))[:3]
+    # Top N (default 3): largest absolute total edge first, no 4-7 pt preference.
+    top = sorted(picks, key=lambda p: -abs(p[1]['te']))[:D_IN['top_n']]
     top3 = [dict(rank=i + 1, game=s['key'], kickoff=et(s['kick']), bet=bet, type='Total',
-                 edge=round(s['te'], 2), bet_only_if=bet_line_for(bet, s))
+                 edge=round(s['te'], 2), confidence=confidence_for(s['te']), bet_only_if=bet_line_for(bet, s))
             for i, (t, s, bet, note) in enumerate(top)]
     return out, top3
 
