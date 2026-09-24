@@ -22,10 +22,11 @@ itself with no manual editing.
 ## How it updates
 
 `.github/workflows/weekly.yml` runs the model **Sunday 12pm ET** and
-**Tuesday 9am ET** as the main picks runs, plus a **Saturday 8am ET** weather
-check (same full run, meant to catch late wind/rain shifts rather than redefine
-the week's picks). Each run commits the fresh `docs/data.json`, and the live
-site picks it up automatically. You can also trigger a run any time from the
+**Thursday 9am ET** (ahead of Thursday-night games) as the main picks runs,
+plus a **Saturday 8am ET** weather check (same full run, meant to catch late
+wind/rain shifts rather than redefine the week's picks). Each run commits the
+fresh `docs/data.json`, and the live site picks it up automatically. You can
+also trigger a run any time from the
 **Actions** tab ("Run workflow"), optionally forcing a specific week number.
 
 ## Injuries (optional)

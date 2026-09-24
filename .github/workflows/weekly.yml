@@ -6,8 +6,9 @@ on:
     # later by the clock once EST (UTC-5) kicks in.
     # Sun 12:00 ET (16:00 UTC) - main picks run, full week ahead
     - cron: '0 16 * * 0'
-    # Tue 09:00 ET (13:00 UTC) - main picks run, fresh lines/injuries after MNF
-    - cron: '0 13 * * 2'
+    # Thu 09:00 ET (13:00 UTC) - main picks run, fresh lines/injuries ahead of
+    # Thursday-night games
+    - cron: '0 13 * * 4'
     # Sat 08:00 ET (12:00 UTC) - weather refresh (still a full run; catches
     # wind/rain shifts close to kickoff, not meant to redefine the week's picks)
     - cron: '0 12 * * 6'
