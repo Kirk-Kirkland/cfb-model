@@ -368,7 +368,7 @@ def build(path,season,week,D,games_wk,ratings,G,proj,cur_logs,wx,prev,qbv=()):
     # ---- Best Bets
     wbb=wb.create_sheet('Best Bets',0)
     title(wbb,f'Best Bets  |  {season} Week {week}',f'Built {datetime.datetime.now().strftime("%a %m/%d")}. Totals only: sides showed no edge in walk-forward testing. Props: enter lines on Props Board.')
-    hdr(wbb,4,['Tier','Game','Kick (ET)','Bet','Type','Model edge (pts)','Confidence (backtest)','Model tier (live)','Stake ($)','Note','Bet only if line is','Model number'],32)
+    hdr(wbb,4,['Tier','Game','Kick (ET)','Bet','Type','Model edge (pts)','Est. hit rate (all 4+ edges)','Model tier (live)','Stake ($)','Note','Bet only if line is','Model number'],32)
     picks=[]
     for s in sel:
         a=abs(s['te'])
@@ -384,7 +384,7 @@ def build(path,season,week,D,games_wk,ratings,G,proj,cur_logs,wx,prev,qbv=()):
         wbb.cell(row=r,column=1,value=tier).font=B;wbb.cell(row=r,column=2,value=s['key']).font=BLUE;wbb.cell(row=r,column=3,value='='+M('Kick (ET)')).font=GRN
         wbb.cell(row=r,column=4,value=bet).font=B;wbb.cell(row=r,column=5,value=typ)
         wbb.cell(row=r,column=6,value='='+M('Total edge' if typ=='Total' else 'Edge (pts, + = home)')).font=GRN;wbb.cell(row=r,column=6).number_format='+0.0;-0.0;0.0'
-        cf=wbb.cell(row=r,column=7,value=f'=IFERROR(INDEX(Backtest!$C$4:$C$8,MATCH(ABS(F{r}),Backtest!$A$4:$A$8,1)),"")');cf.number_format='0.0%'
+        cf=wbb.cell(row=r,column=7,value='=Backtest!$C$4');cf.number_format='0.0%'
         wbb.cell(row=r,column=8,value='='+M('Total tier' if typ=='Total' else 'Side tier')).font=GRN
         wbb.cell(row=r,column=9,value=f'=IF(A{r}="1",{UNIT},IF(OR(A{r}="2",A{r}="Side"),{UNIT}*0.5,0))').number_format='$#,##0.00'
         wbb.cell(row=r,column=10,value=note)
@@ -409,13 +409,13 @@ def build(path,season,week,D,games_wk,ratings,G,proj,cur_logs,wx,prev,qbv=()):
     top=[p for p in sorted(picks,key=rank) if rank(p)[0]<9][:3]
     r0=len(picks)+7
     wbb.cell(row=r0,column=1,value='TOP 3: the week\'s strongest plays, budget split evenly').font=Font(name=AR,bold=True,size=12)
-    hdr(wbb,r0+1,['#','Game','Kick (ET)','Bet','Type','Model edge (pts)','Stake ($)','Confidence (backtest)','Rule'])
+    hdr(wbb,r0+1,['#','Game','Kick (ET)','Bet','Type','Model edge (pts)','Stake ($)','Est. hit rate (all 4+ edges)','Rule'])
     for j,(t,s,typ,bet,n) in enumerate(top,1):
         rr=r0+1+j
         wbb.cell(row=rr,column=1,value=j);wbb.cell(row=rr,column=2,value=s['key']);wbb.cell(row=rr,column=3,value=et(s['kick']));wbb.cell(row=rr,column=4,value=bet).font=B;wbb.cell(row=rr,column=5,value=typ)
         wbb.cell(row=rr,column=6,value=round(s['te'] if typ=='Total' else s['se'],1))
         wbb.cell(row=rr,column=7,value=f"={I['Weekly Top 3 budget ($)']}/{len(top)}").number_format='$#,##0.00'
-        cf=wbb.cell(row=rr,column=8,value=f'=IFERROR(INDEX(Backtest!$C$4:$C$8,MATCH(ABS(F{rr}),Backtest!$A$4:$A$8,1)),"")');cf.number_format='0.0%'
+        cf=wbb.cell(row=rr,column=8,value='=Backtest!$C$4');cf.number_format='0.0%'
         for c in range(1,9): wbb.cell(row=rr,column=c).fill=GOOD
     wbb.cell(row=r0+2,column=9,value='Ranked by totals edge, biggest first. Walk-forward: top 3 per week hit 55-56%, top 5 only 53.7%. Sides are not bet. Check the "Bet only if line is" cutoff before betting.')
     widths(wbb,{'A':6,'B':13,'C':17,'D':26,'E':8,'F':10,'G':13,'H':12,'I':10,'J':55,'K':24,'L':10})
@@ -612,20 +612,29 @@ def build(path,season,week,D,games_wk,ratings,G,proj,cur_logs,wx,prev,qbv=()):
             for j in (1,2,3): wk.cell(row=i,column=j).fill=LEANF
     # ---- Backtest
     wt=wb.create_sheet('Backtest');title(wt,'Backtests (real data, CFBD)','Break-even at -110 = 52.4%.')
-    for j,v in enumerate(['Edge from','Edge to','Hit rate (walk-forward 2023-25)'],1):
+    for j,v in enumerate(['Edge from','Edge to','Est. hit rate (same for every 4+ edge)'],1):
         cc=wt.cell(row=3,column=j,value=v);cc.font=H;cc.fill=HF
-    for i,(a_,b_,c_) in enumerate([(4,5,0.528),(5,6,0.532),(6,8,0.520),(8,10,0.550),(10,99,0.630)],4):
+    for i,(a_,b_,c_) in enumerate([(4,99,0.53)],4):
         wt.cell(row=i,column=1,value=a_).font=BLUE;wt.cell(row=i,column=2,value=b_).font=BLUE
-        cc=wt.cell(row=i,column=3,value=c_);cc.font=BLUE;cc.number_format='0.0%'
-    wt.cell(row=9,column=1,value='Confidence lookup used by Best Bets. 4-8 pt edges are all about the same bet; 10+ was the strongest bucket (n=181). Rule change 9/22: the old pass-on-9+ rule cost 7 pts of win rate and was removed.').font=IT
+        cc=wt.cell(row=i,column=3,value=c_);cc.font=BLUE;cc.fill=YEL;cc.number_format='0.0%'
+    for j,t_ in enumerate(['Three independent rebuilds of the same model: 52.9%, 53.2%, 53.6-54.1%. Break-even at -110 is 52.4%.',
+        'REMOVED 9/26: the per-edge confidence buckets (4-5, 5-6, 6-8, 8-10, 10+). They did not reproduce.',
+        '   Old table said 10+ edges hit 63.0%. A clean rebuild put the same bucket at 53.7%, and 8-10 went from 55.0% to 49.3%.',
+        '   Each bucket held only 95-274 bets, a 3-5 pt margin of error, so the differences were always inside the noise.',
+        '   Lesson: edge SIZE does not rank bets reliably. A 9-pt edge is not a better bet than a 5-pt edge. Rank by edge only as a tiebreaker.'],5):
+        wt.cell(row=j,column=1,value=t_).font=IT
+    wt.cell(row=10,column=1,value='').font=IT
     blocks=[('Sides vs CLOSING line (out of sample 2024-25)',[['0-2 pts','47.1%'],['2-4','51.0%'],['4-7','50.8%'],['7+','51.3%'],['Verdict','No edge at closing numbers']]),
     ('Sides vs OPENING line (2022-25)',[['0-2 pts','51.9%, CLV +0.16'],['2-4','49.1%, CLV +0.12'],['4-7','51.1%, CLV +0.40'],['7+','53.2%, CLV +0.71'],['Verdict','Model moves WITH the market: bet sides early in the week']]),
-    ('TRUE WALK-FORWARD 2023-25 (9/22): each season predicted only with earlier seasons',[['Totals edge 4+, bet at open','433-368, 54.1% (2023 57.4 / 2024 53.4 / 2025 50.8)'],['Totals edge 4+ with blowout term, at close','456-395, 53.6%'],['Sides edge 5+ vs open / close','46.0% / 50.2%: NO EDGE, sides dropped'],['60+ totals','55%: skip rule removed'],['Option-team games','model +3.4 pts too high: adjustment added'],['Possession-based totals model','no improvement: not adopted'],['Win-probability garbage filter','no clear improvement over CFBD filter: not adopted'],['New head coach + defensive returning production in prior','prior R2 0.31 -> 0.32: adopted'],['Probability calibration (totals)','56%+ picks hit 56.5% at open: calibrated'],['Weather (CFBD Tier 1, 1,927 games)','Market already prices wind. Model w/o weather runs ~1.2 pts high at 10-20 mph, ~3 pts high at 20+. Wind rule (0.3/mph over 12) validated: 53.7% -> 54.0%. Cold and rain: no measurable effect.'],['CFBD adjusted EPA (WEPA) as preseason input','Offense prior got worse, defense +0.01 R2: not adopted']]),
+    ('TRUE WALK-FORWARD 2023-25 (9/22): each season predicted only with earlier seasons',[['Totals edge 4+, bet at open','433-368, 54.1% (2023 57.4 / 2024 53.4 / 2025 50.8)'],['Totals edge 4+ with blowout term, at close','456-395, 53.6%'],['Sides edge 5+ vs open / close','46.0% / 50.2%: NO EDGE, sides dropped'],['60+ totals','55%: skip rule removed'],['Option-team games','model +3.4 pts too high: adjustment added'],['Possession-based totals model','no improvement: not adopted'],['Win-probability garbage filter','no clear improvement over CFBD filter: not adopted'],['New head coach + defensive returning production in prior','prior R2 0.31 -> 0.32: adopted'],['Probability calibration (totals)','56%+ picks hit 56.5% at open: calibrated'],['Weather (CFBD Tier 1, 1,927 games)','Market already prices wind. Model w/o weather runs ~1.2 pts high at 10-20 mph, ~3 pts high at 20+. Wind rule (0.3/mph over 12) validated: 53.7% -> 54.0%. Cold and rain: no measurable effect.'],['CFBD adjusted EPA (WEPA) as preseason input','Offense prior got worse, defense +0.01 R2: not adopted'],
+    ['Model class test 9/26 (ridge vs trees)','Ridge 52.9%, HistGBM 53.2%, RandomForest 53.8%, all-three-agree 54.8% (+/-2.1). Trees slightly ahead but not significant; production model unchanged.'],
+    ['Sides, every model class 9/26','Ridge 49.8%, GBM 49.0%, HistGBM 49.4%, RandomForest 49.9%. Sides are dead regardless of model. Question closed.'],
+    ['Tests run against these 4 seasons','~20. At that count, one result near 55% is expected from chance alone. Next real evidence is 2026 live data.']]),
     ('Earlier leave-one-season-out results (superseded, had leakage)',[['Edge 4+ (current model)','641-564, 53.2%'],['Edge 4+ with blowout term','639-551, 53.7%'],['Bet at OPENING line, edge 4+','616-515, 54.5%, CLV +0.21'],['4-7 pts vs 7+','52.5% vs 54.1%: no sweet spot, rank by edge'],['Weeks 3-6 / 7-10 / 11-14','57.9% / 48.3% / 53.7%'],['Overs / Unders','54.4% / 51.1%'],['P4 vs P4 / G5 vs G5','54.6% / 51.2%'],['O/U 45-52 / 52-60 / 60+','56.1% / 54.9% / 49.6% (60+ now skipped)'],['Verdict','Real but thin edge. Bet early, skip 60+, judge over 100+ bets.']]),
     ('Totals vs OPENING (2022-25)',[['4-7 pts','53.1%, CLV +0.29'],['7+','56.3%, CLV +0.48']]),
     ('Props projections (2025 wks 5-14, 20,653 player-games)',[['Rush Yds MAE','30.5 vs 32.2 naive average'],['Rec Yds MAE','26.5 vs 27.9'],['Pass Yds MAE','70.0 vs 71.5'],['If line = projection: Rush Yds over hits','46.1% (Less wins 54%)'],['If line = projection: Rec Yds over hits','46.8% (Less wins 53%)'],['If line = projection: Pass Yds over hits','50.7%'],['Verdict','Yardage props are right-skewed. Lean Less on rush/rec yards unless the line is well below projection. Prop lines not backtested yet: the Props Log will do that.']]),
     ('Rest / bye weeks',[['Home off bye','51.2%: market prices it'],['Road off bye','49.5%: market prices it']])]
-    r=11
+    r=12
     for t,rows in blocks:
         wt.cell(row=r,column=1,value=t).font=Font(name=AR,bold=True,size=12);r+=1
         for a,b_ in rows: wt.cell(row=r,column=1,value=a);wt.cell(row=r,column=2,value=b_);r+=1

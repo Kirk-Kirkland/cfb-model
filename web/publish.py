@@ -28,18 +28,18 @@ D_IN = dict(
     top_n=3,
 )
 
-# Confidence lookup (Backtest tab): largest breakpoint <= |edge| wins, ascending order.
-CONF_TABLE = [(4, 0.528), (5, 0.532), (6, 0.520), (8, 0.550), (10, 0.630)]
+# Estimated hit rate. ONE number for every qualifying bet, on purpose.
+# The old per-edge buckets [(4,.528),(5,.532),(6,.520),(8,.550),(10,.630)] were removed
+# 2026-09-26: they did not reproduce on a clean rebuild (the 10+ bucket came back at
+# 53.7%, 8-10 at 49.3%). Each bucket held 95-274 bets against a 3-5 pt margin of error,
+# so the differences were always inside the noise. Edge SIZE does not rank bets.
+# 0.53 is the midpoint of three independent rebuilds: 52.9%, 53.2%, 53.6-54.1%.
+# Break-even at -110 is 52.4%.
+EST_HIT_RATE = 0.53
 
 
 def confidence_for(edge):
-    val = None
-    for threshold, rate in CONF_TABLE:
-        if abs(edge) >= threshold:
-            val = rate
-        else:
-            break
-    return val
+    return EST_HIT_RATE if abs(edge) >= 4 else None
 
 
 def normsdist(x):

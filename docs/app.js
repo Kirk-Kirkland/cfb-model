@@ -42,7 +42,7 @@ function renderTop3() {
     <div class="top3-card">
       <div class="rank">Top ${p.rank}</div>
       <div class="bet">${p.bet}</div>
-      <div class="sub">${p.game} &middot; ${p.kickoff} &middot; edge ${fmtEdge(p.edge)} &middot; confidence ${fmtConf(p.confidence)}</div>
+      <div class="sub">${p.game} &middot; ${p.kickoff} &middot; edge ${fmtEdge(p.edge)} &middot; est. hit rate ${fmtConf(p.confidence)}</div>
       <div class="sub bet-only-if">Bet only if line is ${p.bet_only_if}</div>
     </div>`).join('') || '<div class="sub">No qualifying plays this build.</div>';
 }
@@ -59,7 +59,7 @@ function renderBestBets() {
       <div class="info">
         <div class="bet-title">${b.bet} <span style="color:var(--muted);font-weight:400;">(${b.game})</span></div>
         <div class="bet-sub">${b.kickoff} &middot; ${b.note}</div>
-        <div class="bet-sub bet-only-if">Bet only if line is ${b.bet_only_if} &middot; confidence ${fmtConf(b.confidence)}</div>
+        <div class="bet-sub bet-only-if">Bet only if line is ${b.bet_only_if} &middot; est. hit rate ${fmtConf(b.confidence)}</div>
       </div>
       <div class="edge">${fmtEdge(b.edge)}</div>
     </div>`).join('');
