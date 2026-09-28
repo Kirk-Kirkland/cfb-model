@@ -674,10 +674,56 @@ def build(path,season,week,D,games_wk,ratings,G,proj,cur_logs,wx,prev,qbv=()):
     order=['Best Bets','Season Dashboard','Props Board','Model','Projections','Bet Log','Props Log','Entries','Injuries','QB Values','Inputs','Payouts','Ratings','Prop Dist','Key Numbers','Backtest','Leakage Protocol','How To Update']
     wb._sheets=[wb[n] for n in order]
     wb.save(path);return picks
+# ---------------------------------------------------------------- model card history
+HIST_COLS=['Season','Week','Game ID','Game','Side','Line','Edge','Top3','Built','Actual total','Result']
+def history(hpath,season,week,picks,D):
+    """Append this week's qualifying totals card, then back-fill results for every
+    prior row whose game is final. No extra API calls: finals come from D['games'].
+    Re-running the same week overwrites that week's rows instead of duplicating."""
+    import csv as _csv
+    rows=[]
+    if os.path.exists(hpath):
+        with open(hpath,newline='') as f:
+            for r in _csv.DictReader(f): rows.append(r)
+    tot=[p for p in picks if p[2]=='Total' and p[0] in ('1','2')]
+    top={p[1]['gid']:i for i,p in enumerate(sorted(tot,key=lambda p:-abs(p[1]['te']))[:3],1)}
+    built=datetime.date.today().isoformat()
+    rows=[r for r in rows if not (int(r['Season'])==season and int(r['Week'])==week)]
+    for tier,s,typ,bet,note in tot:
+        d,ln=bet.split()
+        rows.append(dict(Season=season,Week=week,**{'Game ID':s['gid']},Game=s['key'],Side=d,
+                         Line=ln,Edge=round(s['te'],2),Top3=top.get(s['gid'],''),Built=built,
+                         **{'Actual total':'','Result':''}))
+    fin={}
+    for g in D['games'].get(season,[]):
+        if g.get('homePoints') is not None and g.get('awayPoints') is not None:
+            fin[str(g['id'])]=g['homePoints']+g['awayPoints']
+    for r in rows:
+        if r.get('Result'): continue
+        t=fin.get(str(r['Game ID']))
+        if t is None: continue
+        ln=float(r['Line']);over=r['Side']=='Over'
+        r['Actual total']=t
+        r['Result']='PUSH' if t==ln else ('WIN' if (t>ln)==over else 'LOSS')
+    rows.sort(key=lambda r:(int(r['Season']),int(r['Week']),r['Game']))
+    with open(hpath,'w',newline='') as f:
+        w=_csv.DictWriter(f,fieldnames=HIST_COLS);w.writeheader()
+        for r in rows: w.writerow({k:r.get(k,'') for k in HIST_COLS})
+    def rec(rs):
+        W=sum(1 for r in rs if r['Result']=='WIN');L=sum(1 for r in rs if r['Result']=='LOSS')
+        return f"{W}-{L} ({W/(W+L)*100:.1f}%)" if W+L else 'no graded games yet'
+    graded=[r for r in rows if r['Result'] in ('WIN','LOSS')]
+    return dict(file=hpath,rows=len(rows),all_bets=rec(graded),
+                top3=rec([r for r in graded if str(r['Top3']) in ('1','2','3')]),
+                by_week={int(w_):rec([r for r in graded if int(r['Week'])==int(w_)])
+                         for w_ in sorted({r['Week'] for r in graded},key=int)})
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--season',type=int,default=2026);ap.add_argument('--week',type=int,required=True)
-    ap.add_argument('--prev',default=None);ap.add_argument('--cache',default=None);ap.add_argument('--out',default=None);a=ap.parse_args()
+    ap.add_argument('--prev',default=None);ap.add_argument('--cache',default=None);ap.add_argument('--out',default=None)
+    ap.add_argument('--history',default=None,help='CSV of every week\'s card, auto-graded. Default: model_card_history.csv next to --out')
+    a=ap.parse_args()
     out=a.out or f'CFB_Season_Model_{a.season}_wk{a.week}.xlsx'
+    hpath=a.history or os.path.join(os.path.dirname(os.path.abspath(out)),'model_card_history.csv')
     import pickle
     if a.cache and os.path.exists(a.cache): D=pickle.load(open(a.cache,'rb'))
     else:
@@ -687,5 +733,6 @@ def main():
     proj,cur=player_proj(D,a.season,a.week,games_wk);wx=weather(D,games_wk);prev=read_prev(a.prev)
     qbv=qb_values(D,a.season,cur,ratings)
     picks=build(out,a.season,a.week,D,games_wk,ratings,G,proj,cur,wx,prev,qbv)
-    print(json.dumps(dict(out=out,games=len(games_wk),projections=len(proj),weather=len(wx),picks=[(p[0],p[1]['key'],p[3]) for p in picks],cfbd_calls=CALLS[0])))
+    hist=history(hpath,a.season,a.week,picks,D)
+    print(json.dumps(dict(out=out,games=len(games_wk),projections=len(proj),weather=len(wx),picks=[(p[0],p[1]['key'],p[3]) for p in picks],cfbd_calls=CALLS[0],history=hist)))
 if __name__=='__main__': main()

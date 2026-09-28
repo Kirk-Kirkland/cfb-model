@@ -64,20 +64,40 @@ def bet_line_for(bet, s):
 
 
 def autoweek(season):
-    """CFBD's calendar weeks are contiguous, non-overlapping windows covering the
-    whole season, so `now` falls in exactly one of them - the week whose games
-    are next up (or in progress)."""
-    cal = E.cfbd('calendar', year=season)
-    reg = sorted([w for w in cal if w.get('seasonType') == 'regular'], key=lambda w: w['week'])
+    """The lowest week that still has a game left to play.
+
+    Do NOT use CFBD's calendar windows for this. They are contiguous blocks that
+    run Monday to Monday, so week N's window stays 'current' all the way through
+    Sunday night, long after week N's last game has ended. A Sunday run would
+    republish the week that just finished instead of building the week ahead.
+    That is exactly what happened on 2026-09-27: the noon run rebuilt week 4
+    while week 5's opening totals were already posted.
+
+    Asking the games feed instead is unambiguous. A week is finished when every
+    one of its games has a final score; the week to build is the first one that
+    is not."""
+    games = E.cfbd('games', year=season, seasonType='regular')
     now = datetime.datetime.now(datetime.timezone.utc)
-    for w in reg:
-        first = datetime.datetime.fromisoformat(w['firstGameStart'].replace('Z', '+00:00'))
-        last = datetime.datetime.fromisoformat(w['lastGameStart'].replace('Z', '+00:00'))
-        if first <= now <= last:
-            return w['week']
-    if reg and now < datetime.datetime.fromisoformat(reg[0]['firstGameStart'].replace('Z', '+00:00')):
-        return reg[0]['week']
-    return reg[-1]['week'] if reg else 1
+    weeks = {}
+    for g in games:
+        if g.get('week') is None:
+            continue
+        done = g.get('homePoints') is not None and g.get('awayPoints') is not None
+        started = False
+        if g.get('startDate'):
+            try:
+                started = datetime.datetime.fromisoformat(
+                    g['startDate'].replace('Z', '+00:00')) <= now
+            except ValueError:
+                pass
+        w = weeks.setdefault(g['week'], dict(total=0, settled=0))
+        w['total'] += 1
+        # "settled" means it can no longer be bet: final, or already kicked off
+        w['settled'] += 1 if (done or started) else 0
+    for wk in sorted(weeks):
+        if weeks[wk]['settled'] < weeks[wk]['total']:
+            return wk
+    return max(weeks) if weeks else 1
 
 
 def load_injuries(path):

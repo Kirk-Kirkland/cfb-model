@@ -1,4 +1,5 @@
 let DATA = null;
+let RECORD = null;
 let sortKey = 'kickoff_iso';
 let sortDir = 1;
 
@@ -23,6 +24,20 @@ async function load() {
   const res = await fetch('data.json?_=' + Date.now());
   DATA = await res.json();
   render();
+  loadRecord();
+}
+
+async function loadRecord() {
+  try {
+    const res = await fetch('record.json?_=' + Date.now());
+    if (!res.ok) throw new Error(res.status);
+    RECORD = await res.json();
+  } catch (e) {
+    document.getElementById('recordSummary').innerHTML =
+      '<div class="sub">No graded record published yet.</div>';
+    return;
+  }
+  renderRecord();
 }
 
 function render() {
@@ -118,6 +133,65 @@ function renderQB() {
       <td>${q.starter}</td>
       <td>${q.backup}</td>
       <td>${q.value.toFixed(1)}</td>
+    </tr>`).join('');
+}
+
+function stat(label, value, sub, cls) {
+  return `<div class="stat ${cls || ''}">
+      <div class="stat-label">${label}</div>
+      <div class="stat-value">${value}</div>
+      <div class="stat-sub">${sub || ''}</div>
+    </div>`;
+}
+
+function recCls(t) {
+  if (!t.n || t.pct === null) return '';
+  return t.pct > 52.4 ? 'good' : 'bad';
+}
+
+function renderRecord() {
+  const r = RECORD, all = r.all_bets, live = r.published_only, t3 = r.top3;
+  document.getElementById('recordSummary').innerHTML =
+    stat('All qualifying totals', `${all.w}-${all.l}`,
+         `${all.pct}% &plusmn; ${all.se} &middot; ${all.units > 0 ? '+' : ''}${all.units.toFixed(2)} units &middot; ROI ${all.roi > 0 ? '+' : ''}${all.roi}%`,
+         recCls(all)) +
+    stat('Published live only', live.n ? `${live.w}-${live.l}` : '&mdash;',
+         live.n ? `${live.pct}% &middot; weeks ${r.meta.published_weeks.join(', ')}` : 'nothing graded yet',
+         recCls(live)) +
+    stat('Top 3 of the week', t3.n ? `${t3.w}-${t3.l}` : '&mdash;',
+         t3.n ? `${t3.pct}% on ${t3.n} bets` : '', recCls(t3)) +
+    stat('Break-even', `${r.meta.break_even_pct}%`, 'at -110 odds', '');
+
+  const n = all.n, lo = (all.pct - all.se).toFixed(1), hi = (all.pct + all.se).toFixed(1);
+  document.getElementById('recordCaveat').innerHTML =
+    `Read this honestly. ${n} graded bets is a small sample. One standard error puts the true hit rate somewhere around ` +
+    `${lo}% to ${hi}%, which straddles the ${r.meta.break_even_pct}% break-even, so this record does not yet prove an edge either way. ` +
+    `The walk-forward backtest says ~53%. Judge the model on that number, not on a hot or cold month. ` +
+    (r.meta.reconstructed_weeks.length
+      ? `<br><br><strong>Week${r.meta.reconstructed_weeks.length > 1 ? 's' : ''} ${r.meta.reconstructed_weeks.join(', ')} ` +
+        `${r.meta.reconstructed_weeks.length > 1 ? 'were' : 'was'} rebuilt after the fact</strong>, before this site existed. ` +
+        (r.meta.reconstruction_warning || '')
+      : '');
+
+  document.getElementById('recordWeeksBody').innerHTML = r.by_week.map(w => `
+    <tr>
+      <td>${w.week}</td>
+      <td>${w.w}-${w.l}${w.push ? '-' + w.push : ''}</td>
+      <td>${w.pct}%</td>
+      <td>${w.units > 0 ? '+' : ''}${w.units.toFixed(2)}</td>
+      <td>${w.roi > 0 ? '+' : ''}${w.roi}%</td>
+      <td><span class="pill ${w.published ? 'good' : 'neutral'}">${w.published ? 'published live' : 'reconstructed'}</span></td>
+    </tr>`).join('');
+
+  document.getElementById('recordPicksBody').innerHTML = r.picks.map(p => `
+    <tr>
+      <td>${p.week}</td>
+      <td>${p.game}${p.top3 ? ` <span class="pill lean">Top ${p.top3}</span>` : ''}</td>
+      <td>${p.bet}</td>
+      <td>${fmtEdge(p.edge)}</td>
+      <td class="muted-cell">${p.score || '&mdash;'}</td>
+      <td>${p.actual_total ?? '&mdash;'}</td>
+      <td>${p.result ? `<span class="pill ${p.result === 'WIN' ? 'good' : p.result === 'LOSS' ? 'bad' : 'neutral'}">${p.result}</span>` : '&mdash;'}</td>
     </tr>`).join('');
 }
 

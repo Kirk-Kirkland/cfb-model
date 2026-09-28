@@ -1,0 +1,760 @@
+{
+  "meta": {
+    "season": 2026,
+    "week": 3,
+    "generated_at": "2026-09-27T14:20:00+00:00",
+    "games": 75,
+    "note": "RECONSTRUCTED after the fact. Week 3 ran before this site existed. It was rebuilt with the same engine pointed at week 3, whose ratings fit uses only weeks 1-2, so no future information is used.",
+    "reconstruction_warning": "Treat reconstructed weeks as approximate, not as a track record. We tested how far a rebuild drifts by rebuilding week 4, a week we did publish live. The rebuild produced 20 picks going 10-10; the card that actually went out had 17 picks and went 8-9. Five picks appeared that were never bet, two real picks vanished, and eight lines moved by a point. The cause is that the line data available for a past week is not the line the model saw before kickoff. The live-only record above is the number to judge this model on."
+  },
+  "games": [
+    {
+      "game_id": 401858225,
+      "matchup": "SYR@PITT",
+      "away": "Syracuse",
+      "home": "Pittsburgh",
+      "kickoff_et": "Thu 09/17 07:30 PM"
+    },
+    {
+      "game_id": 401858226,
+      "matchup": "MIA@WAKE",
+      "away": "Miami",
+      "home": "Wake Forest",
+      "kickoff_et": "Fri 09/18 07:30 PM"
+    },
+    {
+      "game_id": 401856811,
+      "matchup": "HOU@TTU",
+      "away": "Houston",
+      "home": "Texas Tech",
+      "kickoff_et": "Fri 09/18 08:00 PM"
+    },
+    {
+      "game_id": 401858455,
+      "matchup": "PRST@ORE",
+      "away": "Portland State",
+      "home": "Oregon",
+      "kickoff_et": "Fri 09/18 10:30 PM"
+    },
+    {
+      "game_id": 401869940,
+      "matchup": "CCU@DEL",
+      "away": "Coastal Carolina",
+      "home": "Delaware",
+      "kickoff_et": "Sat 09/19 11:30 AM"
+    },
+    {
+      "game_id": 401856686,
+      "matchup": "UGA@ARK",
+      "away": "Georgia",
+      "home": "Arkansas",
+      "kickoff_et": "Sat 09/19 12:00 PM"
+    },
+    {
+      "game_id": 401858229,
+      "matchup": "UNC@CLEM",
+      "away": "North Carolina",
+      "home": "Clemson",
+      "kickoff_et": "Sat 09/19 12:00 PM"
+    },
+    {
+      "game_id": 401856812,
+      "matchup": "ASU@KU",
+      "away": "Arizona State",
+      "home": "Kansas",
+      "kickoff_et": "Sat 09/19 12:00 PM"
+    },
+    {
+      "game_id": 401856792,
+      "matchup": "TULN@KSU",
+      "away": "Tulane",
+      "home": "Kansas State",
+      "kickoff_et": "Sat 09/19 12:00 PM"
+    },
+    {
+      "game_id": 401860889,
+      "matchup": "UNT@TXST",
+      "away": "North Texas",
+      "home": "Texas State",
+      "kickoff_et": "Sat 09/19 12:00 PM"
+    },
+    {
+      "game_id": 401858451,
+      "matchup": "AKR@MINN",
+      "away": "Akron",
+      "home": "Minnesota",
+      "kickoff_et": "Sat 09/19 12:00 PM"
+    },
+    {
+      "game_id": 401858228,
+      "matchup": "MER@GT",
+      "away": "Mercer",
+      "home": "Georgia Tech",
+      "kickoff_et": "Sat 09/19 12:00 PM"
+    },
+    {
+      "game_id": 401858456,
+      "matchup": "BUFF@PSU",
+      "away": "Buffalo",
+      "home": "Penn State",
+      "kickoff_et": "Sat 09/19 12:00 PM"
+    },
+    {
+      "game_id": 401858454,
+      "matchup": "KENT@OSU",
+      "away": "Kent State",
+      "home": "Ohio State",
+      "kickoff_et": "Sat 09/19 12:00 PM"
+    },
+    {
+      "game_id": 401856798,
+      "matchup": "BGSU@ISU",
+      "away": "Bowling Green",
+      "home": "Iowa State",
+      "kickoff_et": "Sat 09/19 12:00 PM"
+    },
+    {
+      "game_id": 401858460,
+      "matchup": "EMU@WIS",
+      "away": "Eastern Michigan",
+      "home": "Wisconsin",
+      "kickoff_et": "Sat 09/19 12:30 PM"
+    },
+    {
+      "game_id": 401856695,
+      "matchup": "NCSU@VAN",
+      "away": "NC State",
+      "home": "Vanderbilt",
+      "kickoff_et": "Sat 09/19 12:45 PM"
+    },
+    {
+      "game_id": 401864508,
+      "matchup": "WYO@CMU",
+      "away": "Wyoming",
+      "home": "Central Michigan",
+      "kickoff_et": "Sat 09/19 01:00 PM"
+    },
+    {
+      "game_id": 401858448,
+      "matchup": "SIU@ILL",
+      "away": "Southern Illinois",
+      "home": "Illinois",
+      "kickoff_et": "Sat 09/19 02:00 PM"
+    },
+    {
+      "game_id": 401858227,
+      "matchup": "ME@BC",
+      "away": "Maine",
+      "home": "Boston College",
+      "kickoff_et": "Sat 09/19 02:00 PM"
+    },
+    {
+      "game_id": 401862774,
+      "matchup": "TEM@TOL",
+      "away": "Temple",
+      "home": "Toledo",
+      "kickoff_et": "Sat 09/19 03:00 PM"
+    },
+    {
+      "game_id": 401860890,
+      "matchup": "DUQ@WSU",
+      "away": "Duquesne",
+      "home": "Washington State",
+      "kickoff_et": "Sat 09/19 03:30 PM"
+    },
+    {
+      "game_id": 401858457,
+      "matchup": "USC@RUTG",
+      "away": "USC",
+      "home": "Rutgers",
+      "kickoff_et": "Sat 09/19 03:30 PM"
+    },
+    {
+      "game_id": 401866424,
+      "matchup": "STO@MASS",
+      "away": "Stonehill",
+      "home": "Massachusetts",
+      "kickoff_et": "Sat 09/19 03:30 PM"
+    },
+    {
+      "game_id": 401858450,
+      "matchup": "UTEP@MICH",
+      "away": "UTEP",
+      "home": "Michigan",
+      "kickoff_et": "Sat 09/19 03:30 PM"
+    },
+    {
+      "game_id": 401856797,
+      "matchup": "M-OH@CIN",
+      "away": "Miami (OH)",
+      "home": "Cincinnati",
+      "kickoff_et": "Sat 09/19 03:30 PM"
+    },
+    {
+      "game_id": 401858233,
+      "matchup": "WAG@CAL",
+      "away": "Wagner",
+      "home": "California",
+      "kickoff_et": "Sat 09/19 03:30 PM"
+    },
+    {
+      "game_id": 401856801,
+      "matchup": "USU@UTAH",
+      "away": "Utah State",
+      "home": "Utah",
+      "kickoff_et": "Sat 09/19 03:30 PM"
+    },
+    {
+      "game_id": 401858230,
+      "matchup": "SMU@LOU",
+      "away": "SMU",
+      "home": "Louisville",
+      "kickoff_et": "Sat 09/19 03:30 PM"
+    },
+    {
+      "game_id": 401856685,
+      "matchup": "FSU@ALA",
+      "away": "Florida State",
+      "home": "Alabama",
+      "kickoff_et": "Sat 09/19 03:30 PM"
+    },
+    {
+      "game_id": 401856694,
+      "matchup": "UK@TA&M",
+      "away": "Kentucky",
+      "home": "Texas A&M",
+      "kickoff_et": "Sat 09/19 03:30 PM"
+    },
+    {
+      "game_id": 401867804,
+      "matchup": "LT@BAY",
+      "away": "Louisiana Tech",
+      "home": "Baylor",
+      "kickoff_et": "Sat 09/19 04:00 PM"
+    },
+    {
+      "game_id": 401858449,
+      "matchup": "WKU@IU",
+      "away": "Western Kentucky",
+      "home": "Indiana",
+      "kickoff_et": "Sat 09/19 04:00 PM"
+    },
+    {
+      "game_id": 401858231,
+      "matchup": "STAN@DUKE",
+      "away": "Stanford",
+      "home": "Duke",
+      "kickoff_et": "Sat 09/19 04:00 PM"
+    },
+    {
+      "game_id": 401858471,
+      "matchup": "UNI@IOWA",
+      "away": "Northern Iowa",
+      "home": "Iowa",
+      "kickoff_et": "Sat 09/19 04:00 PM"
+    },
+    {
+      "game_id": 401866422,
+      "matchup": "BALL@LIB",
+      "away": "Ball State",
+      "home": "Liberty",
+      "kickoff_et": "Sat 09/19 04:00 PM"
+    },
+    {
+      "game_id": 401856691,
+      "matchup": "MSST@SC",
+      "away": "Mississippi State",
+      "home": "South Carolina",
+      "kickoff_et": "Sat 09/19 04:15 PM"
+    },
+    {
+      "game_id": 401868317,
+      "matchup": "SELA@ULM",
+      "away": "SE Louisiana",
+      "home": "UL Monroe",
+      "kickoff_et": "Sat 09/19 04:30 PM"
+    },
+    {
+      "game_id": 401864574,
+      "matchup": "CLT@APP",
+      "away": "Charlotte",
+      "home": "App State",
+      "kickoff_et": "Sat 09/19 06:00 PM"
+    },
+    {
+      "game_id": 401862710,
+      "matchup": "ECU@ODU",
+      "away": "East Carolina",
+      "home": "Old Dominion",
+      "kickoff_et": "Sat 09/19 06:00 PM"
+    },
+    {
+      "game_id": 401862771,
+      "matchup": "FIU@FAU",
+      "away": "Florida International",
+      "home": "Florida Atlantic",
+      "kickoff_et": "Sat 09/19 06:00 PM"
+    },
+    {
+      "game_id": 401871047,
+      "matchup": "MRSH@MOST",
+      "away": "Marshall",
+      "home": "Missouri State",
+      "kickoff_et": "Sat 09/19 06:30 PM"
+    },
+    {
+      "game_id": 401856800,
+      "matchup": "GAST@UCF",
+      "away": "Georgia State",
+      "home": "UCF",
+      "kickoff_et": "Sat 09/19 07:00 PM"
+    },
+    {
+      "game_id": 401862772,
+      "matchup": "UTM@MEM",
+      "away": "UT Martin",
+      "home": "Memphis",
+      "kickoff_et": "Sat 09/19 07:00 PM"
+    },
+    {
+      "game_id": 401856803,
+      "matchup": "MUR@OKST",
+      "away": "Murray State",
+      "home": "Oklahoma State",
+      "kickoff_et": "Sat 09/19 07:00 PM"
+    },
+    {
+      "game_id": 401864443,
+      "matchup": "NEV@MTSU",
+      "away": "Nevada",
+      "home": "Middle Tennessee",
+      "kickoff_et": "Sat 09/19 07:00 PM"
+    },
+    {
+      "game_id": 401866423,
+      "matchup": "OHIO@USA",
+      "away": "Ohio",
+      "home": "South Alabama",
+      "kickoff_et": "Sat 09/19 07:00 PM"
+    },
+    {
+      "game_id": 401862773,
+      "matchup": "WMU@RICE",
+      "away": "Western Michigan",
+      "home": "Rice",
+      "kickoff_et": "Sat 09/19 07:00 PM"
+    },
+    {
+      "game_id": 401870764,
+      "matchup": "NICH@SHSU",
+      "away": "Nicholls",
+      "home": "Sam Houston",
+      "kickoff_et": "Sat 09/19 07:00 PM"
+    },
+    {
+      "game_id": 401856689,
+      "matchup": "TROY@MIZ",
+      "away": "Troy",
+      "home": "Missouri",
+      "kickoff_et": "Sat 09/19 07:00 PM"
+    },
+    {
+      "game_id": 401862777,
+      "matchup": "DSU@USF",
+      "away": "Delaware State",
+      "home": "South Florida",
+      "kickoff_et": "Sat 09/19 07:00 PM"
+    },
+    {
+      "game_id": 401869948,
+      "matchup": "GASO@JXST",
+      "away": "Georgia Southern",
+      "home": "Jacksonville State",
+      "kickoff_et": "Sat 09/19 07:00 PM"
+    },
+    {
+      "game_id": 401856687,
+      "matchup": "FLA@AUB",
+      "away": "Florida",
+      "home": "Auburn",
+      "kickoff_et": "Sat 09/19 07:00 PM"
+    },
+    {
+      "game_id": 401861963,
+      "matchup": "CONN@USM",
+      "away": "UConn",
+      "home": "Southern Miss",
+      "kickoff_et": "Sat 09/19 07:00 PM"
+    },
+    {
+      "game_id": 401858452,
+      "matchup": "UND@NEB",
+      "away": "North Dakota",
+      "home": "Nebraska",
+      "kickoff_et": "Sat 09/19 07:15 PM"
+    },
+    {
+      "game_id": 401858459,
+      "matchup": "EWU@WASH",
+      "away": "Eastern Washington",
+      "home": "Washington",
+      "kickoff_et": "Sat 09/19 07:15 PM"
+    },
+    {
+      "game_id": 401856688,
+      "matchup": "LSU@MISS",
+      "away": "LSU",
+      "home": "Ole Miss",
+      "kickoff_et": "Sat 09/19 07:30 PM"
+    },
+    {
+      "game_id": 401858453,
+      "matchup": "MSU@ND",
+      "away": "Michigan State",
+      "home": "Notre Dame",
+      "kickoff_et": "Sat 09/19 07:30 PM"
+    },
+    {
+      "game_id": 401856795,
+      "matchup": "BYU@CSU",
+      "away": "BYU",
+      "home": "Colorado State",
+      "kickoff_et": "Sat 09/19 07:30 PM"
+    },
+    {
+      "game_id": 401856796,
+      "matchup": "COLO@NU",
+      "away": "Colorado",
+      "home": "Northwestern",
+      "kickoff_et": "Sat 09/19 07:30 PM"
+    },
+    {
+      "game_id": 401858232,
+      "matchup": "VT@MD",
+      "away": "Virginia Tech",
+      "home": "Maryland",
+      "kickoff_et": "Sat 09/19 07:30 PM"
+    },
+    {
+      "game_id": 401856690,
+      "matchup": "UNM@OU",
+      "away": "New Mexico",
+      "home": "Oklahoma",
+      "kickoff_et": "Sat 09/19 07:30 PM"
+    },
+    {
+      "game_id": 401856802,
+      "matchup": "WVU@UVA",
+      "away": "West Virginia",
+      "home": "Virginia",
+      "kickoff_et": "Sat 09/19 07:30 PM"
+    },
+    {
+      "game_id": 401856692,
+      "matchup": "KENN@TENN",
+      "away": "Kennesaw State",
+      "home": "Tennessee",
+      "kickoff_et": "Sat 09/19 07:45 PM"
+    },
+    {
+      "game_id": 401862776,
+      "matchup": "UAB@UL",
+      "away": "UAB",
+      "home": "Louisiana",
+      "kickoff_et": "Sat 09/19 08:00 PM"
+    },
+    {
+      "game_id": 401856799,
+      "matchup": "ARST@TCU",
+      "away": "Arkansas State",
+      "home": "TCU",
+      "kickoff_et": "Sat 09/19 08:00 PM"
+    },
+    {
+      "game_id": 401862775,
+      "matchup": "ETAM@TLSA",
+      "away": "East Texas A&M",
+      "home": "Tulsa",
+      "kickoff_et": "Sat 09/19 08:00 PM"
+    },
+    {
+      "game_id": 401856693,
+      "matchup": "UTSA@TEX",
+      "away": "UTSA",
+      "home": "Texas",
+      "kickoff_et": "Sat 09/19 08:00 PM"
+    },
+    {
+      "game_id": 401860887,
+      "matchup": "JMU@SDSU",
+      "away": "James Madison",
+      "home": "San Diego State",
+      "kickoff_et": "Sat 09/19 10:00 PM"
+    },
+    {
+      "game_id": 401860885,
+      "matchup": "SDAK@BOIS",
+      "away": "South Dakota",
+      "home": "Boise State",
+      "kickoff_et": "Sat 09/19 10:00 PM"
+    },
+    {
+      "game_id": 401856793,
+      "matchup": "NIU@ARIZ",
+      "away": "Northern Illinois",
+      "home": "Arizona",
+      "kickoff_et": "Sat 09/19 10:30 PM"
+    },
+    {
+      "game_id": 401864507,
+      "matchup": "NDSU@SAC",
+      "away": "North Dakota State",
+      "home": "Sacramento State",
+      "kickoff_et": "Sat 09/19 10:30 PM"
+    },
+    {
+      "game_id": 401860886,
+      "matchup": "MONT@ORST",
+      "away": "Montana",
+      "home": "Oregon State",
+      "kickoff_et": "Sat 09/19 11:00 PM"
+    },
+    {
+      "game_id": 401860888,
+      "matchup": "FRES@SJSU",
+      "away": "Fresno State",
+      "home": "San Jos\u00e9 State",
+      "kickoff_et": "Sat 09/19 11:00 PM"
+    },
+    {
+      "game_id": 401858458,
+      "matchup": "PUR@UCLA",
+      "away": "Purdue",
+      "home": "UCLA",
+      "kickoff_et": "Sat 09/19 11:00 PM"
+    }
+  ],
+  "best_bets": [
+    {
+      "tier": "1",
+      "game": "BGSU@ISU",
+      "kickoff": "Sat 09/19 12:00 PM",
+      "bet": "Over 43.5",
+      "type": "Total",
+      "edge": 7.11,
+      "confidence": 0.53,
+      "note": "Totals edge 4+ pts.",
+      "bet_only_if": ""
+    },
+    {
+      "tier": "1",
+      "game": "BUFF@PSU",
+      "kickoff": "Sat 09/19 12:00 PM",
+      "bet": "Over 48.5",
+      "type": "Total",
+      "edge": 8.86,
+      "confidence": 0.53,
+      "note": "Totals edge 4+ pts.",
+      "bet_only_if": ""
+    },
+    {
+      "tier": "1",
+      "game": "CCU@DEL",
+      "kickoff": "Sat 09/19 11:30 AM",
+      "bet": "Under 56.5",
+      "type": "Total",
+      "edge": -5.06,
+      "confidence": 0.53,
+      "note": "Totals edge 4+ pts.",
+      "bet_only_if": ""
+    },
+    {
+      "tier": "1",
+      "game": "COLO@NU",
+      "kickoff": "Sat 09/19 07:30 PM",
+      "bet": "Over 47.5",
+      "type": "Total",
+      "edge": 7.91,
+      "confidence": 0.53,
+      "note": "Totals edge 4+ pts.",
+      "bet_only_if": ""
+    },
+    {
+      "tier": "1",
+      "game": "EMU@WIS",
+      "kickoff": "Sat 09/19 12:30 PM",
+      "bet": "Over 43.5",
+      "type": "Total",
+      "edge": 8.5,
+      "confidence": 0.53,
+      "note": "Totals edge 4+ pts.",
+      "bet_only_if": ""
+    },
+    {
+      "tier": "1",
+      "game": "FIU@FAU",
+      "kickoff": "Sat 09/19 06:00 PM",
+      "bet": "Under 62.5",
+      "type": "Total",
+      "edge": -7.15,
+      "confidence": 0.53,
+      "note": "Totals edge 4+ pts.",
+      "bet_only_if": ""
+    },
+    {
+      "tier": "1",
+      "game": "FSU@ALA",
+      "kickoff": "Sat 09/19 03:30 PM",
+      "bet": "Over 50.5",
+      "type": "Total",
+      "edge": 5.96,
+      "confidence": 0.53,
+      "note": "Totals edge 4+ pts.",
+      "bet_only_if": ""
+    },
+    {
+      "tier": "1",
+      "game": "KENT@OSU",
+      "kickoff": "Sat 09/19 12:00 PM",
+      "bet": "Under 58.5",
+      "type": "Total",
+      "edge": -4.05,
+      "confidence": 0.53,
+      "note": "Totals edge 4+ pts.",
+      "bet_only_if": ""
+    },
+    {
+      "tier": "1",
+      "game": "LSU@MISS",
+      "kickoff": "Sat 09/19 07:30 PM",
+      "bet": "Under 58.5",
+      "type": "Total",
+      "edge": -7.97,
+      "confidence": 0.53,
+      "note": "Totals edge 4+ pts.",
+      "bet_only_if": ""
+    },
+    {
+      "tier": "1",
+      "game": "M-OH@CIN",
+      "kickoff": "Sat 09/19 03:30 PM",
+      "bet": "Over 50.5",
+      "type": "Total",
+      "edge": 4.29,
+      "confidence": 0.53,
+      "note": "Totals edge 4+ pts.",
+      "bet_only_if": ""
+    },
+    {
+      "tier": "1",
+      "game": "MSST@SC",
+      "kickoff": "Sat 09/19 04:15 PM",
+      "bet": "Under 59.5",
+      "type": "Total",
+      "edge": -5.05,
+      "confidence": 0.53,
+      "note": "Totals edge 4+ pts.",
+      "bet_only_if": ""
+    },
+    {
+      "tier": "1",
+      "game": "OHIO@USA",
+      "kickoff": "Sat 09/19 07:00 PM",
+      "bet": "Over 49.5",
+      "type": "Total",
+      "edge": 13.11,
+      "confidence": 0.53,
+      "note": "Totals edge 4+ pts.",
+      "bet_only_if": ""
+    },
+    {
+      "tier": "1",
+      "game": "STAN@DUKE",
+      "kickoff": "Sat 09/19 04:00 PM",
+      "bet": "Over 51.5",
+      "type": "Total",
+      "edge": 5.32,
+      "confidence": 0.53,
+      "note": "Totals edge 4+ pts.",
+      "bet_only_if": ""
+    },
+    {
+      "tier": "1",
+      "game": "TROY@MIZ",
+      "kickoff": "Sat 09/19 07:00 PM",
+      "bet": "Over 49.5",
+      "type": "Total",
+      "edge": 4.79,
+      "confidence": 0.53,
+      "note": "Totals edge 4+ pts.",
+      "bet_only_if": ""
+    },
+    {
+      "tier": "1",
+      "game": "VT@MD",
+      "kickoff": "Sat 09/19 07:30 PM",
+      "bet": "Under 53.5",
+      "type": "Total",
+      "edge": -4.27,
+      "confidence": 0.53,
+      "note": "Totals edge 4+ pts.",
+      "bet_only_if": ""
+    },
+    {
+      "tier": "1",
+      "game": "WMU@RICE",
+      "kickoff": "Sat 09/19 07:00 PM",
+      "bet": "Over 43.5",
+      "type": "Total",
+      "edge": 4.72,
+      "confidence": 0.53,
+      "note": "Totals edge 4+ pts.",
+      "bet_only_if": ""
+    },
+    {
+      "tier": "1",
+      "game": "WYO@CMU",
+      "kickoff": "Sat 09/19 01:00 PM",
+      "bet": "Over 39.5",
+      "type": "Total",
+      "edge": 5.23,
+      "confidence": 0.53,
+      "note": "Totals edge 4+ pts.",
+      "bet_only_if": ""
+    }
+  ],
+  "top3": [
+    {
+      "rank": 1,
+      "game": "OHIO@USA",
+      "bet": "Over 49.5",
+      "type": "Total",
+      "edge": 13.11,
+      "confidence": 0.53,
+      "kickoff": "Sat 09/19 07:00 PM",
+      "bet_only_if": ""
+    },
+    {
+      "rank": 2,
+      "game": "BUFF@PSU",
+      "bet": "Over 48.5",
+      "type": "Total",
+      "edge": 8.86,
+      "confidence": 0.53,
+      "kickoff": "Sat 09/19 12:00 PM",
+      "bet_only_if": ""
+    },
+    {
+      "rank": 3,
+      "game": "EMU@WIS",
+      "bet": "Over 43.5",
+      "type": "Total",
+      "edge": 8.5,
+      "confidence": 0.53,
+      "kickoff": "Sat 09/19 12:30 PM",
+      "bet_only_if": ""
+    }
+  ],
+  "ratings": [],
+  "qb_values": []
+}
