@@ -1,10 +1,11 @@
 {
   "meta": {
     "season": 2026,
-    "generated_at": "2026-09-27T14:38:32.352785+00:00",
+    "generated_at": "2026-09-28T13:44:19.832844+00:00",
     "weeks": [
       3,
-      4
+      4,
+      5
     ],
     "published_weeks": [
       4
@@ -454,6 +455,116 @@
       "result": "WIN",
       "actual_total": 40,
       "score": "Oregon State 33 @ UTEP 7",
+      "published": true
+    },
+    {
+      "week": 5,
+      "game": "NAVY@AFA",
+      "bet": "Over 46.5",
+      "edge": 11.35,
+      "top3": 1,
+      "result": null,
+      "actual_total": null,
+      "score": null,
+      "published": true
+    },
+    {
+      "week": 5,
+      "game": "UVA@FSU",
+      "bet": "Over 51.5",
+      "edge": 6.99,
+      "top3": 2,
+      "result": null,
+      "actual_total": null,
+      "score": null,
+      "published": true
+    },
+    {
+      "week": 5,
+      "game": "PSU@NU",
+      "bet": "Over 45.5",
+      "edge": 6.56,
+      "top3": 3,
+      "result": null,
+      "actual_total": null,
+      "score": null,
+      "published": true
+    },
+    {
+      "week": 5,
+      "game": "MTSU@KU",
+      "bet": "Over 50.5",
+      "edge": 5.43,
+      "top3": null,
+      "result": null,
+      "actual_total": null,
+      "score": null,
+      "published": true
+    },
+    {
+      "week": 5,
+      "game": "MICH@MINN",
+      "bet": "Over 43.5",
+      "edge": 5.21,
+      "top3": null,
+      "result": null,
+      "actual_total": null,
+      "score": null,
+      "published": true
+    },
+    {
+      "week": 5,
+      "game": "LIB@DEL",
+      "bet": "Over 49.5",
+      "edge": 5.04,
+      "top3": null,
+      "result": null,
+      "actual_total": null,
+      "score": null,
+      "published": true
+    },
+    {
+      "week": 5,
+      "game": "BC@SMU",
+      "bet": "Under 56.5",
+      "edge": -4.77,
+      "top3": null,
+      "result": null,
+      "actual_total": null,
+      "score": null,
+      "published": true
+    },
+    {
+      "week": 5,
+      "game": "WMU@BUFF",
+      "bet": "Over 47.5",
+      "edge": 4.57,
+      "top3": null,
+      "result": null,
+      "actual_total": null,
+      "score": null,
+      "published": true
+    },
+    {
+      "week": 5,
+      "game": "OSU@IOWA",
+      "bet": "Over 45.5",
+      "edge": 4.53,
+      "top3": null,
+      "result": null,
+      "actual_total": null,
+      "score": null,
+      "published": true
+    },
+    {
+      "week": 5,
+      "game": "CIN@ARIZ",
+      "bet": "Over 54.5",
+      "edge": 4.43,
+      "top3": null,
+      "result": null,
+      "actual_total": null,
+      "score": null,
       "published": true
     }
   ]

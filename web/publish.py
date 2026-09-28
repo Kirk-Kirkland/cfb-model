@@ -365,8 +365,35 @@ def main():
     with open(a.out, 'w') as f:
         json.dump(payload, f, indent=2)
     os.makedirs(a.history_dir, exist_ok=True)
-    with open(os.path.join(a.history_dir, f'{a.season}_wk{week}.json'), 'w') as f:
-        json.dump(payload, f, indent=2)
+    # The history file is the track record. Once a game in a saved card has
+    # kicked off, that card is what the public saw and it is never rewritten.
+    # On 2026-09-27 a Sunday run rebuilt week 4 after every game was final and
+    # replaced a real 17-pick 8-9 card with a 20-pick 10-10 one. Guard against
+    # that regardless of how the run was triggered.
+    hpath = os.path.join(a.history_dir, f'{a.season}_wk{week}.json')
+    locked = False
+    if os.path.exists(hpath):
+        try:
+            prior = json.load(open(hpath))
+            now = datetime.datetime.now(datetime.timezone.utc)
+            for g in prior.get('games', []):
+                if not g.get('kickoff_iso'):
+                    continue
+                try:
+                    if datetime.datetime.fromisoformat(
+                            g['kickoff_iso'].replace('Z', '+00:00')) <= now:
+                        locked = True
+                        break
+                except ValueError:
+                    continue
+        except Exception:
+            locked = False
+    if locked:
+        print(f'  history for week {week} is locked (a game has kicked off); '
+              f'keeping the card that was published', file=sys.stderr)
+    else:
+        with open(hpath, 'w') as f:
+            json.dump(payload, f, indent=2)
     print(json.dumps(dict(out=a.out, season=a.season, week=week, games=len(games),
                            best_bets=len(best_bets), cfbd_calls=E.CALLS[0])))
 
