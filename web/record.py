@@ -67,7 +67,9 @@ def grade_card(card, finals, published):
             res = 'PUSH' if total == line else ('WIN' if (total > line) == (side == 'Over') else 'LOSS')
         out.append(dict(week=card['meta']['week'], game=b['game'], bet=b['bet'],
                         edge=b.get('edge'), top3=top.get(b['game']), result=res,
-                        actual_total=total, score=score, published=published))
+                        actual_total=total, score=score, published=published,
+                        gs_flag=bool(b.get('gs_flag')),
+                        garbage_share=b.get('garbage_share')))
     return out
 
 
@@ -129,6 +131,15 @@ def main():
         published_only=tally(live),
         top3=tally([p for p in graded if p['top3']]),
         top3_published=tally([p for p in live if p['top3']]),
+        # Standing prediction registered 2026-09-28. See PREDICTION.md.
+        # The rule is NOT applied: flagged bets are still on the card. This only
+        # keeps score, so the claim can be judged on games nobody has seen yet.
+        prediction=dict(
+            registered='2026-09-28', threshold=0.20, from_week=6,
+            claim='Model Unders on teams with combined garbage-time share above '
+                  '0.20 hit under 50%, against a 52.4% break-even.',
+            flagged=tally([p for p in graded if p.get('gs_flag') and p['week'] >= 6]),
+            unflagged=tally([p for p in graded if not p.get('gs_flag') and p['week'] >= 6])),
         by_week=[dict(week=w,
                       published=any(p['published'] for p in graded if p['week'] == w),
                       **tally([p for p in graded if p['week'] == w]))

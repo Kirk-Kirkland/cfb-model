@@ -332,6 +332,39 @@ def build_qb_values(qbv):
     return sorted(out, key=lambda r: -r['value'])
 
 
+def garbage_shares(season, week):
+    """Fraction of each team's offensive plays that the garbage-time filter drops,
+    from that team's games BEFORE `week` only.
+
+    Why this exists: see PREDICTION.md. The filter is right for rating a team but
+    the market still prices the late scoring, so the model drifts to Unders on
+    teams it strips heavily. This measures how heavily.
+
+    One extra CFBD call. Returns {team: share} plus the league median as a
+    fallback for teams with too few games.
+    """
+    try:
+        incl = E.cfbd('stats/game/advanced', year=season, excludeGarbageTime='false')
+        excl = E.cfbd('stats/game/advanced', year=season, excludeGarbageTime='true')
+    except Exception as e:
+        print(f'  garbage shares unavailable ({e}); rule not applied', file=sys.stderr)
+        return {}, None
+    ep = {(s['gameId'], s['team']): s['offense'].get('plays')
+          for s in excl if s.get('week') is not None and s['week'] < week}
+    acc = {}
+    for s in incl:
+        if s.get('week') is None or s['week'] >= week:
+            continue
+        pi = s['offense'].get('plays')
+        pe = ep.get((s['gameId'], s['team']))
+        if not pi or pe is None:
+            continue
+        acc.setdefault(s['team'], []).append(max(0.0, 1.0 - pe / pi))
+    out = {t: sum(v) / len(v) for t, v in acc.items() if len(v) >= 2}
+    med = sorted(out.values())[len(out) // 2] if out else None
+    return out, med
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--season', type=int, default=2026)
@@ -352,12 +385,37 @@ def main():
 
     games, sel = build_games(D, games_wk, injuries)
     best_bets, top3 = build_best_bets(sel)
+
+    # Dated prediction, not a live filter. See PREDICTION.md. Games are flagged
+    # and graded separately; nothing is removed from the card.
+    GS_THRESHOLD = 0.20
+    shares, med = garbage_shares(a.season, week)
+    flagged = 0
+    for g in games:
+        hs = shares.get(g['home'], med)
+        as_ = shares.get(g['away'], med)
+        g['garbage_share'] = round(hs + as_, 4) if (hs is not None and as_ is not None) else None
+        g['gs_flag'] = bool(
+            g['garbage_share'] is not None
+            and g['garbage_share'] > GS_THRESHOLD
+            and (g.get('total_pick') or '').startswith('Under')
+            and g.get('total_tier') in ('BET', 'LEAN'))
+        flagged += g['gs_flag']
+    for b in best_bets + top3:
+        m = next((g for g in games if g['matchup'] == b['game']), None)
+        if m:
+            b['garbage_share'] = m['garbage_share']
+            b['gs_flag'] = m['gs_flag']
+    print(f'  garbage-share rule: {flagged} game(s) flagged at threshold {GS_THRESHOLD}',
+          file=sys.stderr)
+
     rat = build_ratings(ratings, D)
     qb_vals = build_qb_values(qbv)
 
     payload = dict(
         meta=dict(season=a.season, week=week, generated_at=datetime.datetime.now(datetime.timezone.utc).isoformat(),
-                   cfbd_calls=E.CALLS[0], games=len(games)),
+                   cfbd_calls=E.CALLS[0], games=len(games),
+                   gs_threshold=GS_THRESHOLD, gs_flagged=flagged),
         games=games, best_bets=best_bets, top3=top3, ratings=rat, qb_values=qb_vals,
     )
 

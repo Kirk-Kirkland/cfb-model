@@ -1,7 +1,7 @@
 {
   "meta": {
     "season": 2026,
-    "generated_at": "2026-09-28T13:44:19.832844+00:00",
+    "generated_at": "2026-09-28T16:38:22.625043+00:00",
     "weeks": [
       3,
       4,
@@ -56,6 +56,32 @@
     "roi": 27.3,
     "se": 28.9
   },
+  "prediction": {
+    "registered": "2026-09-28",
+    "threshold": 0.2,
+    "from_week": 6,
+    "claim": "Model Unders on teams with combined garbage-time share above 0.20 hit under 50%, against a 52.4% break-even.",
+    "flagged": {
+      "w": 0,
+      "l": 0,
+      "push": 0,
+      "n": 0,
+      "pct": null,
+      "units": 0.0,
+      "roi": null,
+      "se": null
+    },
+    "unflagged": {
+      "w": 0,
+      "l": 0,
+      "push": 0,
+      "n": 0,
+      "pct": null,
+      "units": 0.0,
+      "roi": null,
+      "se": null
+    }
+  },
   "by_week": [
     {
       "week": 3,
@@ -92,7 +118,9 @@
       "result": "WIN",
       "actual_total": 77,
       "score": "Ohio 36 @ South Alabama 41",
-      "published": false
+      "published": false,
+      "gs_flag": false,
+      "garbage_share": null
     },
     {
       "week": 3,
@@ -103,7 +131,9 @@
       "result": "WIN",
       "actual_total": 68,
       "score": "Buffalo 13 @ Penn State 55",
-      "published": false
+      "published": false,
+      "gs_flag": false,
+      "garbage_share": null
     },
     {
       "week": 3,
@@ -114,7 +144,9 @@
       "result": "WIN",
       "actual_total": 64,
       "score": "Eastern Michigan 10 @ Wisconsin 54",
-      "published": false
+      "published": false,
+      "gs_flag": false,
+      "garbage_share": null
     },
     {
       "week": 3,
@@ -125,7 +157,9 @@
       "result": "WIN",
       "actual_total": 56,
       "score": "LSU 24 @ Ole Miss 32",
-      "published": false
+      "published": false,
+      "gs_flag": false,
+      "garbage_share": null
     },
     {
       "week": 3,
@@ -136,7 +170,9 @@
       "result": "WIN",
       "actual_total": 48,
       "score": "Colorado 7 @ Northwestern 41",
-      "published": false
+      "published": false,
+      "gs_flag": false,
+      "garbage_share": null
     },
     {
       "week": 3,
@@ -147,7 +183,9 @@
       "result": "WIN",
       "actual_total": 26,
       "score": "Florida International 10 @ Florida Atlantic 16",
-      "published": false
+      "published": false,
+      "gs_flag": false,
+      "garbage_share": null
     },
     {
       "week": 3,
@@ -158,7 +196,9 @@
       "result": "WIN",
       "actual_total": 62,
       "score": "Bowling Green 7 @ Iowa State 55",
-      "published": false
+      "published": false,
+      "gs_flag": false,
+      "garbage_share": null
     },
     {
       "week": 3,
@@ -169,7 +209,9 @@
       "result": "WIN",
       "actual_total": 86,
       "score": "Florida State 36 @ Alabama 50",
-      "published": false
+      "published": false,
+      "gs_flag": false,
+      "garbage_share": null
     },
     {
       "week": 3,
@@ -180,7 +222,9 @@
       "result": "LOSS",
       "actual_total": 42,
       "score": "Stanford 7 @ Duke 35",
-      "published": false
+      "published": false,
+      "gs_flag": false,
+      "garbage_share": null
     },
     {
       "week": 3,
@@ -191,7 +235,9 @@
       "result": "LOSS",
       "actual_total": 34,
       "score": "Wyoming 10 @ Central Michigan 24",
-      "published": false
+      "published": false,
+      "gs_flag": false,
+      "garbage_share": null
     },
     {
       "week": 3,
@@ -202,7 +248,9 @@
       "result": "WIN",
       "actual_total": 36,
       "score": "Coastal Carolina 14 @ Delaware 22",
-      "published": false
+      "published": false,
+      "gs_flag": false,
+      "garbage_share": null
     },
     {
       "week": 3,
@@ -213,7 +261,9 @@
       "result": "LOSS",
       "actual_total": 75,
       "score": "Mississippi State 41 @ South Carolina 34",
-      "published": false
+      "published": false,
+      "gs_flag": false,
+      "garbage_share": null
     },
     {
       "week": 3,
@@ -224,7 +274,9 @@
       "result": "LOSS",
       "actual_total": 44,
       "score": "Troy 17 @ Missouri 27",
-      "published": false
+      "published": false,
+      "gs_flag": false,
+      "garbage_share": null
     },
     {
       "week": 3,
@@ -235,7 +287,9 @@
       "result": "WIN",
       "actual_total": 49,
       "score": "Western Michigan 28 @ Rice 21",
-      "published": false
+      "published": false,
+      "gs_flag": false,
+      "garbage_share": null
     },
     {
       "week": 3,
@@ -246,7 +300,9 @@
       "result": "WIN",
       "actual_total": 66,
       "score": "Miami (OH) 31 @ Cincinnati 35",
-      "published": false
+      "published": false,
+      "gs_flag": false,
+      "garbage_share": null
     },
     {
       "week": 3,
@@ -257,7 +313,9 @@
       "result": "LOSS",
       "actual_total": 61,
       "score": "Virginia Tech 35 @ Maryland 26",
-      "published": false
+      "published": false,
+      "gs_flag": false,
+      "garbage_share": null
     },
     {
       "week": 3,
@@ -268,7 +326,9 @@
       "result": "LOSS",
       "actual_total": 62,
       "score": "Kent State 3 @ Ohio State 59",
-      "published": false
+      "published": false,
+      "gs_flag": false,
+      "garbage_share": null
     },
     {
       "week": 4,
@@ -279,7 +339,9 @@
       "result": "WIN",
       "actual_total": 39,
       "score": "Iowa 20 @ Michigan 19",
-      "published": true
+      "published": true,
+      "gs_flag": false,
+      "garbage_share": null
     },
     {
       "week": 4,
@@ -290,7 +352,9 @@
       "result": "WIN",
       "actual_total": 61,
       "score": "Georgia Tech 27 @ Stanford 34",
-      "published": true
+      "published": true,
+      "gs_flag": false,
+      "garbage_share": null
     },
     {
       "week": 4,
@@ -301,7 +365,9 @@
       "result": "LOSS",
       "actual_total": 35,
       "score": "Virginia Tech 21 @ Boston College 14",
-      "published": true
+      "published": true,
+      "gs_flag": false,
+      "garbage_share": null
     },
     {
       "week": 4,
@@ -312,7 +378,9 @@
       "result": "LOSS",
       "actual_total": 37,
       "score": "Hawai'i 10 @ Wyoming 27",
-      "published": true
+      "published": true,
+      "gs_flag": false,
+      "garbage_share": null
     },
     {
       "week": 4,
@@ -323,7 +391,9 @@
       "result": "WIN",
       "actual_total": 66,
       "score": "South Alabama 21 @ Kentucky 45",
-      "published": true
+      "published": true,
+      "gs_flag": false,
+      "garbage_share": null
     },
     {
       "week": 4,
@@ -334,7 +404,9 @@
       "result": "WIN",
       "actual_total": 54,
       "score": "Oklahoma 13 @ Georgia 41",
-      "published": true
+      "published": true,
+      "gs_flag": false,
+      "garbage_share": null
     },
     {
       "week": 4,
@@ -345,7 +417,9 @@
       "result": "LOSS",
       "actual_total": 39,
       "score": "Boise State 32 @ Western Michigan 7",
-      "published": true
+      "published": true,
+      "gs_flag": false,
+      "garbage_share": null
     },
     {
       "week": 4,
@@ -356,7 +430,9 @@
       "result": "LOSS",
       "actual_total": 65,
       "score": "Oklahoma State 41 @ West Virginia 24",
-      "published": true
+      "published": true,
+      "gs_flag": false,
+      "garbage_share": null
     },
     {
       "week": 4,
@@ -367,7 +443,9 @@
       "result": "LOSS",
       "actual_total": 62,
       "score": "Florida Atlantic 45 @ UL Monroe 17",
-      "published": true
+      "published": true,
+      "gs_flag": false,
+      "garbage_share": null
     },
     {
       "week": 4,
@@ -378,7 +456,9 @@
       "result": "LOSS",
       "actual_total": 68,
       "score": "Oregon 41 @ USC 27",
-      "published": true
+      "published": true,
+      "gs_flag": false,
+      "garbage_share": null
     },
     {
       "week": 4,
@@ -389,7 +469,9 @@
       "result": "LOSS",
       "actual_total": 44,
       "score": "Nebraska 31 @ Michigan State 13",
-      "published": true
+      "published": true,
+      "gs_flag": false,
+      "garbage_share": null
     },
     {
       "week": 4,
@@ -400,7 +482,9 @@
       "result": "LOSS",
       "actual_total": 57,
       "score": "UCLA 54 @ Maryland 3",
-      "published": true
+      "published": true,
+      "gs_flag": false,
+      "garbage_share": null
     },
     {
       "week": 4,
@@ -411,7 +495,9 @@
       "result": "WIN",
       "actual_total": 44,
       "score": "Wisconsin 24 @ Penn State 20",
-      "published": true
+      "published": true,
+      "gs_flag": false,
+      "garbage_share": null
     },
     {
       "week": 4,
@@ -422,7 +508,9 @@
       "result": "LOSS",
       "actual_total": 104,
       "score": "Colorado State 45 @ UTSA 59",
-      "published": true
+      "published": true,
+      "gs_flag": false,
+      "garbage_share": null
     },
     {
       "week": 4,
@@ -433,7 +521,9 @@
       "result": "WIN",
       "actual_total": 48,
       "score": "Utah 31 @ Iowa State 17",
-      "published": true
+      "published": true,
+      "gs_flag": false,
+      "garbage_share": null
     },
     {
       "week": 4,
@@ -444,7 +534,9 @@
       "result": "WIN",
       "actual_total": 41,
       "score": "Texas A&M 6 @ LSU 35",
-      "published": true
+      "published": true,
+      "gs_flag": false,
+      "garbage_share": null
     },
     {
       "week": 4,
@@ -455,29 +547,35 @@
       "result": "WIN",
       "actual_total": 40,
       "score": "Oregon State 33 @ UTEP 7",
-      "published": true
+      "published": true,
+      "gs_flag": false,
+      "garbage_share": null
     },
     {
       "week": 5,
       "game": "NAVY@AFA",
-      "bet": "Over 46.5",
-      "edge": 11.35,
+      "bet": "Over 45.5",
+      "edge": 12.46,
       "top3": 1,
       "result": null,
       "actual_total": null,
       "score": null,
-      "published": true
+      "published": true,
+      "gs_flag": false,
+      "garbage_share": 0.2036
     },
     {
       "week": 5,
       "game": "UVA@FSU",
       "bet": "Over 51.5",
-      "edge": 6.99,
+      "edge": 6.94,
       "top3": 2,
       "result": null,
       "actual_total": null,
       "score": null,
-      "published": true
+      "published": true,
+      "gs_flag": false,
+      "garbage_share": 0.26
     },
     {
       "week": 5,
@@ -488,7 +586,22 @@
       "result": null,
       "actual_total": null,
       "score": null,
-      "published": true
+      "published": true,
+      "gs_flag": false,
+      "garbage_share": 0.2961
+    },
+    {
+      "week": 5,
+      "game": "BGSU@M-OH",
+      "bet": "Over 42.5",
+      "edge": 6.0,
+      "top3": null,
+      "result": null,
+      "actual_total": null,
+      "score": null,
+      "published": true,
+      "gs_flag": false,
+      "garbage_share": 0.4302
     },
     {
       "week": 5,
@@ -499,18 +612,22 @@
       "result": null,
       "actual_total": null,
       "score": null,
-      "published": true
+      "published": true,
+      "gs_flag": false,
+      "garbage_share": 0.1538
     },
     {
       "week": 5,
       "game": "MICH@MINN",
       "bet": "Over 43.5",
-      "edge": 5.21,
+      "edge": 5.16,
       "top3": null,
       "result": null,
       "actual_total": null,
       "score": null,
-      "published": true
+      "published": true,
+      "gs_flag": false,
+      "garbage_share": 0.2364
     },
     {
       "week": 5,
@@ -521,7 +638,9 @@
       "result": null,
       "actual_total": null,
       "score": null,
-      "published": true
+      "published": true,
+      "gs_flag": false,
+      "garbage_share": 0.2164
     },
     {
       "week": 5,
@@ -532,7 +651,9 @@
       "result": null,
       "actual_total": null,
       "score": null,
-      "published": true
+      "published": true,
+      "gs_flag": false,
+      "garbage_share": 0.1296
     },
     {
       "week": 5,
@@ -543,7 +664,9 @@
       "result": null,
       "actual_total": null,
       "score": null,
-      "published": true
+      "published": true,
+      "gs_flag": false,
+      "garbage_share": 0.2419
     },
     {
       "week": 5,
@@ -554,7 +677,9 @@
       "result": null,
       "actual_total": null,
       "score": null,
-      "published": true
+      "published": true,
+      "gs_flag": false,
+      "garbage_share": 0.3969
     },
     {
       "week": 5,
@@ -565,7 +690,22 @@
       "result": null,
       "actual_total": null,
       "score": null,
-      "published": true
+      "published": true,
+      "gs_flag": false,
+      "garbage_share": 0.2349
+    },
+    {
+      "week": 5,
+      "game": "BYU@TCU",
+      "bet": "Over 48.5",
+      "edge": 4.28,
+      "top3": null,
+      "result": null,
+      "actual_total": null,
+      "score": null,
+      "published": true,
+      "gs_flag": false,
+      "garbage_share": 0.2876
     }
   ]
 }
