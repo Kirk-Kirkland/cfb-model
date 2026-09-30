@@ -242,6 +242,29 @@ def build_games(D, games_wk, injuries):
             # so they're a BET (with a nudge to glance at news first), not a pass.
             if fcs:
                 total_tier = 'No bet: FCS'
+            elif sum(1 for t in (g['homeTeam'], g['awayTeam'])
+                     if t in E.CONSTS['OPT_TEAMS']) == 2:
+                # Added 2026-09-30 after a reader challenged the Navy/Air Force pick.
+                #
+                # The model measures pace in PLAYS per game. Option offenses run long
+                # clock-draining drives, so they post high play counts while producing
+                # very few possessions. The model had Navy at 61.7 and Air Force at
+                # 68.5 plays against a 59.7 FBS average, and read that as scoring.
+                #
+                # When only one team runs it the opponent still plays normally and the
+                # existing -3.4 adjustment roughly covers it. When BOTH run it, both
+                # sides of the game collapse and the adjustment (an OR, applied once)
+                # does not come close. Walk-forward 2023-25: the model ran 15.3 points
+                # high on these, too high in five of six.
+                #
+                # Every service academy head-to-head since 2021 (n=15) averaged 32.7
+                # points, median 30. Exactly one cleared 45.5.
+                #
+                # Fifteen games is not enough to fit a new constant on, and fitting
+                # one is how the per-edge confidence tiers got built and then
+                # collapsed. So these are simply not bet until the pace term is
+                # rebuilt on possessions instead of plays.
+                total_tier = 'No bet: two option teams'
             elif abs(total_edge) >= TCN:
                 total_tier = 'BET (check news)'
             elif abs(total_edge) >= TBE:
@@ -275,7 +298,12 @@ def build_games(D, games_wk, injuries):
         )
         games.append(row)
 
-        if dk_total is not None and not fcs:
+        # `sel` feeds the Best Bets card. Anything tiered "No bet: ..." must not
+        # reach it, or the game drops off the All Games table and still shows up
+        # as a pick. That is exactly what happened to Navy/Air Force on
+        # 2026-09-30: the tier was set correctly and the pick was published
+        # anyway. See CORRECTIONS.md.
+        if dk_total is not None and not str(total_tier).startswith('No bet'):
             sel.append(dict(key=row['matchup'], gid=gid, kick=g['startDate'], te=total_edge,
                              ou=dk_total, sp=dk_spread if dk_spread is not None else 0, wind=wind or 0,
                              option=option_adj != 0, model_total_adj=adj_total))
