@@ -94,3 +94,51 @@ objection two days later before the code was actually opened.
 The lesson is not about option offenses. When the model disagrees with the market
 by double digits, that is the model making an extraordinary claim and it gets
 audited before publication, not after someone complains.
+
+---
+
+## 2026-09-30: pace rebuilt on possessions instead of plays
+
+The real repair behind the entry above. The Navy/Air Force exclusion was a patch;
+this is the defect it was patching.
+
+**The change.** `PACE` is now possessions (drives) per game, not plays per game.
+Plays is a broken proxy for scoring volume: a long clock-draining drive is many
+plays and one possession. Option offenses live on those, so the model saw high
+play counts and read scoring. Navy showed 61.7 plays and Air Force 68.5 against
+a 59.7 FBS average. On possessions they are 10.4 and 10.0 against an 11.6 mean,
+which is the truth.
+
+The totals coefficients were refit on possessions (`C_POSS`), since the old ones
+were fit against a different quantity and swapping the input alone would have
+made things worse.
+
+**Walk-forward 2023-25, totals at 4+ edge:**
+
+| | Record | Hit | MAE |
+|---|---|---|---|
+| Plays | 478-426 | 52.9% | 13.00 |
+| Possessions | 442-377 | **54.0%** | **12.94** |
+
+By season: 2023 53.4% vs 53.5%, 2024 54.2% vs 53.6%, 2025 50.7% vs 55.3%. The
+hit-rate gain is carried almost entirely by 2025 and should not be treated as a
+reliable +1.1 points. What holds across every cut is MAE, including on games with
+no option team (12.87 to 12.82). This ships as a defect repair, not an edge
+discovery.
+
+Possessions alone does **not** fix option games (42.1% to 45.9%, n=38, still below
+break-even), so the two-option exclusion stays.
+
+**Effect on Navy/Air Force:** model total falls from 61.0 to 49.5 against a 45.5
+market. An 11.5 point error removed from one game.
+
+**Kept separate on purpose:** QB snap share is a per-play quantity and still uses
+plays per game, now stored as `plays_pg`. Feeding it possessions would have
+inflated every share by roughly 70%. The two are named differently so they do not
+get confused again.
+
+**This takes effect in week 6, not week 5.** The possessions model produces a
+materially different week 5 card, and the week 5 picks were already published
+Monday and posted publicly. Replacing them now would mean the track record grades
+picks nobody saw. Week 5 is graded as posted. Week 6 is the first card from the
+possessions model.
