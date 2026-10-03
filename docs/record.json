@@ -1,14 +1,15 @@
 {
   "meta": {
     "season": 2026,
-    "generated_at": "2026-10-01T13:12:10.263528+00:00",
+    "generated_at": "2026-10-03T15:04:08.349280+00:00",
     "weeks": [
       3,
       4,
       5
     ],
     "published_weeks": [
-      4
+      4,
+      5
     ],
     "reconstructed_weeks": [
       3
@@ -17,24 +18,24 @@
     "reconstruction_warning": "Treat reconstructed weeks as approximate, not as a track record. We tested how far a rebuild drifts by rebuilding week 4, a week we did publish live. The rebuild produced 20 picks going 10-10; the card that actually went out had 17 picks and went 8-9. Five picks appeared that were never bet, two real picks vanished, and eight lines moved by a point. The cause is that the line data available for a past week is not the line the model saw before kickoff. The live-only record above is the number to judge this model on."
   },
   "all_bets": {
-    "w": 19,
-    "l": 15,
+    "w": 20,
+    "l": 16,
     "push": 0,
-    "n": 34,
-    "pct": 55.9,
-    "units": 2.27,
-    "roi": 6.7,
-    "se": 8.6
+    "n": 36,
+    "pct": 55.6,
+    "units": 2.18,
+    "roi": 6.1,
+    "se": 8.3
   },
   "published_only": {
-    "w": 8,
-    "l": 9,
+    "w": 9,
+    "l": 10,
     "push": 0,
-    "n": 17,
-    "pct": 47.1,
-    "units": -1.73,
-    "roi": -10.2,
-    "se": 12.1
+    "n": 19,
+    "pct": 47.4,
+    "units": -1.82,
+    "roi": -9.6,
+    "se": 11.5
   },
   "top3": {
     "w": 5,
@@ -106,6 +107,18 @@
       "units": -1.73,
       "roi": -10.2,
       "se": 12.1
+    },
+    {
+      "week": 5,
+      "published": true,
+      "w": 1,
+      "l": 1,
+      "push": 0,
+      "n": 2,
+      "pct": 50.0,
+      "units": -0.09,
+      "roi": -4.5,
+      "se": 35.4
     }
   ],
   "picks": [
@@ -661,9 +674,9 @@
       "bet": "Over 45.5",
       "edge": 4.98,
       "top3": null,
-      "result": null,
-      "actual_total": null,
-      "score": null,
+      "result": "WIN",
+      "actual_total": 47,
+      "score": "Penn State 13 @ Northwestern 34",
       "published": true,
       "gs_flag": false,
       "garbage_share": 0.2961
@@ -778,9 +791,9 @@
       "bet": "Over 50.5",
       "edge": 4.01,
       "top3": null,
-      "result": null,
-      "actual_total": null,
-      "score": null,
+      "result": "LOSS",
+      "actual_total": 44,
+      "score": "Liberty 30 @ Delaware 14",
       "published": true,
       "gs_flag": false,
       "garbage_share": 0.2164
