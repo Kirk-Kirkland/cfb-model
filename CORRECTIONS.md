@@ -142,3 +142,19 @@ materially different week 5 card, and the week 5 picks were already published
 Monday and posted publicly. Replacing them now would mean the track record grades
 picks nobody saw. Week 5 is graded as posted. Week 6 is the first card from the
 possessions model.
+
+---
+
+## 2026-10-03: live site showed a different card than the one being graded
+
+**What happened.** Once a week's first game kicks off, `publish.py` locks the
+history file so the graded card can't change. But it still wrote the fresh
+rebuild to `docs/data.json`. So every run after Thursday kickoff put a new card
+on the site that nobody was graded on. On Saturday of week 5 the site's Top 3 was
+WMU/BUFF, BGSU/M-OH and MIA/CLEM, built by the possessions engine that was
+supposed to start in week 6. The published, graded Top 3 was UVA/FSU, PSU/NU and
+MTSU/KU.
+
+**Fix.** When the week is locked, the site now shows the locked card (with
+`meta.locked = true`). Week 5's site data was restored to the published card.
+No picks or results changed.

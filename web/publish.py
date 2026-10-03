@@ -448,8 +448,6 @@ def main():
     )
 
     os.makedirs(os.path.dirname(a.out), exist_ok=True)
-    with open(a.out, 'w') as f:
-        json.dump(payload, f, indent=2)
     os.makedirs(a.history_dir, exist_ok=True)
     # The history file is the track record. Once a game in a saved card has
     # kicked off, that card is what the public saw and it is never rewritten.
@@ -475,9 +473,23 @@ def main():
         except Exception:
             locked = False
     if locked:
+        # The site must show the same card that is being graded. Before
+        # 2026-10-03 this branch protected only the history file and still
+        # wrote the fresh rebuild to docs/data.json, so after the first kickoff
+        # the live site showed a different Top 3 than the published, graded
+        # card (week 5: the Saturday run showed WMU/BUFF, BGSU/M-OH, MIA/CLEM
+        # instead of UVA/FSU, PSU/NU, MTSU/KU). Publish the locked card instead.
         print(f'  history for week {week} is locked (a game has kicked off); '
-              f'keeping the card that was published', file=sys.stderr)
+              f'keeping the card that was published and showing it on the site',
+              file=sys.stderr)
+        live = dict(prior)
+        live['meta'] = dict(prior.get('meta', {}), locked=True,
+                            checked_at=payload['meta']['generated_at'])
+        with open(a.out, 'w') as f:
+            json.dump(live, f, indent=2)
     else:
+        with open(a.out, 'w') as f:
+            json.dump(payload, f, indent=2)
         with open(hpath, 'w') as f:
             json.dump(payload, f, indent=2)
     print(json.dumps(dict(out=a.out, season=a.season, week=week, games=len(games),
