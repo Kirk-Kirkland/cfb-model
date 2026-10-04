@@ -1,11 +1,12 @@
 {
   "meta": {
     "season": 2026,
-    "generated_at": "2026-10-04T04:16:19.230936+00:00",
+    "generated_at": "2026-10-04T21:03:46.946730+00:00",
     "weeks": [
       3,
       4,
-      5
+      5,
+      6
     ],
     "published_weeks": [
       4,
@@ -758,6 +759,45 @@
       "published": true,
       "gs_flag": false,
       "garbage_share": 0.2164
+    },
+    {
+      "week": 6,
+      "game": "USC@PSU",
+      "bet": "Under 58.5",
+      "edge": -6.25,
+      "top3": 1,
+      "result": null,
+      "actual_total": null,
+      "score": null,
+      "published": true,
+      "gs_flag": true,
+      "garbage_share": 0.3186
+    },
+    {
+      "week": 6,
+      "game": "IOWA@WASH",
+      "bet": "Over 41.5",
+      "edge": 5.73,
+      "top3": 2,
+      "result": null,
+      "actual_total": null,
+      "score": null,
+      "published": true,
+      "gs_flag": false,
+      "garbage_share": 0.2037
+    },
+    {
+      "week": 6,
+      "game": "UCLA@ORE",
+      "bet": "Under 60.5",
+      "edge": -5.5,
+      "top3": 3,
+      "result": null,
+      "actual_total": null,
+      "score": null,
+      "published": true,
+      "gs_flag": true,
+      "garbage_share": 0.2437
     }
   ]
 }
