@@ -1,0 +1,132 @@
+{
+  "meta": {
+    "season": 2026,
+    "week": 6,
+    "kind": "early5",
+    "posted_at": "2026-10-05T16:21:06.549520+00:00"
+  },
+  "picks": [
+    {
+      "rank": 1,
+      "game": "WYO@SJSU",
+      "kickoff": "Fri 10/09 09:00 PM",
+      "bet": "Over 43.5",
+      "edge": 6.76,
+      "tier": "1",
+      "bet_only_if": "at or below 46.0",
+      "pin_fair": 43.36,
+      "market": {
+        "gap": -0.14,
+        "sharp_agrees": false,
+        "sharp_disagrees": false
+      },
+      "best_us": 43.5,
+      "gs_flag": false
+    },
+    {
+      "rank": 2,
+      "game": "BALL@NU",
+      "kickoff": "Sat 10/10 12:30 PM",
+      "bet": "Over 52.5",
+      "edge": 6.44,
+      "tier": "2",
+      "bet_only_if": "at or below 54.5",
+      "pin_fair": 53.0,
+      "market": {
+        "gap": 0.5,
+        "sharp_agrees": true,
+        "sharp_disagrees": false
+      },
+      "best_us": 51.5,
+      "gs_flag": false
+    },
+    {
+      "rank": 3,
+      "game": "CCU@MRSH",
+      "kickoff": "Sat 10/10 07:00 PM",
+      "bet": "Over 57.5",
+      "edge": 6.35,
+      "tier": "1",
+      "bet_only_if": "at or below 59.5",
+      "pin_fair": 58.33,
+      "market": {
+        "gap": 0.83,
+        "sharp_agrees": true,
+        "sharp_disagrees": false
+      },
+      "best_us": 56.5,
+      "gs_flag": false
+    },
+    {
+      "rank": 4,
+      "game": "IOWA@WASH",
+      "kickoff": "Fri 10/09 09:00 PM",
+      "bet": "Over 41.5",
+      "edge": 5.89,
+      "tier": "1",
+      "bet_only_if": "at or below 43.0",
+      "pin_fair": 41.93,
+      "market": {
+        "gap": 0.43,
+        "sharp_agrees": false,
+        "sharp_disagrees": false
+      },
+      "best_us": 41.5,
+      "gs_flag": false
+    },
+    {
+      "rank": 5,
+      "game": "UAB@MEM",
+      "kickoff": "Sat 10/10 07:00 PM",
+      "bet": "Under 57.5",
+      "edge": -5.74,
+      "tier": "1",
+      "bet_only_if": "at or above 56.0",
+      "pin_fair": 58.24,
+      "market": {
+        "gap": 0.74,
+        "sharp_agrees": false,
+        "sharp_disagrees": true
+      },
+      "best_us": 58.5,
+      "gs_flag": false
+    }
+  ],
+  "games": [
+    {
+      "matchup": "WYO@SJSU",
+      "game_id": 401864519,
+      "kickoff_iso": "2026-10-10T01:00:00.000Z",
+      "away": "Wyoming",
+      "home": "San Jos\u00e9 State"
+    },
+    {
+      "matchup": "IOWA@WASH",
+      "game_id": 401858487,
+      "kickoff_iso": "2026-10-10T01:00:00.000Z",
+      "away": "Iowa",
+      "home": "Washington"
+    },
+    {
+      "matchup": "BALL@NU",
+      "game_id": 401858482,
+      "kickoff_iso": "2026-10-10T16:30:00.000Z",
+      "away": "Ball State",
+      "home": "Northwestern"
+    },
+    {
+      "matchup": "CCU@MRSH",
+      "game_id": 401869943,
+      "kickoff_iso": "2026-10-10T23:00:00.000Z",
+      "away": "Coastal Carolina",
+      "home": "Marshall"
+    },
+    {
+      "matchup": "UAB@MEM",
+      "game_id": 401862798,
+      "kickoff_iso": "2026-10-10T23:00:00.000Z",
+      "away": "UAB",
+      "home": "Memphis"
+    }
+  ]
+}
