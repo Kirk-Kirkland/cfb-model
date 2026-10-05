@@ -60,6 +60,7 @@ function renderTop3() {
       <div class="sub">${p.game} &middot; ${p.kickoff} &middot; edge ${fmtEdge(p.edge)} &middot; est. hit rate ${fmtConf(p.confidence)}</div>
       <div class="sub bet-only-if">Bet only if line is ${p.bet_only_if}</div>
       ${firstLine(p)}
+      ${marketLine(p)}
     </div>`).join('') || '<div class="sub">No qualifying plays this build.</div>';
 }
 
@@ -69,6 +70,16 @@ function firstLine(b) {
   const moved = now - b.first_line;
   const when = b.first_seen_at ? new Date(b.first_seen_at).toLocaleString([], {weekday: 'short', hour: 'numeric', minute: '2-digit'}) : '';
   return `<div class="sub">First posted at ${b.first_line} (${when})${moved ? ` &middot; line has moved ${moved > 0 ? '+' : ''}${moved}` : ''}</div>`;
+}
+
+function marketLine(b) {
+  if (b.pin_fair === undefined || b.pin_fair === null) return '';
+  const m = b.market || {};
+  const read = m.sharp_agrees ? '<span class="pill good">sharp line agrees</span>'
+             : m.sharp_disagrees ? '<span class="pill bad">sharp line disagrees</span>'
+             : '<span class="pill neutral">sharp line neutral</span>';
+  const best = (b.best_us !== undefined && b.best_us !== null) ? ` &middot; best US number ${b.best_us}` : '';
+  return `<div class="sub">Pinnacle fair ${b.pin_fair}${best} &middot; ${read}</div>`;
 }
 
 function fmtClv(v) {
@@ -91,6 +102,7 @@ function renderBestBets() {
         <div class="bet-sub">${b.kickoff} &middot; ${b.note}</div>
         <div class="bet-sub bet-only-if">Bet only if line is ${b.bet_only_if} &middot; est. hit rate ${fmtConf(b.confidence)}</div>
         ${firstLine(b)}
+        ${marketLine(b)}
       </div>
       <div class="edge">${fmtEdge(b.edge)}</div>
     </div>`).join('');
@@ -185,7 +197,8 @@ function renderRecord() {
          t3.n ? `${t3.pct}% on ${t3.n} bets` : '', recCls(t3)) +
     stat('Break-even', `${r.meta.break_even_pct}%`, 'at -110 odds', '') +
     clvStat('CLV vs posted line', r.clv && r.clv.posted) +
-    clvStat('CLV vs first line', r.clv && r.clv.first);
+    clvStat('CLV vs first line', r.clv && r.clv.first) +
+    clvStat('CLV vs Pinnacle close', r.clv && r.clv.pinnacle);
 
   const n = all.n, lo = (all.pct - all.se).toFixed(1), hi = (all.pct + all.se).toFixed(1);
   document.getElementById('recordCaveat').innerHTML =

@@ -42,6 +42,19 @@ grades **closing line value**: points the market moved toward the pick after it
 was posted. CLV settles much faster than win/loss, so it is the quickest honest
 read on whether the model beats the market.
 
+## Sharp lines (The Odds API)
+
+With a repo secret `ODDS_API_KEY` set, every picks run and the separate
+**Odds snapshot** workflow (`.github/workflows/odds.yml`) pull totals from
+~16 books including Pinnacle. Each pick then shows Pinnacle's no-vig total,
+whether that sharp number agrees with the pick against DraftKings, and the best
+number at any US book. Snapshots land in `data/odds/`, and the last one before
+each kickoff is the near-close that `record.py` grades **CLV vs Pinnacle**
+against. The sharp read is informational: it never adds or removes a bet.
+
+Budget: 2 credits a pull, about 25 pulls a week, so ~215 of the free plan's
+500 monthly credits. Without the secret all of this is skipped.
+
 ## Injuries (optional)
 
 `data/injuries.json` is an optional list the model adds as a manual margin

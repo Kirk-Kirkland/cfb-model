@@ -1,0 +1,44 @@
+name: Odds snapshot
+
+# Pulls every book's total (incl. Pinnacle) for the current week and appends
+# it to data/odds/<season>_wk<N>.jsonl. These snapshots are what CLV is graded
+# against: the last one before each kickoff is the near-close.
+#
+# Budget: 2 credits per pull (regions us+eu, totals only). ~25 pulls a week
+# here plus ~5 from the picks runs is ~260 credits a month, inside the free
+# plan's 500. Snapshots cluster Thu-Sat so the near-close is close to kickoff.
+
+on:
+  schedule:
+    # Sun-Wed: once a day, 11:00 ET (15:00 UTC), to track the week's movement
+    - cron: '0 15 * * 0,2,3'
+    # Thu-Sat: every 3 hours ET daytime through the late games
+    - cron: '0 15,18,21 * * 4'
+    - cron: '0 0,15,18,21 * * 5'
+    - cron: '0 0,3,14,16,18,20,22 * * 6'
+    - cron: '0 0,2,4 * * 0'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Snapshot odds
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: python web/odds.py snapshot --season 2026
+      - name: Commit
+        run: |
+          git config user.name "cfb-model-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/odds
+          git diff --staged --quiet && exit 0
+          git commit -m "Odds snapshot: $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git pull --rebase -q origin main && git push

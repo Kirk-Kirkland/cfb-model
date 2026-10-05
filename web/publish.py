@@ -457,6 +457,31 @@ def main():
     print(f'  garbage-share rule: {flagged} game(s) flagged at threshold {GS_THRESHOLD}',
           file=sys.stderr)
 
+    # Sharp market read (The Odds API). Informational only: it is shown next to
+    # each pick and snapshotted for CLV, but it does not add or remove bets.
+    # Same discipline as the garbage-time rule: watch it before trusting it.
+    try:
+        import odds as O
+        snap = O.snapshot(a.season, week, games)
+    except Exception as e:
+        print(f'  odds: skipped ({e})', file=sys.stderr)
+        snap = None
+    if snap:
+        for g in games:
+            s_ = snap.get(str(g['game_id']))
+            if s_:
+                g.update(pin_total=s_['pin'], pin_fair=s_['pin_fair'],
+                         us_low=s_['us_low'], us_high=s_['us_high'], books=s_['books'])
+        for b in best_bets + top3:
+            m = next((g for g in games if g['matchup'] == b['game']), None)
+            if not m or m.get('pin_fair') is None:
+                continue
+            side = b['bet'].split()[0]
+            b['pin_fair'] = m['pin_fair']
+            b['market'] = O.market_read(side, m['dk_total'], m['pin_fair'])
+            # Best number at any US book for this side
+            b['best_us'] = m['us_low'] if side == 'Over' else m['us_high']
+
     rat = build_ratings(ratings, D)
     qb_vals = build_qb_values(qbv)
 

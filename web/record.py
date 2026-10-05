@@ -17,7 +17,9 @@ Finals come from the public ESPN scoreboard. No API key needed.
 
 Usage:  python web/record.py --season 2026
 """
-import os, json, glob, argparse, urllib.request, datetime
+import os, sys, json, glob, argparse, urllib.request, datetime
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import odds as O
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -77,8 +79,9 @@ def clv(side, bet_line, close):
     return round((close - bet_line) if side == 'Over' else (bet_line - close), 1)
 
 
-def grade_card(card, finals, published):
+def grade_card(card, finals, published, snaps=()):
     gid = {g['matchup']: str(g['game_id']) for g in card.get('games', [])}
+    kick = {g['matchup']: g.get('kickoff_iso') for g in card.get('games', [])}
     top = {t['game']: t['rank'] for t in card.get('top3', [])}
     out = []
     for b in card.get('best_bets', []):
@@ -98,12 +101,18 @@ def grade_card(card, finals, published):
             close = closing_total(g_id, finals)
         fs = (card.get('first_seen') or {}).get(f"{b['game']}|{side}") or {}
         first_line = fs.get('line')
+        # Pinnacle's no-vig total from the last snapshot before kickoff. The
+        # sharpest close available, so CLV against it is the real test.
+        nc = O.near_close(snaps, g_id, kick.get(b['game'])) if snaps else None
+        pin_close = nc['pin_fair'] if nc else None
+        bet_at = first_line if first_line is not None else line
         out.append(dict(week=card['meta']['week'], game=b['game'], bet=b['bet'],
                         edge=b.get('edge'), top3=top.get(b['game']), result=res,
                         actual_total=total, score=score, published=published,
                         close_total=close, clv=clv(side, line, close),
                         first_line=first_line, first_seen_at=fs.get('at'),
                         clv_first=clv(side, first_line, close),
+                        pin_close=pin_close, clv_pin=clv(side, bet_at, pin_close),
                         gs_flag=bool(b.get('gs_flag')),
                         garbage_share=b.get('garbage_share')))
     return out
@@ -160,7 +169,7 @@ def main():
         if not pub:
             warn = warn or card['meta'].get('reconstruction_warning', '')
         finals = espn_finals(a.season, wk)
-        got = grade_card(card, finals, pub)
+        got = grade_card(card, finals, pub, O.load_snapshots(a.season, wk) if pub else ())
         picks += got
         print(f'  week {wk} ({"published" if pub else "reconstructed"}): {len(got)} picks, '
               f'{sum(1 for p in got if p["result"])} graded')
@@ -194,7 +203,9 @@ def main():
         #           the number available to someone betting it early)
         clv=dict(posted=clv_tally([p for p in graded if p['published']], 'clv'),
                  first=clv_tally([p for p in graded if p['published']], 'clv_first'),
-                 top3_first=clv_tally([p for p in graded if p['published'] and p['top3']], 'clv_first')),
+                 top3_first=clv_tally([p for p in graded if p['published'] and p['top3']], 'clv_first'),
+                 # vs Pinnacle's no-vig near-close, from the first line where known
+                 pinnacle=clv_tally([p for p in graded if p['published']], 'clv_pin')),
         by_week=[dict(week=w,
                       published=any(p['published'] for p in graded if p['week'] == w),
                       clv=clv_tally([p for p in graded if p['week'] == w], 'clv'),
@@ -213,6 +224,9 @@ def main():
     c = out['clv']['posted']
     if c['n']:
         print(f"CLV vs posted line    : avg {c['avg']:+} pts, beat the close {c['beat']}-{c['lost']}-{c['same']} ({c['beat_pct']}%)")
+    c = out['clv']['pinnacle']
+    if c['n']:
+        print(f"CLV vs Pinnacle close : avg {c['avg']:+} pts, beat {c['beat']}-{c['lost']}-{c['same']} ({c['beat_pct']}%)")
     c = out['clv']['first']
     if c['n']:
         print(f"CLV vs first line     : avg {c['avg']:+} pts, beat the close {c['beat']}-{c['lost']}-{c['same']} ({c['beat_pct']}%)")
