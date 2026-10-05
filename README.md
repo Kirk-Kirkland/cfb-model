@@ -23,11 +23,24 @@ itself with no manual editing.
 
 `.github/workflows/weekly.yml` runs the model **Sunday 12pm ET** and
 **Thursday 9am ET** (ahead of Thursday-night games) as the main picks runs,
-plus a **Saturday 8am ET** weather check (same full run, meant to catch late
+plus **Sunday 8pm and Monday 7am ET** runs to catch opening lines, and a **Saturday 8am ET** weather check (same full run, meant to catch late
 wind/rain shifts rather than redefine the week's picks). Each run commits the
 fresh `docs/data.json`, and the live site picks it up automatically. You can
 also trigger a run any time from the
 **Actions** tab ("Run workflow"), optionally forcing a specific week number.
+
+## Lines and CLV
+
+Lines come from ESPN's DraftKings feed first, then the CFBD feed as a backup
+(CFBD lags by a day or more early in the week). Each game shows its source in
+`line_src`.
+
+Every pick records the **first line it appeared at** (`first_seen` in the
+week's history file). It never changes once written, even if later runs move
+or drop the pick. `web/record.py` pulls each game's closing total from ESPN and
+grades **closing line value**: points the market moved toward the pick after it
+was posted. CLV settles much faster than win/loss, so it is the quickest honest
+read on whether the model beats the market.
 
 ## Injuries (optional)
 

@@ -59,7 +59,22 @@ function renderTop3() {
       <div class="bet">${p.bet}</div>
       <div class="sub">${p.game} &middot; ${p.kickoff} &middot; edge ${fmtEdge(p.edge)} &middot; est. hit rate ${fmtConf(p.confidence)}</div>
       <div class="sub bet-only-if">Bet only if line is ${p.bet_only_if}</div>
+      ${firstLine(p)}
     </div>`).join('') || '<div class="sub">No qualifying plays this build.</div>';
+}
+
+function firstLine(b) {
+  if (b.first_line === undefined || b.first_line === null) return '';
+  const now = parseFloat(b.bet.split(' ')[1]);
+  const moved = now - b.first_line;
+  const when = b.first_seen_at ? new Date(b.first_seen_at).toLocaleString([], {weekday: 'short', hour: 'numeric', minute: '2-digit'}) : '';
+  return `<div class="sub">First posted at ${b.first_line} (${when})${moved ? ` &middot; line has moved ${moved > 0 ? '+' : ''}${moved}` : ''}</div>`;
+}
+
+function fmtClv(v) {
+  if (v === null || v === undefined) return '&mdash;';
+  const cls = v > 0 ? 'good' : v < 0 ? 'bad' : 'neutral';
+  return `<span class="pill ${cls}">${v > 0 ? '+' : ''}${v}</span>`;
 }
 
 function renderBestBets() {
@@ -75,6 +90,7 @@ function renderBestBets() {
         <div class="bet-title">${b.bet} <span style="color:var(--muted);font-weight:400;">(${b.game})</span></div>
         <div class="bet-sub">${b.kickoff} &middot; ${b.note}</div>
         <div class="bet-sub bet-only-if">Bet only if line is ${b.bet_only_if} &middot; est. hit rate ${fmtConf(b.confidence)}</div>
+        ${firstLine(b)}
       </div>
       <div class="edge">${fmtEdge(b.edge)}</div>
     </div>`).join('');
@@ -149,6 +165,13 @@ function recCls(t) {
   return t.pct > 52.4 ? 'good' : 'bad';
 }
 
+function clvStat(label, c) {
+  if (!c || !c.n) return stat(label, '&mdash;', 'starts week 6', '');
+  return stat(label, `${c.avg > 0 ? '+' : ''}${c.avg} pts`,
+    `beat the close ${c.beat}-${c.lost} &middot; ${c.same} unchanged`,
+    c.avg > 0 ? 'good' : c.avg < 0 ? 'bad' : '');
+}
+
 function renderRecord() {
   const r = RECORD, all = r.all_bets, live = r.published_only, t3 = r.top3;
   document.getElementById('recordSummary').innerHTML =
@@ -160,7 +183,9 @@ function renderRecord() {
          recCls(live)) +
     stat('Top 3 of the week', t3.n ? `${t3.w}-${t3.l}` : '&mdash;',
          t3.n ? `${t3.pct}% on ${t3.n} bets` : '', recCls(t3)) +
-    stat('Break-even', `${r.meta.break_even_pct}%`, 'at -110 odds', '');
+    stat('Break-even', `${r.meta.break_even_pct}%`, 'at -110 odds', '') +
+    clvStat('CLV vs posted line', r.clv && r.clv.posted) +
+    clvStat('CLV vs first line', r.clv && r.clv.first);
 
   const n = all.n, lo = (all.pct - all.se).toFixed(1), hi = (all.pct + all.se).toFixed(1);
   document.getElementById('recordCaveat').innerHTML =
@@ -180,6 +205,7 @@ function renderRecord() {
       <td>${w.pct}%</td>
       <td>${w.units > 0 ? '+' : ''}${w.units.toFixed(2)}</td>
       <td>${w.roi > 0 ? '+' : ''}${w.roi}%</td>
+      <td>${w.published && w.clv && w.clv.n ? `${w.clv.avg > 0 ? '+' : ''}${w.clv.avg} (${w.clv.beat}-${w.clv.lost})` : '&mdash;'}</td>
       <td><span class="pill ${w.published ? 'good' : 'neutral'}">${w.published ? 'published live' : 'reconstructed'}</span></td>
     </tr>`).join('');
 
@@ -189,6 +215,9 @@ function renderRecord() {
       <td>${p.game}${p.top3 ? ` <span class="pill lean">Top ${p.top3}</span>` : ''}</td>
       <td>${p.bet}</td>
       <td>${fmtEdge(p.edge)}</td>
+      <td>${p.first_line ?? '&mdash;'}</td>
+      <td>${p.published ? (p.close_total ?? '&mdash;') : '&mdash;'}</td>
+      <td>${p.published ? fmtClv(p.first_line != null ? p.clv_first : p.clv) : '&mdash;'}</td>
       <td class="muted-cell">${p.score || '&mdash;'}</td>
       <td>${p.actual_total ?? '&mdash;'}</td>
       <td>${p.result ? `<span class="pill ${p.result === 'WIN' ? 'good' : p.result === 'LOSS' ? 'bad' : 'neutral'}">${p.result}</span>` : '&mdash;'}</td>

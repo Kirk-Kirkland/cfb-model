@@ -40,12 +40,41 @@ def espn_finals(season, week):
         try:
             h = [x for x in cs if x['homeAway'] == 'home'][0]
             a = [x for x in cs if x['homeAway'] == 'away'][0]
+            o = (c.get('odds') or [{}])[0]
             out[str(e['id'])] = dict(total=int(h['score']) + int(a['score']),
                                      score=f"{a['team']['location']} {a['score']} @ "
-                                           f"{h['team']['location']} {h['score']}")
+                                           f"{h['team']['location']} {h['score']}",
+                                     # ESPN keeps the last DraftKings number on a
+                                     # finished game: the closing total.
+                                     close=o.get('overUnder'))
         except (IndexError, TypeError, ValueError):
             continue
     return out
+
+
+def closing_total(gid, finals):
+    """Closing total for one game: the scoreboard's, else the game summary's."""
+    f = finals.get(gid) or {}
+    if f.get('close') is not None:
+        return f['close']
+    try:
+        url = ('https://site.api.espn.com/apis/site/v2/sports/football/'
+               f'college-football/summary?event={gid}')
+        with urllib.request.urlopen(url, timeout=30) as r:
+            for p in json.load(r).get('pickcenter') or []:
+                if p.get('overUnder') is not None:
+                    return p['overUnder']
+    except Exception:
+        pass
+    return None
+
+
+def clv(side, bet_line, close):
+    """Points of closing line value. Positive = the market moved toward the bet
+    after it was made (an Over bet at 45 that closed 47 is +2)."""
+    if bet_line is None or close is None:
+        return None
+    return round((close - bet_line) if side == 'Over' else (bet_line - close), 1)
 
 
 def grade_card(card, finals, published):
@@ -60,14 +89,21 @@ def grade_card(card, finals, published):
             line = float(line)
         except ValueError:
             continue
-        f = finals.get(gid.get(b['game'], ''))
-        res, total, score = None, None, None
+        g_id = gid.get(b['game'], '')
+        f = finals.get(g_id)
+        res, total, score, close = None, None, None, None
         if f:
             total, score = f['total'], f['score']
             res = 'PUSH' if total == line else ('WIN' if (total > line) == (side == 'Over') else 'LOSS')
+            close = closing_total(g_id, finals)
+        fs = (card.get('first_seen') or {}).get(f"{b['game']}|{side}") or {}
+        first_line = fs.get('line')
         out.append(dict(week=card['meta']['week'], game=b['game'], bet=b['bet'],
                         edge=b.get('edge'), top3=top.get(b['game']), result=res,
                         actual_total=total, score=score, published=published,
+                        close_total=close, clv=clv(side, line, close),
+                        first_line=first_line, first_seen_at=fs.get('at'),
+                        clv_first=clv(side, first_line, close),
                         gs_flag=bool(b.get('gs_flag')),
                         garbage_share=b.get('garbage_share')))
     return out
@@ -85,6 +121,16 @@ def tally(picks):
                 units=units, roi=round(units / n * 100, 1) if n else None,
                 # 1 SE on a coin-flip-ish rate, the honest error bar
                 se=round(50 / n ** 0.5, 1) if n else None)
+
+
+def clv_tally(picks, key):
+    v = [p[key] for p in picks if p.get(key) is not None]
+    if not v:
+        return dict(n=0, avg=None, beat_pct=None, beat=0, lost=0, same=0)
+    beat, lost = sum(x > 0 for x in v), sum(x < 0 for x in v)
+    return dict(n=len(v), avg=round(sum(v) / len(v), 2),
+                beat=beat, lost=lost, same=len(v) - beat - lost,
+                beat_pct=round(beat / len(v) * 100, 1))
 
 
 def main():
@@ -140,8 +186,19 @@ def main():
                   '0.20 hit under 50%, against a 52.4% break-even.',
             flagged=tally([p for p in graded if p.get('gs_flag') and p['week'] >= 6]),
             unflagged=tally([p for p in graded if not p.get('gs_flag') and p['week'] >= 6])),
+        # Closing line value. Grades how the market moved after the pick, which
+        # settles far faster than win/loss: a bettor who keeps beating the
+        # close is beating the market, whatever this month's record says.
+        #   posted: vs the line on the graded card (the last pre-kickoff run)
+        #   first:  vs the first line the pick ever appeared at (from week 6;
+        #           the number available to someone betting it early)
+        clv=dict(posted=clv_tally([p for p in graded if p['published']], 'clv'),
+                 first=clv_tally([p for p in graded if p['published']], 'clv_first'),
+                 top3_first=clv_tally([p for p in graded if p['published'] and p['top3']], 'clv_first')),
         by_week=[dict(week=w,
                       published=any(p['published'] for p in graded if p['week'] == w),
+                      clv=clv_tally([p for p in graded if p['week'] == w], 'clv'),
+                      clv_first=clv_tally([p for p in graded if p['week'] == w], 'clv_first'),
                       **tally([p for p in graded if p['week'] == w]))
                  for w in sorted({p['week'] for p in graded})],
         picks=sorted(picks, key=lambda p: (p['week'], -abs(p['edge'] or 0))))
@@ -153,6 +210,12 @@ def main():
     print(f"published live only   : {out['published_only']['w']}-{out['published_only']['l']} "
           f"({out['published_only']['pct']}%)")
     print(f"top 3 of the week     : {out['top3']['w']}-{out['top3']['l']} ({out['top3']['pct']}%)")
+    c = out['clv']['posted']
+    if c['n']:
+        print(f"CLV vs posted line    : avg {c['avg']:+} pts, beat the close {c['beat']}-{c['lost']}-{c['same']} ({c['beat_pct']}%)")
+    c = out['clv']['first']
+    if c['n']:
+        print(f"CLV vs first line     : avg {c['avg']:+} pts, beat the close {c['beat']}-{c['lost']}-{c['same']} ({c['beat_pct']}%)")
     print(f"wrote {a.out}")
 
 

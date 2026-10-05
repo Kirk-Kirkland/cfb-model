@@ -132,10 +132,22 @@ def et(z):
 def build_games(D, games_wk, injuries):
     lines = {l['id']: l for l in D['lines']}
     espn_ab = {}
+    # ESPN's DraftKings line, keyed by game id. Preferred over the CFBD feed
+    # because CFBD lags: on Monday 2026-10-05 it had 13 of 58 week 6 totals
+    # while DraftKings had posted all 58, and its USC/Penn State total was
+    # 58.5 against a live 54.5. Early lines are where the misses are, so the
+    # model has to see them. Same book either way; ESPN's spread is the home
+    # line, the same sign convention as CFBD.
+    espn_odds = {}
     if D.get('espn'):
         for e in D['espn'].get('events', []):
             for c in e['competitions'][0]['competitors']:
                 espn_ab[(e['id'], c['homeAway'])] = c['team']['abbreviation']
+            o = (e['competitions'][0].get('odds') or [{}])[0]
+            if o.get('overUnder') is not None:
+                espn_odds[str(e['id'])] = dict(
+                    overUnder=o['overUnder'], spread=o.get('spread'),
+                    provider=(o.get('provider') or {}).get('name') or 'ESPN')
     fpi = {}
     if D.get('fpi'):
         for t in D['fpi']['teams']:
@@ -164,6 +176,13 @@ def build_games(D, games_wk, injuries):
 
         dk_spread = dk.get('spread') if dk else None
         dk_total = dk.get('overUnder') if dk else None
+        line_src = 'CFBD' if dk_total is not None else None
+        eo = espn_odds.get(str(gid))
+        if eo:
+            dk_total = eo['overUnder']
+            if eo.get('spread') is not None:
+                dk_spread = eo['spread']
+            line_src = eo['provider']
         open_spread = dk.get('spreadOpen') if dk else None
         open_total = dk.get('overUnderOpen') if dk else None
         bv_spread = bv.get('spread') if bv else None
@@ -288,6 +307,7 @@ def build_games(D, games_wk, injuries):
             kickoff_et=et(g['startDate']), kickoff_iso=g['startDate'], neutral=neutral, fcs=fcs,
             venue=venue, wind=wind, rain=rain, temp=temp,
             dk_spread=dk_spread, dk_total=dk_total, open_spread=open_spread, open_total=open_total,
+            line_src=line_src,
             model_margin=round(model_margin, 2), market_margin=market_margin,
             edge=round(edge, 2) if edge is not None else None, agree=agree,
             side_pick=side_pick, side_prob=round(side_prob, 4) if side_prob is not None else None, side_tier=side_tier,
@@ -456,6 +476,7 @@ def main():
     # that regardless of how the run was triggered.
     hpath = os.path.join(a.history_dir, f'{a.season}_wk{week}.json')
     locked = False
+    prior = None
     if os.path.exists(hpath):
         try:
             prior = json.load(open(hpath))
@@ -488,6 +509,25 @@ def main():
         with open(a.out, 'w') as f:
             json.dump(live, f, indent=2)
     else:
+        # First line each pick appeared at. Runs before kickoff rewrite the card,
+        # so without this the early number (the one worth betting) is lost and
+        # CLV can only be measured from the last pre-kickoff line. A pick keeps
+        # its first entry even if a later run drops it: it was on the card, it
+        # may have been bet. Only the first sighting is ever recorded.
+        # Cards written before this existed are NOT seeded: their lines came
+        # from the lagging CFBD feed (week 6's Sunday card had USC/PSU at 58.5
+        # against a live 54.5) and would manufacture CLV that was never there.
+        first = dict((prior or {}).get('first_seen') or {})
+        for b in best_bets:
+            side, line = b['bet'].split()
+            first.setdefault(f"{b['game']}|{side}", dict(
+                bet=b['bet'], line=float(line), edge=b.get('edge'),
+                at=payload['meta']['generated_at']))
+        for b in best_bets + top3:
+            fs = first.get(f"{b['game']}|{b['bet'].split()[0]}")
+            if fs:
+                b['first_line'], b['first_seen_at'] = fs['line'], fs['at']
+        payload['first_seen'] = first
         with open(a.out, 'w') as f:
             json.dump(payload, f, indent=2)
         with open(hpath, 'w') as f:
