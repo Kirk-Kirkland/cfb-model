@@ -174,6 +174,37 @@ def main():
         print(f'  week {wk} ({"published" if pub else "reconstructed"}): {len(got)} picks, '
               f'{sum(1 for p in got if p["result"])} graded')
 
+    # Early 5: the Monday card, graded on its own at the line it was posted at.
+    early = []
+    for f in sorted(glob.glob(os.path.join(ROOT, 'data', 'early', f'{a.season}_wk*.json'))):
+        try:
+            card = json.load(open(f))
+        except Exception as e:
+            print(f'  skipped {os.path.basename(f)}: {e}')
+            continue
+        wk = card['meta']['week']
+        finals = espn_finals(a.season, wk)
+        snaps = O.load_snapshots(a.season, wk)
+        gid = {g['matchup']: str(g['game_id']) for g in card.get('games', [])}
+        kick = {g['matchup']: g.get('kickoff_iso') for g in card.get('games', [])}
+        for pk in card['picks']:
+            side, line = pk['bet'].split()
+            line = float(line)
+            g_id = gid.get(pk['game'], '')
+            fin = finals.get(g_id)
+            res = total = close = None
+            if fin:
+                total = fin['total']
+                res = 'PUSH' if total == line else ('WIN' if (total > line) == (side == 'Over') else 'LOSS')
+                close = closing_total(g_id, finals)
+            nc = O.near_close(snaps, g_id, kick.get(pk['game'])) if snaps else None
+            pin_close = nc['pin_fair'] if nc else None
+            early.append(dict(week=wk, rank=pk['rank'], game=pk['game'], bet=pk['bet'],
+                              posted_at=card['meta']['posted_at'], result=res,
+                              actual_total=total, close_total=close, clv=clv(side, line, close),
+                              pin_close=pin_close, clv_pin=clv(side, line, pin_close)))
+    early_graded = [p for p in early if p['result']]
+
     graded = [p for p in picks if p['result']]
     live = [p for p in graded if p['published']]
     out = dict(
@@ -206,6 +237,10 @@ def main():
                  top3_first=clv_tally([p for p in graded if p['published'] and p['top3']], 'clv_first'),
                  # vs Pinnacle's no-vig near-close, from the first line where known
                  pinnacle=clv_tally([p for p in graded if p['published']], 'clv_pin')),
+        early5=dict(record=tally(early_graded),
+                    clv=clv_tally(early_graded, 'clv'),
+                    clv_pin=clv_tally(early_graded, 'clv_pin'),
+                    picks=early),
         by_week=[dict(week=w,
                       published=any(p['published'] for p in graded if p['week'] == w),
                       clv=clv_tally([p for p in graded if p['week'] == w], 'clv'),
@@ -230,6 +265,9 @@ def main():
     c = out['clv']['first']
     if c['n']:
         print(f"CLV vs first line     : avg {c['avg']:+} pts, beat the close {c['beat']}-{c['lost']}-{c['same']} ({c['beat_pct']}%)")
+    e = out['early5']['record']
+    if early:
+        print(f"early 5               : {e['w']}-{e['l']} on {len(early)} posted picks")
     print(f"wrote {a.out}")
 
 

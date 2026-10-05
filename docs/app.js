@@ -38,6 +38,28 @@ async function loadRecord() {
     return;
   }
   renderRecord();
+  renderEarly5();
+}
+
+function renderEarly5() {
+  const el = document.getElementById('early5');
+  const e = RECORD && RECORD.early5;
+  if (!el || !e || !e.picks.length) return;
+  const wk = DATA.meta.week;
+  const picks = e.picks.filter(p => p.week === wk);
+  if (!picks.length) return;
+  const when = new Date(picks[0].posted_at).toLocaleString([], {weekday: 'short', month: 'numeric', day: 'numeric', hour: 'numeric', minute: '2-digit'});
+  const r = e.record, c = e.clv;
+  const season = r.n ? ` &middot; Early 5 season: ${r.w}-${r.l}` + (c.n ? `, CLV ${c.avg > 0 ? '+' : ''}${c.avg}` : '') : '';
+  el.innerHTML = `<div class="early5 card">
+    <h3>Early 5 &middot; Week ${wk}</h3>
+    <div class="early-sub">Posted ${when} at the lines shown. Graded on its own, separate from the Top 3.${season}</div>
+    <table>${picks.map(p => `<tr>
+      <td>${p.rank}</td><td><strong>${p.bet}</strong></td><td>${p.game}</td>
+      <td>${p.close_total != null ? 'closed ' + p.close_total : ''}</td>
+      <td>${p.result ? `<span class="pill ${p.result === 'WIN' ? 'good' : p.result === 'LOSS' ? 'bad' : 'neutral'}">${p.result}</span>` : ''}</td>
+      <td>${p.clv != null ? fmtClv(p.clv) : ''}</td></tr>`).join('')}</table>
+  </div>`;
 }
 
 function render() {
@@ -198,7 +220,12 @@ function renderRecord() {
     stat('Break-even', `${r.meta.break_even_pct}%`, 'at -110 odds', '') +
     clvStat('CLV vs posted line', r.clv && r.clv.posted) +
     clvStat('CLV vs first line', r.clv && r.clv.first) +
-    clvStat('CLV vs Pinnacle close', r.clv && r.clv.pinnacle);
+    clvStat('CLV vs Pinnacle close', r.clv && r.clv.pinnacle) +
+    (r.early5 && r.early5.record.n
+      ? stat('Early 5 (Monday card)', `${r.early5.record.w}-${r.early5.record.l}`,
+             `${r.early5.record.pct}%` + (r.early5.clv.n ? ` &middot; CLV ${r.early5.clv.avg > 0 ? '+' : ''}${r.early5.clv.avg}` : ''),
+             recCls(r.early5.record))
+      : stat('Early 5 (Monday card)', '&mdash;', 'starts week 6', ''));
 
   const n = all.n, lo = (all.pct - all.se).toFixed(1), hi = (all.pct + all.se).toFixed(1);
   document.getElementById('recordCaveat').innerHTML =

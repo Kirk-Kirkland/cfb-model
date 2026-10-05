@@ -418,6 +418,7 @@ def main():
     ap.add_argument('--season', type=int, default=2026)
     ap.add_argument('--week', type=int, default=None)
     ap.add_argument('--injuries', default=None)
+    ap.add_argument('--early', action='store_true', help='freeze the Early 5 now even if not Monday')
     ap.add_argument('--out', default=os.path.join(os.path.dirname(__file__), '..', 'docs', 'data.json'))
     ap.add_argument('--history-dir', default=os.path.join(os.path.dirname(__file__), '..', 'data', 'history'))
     a = ap.parse_args()
@@ -484,6 +485,28 @@ def main():
 
     rat = build_ratings(ratings, D)
     qb_vals = build_qb_values(qbv)
+
+    # Early 5: the week's top five by edge, frozen on the first Monday (ET) run
+    # and posted publicly that day. Graded on its own, separate from the
+    # Thursday card, so two public cards never blur into one record. Once the
+    # file exists it is never rewritten. --early forces a freeze on another day.
+    early_path = os.path.join(os.path.dirname(a.history_dir), 'early', f'{a.season}_wk{week}.json')
+    now_et = datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(hours=4)
+    if not os.path.exists(early_path) and (now_et.weekday() == 0 or a.early):
+        five = sorted(best_bets, key=lambda b: -abs(b['edge']))[:5]
+        early = dict(meta=dict(season=a.season, week=week, kind='early5',
+                               posted_at=datetime.datetime.now(datetime.timezone.utc).isoformat()),
+                     picks=[dict(rank=i + 1, **{k: b.get(k) for k in (
+                         'game', 'kickoff', 'bet', 'edge', 'tier', 'bet_only_if',
+                         'pin_fair', 'market', 'best_us', 'gs_flag')})
+                            for i, b in enumerate(five)],
+                     games=[dict(matchup=g['matchup'], game_id=g['game_id'],
+                                 kickoff_iso=g['kickoff_iso'], away=g['away'], home=g['home'])
+                            for g in games if g['matchup'] in {b['game'] for b in five}])
+        os.makedirs(os.path.dirname(early_path), exist_ok=True)
+        with open(early_path, 'w') as f:
+            json.dump(early, f, indent=2)
+        print(f'  early 5 frozen for week {week}', file=sys.stderr)
 
     payload = dict(
         meta=dict(season=a.season, week=week, generated_at=datetime.datetime.now(datetime.timezone.utc).isoformat(),
