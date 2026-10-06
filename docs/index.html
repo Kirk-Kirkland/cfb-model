@@ -24,6 +24,14 @@
 
 <main id="app">
   <section id="tab-bets" class="tab-panel active">
+    <details class="explain">
+      <summary>How to read these picks</summary>
+      <p><strong>Model total</strong> is what the model projects. <strong>Edge</strong> is model total minus the line. It is a gap between two numbers, not a measure of advantage: on average the model misses final totals by about 12.9 points and the market by 12.6, so the market is the more accurate of the two and a big edge is mostly the model disagreeing.</p>
+      <p><strong>Est. hit rate is 53% for every bet, on purpose.</strong> Walk-forward backtests (2023-25) found that edges of 4+ points hit about 53-54% together, and that bigger edges did not hit more often than smaller ones. So bets are not ranked by confidence. Break-even at -110 is 52.4%, which makes this a thin, long-run edge, not a lock.</p>
+      <p><strong>Bet only if</strong> is the line where the edge falls under 4 points. Past it, pass.</p>
+      <p><strong>Pinnacle fair</strong> is the sharpest book's number with the juice removed. "Sharp line agrees" means it sits on the pick's side of the DraftKings line. This is tracked, not used to pick, until the record shows it helps.</p>
+      <p>Every pick keeps the first line it was posted at, and the Track Record grades wins, losses and closing line value against it. Nothing is edited after kickoff. See <a href="https://github.com/Kirk-Kirkland/cfb-model/blob/main/CORRECTIONS.md">corrections</a>.</p>
+    </details>
     <div id="early5"></div>
     <div id="top3" class="top3"></div>
     <div id="bestbets" class="card-list"></div>

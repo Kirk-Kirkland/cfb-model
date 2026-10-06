@@ -129,3 +129,8 @@ tbody tr:hover { background: rgba(127,127,127,0.06); }
 .early5 .early-sub { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
 .early5 table { width: 100%; border-collapse: collapse; font-size: 13px; }
 .early5 td { padding: 6px 8px; border-top: 1px solid var(--border); }
+
+.explain { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px; margin-bottom: 14px; font-size: 13px; line-height: 1.5; }
+.explain summary { cursor: pointer; font-weight: 700; color: var(--accent); }
+.explain p { margin: 8px 0 0; color: var(--text); }
+.explain a { color: var(--accent); }
