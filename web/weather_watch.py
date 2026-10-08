@@ -26,13 +26,17 @@ METEO = ('https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}'
          '&wind_speed_unit=mph&precipitation_unit=inch&timezone=UTC&start_date={d}&end_date={d}')
 
 
-def getj(url):
-    try:
-        with urllib.request.urlopen(url, timeout=30) as r:
-            return json.load(r)
-    except Exception as e:
-        print(f'  weather watch: {url[:60]}... failed ({e})', file=sys.stderr)
-        return None
+def getj(url, tries=3):
+    import time
+    for i in range(tries):
+        try:
+            with urllib.request.urlopen(url, timeout=30) as r:
+                return json.load(r)
+        except Exception as e:
+            err = e
+            time.sleep(2 * (i + 1))
+    print(f'  weather watch: {url[:60]}... failed ({err})', file=sys.stderr)
+    return None
 
 
 def miles(a, b):
