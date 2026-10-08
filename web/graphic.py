@@ -66,36 +66,36 @@ def build(season, week):
         radial-gradient(900px 600px at 110% 105%, rgba(250,204,21,.16), transparent 60%),
         repeating-linear-gradient(90deg, rgba(255,255,255,.035) 0 2px, transparent 2px 108px),
         linear-gradient(180deg,#07101f 0%,#0a1428 55%,#060b16 100%); }}
-    .wrap {{ padding:236px 172px 0 56px; }}
-    .brand {{ font-family:'Inter Display'; font-weight:800; letter-spacing:.3em; font-size:22px; color:#7dd3fc; }}
-    h1 {{ font-family:'Inter Display'; font-weight:900; font-size:104px; line-height:.92; letter-spacing:-.02em; margin-top:10px;
+    .wrap {{ padding:165px 150px 0 50px; text-align:left; }}
+    .brand {{ font-family:'Inter Display'; font-weight:800; letter-spacing:.28em; font-size:25px; color:#7dd3fc; }}
+    h1 {{ font-family:'Inter Display'; font-weight:900; font-size:122px; line-height:.92; letter-spacing:-.02em; margin-top:10px;
       background:linear-gradient(180deg,#ffffff 0%,#cfe8ff 100%); -webkit-background-clip:text; color:transparent; }}
     h1 em {{ font-style:normal; color:#facc15; -webkit-text-fill-color:#facc15; }}
-    .meta {{ display:flex; justify-content:space-between; margin-top:14px; font-size:24px; font-weight:600; color:#a9b8d4; }}
+    .meta {{ display:flex; justify-content:space-between; margin-top:14px; font-size:29px; font-weight:600; color:#dbe4f3; }}
     .meta b {{ color:#fff; }}
-    .stamp {{ display:inline-block; margin-top:12px; padding:8px 16px; border:2px solid rgba(125,211,252,.55); border-radius:999px;
-      font-size:20px; font-weight:700; letter-spacing:.08em; color:#bae6fd; }}
-    .list {{ margin-top:20px; display:flex; flex-direction:column; gap:10px; }}
-    .pick {{ display:flex; align-items:center; gap:16px; padding:12px 16px; border-radius:18px;
+    .stamp {{ display:inline-block; margin-top:14px; padding:9px 18px; border:2px solid rgba(125,211,252,.55); border-radius:999px;
+      font-size:23px; font-weight:700; letter-spacing:.06em; color:#e0f2fe; }}
+    .list {{ margin-top:20px; display:flex; flex-direction:column; gap:12px; }}
+    .pick {{ display:flex; align-items:center; gap:16px; padding:15px 18px; border-radius:18px;
       background:linear-gradient(135deg,rgba(255,255,255,.085),rgba(255,255,255,.03));
       border:1.5px solid rgba(255,255,255,.12); box-shadow:0 10px 40px rgba(0,0,0,.35); }}
-    .rank {{ font-family:'Inter Display'; font-weight:900; font-size:48px; width:38px; text-align:center; color:#facc15; }}
+    .rank {{ font-family:'Inter Display'; font-weight:900; font-size:56px; width:42px; text-align:left; color:#facc15; }}
     .body {{ flex:1; min-width:0; }}
-    .teams {{ font-weight:800; font-size:27px; line-height:1.15; }}
-    .teams span {{ color:#7d8aa5; font-weight:600; }}
-    .when {{ margin-top:6px; font-size:20px; font-weight:600; color:#93a3c0; letter-spacing:.04em; }}
-    .bet {{ width:170px; text-align:center; padding:6px 0 8px; border-radius:14px; }}
+    .teams {{ font-weight:800; font-size:33px; line-height:1.15; color:#ffffff; }}
+    .teams span {{ color:#b6c3d9; font-weight:600; }}
+    .when {{ margin-top:7px; font-size:24px; font-weight:700; color:#d3dceb; letter-spacing:.04em; }}
+    .bet {{ width:196px; text-align:center; padding:8px 0 10px; border-radius:16px; }}
     .bet.over {{ background:rgba(34,197,94,.14); border:2px solid rgba(74,222,128,.7); }}
     .bet.under {{ background:rgba(56,189,248,.14); border:2px solid rgba(125,211,252,.75); }}
-    .side {{ font-weight:800; font-size:19px; letter-spacing:.16em; }}
+    .side {{ font-weight:800; font-size:22px; letter-spacing:.14em; }}
     .over .side {{ color:#86efac; }} .under .side {{ color:#7dd3fc; }}
-    .num {{ font-family:'Inter Display'; font-weight:900; font-size:46px; line-height:1; margin-top:2px; }}
-    .cut {{ margin-top:4px; font-size:17px; font-weight:600; color:#c7d2e6; }}
-    .proof {{ margin-top:16px; padding:12px 16px; border-radius:16px; background:rgba(250,204,21,.09);
-      border:1.5px solid rgba(250,204,21,.45); font-size:21px; line-height:1.35; color:#fde68a; }}
+    .num {{ font-family:'Inter Display'; font-weight:900; font-size:56px; line-height:1; margin-top:2px; }}
+    .cut {{ margin-top:5px; font-size:20px; font-weight:700; color:#eef2f8; }}
+    .proof {{ margin-top:18px; padding:14px 18px; border-radius:16px; background:rgba(250,204,21,.09);
+      border:1.5px solid rgba(250,204,21,.45); font-size:25px; line-height:1.35; color:#fde68a; }}
     .proof b {{ color:#fff; }}
-    .how {{ margin-top:10px; font-size:18px; line-height:1.4; color:#93a3c0; }}
-    .foot {{ margin-top:8px; font-size:16px; color:#6f7d98; line-height:1.4; }}
+    .how {{ margin-top:12px; font-size:22px; line-height:1.4; color:#d3dceb; }}
+    .foot {{ margin-top:8px; font-size:18px; color:#a9b6cc; line-height:1.4; }}
     </style></head><body><div class="wrap">
       <div class="brand">VEGAS GONZO PICKS</div>
       <h1>EARLY <em>5</em></h1>
@@ -149,17 +149,17 @@ def build_check(season, week, blurb):
     bad = sum(1 for m in moves if m and m < 0)
     flat = len(moves) - good - bad
     extra = """
-    .chk {{ width:170px; text-align:center; padding:6px 0 8px; border-radius:14px; }}
+    .chk {{ width:196px; text-align:center; padding:8px 0 10px; border-radius:16px; }}
     .chk.good {{ background:rgba(34,197,94,.16); border:2px solid rgba(74,222,128,.8); }}
     .chk.bad {{ background:rgba(239,68,68,.14); border:2px solid rgba(248,113,113,.75); }}
     .chk.neutral {{ background:rgba(255,255,255,.06); border:2px solid rgba(255,255,255,.25); }}
-    .lbl {{ font-weight:800; font-size:16px; letter-spacing:.2em; color:#c7d2e6; }}
-    .tag {{ margin-top:4px; font-size:16px; font-weight:800; letter-spacing:.05em; }}
-    .good .tag {{ color:#86efac; }} .bad .tag {{ color:#fca5a5; }} .neutral .tag {{ color:#c7d2e6; }}
-    .blurb {{ margin-top:16px; padding:12px 16px; border-radius:16px; background:rgba(56,189,248,.10);
-      border:1.5px solid rgba(125,211,252,.45); font-size:20px; line-height:1.38; color:#e0f2fe; }}
+    .lbl {{ font-weight:800; font-size:19px; letter-spacing:.18em; color:#eef2f8; }}
+    .tag {{ margin-top:5px; font-size:19px; font-weight:800; letter-spacing:.04em; }}
+    .good .tag {{ color:#86efac; }} .bad .tag {{ color:#fca5a5; }} .neutral .tag {{ color:#eef2f8; }}
+    .blurb {{ margin-top:18px; padding:14px 18px; border-radius:16px; background:rgba(56,189,248,.10);
+      border:1.5px solid rgba(125,211,252,.45); font-size:24px; line-height:1.38; color:#f0f9ff; }}
     .blurb b {{ color:#fff; }}
-    .score {{ margin-top:12px; font-size:22px; font-weight:700; color:#fde68a; }}
+    .score {{ margin-top:14px; font-size:27px; font-weight:800; color:#fde68a; }}
     """.replace('{{', '{').replace('}}', '}')
     return f"""<!doctype html><html><head><meta charset="utf-8"><style>{style}{extra}</style></head><body><div class="wrap">
       <div class="brand">VEGAS GONZO PICKS</div>
