@@ -139,7 +139,7 @@ def market_read(pick_side, dk_total, pin_fair):
     return dict(gap=gap, sharp_agrees=lean >= 0.5, sharp_disagrees=lean <= -0.5)
 
 
-def snapshot(season, week, games, events=None, remaining=None):
+def snapshot(season, week, games, events=None, remaining=None, wx=None):
     """Append one snapshot for the week's games to data/odds/<season>_wk<N>.jsonl.
     Pass events already fetched to avoid spending credits twice. Returns
     {game_id: summary} for the games matched, or None with no key."""
@@ -150,6 +150,9 @@ def snapshot(season, week, games, events=None, remaining=None):
         return None
     m = match(events, games)
     rows = {str(gid): summarize(ev) for gid, ev in m.items()}
+    for gid, w in (wx or {}).items():
+        if gid in rows:
+            rows[gid]['wx'] = w
     rec = dict(at=datetime.datetime.now(datetime.timezone.utc).isoformat(),
                remaining=remaining, games=rows)
     d = os.path.join(ROOT, 'data', 'odds')
@@ -201,7 +204,48 @@ def main():
     if card['meta']['season'] != a.season:
         print('  card is for another season; skipping', file=sys.stderr)
         return
-    snapshot(a.season, card['meta']['week'], card['games'])
+    week, games = card['meta']['week'], card['games']
+    try:
+        import weather_watch as W
+        wx = W.watch(a.season, week, games)
+        storms = W.storms()
+    except Exception as e:
+        print(f'  weather watch skipped ({e})', file=sys.stderr)
+        wx, storms = {}, []
+    rows = snapshot(a.season, week, games, wx=wx)
+    write_watch(a.season, week, card, rows or {}, wx, storms)
+
+
+def write_watch(season, week, card, rows, wx, storms):
+    """docs/watch.json: games where weather could move the total, with how far
+    the line has moved since the week's first snapshot. The site shows it."""
+    snaps = load_snapshots(season, week)
+    first = {}
+    for sn in snaps:
+        for gid, g in sn['games'].items():
+            if g.get('dk') is not None:
+                first.setdefault(gid, g['dk'])
+    picks = {b['game']: b for b in card.get('best_bets', [])}
+    out = []
+    for g in card['games']:
+        gid = str(g['game_id'])
+        w = wx.get(gid)
+        if not w or not w.get('risk'):
+            continue
+        now = (rows.get(gid) or {}).get('dk')
+        out.append(dict(game=g['matchup'], away=g['away'], home=g['home'], kickoff=g['kickoff_et'],
+                        risk=w['risk'], wind=w['wind'], gust=w['gust'], pop=w['pop'],
+                        storm=w.get('storm'), first_total=first.get(gid), total_now=now,
+                        moved=round(now - first[gid], 1) if now is not None and first.get(gid) is not None else None,
+                        pin_fair=(rows.get(gid) or {}).get('pin_fair'),
+                        our_pick=(picks.get(g['matchup']) or {}).get('bet')))
+    out.sort(key=lambda x: (x['risk'] != 'high', -(x['gust'] or 0)))
+    doc = dict(generated_at=datetime.datetime.now(datetime.timezone.utc).isoformat(), week=week,
+               storms=[dict(name=s['name'], kind=s['kind'], intensity=s['intensity']) for s in storms],
+               games=out)
+    with open(os.path.join(ROOT, 'docs', 'watch.json'), 'w') as f:
+        json.dump(doc, f, indent=2)
+    print(f'  watch.json: {len(out)} games on weather watch', file=sys.stderr)
 
 
 if __name__ == '__main__':

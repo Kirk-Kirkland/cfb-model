@@ -25,6 +25,29 @@ async function load() {
   DATA = await res.json();
   render();
   loadRecord();
+  loadWatch();
+}
+
+async function loadWatch() {
+  const el = document.getElementById('weatherwatch');
+  try {
+    const res = await fetch('watch.json?_=' + Date.now());
+    if (!res.ok) return;
+    const w = await res.json();
+    if (w.week !== DATA.meta.week || !w.games.length) return;
+    const when = new Date(w.generated_at).toLocaleString([], {weekday: 'short', hour: 'numeric', minute: '2-digit'});
+    const storms = w.storms.length ? `Active: ${w.storms.map(s => `${s.kind === 'TS' ? 'Tropical Storm' : s.kind === 'HU' ? 'Hurricane' : s.kind} ${s.name}`).join(', ')}. ` : '';
+    el.innerHTML = `<div class="early5 watch">
+      <h3>Weather watch &middot; Week ${w.week}</h3>
+      <div class="early-sub">${storms}Forecast at kickoff, updated ${when}. Totals in storms tend to fall before kickoff; this shows how far each has moved so far.</div>
+      <table>${w.games.map(g => `<tr>
+        <td><span class="pill ${g.risk === 'high' ? 'bad' : 'lean'}">${g.risk === 'high' ? 'HIGH' : 'watch'}</span></td>
+        <td><strong>${g.game}</strong><div class="muted-cell">${g.kickoff}</div></td>
+        <td>wind ${Math.round(g.wind)} mph, gusts ${Math.round(g.gust)}, rain ${g.pop}%${g.storm && g.storm.miles < 600 ? ` &middot; ${g.storm.name} ${g.storm.miles} mi` : ''}</td>
+        <td>${g.first_total ?? '&mdash;'} &rarr; ${g.total_now ?? '&mdash;'}${g.moved ? ` (${g.moved > 0 ? '+' : ''}${g.moved})` : ''}</td>
+        <td>${g.our_pick ? 'card: ' + g.our_pick : ''}</td></tr>`).join('')}</table>
+    </div>`;
+  } catch (e) { /* no watch file yet */ }
 }
 
 async function loadRecord() {

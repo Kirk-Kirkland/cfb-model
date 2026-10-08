@@ -30,15 +30,17 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - run: pip install -r requirements.txt
       - name: Snapshot odds
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
         run: python web/odds.py snapshot --season 2026
       - name: Commit
         run: |
           git config user.name "cfb-model-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/odds
+          git add data/odds docs/watch.json
           git diff --staged --quiet && exit 0
           git commit -m "Odds snapshot: $(date -u +'%Y-%m-%d %H:%M UTC')"
           git pull --rebase -q origin main && git push
