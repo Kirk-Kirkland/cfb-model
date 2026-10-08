@@ -1,7 +1,7 @@
 {
   "meta": {
     "season": 2026,
-    "generated_at": "2026-10-05T16:21:14.387867+00:00",
+    "generated_at": "2026-10-08T13:12:40.976160+00:00",
     "weeks": [
       3,
       4,
@@ -156,8 +156,8 @@
         "actual_total": null,
         "close_total": null,
         "clv": null,
-        "pin_close": 43.36,
-        "clv_pin": -0.1
+        "pin_close": 42.59,
+        "clv_pin": -0.9
       },
       {
         "week": 6,
@@ -169,8 +169,8 @@
         "actual_total": null,
         "close_total": null,
         "clv": null,
-        "pin_close": 53.0,
-        "clv_pin": 0.5
+        "pin_close": 52.67,
+        "clv_pin": 0.2
       },
       {
         "week": 6,
@@ -182,8 +182,8 @@
         "actual_total": null,
         "close_total": null,
         "clv": null,
-        "pin_close": 58.33,
-        "clv_pin": 0.8
+        "pin_close": 58.94,
+        "clv_pin": 1.4
       },
       {
         "week": 6,
@@ -195,7 +195,7 @@
         "actual_total": null,
         "close_total": null,
         "clv": null,
-        "pin_close": 41.93,
+        "pin_close": 41.85,
         "clv_pin": 0.4
       },
       {
@@ -208,8 +208,8 @@
         "actual_total": null,
         "close_total": null,
         "clv": null,
-        "pin_close": 58.24,
-        "clv_pin": -0.7
+        "pin_close": 52.24,
+        "clv_pin": 5.3
       }
     ]
   },
@@ -1295,8 +1295,8 @@
       "first_line": 43.5,
       "first_seen_at": "2026-10-05T11:40:35.902763+00:00",
       "clv_first": null,
-      "pin_close": 43.36,
-      "clv_pin": -0.1,
+      "pin_close": 42.59,
+      "clv_pin": -0.9,
       "gs_flag": false,
       "garbage_share": 0.1067
     },
@@ -1315,8 +1315,8 @@
       "first_line": 52.5,
       "first_seen_at": "2026-10-05T11:40:35.902763+00:00",
       "clv_first": null,
-      "pin_close": 53.0,
-      "clv_pin": 0.5,
+      "pin_close": 52.67,
+      "clv_pin": 0.2,
       "gs_flag": false,
       "garbage_share": 0.2156
     },
@@ -1335,8 +1335,8 @@
       "first_line": 57.5,
       "first_seen_at": "2026-10-05T11:40:35.902763+00:00",
       "clv_first": null,
-      "pin_close": 58.33,
-      "clv_pin": 0.8,
+      "pin_close": 58.94,
+      "clv_pin": 1.4,
       "gs_flag": false,
       "garbage_share": 0.1168
     },
@@ -1355,7 +1355,7 @@
       "first_line": 41.5,
       "first_seen_at": "2026-10-05T11:40:35.902763+00:00",
       "clv_first": null,
-      "pin_close": 41.93,
+      "pin_close": 41.85,
       "clv_pin": 0.4,
       "gs_flag": false,
       "garbage_share": 0.2037
@@ -1375,8 +1375,8 @@
       "first_line": 58.5,
       "first_seen_at": "2026-10-05T11:40:35.902763+00:00",
       "clv_first": null,
-      "pin_close": 58.24,
-      "clv_pin": 0.3,
+      "pin_close": 52.24,
+      "clv_pin": 6.3,
       "gs_flag": false,
       "garbage_share": 0.1056
     },
@@ -1395,8 +1395,8 @@
       "first_line": 51.5,
       "first_seen_at": "2026-10-05T11:40:35.902763+00:00",
       "clv_first": null,
-      "pin_close": 50.7,
-      "clv_pin": -0.8,
+      "pin_close": 50.39,
+      "clv_pin": -1.1,
       "gs_flag": false,
       "garbage_share": 0.1888
     },
@@ -1415,8 +1415,8 @@
       "first_line": 49.5,
       "first_seen_at": "2026-10-05T11:40:35.902763+00:00",
       "clv_first": null,
-      "pin_close": 49.91,
-      "clv_pin": 0.4,
+      "pin_close": 43.76,
+      "clv_pin": -5.7,
       "gs_flag": false,
       "garbage_share": 0.2013
     },
@@ -1435,8 +1435,8 @@
       "first_line": 53.5,
       "first_seen_at": "2026-10-05T11:40:35.902763+00:00",
       "clv_first": null,
-      "pin_close": 54.07,
-      "clv_pin": 0.6,
+      "pin_close": 54.24,
+      "clv_pin": 0.7,
       "gs_flag": false,
       "garbage_share": 0.4422
     },
@@ -1455,8 +1455,8 @@
       "first_line": 46.5,
       "first_seen_at": "2026-10-05T11:40:35.902763+00:00",
       "clv_first": null,
-      "pin_close": 47.0,
-      "clv_pin": 0.5,
+      "pin_close": 46.91,
+      "clv_pin": 0.4,
       "gs_flag": false,
       "garbage_share": 0.2384
     },
@@ -1475,8 +1475,8 @@
       "first_line": 53.5,
       "first_seen_at": "2026-10-05T11:40:35.902763+00:00",
       "clv_first": null,
-      "pin_close": 53.91,
-      "clv_pin": -0.4,
+      "pin_close": 53.83,
+      "clv_pin": -0.3,
       "gs_flag": true,
       "garbage_share": 0.2104
     },
@@ -1495,8 +1495,8 @@
       "first_line": 59.5,
       "first_seen_at": "2026-10-05T11:40:35.902763+00:00",
       "clv_first": null,
-      "pin_close": 59.91,
-      "clv_pin": -0.4,
+      "pin_close": 58.98,
+      "clv_pin": 0.5,
       "gs_flag": true,
       "garbage_share": 0.2437
     },
@@ -1535,8 +1535,8 @@
       "first_line": 56.5,
       "first_seen_at": "2026-10-05T16:21:06.549907+00:00",
       "clv_first": null,
-      "pin_close": 56.32,
-      "clv_pin": 0.2,
+      "pin_close": 54.85,
+      "clv_pin": 1.6,
       "gs_flag": true,
       "garbage_share": 0.2714
     },
@@ -1555,8 +1555,8 @@
       "first_line": 46.5,
       "first_seen_at": "2026-10-05T11:40:35.902763+00:00",
       "clv_first": null,
-      "pin_close": 47.17,
-      "clv_pin": 0.7,
+      "pin_close": 46.26,
+      "clv_pin": -0.2,
       "gs_flag": false,
       "garbage_share": 0.2523
     },
@@ -1575,8 +1575,8 @@
       "first_line": 42.5,
       "first_seen_at": "2026-10-05T11:40:35.902763+00:00",
       "clv_first": null,
-      "pin_close": 43.43,
-      "clv_pin": 0.9,
+      "pin_close": 43.24,
+      "clv_pin": 0.7,
       "gs_flag": false,
       "garbage_share": 0.4663
     },
@@ -1595,8 +1595,8 @@
       "first_line": 53.5,
       "first_seen_at": "2026-10-05T11:40:35.902763+00:00",
       "clv_first": null,
-      "pin_close": 53.17,
-      "clv_pin": -0.3,
+      "pin_close": 53.35,
+      "clv_pin": -0.1,
       "gs_flag": false,
       "garbage_share": 0.2463
     },
@@ -1615,7 +1615,7 @@
       "first_line": 48.5,
       "first_seen_at": "2026-10-05T11:40:35.902763+00:00",
       "clv_first": null,
-      "pin_close": 48.43,
+      "pin_close": 48.35,
       "clv_pin": -0.1,
       "gs_flag": false,
       "garbage_share": 0.2781
@@ -1635,8 +1635,8 @@
       "first_line": 59.5,
       "first_seen_at": "2026-10-05T11:40:35.902763+00:00",
       "clv_first": null,
-      "pin_close": 59.0,
-      "clv_pin": 0.5,
+      "pin_close": 55.26,
+      "clv_pin": 4.2,
       "gs_flag": false,
       "garbage_share": 0.0933
     }
