@@ -1,0 +1,72 @@
+{
+  "seasons": [
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "games": 3558,
+  "by_wind": {
+    "<10": {
+      "n": 2603,
+      "avg_vs_close": 0.47,
+      "under_pct_vs_close": 49.7,
+      "avg_move_open_to_close": -0.08,
+      "under_pct_vs_open": 51.1
+    },
+    "10-15": {
+      "n": 702,
+      "avg_vs_close": 0.22,
+      "under_pct_vs_close": 52.8,
+      "avg_move_open_to_close": -0.69,
+      "under_pct_vs_open": 54.5
+    },
+    "15-20": {
+      "n": 192,
+      "avg_vs_close": 0.05,
+      "under_pct_vs_close": 53.2,
+      "avg_move_open_to_close": -1.41,
+      "under_pct_vs_open": 58.8
+    },
+    "20+": {
+      "n": 61,
+      "avg_vs_close": 0.41,
+      "under_pct_vs_close": 48.3,
+      "avg_move_open_to_close": -1.74,
+      "under_pct_vs_open": 56.1
+    }
+  },
+  "by_rain": {
+    "dry": {
+      "n": 3305,
+      "avg_vs_close": 0.4,
+      "under_pct_vs_close": 50.5,
+      "avg_move_open_to_close": -0.26,
+      "under_pct_vs_open": 51.9
+    },
+    "wet": {
+      "n": 253,
+      "avg_vs_close": 0.37,
+      "under_pct_vs_close": 50.6,
+      "avg_move_open_to_close": -1.0,
+      "under_pct_vs_open": 57.9
+    }
+  },
+  "storm": {
+    "wind15_and_wet": {
+      "n": 29,
+      "avg_vs_close": -1.0,
+      "under_pct_vs_close": 55.2,
+      "avg_move_open_to_close": -2.73,
+      "under_pct_vs_open": 80.0
+    },
+    "everything_else": {
+      "n": 3529,
+      "avg_vs_close": 0.41,
+      "under_pct_vs_close": 50.4,
+      "avg_move_open_to_close": -0.29,
+      "under_pct_vs_open": 52.1
+    }
+  }
+}
