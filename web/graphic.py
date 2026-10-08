@@ -8,7 +8,8 @@ record from docs/record.json. No edges are printed: the model's edge figures
 imply more precision than it has (see CORRECTIONS.md, 2026-09-30). No
 sportsbook names. Needs Playwright with a Chromium build.
 """
-import os, json, argparse, datetime, html
+import os, sys, json, argparse, datetime, html
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -108,13 +109,80 @@ def build(season, week):
     </body></html>"""
 
 
+def build_check(season, week, blurb):
+    """Midweek line check on the Early 5: posted number vs now, CLV per pick,
+    plus a short blurb on what moved the market. Lines from the latest odds
+    snapshot (data/odds), so it is only as fresh as that pull."""
+    import odds as O
+    base = build(season, week)
+    style = base.split('<style>')[1].split('</style>')[0]
+    card = json.load(open(os.path.join(ROOT, 'data', 'early', f'{season}_wk{week}.json')))
+    snap = O.load_snapshots(season, week)[-1]
+    asof = datetime.datetime.fromisoformat(snap['at']) - datetime.timedelta(hours=4)
+    names = {g['matchup']: (g['away'], g['home']) for g in card['games']}
+    gid = {g['matchup']: str(g['game_id']) for g in card['games']}
+    rows, moves = [], []
+    for p in card['picks']:
+        side, line = p['bet'].split()
+        line = float(line)
+        now = (snap['games'].get(gid[p['game']]) or {}).get('dk')
+        clv = None if now is None else ((now - line) if side == 'Over' else (line - now))
+        moves.append(clv)
+        cls = 'neutral' if not clv else ('good' if clv > 0 else 'bad')
+        tag = 'HOLDING' if not clv else (f"+{clv:g} OUR WAY" if clv > 0 else f"{clv:g} AGAINST")
+        away, home = names[p['game']]
+        day, t = kick(p['kickoff'])
+        rows.append(f"""
+        <div class="pick">
+          <div class="rank">{p['rank']}</div>
+          <div class="body">
+            <div class="teams">{html.escape(away)} <span>@</span> {html.escape(home)}</div>
+            <div class="when">{side.upper()} {line:g} &middot; {day} {t}</div>
+          </div>
+          <div class="chk {cls}">
+            <div class="lbl">NOW</div>
+            <div class="num">{'' if now is None else f'{now:g}'}</div>
+            <div class="tag">{tag}</div>
+          </div>
+        </div>""")
+    good = sum(1 for m in moves if m and m > 0)
+    bad = sum(1 for m in moves if m and m < 0)
+    flat = len(moves) - good - bad
+    extra = """
+    .chk {{ width:250px; text-align:center; padding:10px 0 12px; border-radius:20px; }}
+    .chk.good {{ background:rgba(34,197,94,.16); border:2px solid rgba(74,222,128,.8); }}
+    .chk.bad {{ background:rgba(239,68,68,.14); border:2px solid rgba(248,113,113,.75); }}
+    .chk.neutral {{ background:rgba(255,255,255,.06); border:2px solid rgba(255,255,255,.25); }}
+    .lbl {{ font-weight:800; font-size:22px; letter-spacing:.2em; color:#c7d2e6; }}
+    .tag {{ margin-top:6px; font-size:21px; font-weight:800; letter-spacing:.06em; }}
+    .good .tag {{ color:#86efac; }} .bad .tag {{ color:#fca5a5; }} .neutral .tag {{ color:#c7d2e6; }}
+    .blurb {{ margin-top:28px; padding:22px 26px; border-radius:22px; background:rgba(56,189,248,.10);
+      border:1.5px solid rgba(125,211,252,.45); font-size:28px; line-height:1.4; color:#e0f2fe; }}
+    .blurb b {{ color:#fff; }}
+    .score {{ margin-top:22px; font-size:30px; font-weight:700; color:#fde68a; }}
+    """.replace('{{', '{').replace('}}', '}')
+    return f"""<!doctype html><html><head><meta charset="utf-8"><style>{style}{extra}</style></head><body><div class="wrap">
+      <div class="brand">VEGAS GONZO PICKS</div>
+      <h1>LINE <em>CHECK</em></h1>
+      <div class="meta"><span>Early 5 &middot; <b>Week {week}</b> &middot; posted Monday</span></div>
+      <div class="stamp">LINES AS OF {asof.strftime('%a %-m/%-d').upper()} &middot; {asof.strftime('%-I:%M %p')} ET</div>
+      <div class="blurb">{blurb}</div>
+      <div class="list">{''.join(rows)}</div>
+      <div class="score">{good} moved our way &middot; {bad} against &middot; {flat} holding</div>
+      <div class="how">Beating the closing number is how you know a model is finding value, win or lose. Every pick graded publicly.</div>
+      <div class="foot">Model picks for entertainment only. 21+. Gambling problem? Call 1-800-GAMBLER.</div>
+    </div></body></html>"""
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--season', type=int, default=2026)
     ap.add_argument('--week', type=int, required=True)
     ap.add_argument('--out', required=True)
+    ap.add_argument('--check', action='store_true', help='midweek line check instead of the Early 5 card')
+    ap.add_argument('--blurb', default='', help='short HTML blurb for the line check')
     a = ap.parse_args()
-    page = build(a.season, a.week)
+    page = build_check(a.season, a.week, a.blurb) if a.check else build(a.season, a.week)
     from playwright.sync_api import sync_playwright
     with sync_playwright() as pw:
         b = pw.chromium.launch()
