@@ -1,0 +1,35 @@
+name: Run a study
+
+# One-off research scripts that need the CFBD key. Run by hand from Actions.
+on:
+  workflow_dispatch:
+    inputs:
+      script:
+        description: 'Script in web/ to run'
+        required: true
+        default: 'weather_study.py'
+
+permissions:
+  contents: write
+
+jobs:
+  study:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - name: Run
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: python "web/${{ github.event.inputs.script }}"
+      - name: Commit results
+        run: |
+          git config user.name "cfb-model-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/studies || true
+          git diff --staged --quiet && exit 0
+          git commit -m "Study results: ${{ github.event.inputs.script }}"
+          git pull --rebase -q origin main && git push
