@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-09T15:16:52.475800+00:00",
+  "generated_at": "2026-10-09T18:17:25.610517+00:00",
   "week": 6,
   "storms": [
     {
@@ -27,16 +27,16 @@
       "risk": "high",
       "wind": 15.1,
       "gust": 38.3,
-      "pop": 36,
+      "pop": 48,
       "storm": {
         "name": "Isaias",
         "kind": "HU",
-        "miles": 584
+        "miles": 536
       },
       "first_total": 59.5,
       "total_now": 54.5,
       "moved": -5.0,
-      "pin_fair": 54.35,
+      "pin_fair": 54.39,
       "our_pick": "Under 59.5"
     },
     {
@@ -47,16 +47,16 @@
       "risk": "high",
       "wind": 18.0,
       "gust": 38.0,
-      "pop": 38,
+      "pop": 68,
       "storm": {
         "name": "Isaias",
         "kind": "HU",
-        "miles": 674
+        "miles": 628
       },
       "first_total": 50.5,
       "total_now": 47.5,
       "moved": -3.0,
-      "pin_fair": 48.11,
+      "pin_fair": 47.85,
       "our_pick": null
     },
     {
@@ -71,7 +71,7 @@
       "storm": {
         "name": "Isaias",
         "kind": "HU",
-        "miles": 1052
+        "miles": 1013
       },
       "first_total": 52.5,
       "total_now": 47.5,
@@ -91,7 +91,7 @@
       "storm": {
         "name": "Rachel",
         "kind": "TS",
-        "miles": 1446
+        "miles": 1425
       },
       "first_total": 52.5,
       "total_now": 51.5,
@@ -107,16 +107,16 @@
       "risk": "watch",
       "wind": 15.8,
       "gust": 32.2,
-      "pop": 23,
+      "pop": 24,
       "storm": {
         "name": "Isaias",
         "kind": "HU",
-        "miles": 799
+        "miles": 760
       },
       "first_total": 49.5,
-      "total_now": 47.5,
-      "moved": -2.0,
-      "pin_fair": 47.67,
+      "total_now": 46.5,
+      "moved": -3.0,
+      "pin_fair": 46.85,
       "our_pick": null
     },
     {
@@ -127,16 +127,16 @@
       "risk": "watch",
       "wind": 15.5,
       "gust": 31.8,
-      "pop": 9,
+      "pop": 25,
       "storm": {
         "name": "Isaias",
         "kind": "HU",
-        "miles": 753
+        "miles": 712
       },
       "first_total": 60.5,
-      "total_now": 59.5,
-      "moved": -1.0,
-      "pin_fair": 58.91,
+      "total_now": 58.5,
+      "moved": -2.0,
+      "pin_fair": 58.09,
       "our_pick": null
     },
     {
@@ -147,16 +147,16 @@
       "risk": "watch",
       "wind": 12.8,
       "gust": 31.5,
-      "pop": 68,
+      "pop": 63,
       "storm": {
         "name": "Isaias",
         "kind": "HU",
-        "miles": 731
+        "miles": 683
       },
       "first_total": 54.5,
-      "total_now": 51.5,
-      "moved": -3.0,
-      "pin_fair": 51.26,
+      "total_now": 50.5,
+      "moved": -4.0,
+      "pin_fair": 51.09,
       "our_pick": null
     },
     {
@@ -167,16 +167,16 @@
       "risk": "watch",
       "wind": 13.3,
       "gust": 30.0,
-      "pop": 72,
+      "pop": 70,
       "storm": {
         "name": "Isaias",
         "kind": "HU",
-        "miles": 454
+        "miles": 407
       },
       "first_total": 49.5,
       "total_now": 43.5,
       "moved": -6.0,
-      "pin_fair": 44.06,
+      "pin_fair": 43.59,
       "our_pick": "Over 49.5"
     },
     {
@@ -191,7 +191,7 @@
       "storm": {
         "name": "Isaias",
         "kind": "HU",
-        "miles": 957
+        "miles": 920
       },
       "first_total": 55.5,
       "total_now": 55.5,
@@ -211,12 +211,12 @@
       "storm": {
         "name": "Isaias",
         "kind": "HU",
-        "miles": 927
+        "miles": 880
       },
       "first_total": 60.5,
-      "total_now": 60.5,
-      "moved": 0.0,
-      "pin_fair": 60.91,
+      "total_now": 61.5,
+      "moved": 1.0,
+      "pin_fair": 60.56,
       "our_pick": null
     },
     {
@@ -231,12 +231,12 @@
       "storm": {
         "name": "Isaias",
         "kind": "HU",
-        "miles": 1012
+        "miles": 964
       },
       "first_total": 43.5,
       "total_now": 43.5,
       "moved": 0.0,
-      "pin_fair": 43.5,
+      "pin_fair": 43.15,
       "our_pick": "Over 43.5"
     },
     {
@@ -247,16 +247,16 @@
       "risk": "watch",
       "wind": 13.0,
       "gust": 16.8,
-      "pop": 1,
+      "pop": 3,
       "storm": {
         "name": "Rachel",
         "kind": "TS",
-        "miles": 1051
+        "miles": 1029
       },
       "first_total": 53.5,
       "total_now": 53.5,
       "moved": 0.0,
-      "pin_fair": 53.35,
+      "pin_fair": 53.17,
       "our_pick": "Over 53.5"
     }
   ]
