@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T14:09:50.118960+00:00",
+  "generated_at": "2026-10-10T14:28:14.843488+00:00",
   "week": 6,
   "storms": [
     {
@@ -36,7 +36,7 @@
       "first_total": 50.5,
       "total_now": 46.5,
       "moved": -4.0,
-      "pin_fair": 46.76,
+      "pin_fair": 45.41,
       "our_pick": null
     },
     {
@@ -56,7 +56,7 @@
       "first_total": 54.5,
       "total_now": 50.5,
       "moved": -4.0,
-      "pin_fair": 50.89,
+      "pin_fair": 50.67,
       "our_pick": null
     },
     {
@@ -76,7 +76,7 @@
       "first_total": 52.5,
       "total_now": 48.5,
       "moved": -4.0,
-      "pin_fair": 47.85,
+      "pin_fair": 47.98,
       "our_pick": null
     },
     {
@@ -114,9 +114,9 @@
         "miles": 1223
       },
       "first_total": 52.5,
-      "total_now": 50.5,
-      "moved": -2.0,
-      "pin_fair": 50.52,
+      "total_now": 49.5,
+      "moved": -3.0,
+      "pin_fair": 49.56,
       "our_pick": null
     },
     {
@@ -136,7 +136,7 @@
       "first_total": 49.5,
       "total_now": 46.5,
       "moved": -3.0,
-      "pin_fair": 46.41,
+      "pin_fair": 46.76,
       "our_pick": null
     },
     {
@@ -156,7 +156,7 @@
       "first_total": 60.5,
       "total_now": 56.5,
       "moved": -4.0,
-      "pin_fair": 57.24,
+      "pin_fair": 56.0,
       "our_pick": null
     },
     {
@@ -196,7 +196,7 @@
       "first_total": 52.5,
       "total_now": 53.5,
       "moved": 1.0,
-      "pin_fair": 53.33,
+      "pin_fair": 53.11,
       "our_pick": "Over 52.5"
     },
     {
