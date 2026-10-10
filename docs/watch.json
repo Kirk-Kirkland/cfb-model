@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-10-10T00:13:38.752487+00:00",
+  "generated_at": "2026-10-10T03:10:49.087448+00:00",
   "week": 6,
   "storms": [
     {
       "name": "Isaias",
       "kind": "HU",
-      "intensity": "95"
+      "intensity": "80"
     },
     {
       "name": "Rachel",
@@ -15,28 +15,28 @@
     {
       "name": "Simon",
       "kind": "HU",
-      "intensity": "95"
+      "intensity": "105"
     }
   ],
   "games": [
     {
-      "game": "ODU@APP",
-      "away": "Old Dominion",
-      "home": "App State",
-      "kickoff": "Sat 10/10 01:00 PM",
+      "game": "KU@UTAH",
+      "away": "Kansas",
+      "home": "Utah",
+      "kickoff": "Sat 10/10 10:15 PM",
       "risk": "high",
-      "wind": 20.1,
-      "gust": 43.8,
-      "pop": 64,
+      "wind": 19.2,
+      "gust": 38.9,
+      "pop": 6,
       "storm": {
-        "name": "Isaias",
-        "kind": "HU",
-        "miles": 509
+        "name": "Rachel",
+        "kind": "TS",
+        "miles": 1347
       },
-      "first_total": 50.5,
-      "total_now": 47.5,
-      "moved": -3.0,
-      "pin_fair": 47.85,
+      "first_total": 52.5,
+      "total_now": 51.5,
+      "moved": -1.0,
+      "pin_fair": 51.09,
       "our_pick": null
     },
     {
@@ -45,13 +45,13 @@
       "home": "Kentucky",
       "kickoff": "Sat 10/10 07:00 PM",
       "risk": "high",
-      "wind": 18.7,
-      "gust": 43.4,
+      "wind": 15.8,
+      "gust": 37.1,
       "pop": 48,
       "storm": {
         "name": "Isaias",
         "kind": "HU",
-        "miles": 560
+        "miles": 512
       },
       "first_total": 54.5,
       "total_now": 50.5,
@@ -60,18 +60,38 @@
       "our_pick": null
     },
     {
+      "game": "ODU@APP",
+      "away": "Old Dominion",
+      "home": "App State",
+      "kickoff": "Sat 10/10 01:00 PM",
+      "risk": "high",
+      "wind": 18.3,
+      "gust": 36.7,
+      "pop": 71,
+      "storm": {
+        "name": "Isaias",
+        "kind": "HU",
+        "miles": 465
+      },
+      "first_total": 50.5,
+      "total_now": 47.5,
+      "moved": -3.0,
+      "pin_fair": 47.67,
+      "our_pick": null
+    },
+    {
       "game": "IU@NEB",
       "away": "Indiana",
       "home": "Nebraska",
       "kickoff": "Sat 10/10 12:00 PM",
       "risk": "high",
-      "wind": 16.6,
-      "gust": 35.8,
+      "wind": 16.1,
+      "gust": 36.5,
       "pop": 0,
       "storm": {
         "name": "Isaias",
         "kind": "HU",
-        "miles": 933
+        "miles": 897
       },
       "first_total": 52.5,
       "total_now": 47.5,
@@ -84,14 +104,14 @@
       "away": "Ole Miss",
       "home": "Vanderbilt",
       "kickoff": "Sat 10/10 03:30 PM",
-      "risk": "high",
-      "wind": 15.0,
-      "gust": 33.8,
+      "risk": "watch",
+      "wind": 13.0,
+      "gust": 33.6,
       "pop": 60,
       "storm": {
         "name": "Isaias",
         "kind": "HU",
-        "miles": 418
+        "miles": 370
       },
       "first_total": 59.5,
       "total_now": 54.5,
@@ -100,44 +120,44 @@
       "our_pick": "Under 59.5"
     },
     {
-      "game": "KU@UTAH",
-      "away": "Kansas",
-      "home": "Utah",
-      "kickoff": "Sat 10/10 10:15 PM",
+      "game": "RICE@ECU",
+      "away": "Rice",
+      "home": "East Carolina",
+      "kickoff": "Sat 10/10 04:00 PM",
       "risk": "watch",
-      "wind": 15.8,
-      "gust": 32.7,
-      "pop": 8,
-      "storm": {
-        "name": "Rachel",
-        "kind": "TS",
-        "miles": 1370
-      },
-      "first_total": 52.5,
-      "total_now": 51.5,
-      "moved": -1.0,
-      "pin_fair": 51.09,
-      "our_pick": null
-    },
-    {
-      "game": "UAB@MEM",
-      "away": "UAB",
-      "home": "Memphis",
-      "kickoff": "Sat 10/10 07:00 PM",
-      "risk": "watch",
-      "wind": 16.2,
-      "gust": 32.2,
-      "pop": 43,
+      "wind": 16.7,
+      "gust": 31.8,
+      "pop": 51,
       "storm": {
         "name": "Isaias",
         "kind": "HU",
-        "miles": 399
+        "miles": 623
       },
-      "first_total": 58.5,
-      "total_now": 53.5,
-      "moved": -5.0,
-      "pin_fair": 53.91,
-      "our_pick": "Under 57.5"
+      "first_total": 49.5,
+      "total_now": 46.5,
+      "moved": -3.0,
+      "pin_fair": 46.59,
+      "our_pick": null
+    },
+    {
+      "game": "DUKE@GT",
+      "away": "Duke",
+      "home": "Georgia Tech",
+      "kickoff": "Sat 10/10 03:30 PM",
+      "risk": "watch",
+      "wind": 16.6,
+      "gust": 31.3,
+      "pop": 45,
+      "storm": {
+        "name": "Isaias",
+        "kind": "HU",
+        "miles": 239
+      },
+      "first_total": 49.5,
+      "total_now": 43.5,
+      "moved": -6.0,
+      "pin_fair": 43.85,
+      "our_pick": "Over 49.5"
     },
     {
       "game": "CCU@MRSH",
@@ -145,59 +165,19 @@
       "home": "Marshall",
       "kickoff": "Sat 10/10 07:00 PM",
       "risk": "watch",
-      "wind": 12.1,
-      "gust": 30.4,
-      "pop": 70,
+      "wind": 12.3,
+      "gust": 29.1,
+      "pop": 69,
       "storm": {
         "name": "Isaias",
         "kind": "HU",
-        "miles": 623
+        "miles": 575
       },
       "first_total": 57.5,
       "total_now": 58.5,
       "moved": 1.0,
-      "pin_fair": 58.94,
+      "pin_fair": 58.98,
       "our_pick": "Over 57.5"
-    },
-    {
-      "game": "JMU@GASO",
-      "away": "James Madison",
-      "home": "Georgia Southern",
-      "kickoff": "Sat 10/10 07:30 PM",
-      "risk": "watch",
-      "wind": 14.7,
-      "gust": 29.1,
-      "pop": 57,
-      "storm": {
-        "name": "Isaias",
-        "kind": "HU",
-        "miles": 326
-      },
-      "first_total": 53.5,
-      "total_now": 51.5,
-      "moved": -2.0,
-      "pin_fair": 51.17,
-      "our_pick": null
-    },
-    {
-      "game": "WAKE@NCSU",
-      "away": "Wake Forest",
-      "home": "NC State",
-      "kickoff": "Sat 10/10 12:00 PM",
-      "risk": "watch",
-      "wind": 13.6,
-      "gust": 28.9,
-      "pop": 33,
-      "storm": {
-        "name": "Isaias",
-        "kind": "HU",
-        "miles": 603
-      },
-      "first_total": 60.5,
-      "total_now": 58.5,
-      "moved": -2.0,
-      "pin_fair": 58.24,
-      "our_pick": null
     },
     {
       "game": "HOU@KSU",
@@ -205,13 +185,13 @@
       "home": "Kansas State",
       "kickoff": "Sat 10/10 03:30 PM",
       "risk": "watch",
-      "wind": 17.2,
-      "gust": 28.9,
+      "wind": 17.1,
+      "gust": 27.7,
       "pop": 0,
       "storm": {
         "name": "Isaias",
         "kind": "HU",
-        "miles": 846
+        "miles": 813
       },
       "first_total": 55.5,
       "total_now": 55.5,
@@ -220,78 +200,18 @@
       "our_pick": "Under 56.5"
     },
     {
-      "game": "ARIZ@WVU",
-      "away": "Arizona",
-      "home": "West Virginia",
-      "kickoff": "Sat 10/10 12:00 PM",
-      "risk": "watch",
-      "wind": 13.4,
-      "gust": 28.2,
-      "pop": 1,
-      "storm": {
-        "name": "Isaias",
-        "kind": "HU",
-        "miles": 759
-      },
-      "first_total": 60.5,
-      "total_now": 60.5,
-      "moved": 0.0,
-      "pin_fair": 60.65,
-      "our_pick": null
-    },
-    {
-      "game": "HAW@ASU",
-      "away": "Hawai'i",
-      "home": "Arizona State",
-      "kickoff": "Sat 10/10 09:30 PM",
-      "risk": "watch",
-      "wind": 15.0,
-      "gust": 25.7,
-      "pop": 27,
-      "storm": {
-        "name": "Rachel",
-        "kind": "TS",
-        "miles": 984
-      },
-      "first_total": 51.5,
-      "total_now": 50.5,
-      "moved": -1.0,
-      "pin_fair": 50.44,
-      "our_pick": "Over 51.5"
-    },
-    {
-      "game": "SC@FLA",
-      "away": "South Carolina",
-      "home": "Florida",
-      "kickoff": "Sat 10/10 12:45 PM",
-      "risk": "watch",
-      "wind": 12.5,
-      "gust": 23.9,
-      "pop": 18,
-      "storm": {
-        "name": "Isaias",
-        "kind": "HU",
-        "miles": 257
-      },
-      "first_total": 62.5,
-      "total_now": 58.5,
-      "moved": -4.0,
-      "pin_fair": 59.24,
-      "our_pick": null
-    },
-    {
       "game": "KENT@WMU",
       "away": "Kent State",
       "home": "Western Michigan",
       "kickoff": "Sat 10/10 03:30 PM",
       "risk": "watch",
-      "wind": 12.1,
-      "gust": 22.4,
+      "wind": 13.1,
+      "gust": 23.5,
       "pop": 0,
       "storm": {
         "name": "Isaias",
         "kind": "HU",
-        "miles": 844
+        "miles": 795
       },
       "first_total": 43.5,
       "total_now": 43.5,
@@ -300,24 +220,44 @@
       "our_pick": "Over 43.5"
     },
     {
-      "game": "STAN@ND",
-      "away": "Stanford",
-      "home": "Notre Dame",
+      "game": "ILL@MSU",
+      "away": "Illinois",
+      "home": "Michigan State",
       "kickoff": "Sat 10/10 03:30 PM",
       "risk": "watch",
-      "wind": 12.0,
+      "wind": 12.6,
       "gust": 22.1,
+      "pop": 0,
+      "storm": {
+        "name": "Isaias",
+        "kind": "HU",
+        "miles": 832
+      },
+      "first_total": 49.5,
+      "total_now": 47.5,
+      "moved": -2.0,
+      "pin_fair": 47.94,
+      "our_pick": null
+    },
+    {
+      "game": "SAC@BGSU",
+      "away": "Sacramento State",
+      "home": "Bowling Green",
+      "kickoff": "Sat 10/10 12:00 PM",
+      "risk": "watch",
+      "wind": 12.1,
+      "gust": 21.7,
       "pop": 1,
       "storm": {
         "name": "Isaias",
         "kind": "HU",
-        "miles": 802
+        "miles": 748
       },
-      "first_total": 53.5,
-      "total_now": 54.5,
+      "first_total": 42.5,
+      "total_now": 43.5,
       "moved": 1.0,
-      "pin_fair": 54.41,
-      "our_pick": "Over 53.5"
+      "pin_fair": 43.85,
+      "our_pick": "Over 42.5"
     },
     {
       "game": "BALL@NU",
@@ -325,13 +265,13 @@
       "home": "Northwestern",
       "kickoff": "Sat 10/10 12:30 PM",
       "risk": "watch",
-      "wind": 12.6,
-      "gust": 21.3,
-      "pop": 1,
+      "wind": 12.9,
+      "gust": 21.7,
+      "pop": 0,
       "storm": {
         "name": "Isaias",
         "kind": "HU",
-        "miles": 829
+        "miles": 781
       },
       "first_total": 52.5,
       "total_now": 53.5,
@@ -340,44 +280,24 @@
       "our_pick": "Over 52.5"
     },
     {
-      "game": "DUKE@GT",
-      "away": "Duke",
-      "home": "Georgia Tech",
-      "kickoff": "Sat 10/10 03:30 PM",
+      "game": "SDSU@ORST",
+      "away": "San Diego State",
+      "home": "Oregon State",
+      "kickoff": "Sat 10/10 06:00 PM",
       "risk": "watch",
-      "wind": 12.1,
-      "gust": 21.3,
-      "pop": 48,
-      "storm": {
-        "name": "Isaias",
-        "kind": "HU",
-        "miles": 285
-      },
-      "first_total": 49.5,
-      "total_now": 43.5,
-      "moved": -6.0,
-      "pin_fair": 43.59,
-      "our_pick": "Over 49.5"
-    },
-    {
-      "game": "VT@CAL",
-      "away": "Virginia Tech",
-      "home": "California",
-      "kickoff": "Sat 10/10 03:30 PM",
-      "risk": "watch",
-      "wind": 13.4,
-      "gust": 18.6,
-      "pop": 2,
+      "wind": 13.7,
+      "gust": 17.2,
+      "pop": 5,
       "storm": {
         "name": "Rachel",
         "kind": "TS",
-        "miles": 990
+        "miles": 1434
       },
-      "first_total": 53.5,
-      "total_now": 53.5,
-      "moved": 0.0,
-      "pin_fair": 53.17,
-      "our_pick": "Over 53.5"
+      "first_total": 56.5,
+      "total_now": 52.5,
+      "moved": -4.0,
+      "pin_fair": 52.74,
+      "our_pick": null
     }
   ]
 }
