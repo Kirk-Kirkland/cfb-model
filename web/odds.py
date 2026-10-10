@@ -227,25 +227,39 @@ def write_watch(season, week, card, rows, wx, storms):
                 first.setdefault(gid, g['dk'])
     picks = {b['game']: b for b in card.get('best_bets', [])}
     out = []
+    t_now = datetime.datetime.now(datetime.timezone.utc)
     for g in card['games']:
         gid = str(g['game_id'])
-        w = wx.get(gid)
-        if not w or not w.get('risk'):
+        try:
+            if datetime.datetime.fromisoformat(g['kickoff_iso'].replace('Z', '+00:00')) <= t_now:
+                continue    # started: the feed now carries live in-game lines
+        except (KeyError, ValueError, AttributeError):
             continue
+        w = wx.get(gid) or {}
         now = (rows.get(gid) or {}).get('dk')
+        moved = round(now - first[gid], 1) if now is not None and first.get(gid) is not None else None
+        # News alert: a pick whose total moved 3+ points with no weather to
+        # explain it. College has no injury feed (ESPN returns none), so the
+        # market is the injury detector: a move that size is almost always a
+        # QB or key player, and the model cannot see it. Check before betting.
+        news = (g['matchup'] in picks and moved is not None and abs(moved) >= 3
+                and w.get('risk') != 'high')
+        if not w.get('risk') and not news:
+            continue
         out.append(dict(game=g['matchup'], away=g['away'], home=g['home'], kickoff=g['kickoff_et'],
-                        risk=w['risk'], wind=w['wind'], gust=w['gust'], pop=w['pop'],
-                        storm=w.get('storm'), first_total=first.get(gid), total_now=now,
-                        moved=round(now - first[gid], 1) if now is not None and first.get(gid) is not None else None,
+                        risk=w.get('risk') or 'news', news_alert=news,
+                        wind=w.get('wind'), gust=w.get('gust'), pop=w.get('pop'),
+                        storm=w.get('storm'), first_total=first.get(gid), total_now=now, moved=moved,
                         pin_fair=(rows.get(gid) or {}).get('pin_fair'),
                         our_pick=(picks.get(g['matchup']) or {}).get('bet')))
-    out.sort(key=lambda x: (x['risk'] != 'high', -(x['gust'] or 0)))
+    out.sort(key=lambda x: (not x['news_alert'], x['risk'] != 'high', -(x['gust'] or 0)))
     doc = dict(generated_at=datetime.datetime.now(datetime.timezone.utc).isoformat(), week=week,
                storms=[dict(name=s['name'], kind=s['kind'], intensity=s['intensity']) for s in storms],
                games=out)
     with open(os.path.join(ROOT, 'docs', 'watch.json'), 'w') as f:
         json.dump(doc, f, indent=2)
-    print(f'  watch.json: {len(out)} games on weather watch', file=sys.stderr)
+    print(f'  watch.json: {len(out)} games on watch, '
+          f'{sum(1 for x in out if x["news_alert"])} news alerts', file=sys.stderr)
 
 
 if __name__ == '__main__':
