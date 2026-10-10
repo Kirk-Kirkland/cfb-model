@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T14:28:14.843488+00:00",
+  "generated_at": "2026-10-10T16:08:02.386094+00:00",
   "week": 6,
   "storms": [
     {
@@ -25,93 +25,33 @@
       "home": "App State",
       "kickoff": "Sat 10/10 01:00 PM",
       "risk": "high",
-      "wind": 19.1,
-      "gust": 41.6,
-      "pop": 78,
-      "storm": {
-        "name": "Isaias",
-        "kind": "PTC",
-        "miles": 401
-      },
-      "first_total": 50.5,
-      "total_now": 46.5,
-      "moved": -4.0,
-      "pin_fair": 45.41,
-      "our_pick": null
-    },
-    {
-      "game": "LSU@UK",
-      "away": "LSU",
-      "home": "Kentucky",
-      "kickoff": "Sat 10/10 07:00 PM",
-      "risk": "high",
-      "wind": 15.9,
-      "gust": 39.1,
-      "pop": 31,
-      "storm": {
-        "name": "Isaias",
-        "kind": "PTC",
-        "miles": 431
-      },
-      "first_total": 54.5,
-      "total_now": 50.5,
-      "moved": -4.0,
-      "pin_fair": 50.67,
-      "our_pick": null
-    },
-    {
-      "game": "IU@NEB",
-      "away": "Indiana",
-      "home": "Nebraska",
-      "kickoff": "Sat 10/10 12:00 PM",
-      "risk": "high",
-      "wind": 17.0,
-      "gust": 38.3,
-      "pop": 0,
-      "storm": {
-        "name": "Isaias",
-        "kind": "PTC",
-        "miles": 832
-      },
-      "first_total": 52.5,
-      "total_now": 48.5,
-      "moved": -4.0,
-      "pin_fair": 47.98,
-      "our_pick": null
-    },
-    {
-      "game": "MISS@VAN",
-      "away": "Ole Miss",
-      "home": "Vanderbilt",
-      "kickoff": "Sat 10/10 03:30 PM",
-      "risk": "watch",
-      "wind": 14.5,
-      "gust": 33.6,
+      "wind": 19.0,
+      "gust": 37.8,
       "pop": 77,
       "storm": {
         "name": "Isaias",
         "kind": "PTC",
-        "miles": 287
+        "miles": 375
       },
-      "first_total": 59.5,
-      "total_now": 54.5,
+      "first_total": 50.5,
+      "total_now": 45.5,
       "moved": -5.0,
-      "pin_fair": 53.76,
-      "our_pick": "Under 59.5"
+      "pin_fair": 45.59,
+      "our_pick": null
     },
     {
       "game": "KU@UTAH",
       "away": "Kansas",
       "home": "Utah",
       "kickoff": "Sat 10/10 10:15 PM",
-      "risk": "watch",
-      "wind": 16.3,
-      "gust": 31.8,
-      "pop": 7,
+      "risk": "high",
+      "wind": 18.6,
+      "gust": 37.8,
+      "pop": 4,
       "storm": {
         "name": "Rachel",
         "kind": "TS",
-        "miles": 1223
+        "miles": 1145
       },
       "first_total": 52.5,
       "total_now": 49.5,
@@ -120,44 +60,64 @@
       "our_pick": null
     },
     {
+      "game": "LSU@UK",
+      "away": "LSU",
+      "home": "Kentucky",
+      "kickoff": "Sat 10/10 07:00 PM",
+      "risk": "high",
+      "wind": 16.1,
+      "gust": 35.8,
+      "pop": 27,
+      "storm": {
+        "name": "Isaias",
+        "kind": "PTC",
+        "miles": 383
+      },
+      "first_total": 54.5,
+      "total_now": 50.5,
+      "moved": -4.0,
+      "pin_fair": 50.67,
+      "our_pick": null
+    },
+    {
       "game": "RICE@ECU",
       "away": "Rice",
       "home": "East Carolina",
       "kickoff": "Sat 10/10 04:00 PM",
       "risk": "watch",
-      "wind": 14.2,
-      "gust": 30.6,
-      "pop": 47,
+      "wind": 13.7,
+      "gust": 31.8,
+      "pop": 44,
       "storm": {
         "name": "Isaias",
         "kind": "PTC",
-        "miles": 580
+        "miles": 573
       },
       "first_total": 49.5,
-      "total_now": 46.5,
-      "moved": -3.0,
-      "pin_fair": 46.76,
+      "total_now": 45.5,
+      "moved": -4.0,
+      "pin_fair": 46.2,
       "our_pick": null
     },
     {
-      "game": "WAKE@NCSU",
-      "away": "Wake Forest",
-      "home": "NC State",
-      "kickoff": "Sat 10/10 12:00 PM",
+      "game": "MISS@VAN",
+      "away": "Ole Miss",
+      "home": "Vanderbilt",
+      "kickoff": "Sat 10/10 03:30 PM",
       "risk": "watch",
-      "wind": 12.4,
-      "gust": 29.8,
-      "pop": 75,
+      "wind": 11.7,
+      "gust": 31.3,
+      "pop": 83,
       "storm": {
         "name": "Isaias",
         "kind": "PTC",
-        "miles": 518
+        "miles": 231
       },
-      "first_total": 60.5,
-      "total_now": 56.5,
-      "moved": -4.0,
-      "pin_fair": 56.0,
-      "our_pick": null
+      "first_total": 59.5,
+      "total_now": 54.5,
+      "moved": -5.0,
+      "pin_fair": 53.76,
+      "our_pick": "Under 59.5"
     },
     {
       "game": "HOU@KSU",
@@ -166,58 +126,58 @@
       "kickoff": "Sat 10/10 03:30 PM",
       "risk": "watch",
       "wind": 17.1,
-      "gust": 28.2,
+      "gust": 28.4,
       "pop": 0,
       "storm": {
         "name": "Isaias",
         "kind": "PTC",
-        "miles": 754
+        "miles": 703
       },
       "first_total": 55.5,
       "total_now": 55.5,
       "moved": 0.0,
-      "pin_fair": 54.98,
+      "pin_fair": 54.67,
       "our_pick": "Under 56.5"
     },
     {
-      "game": "BALL@NU",
-      "away": "Ball State",
-      "home": "Northwestern",
-      "kickoff": "Sat 10/10 12:30 PM",
+      "game": "JMU@GASO",
+      "away": "James Madison",
+      "home": "Georgia Southern",
+      "kickoff": "Sat 10/10 07:30 PM",
       "risk": "watch",
-      "wind": 12.1,
-      "gust": 26.4,
-      "pop": 0,
+      "wind": 14.6,
+      "gust": 27.5,
+      "pop": 72,
       "storm": {
         "name": "Isaias",
         "kind": "PTC",
-        "miles": 699
+        "miles": 293
       },
-      "first_total": 52.5,
-      "total_now": 53.5,
-      "moved": 1.0,
-      "pin_fair": 53.11,
-      "our_pick": "Over 52.5"
+      "first_total": 53.5,
+      "total_now": 51.5,
+      "moved": -2.0,
+      "pin_fair": 51.44,
+      "our_pick": null
     },
     {
-      "game": "KENT@WMU",
-      "away": "Kent State",
-      "home": "Western Michigan",
+      "game": "DUKE@GT",
+      "away": "Duke",
+      "home": "Georgia Tech",
       "kickoff": "Sat 10/10 03:30 PM",
       "risk": "watch",
-      "wind": 12.6,
-      "gust": 21.9,
-      "pop": 0,
+      "wind": 14.8,
+      "gust": 26.8,
+      "pop": 35,
       "storm": {
         "name": "Isaias",
         "kind": "PTC",
-        "miles": 712
+        "miles": 154
       },
-      "first_total": 43.5,
-      "total_now": 43.5,
-      "moved": 0.0,
-      "pin_fair": 43.24,
-      "our_pick": "Over 43.5"
+      "first_total": 49.5,
+      "total_now": 45.5,
+      "moved": -4.0,
+      "pin_fair": 44.78,
+      "our_pick": "Over 49.5"
     },
     {
       "game": "ILL@MSU",
@@ -225,39 +185,19 @@
       "home": "Michigan State",
       "kickoff": "Sat 10/10 03:30 PM",
       "risk": "watch",
-      "wind": 13.2,
-      "gust": 21.5,
+      "wind": 12.9,
+      "gust": 20.6,
       "pop": 0,
       "storm": {
         "name": "Isaias",
         "kind": "PTC",
-        "miles": 749
+        "miles": 697
       },
       "first_total": 49.5,
       "total_now": 48.5,
       "moved": -1.0,
       "pin_fair": 48.06,
       "our_pick": null
-    },
-    {
-      "game": "VT@CAL",
-      "away": "Virginia Tech",
-      "home": "California",
-      "kickoff": "Sat 10/10 03:30 PM",
-      "risk": "watch",
-      "wind": 12.2,
-      "gust": 15.7,
-      "pop": 1,
-      "storm": {
-        "name": "Rachel",
-        "kind": "TS",
-        "miles": 923
-      },
-      "first_total": 53.5,
-      "total_now": 53.5,
-      "moved": 0.0,
-      "pin_fair": 53.17,
-      "our_pick": "Over 53.5"
     }
   ]
 }
