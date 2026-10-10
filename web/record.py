@@ -83,6 +83,11 @@ def grade_card(card, finals, published, snaps=()):
     gid = {g['matchup']: str(g['game_id']) for g in card.get('games', [])}
     kick = {g['matchup']: g.get('kickoff_iso') for g in card.get('games', [])}
     top = {t['game']: t['rank'] for t in card.get('top3', [])}
+    # Top 5: the five largest edges on the card as posted. The official record
+    # from 2026-10-10 on (see the site note on why and when this changed).
+    ranked = sorted([b for b in card.get('best_bets', []) if b.get('type') == 'Total'
+                     and b.get('tier') in ('1', '2')], key=lambda b: -abs(b.get('edge') or 0))
+    top5 = {b['game']: i + 1 for i, b in enumerate(ranked[:5])}
     out = []
     for b in card.get('best_bets', []):
         if b.get('type') != 'Total' or b.get('tier') not in ('1', '2'):
@@ -107,7 +112,7 @@ def grade_card(card, finals, published, snaps=()):
         pin_close = nc['pin_fair'] if nc else None
         bet_at = first_line if first_line is not None else line
         out.append(dict(week=card['meta']['week'], game=b['game'], bet=b['bet'],
-                        edge=b.get('edge'), top3=top.get(b['game']), result=res,
+                        edge=b.get('edge'), top3=top.get(b['game']), top5=top5.get(b['game']), result=res,
                         actual_total=total, score=score, published=published,
                         close_total=close, clv=clv(side, line, close),
                         first_line=first_line, first_seen_at=fs.get('at'),
@@ -217,6 +222,9 @@ def main():
         published_only=tally(live),
         top3=tally([p for p in graded if p['top3']]),
         top3_published=tally([p for p in live if p['top3']]),
+        top5=tally([p for p in graded if p.get('top5')]),
+        top5_published=tally([p for p in live if p.get('top5')]),
+        top5_clv=clv_tally([p for p in live if p.get('top5')], 'clv'),
         # Standing prediction registered 2026-09-28. See PREDICTION.md.
         # The rule is NOT applied: flagged bets are still on the card. This only
         # keeps score, so the claim can be judged on games nobody has seen yet.
@@ -244,6 +252,7 @@ def main():
         by_week=[dict(week=w,
                       published=any(p['published'] for p in graded if p['week'] == w),
                       clv=clv_tally([p for p in graded if p['week'] == w], 'clv'),
+                      top5=tally([p for p in graded if p['week'] == w and p.get('top5')]),
                       clv_first=clv_tally([p for p in graded if p['week'] == w], 'clv_first'),
                       **tally([p for p in graded if p['week'] == w]))
                  for w in sorted({p['week'] for p in graded})],
@@ -256,6 +265,8 @@ def main():
     print(f"published live only   : {out['published_only']['w']}-{out['published_only']['l']} "
           f"({out['published_only']['pct']}%)")
     print(f"top 3 of the week     : {out['top3']['w']}-{out['top3']['l']} ({out['top3']['pct']}%)")
+    t5 = out['top5_published']
+    print(f"TOP 5 (official, live): {t5['w']}-{t5['l']} ({t5['pct']}%)")
     c = out['clv']['posted']
     if c['n']:
         print(f"CLV vs posted line    : avg {c['avg']:+} pts, beat the close {c['beat']}-{c['lost']}-{c['same']} ({c['beat_pct']}%)")

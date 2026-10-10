@@ -236,7 +236,11 @@ function clvStat(label, c) {
 
 function renderRecord() {
   const r = RECORD, all = r.all_bets, live = r.published_only, t3 = r.top3;
+  const t5 = r.top5_published || {n: 0}, c5 = r.top5_clv || {n: 0};
   document.getElementById('recordSummary').innerHTML =
+    stat('Top 5 (official record)', t5.n ? `${t5.w}-${t5.l}` : '&mdash;',
+         t5.n ? `${t5.pct}% &middot; ${t5.units > 0 ? '+' : ''}${t5.units.toFixed(2)} units` + (c5.n ? ` &middot; CLV ${c5.avg > 0 ? '+' : ''}${c5.avg}` : '') : '',
+         recCls(t5)) +
     stat('All qualifying totals', `${all.w}-${all.l}`,
          `${all.pct}% &plusmn; ${all.se} &middot; ${all.units > 0 ? '+' : ''}${all.units.toFixed(2)} units &middot; ROI ${all.roi > 0 ? '+' : ''}${all.roi}%`,
          recCls(all)) +
@@ -257,6 +261,9 @@ function renderRecord() {
 
   const n = all.n, lo = (all.pct - all.se).toFixed(1), hi = (all.pct + all.se).toFixed(1);
   document.getElementById('recordCaveat').innerHTML =
+    `<strong>The official record is the Top 5</strong>: the five largest edges on each week's card as posted. It became the headline on Oct 10, 2026. ` +
+    `Weeks before that are shown under the same rule, but that rule was chosen after seeing those weeks, so judge it on what happens from week 7 on. ` +
+    `Every other bet is still graded below.<br><br>` +
     `Read this honestly. ${n} graded bets is a small sample. One standard error puts the true hit rate somewhere around ` +
     `${lo}% to ${hi}%, which straddles the ${r.meta.break_even_pct}% break-even, so this record does not yet prove an edge either way. ` +
     `The walk-forward backtest says ~53%. Judge the model on that number, not on a hot or cold month. ` +
@@ -269,7 +276,7 @@ function renderRecord() {
   document.getElementById('recordWeeksBody').innerHTML = r.by_week.map(w => `
     <tr>
       <td>${w.week}</td>
-      <td>${w.w}-${w.l}${w.push ? '-' + w.push : ''}</td>
+      <td><strong>${w.top5 && w.top5.n ? w.top5.w + '-' + w.top5.l : '&mdash;'}</strong> <span class="muted-cell">(all ${w.w}-${w.l}${w.push ? '-' + w.push : ''})</span></td>
       <td>${w.pct}%</td>
       <td>${w.units > 0 ? '+' : ''}${w.units.toFixed(2)}</td>
       <td>${w.roi > 0 ? '+' : ''}${w.roi}%</td>
@@ -280,7 +287,7 @@ function renderRecord() {
   document.getElementById('recordPicksBody').innerHTML = r.picks.map(p => `
     <tr>
       <td>${p.week}</td>
-      <td>${p.game}${p.top3 ? ` <span class="pill lean">Top ${p.top3}</span>` : ''}</td>
+      <td>${p.game}${p.top5 ? ` <span class="pill lean">Top 5</span>` : ''}</td>
       <td>${p.bet}</td>
       <td>${fmtEdge(p.edge)}</td>
       <td>${p.first_line ?? '&mdash;'}</td>
