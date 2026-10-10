@@ -1,7 +1,7 @@
 {
   "meta": {
     "season": 2026,
-    "generated_at": "2026-10-08T13:12:40.976160+00:00",
+    "generated_at": "2026-10-10T10:04:29.988847+00:00",
     "weeks": [
       3,
       4,
@@ -10,7 +10,8 @@
     ],
     "published_weeks": [
       4,
-      5
+      5,
+      6
     ],
     "reconstructed_weeks": [
       3
@@ -19,44 +20,44 @@
     "reconstruction_warning": "Treat reconstructed weeks as approximate, not as a track record. We tested how far a rebuild drifts by rebuilding week 4, a week we did publish live. The rebuild produced 20 picks going 10-10; the card that actually went out had 17 picks and went 8-9. Five picks appeared that were never bet, two real picks vanished, and eight lines moved by a point. The cause is that the line data available for a past week is not the line the model saw before kickoff. The live-only record above is the number to judge this model on."
   },
   "all_bets": {
-    "w": 25,
-    "l": 24,
+    "w": 26,
+    "l": 25,
     "push": 0,
-    "n": 49,
+    "n": 51,
     "pct": 51.0,
-    "units": -1.27,
-    "roi": -2.6,
-    "se": 7.1
+    "units": -1.36,
+    "roi": -2.7,
+    "se": 7.0
   },
   "published_only": {
-    "w": 14,
-    "l": 18,
+    "w": 15,
+    "l": 19,
     "push": 0,
-    "n": 32,
-    "pct": 43.8,
-    "units": -5.27,
-    "roi": -16.5,
-    "se": 8.8
+    "n": 34,
+    "pct": 44.1,
+    "units": -5.36,
+    "roi": -15.8,
+    "se": 8.6
   },
   "top3": {
     "w": 7,
-    "l": 2,
+    "l": 3,
     "push": 0,
-    "n": 9,
-    "pct": 77.8,
-    "units": 4.36,
-    "roi": 48.4,
-    "se": 16.7
+    "n": 10,
+    "pct": 70.0,
+    "units": 3.36,
+    "roi": 33.6,
+    "se": 15.8
   },
   "top3_published": {
     "w": 4,
-    "l": 2,
+    "l": 3,
     "push": 0,
-    "n": 6,
-    "pct": 66.7,
-    "units": 1.64,
-    "roi": 27.3,
-    "se": 20.4
+    "n": 7,
+    "pct": 57.1,
+    "units": 0.64,
+    "roi": 9.1,
+    "se": 18.9
   },
   "prediction": {
     "registered": "2026-09-28",
@@ -74,76 +75,76 @@
       "se": null
     },
     "unflagged": {
-      "w": 0,
-      "l": 0,
+      "w": 1,
+      "l": 1,
       "push": 0,
-      "n": 0,
-      "pct": null,
-      "units": 0.0,
-      "roi": null,
-      "se": null
+      "n": 2,
+      "pct": 50.0,
+      "units": -0.09,
+      "roi": -4.5,
+      "se": 35.4
     }
   },
   "clv": {
     "posted": {
-      "n": 32,
-      "avg": 0.44,
+      "n": 34,
+      "avg": 0.38,
       "beat": 16,
-      "lost": 6,
-      "same": 10,
-      "beat_pct": 50.0
+      "lost": 7,
+      "same": 11,
+      "beat_pct": 47.1
     },
     "first": {
-      "n": 0,
-      "avg": null,
-      "beat_pct": null,
+      "n": 2,
+      "avg": -0.5,
       "beat": 0,
-      "lost": 0,
-      "same": 0
+      "lost": 1,
+      "same": 1,
+      "beat_pct": 0.0
     },
     "top3_first": {
-      "n": 0,
-      "avg": null,
-      "beat_pct": null,
+      "n": 1,
+      "avg": -1.0,
       "beat": 0,
-      "lost": 0,
-      "same": 0
+      "lost": 1,
+      "same": 0,
+      "beat_pct": 0.0
     },
     "pinnacle": {
-      "n": 0,
-      "avg": null,
-      "beat_pct": null,
+      "n": 2,
+      "avg": -0.85,
       "beat": 0,
-      "lost": 0,
-      "same": 0
+      "lost": 2,
+      "same": 0,
+      "beat_pct": 0.0
     }
   },
   "early5": {
     "record": {
-      "w": 0,
-      "l": 0,
+      "w": 1,
+      "l": 1,
       "push": 0,
-      "n": 0,
-      "pct": null,
-      "units": 0.0,
-      "roi": null,
-      "se": null
+      "n": 2,
+      "pct": 50.0,
+      "units": -0.09,
+      "roi": -4.5,
+      "se": 35.4
     },
     "clv": {
-      "n": 0,
-      "avg": null,
-      "beat_pct": null,
+      "n": 2,
+      "avg": -0.5,
       "beat": 0,
-      "lost": 0,
-      "same": 0
+      "lost": 1,
+      "same": 1,
+      "beat_pct": 0.0
     },
     "clv_pin": {
-      "n": 0,
-      "avg": null,
-      "beat_pct": null,
+      "n": 2,
+      "avg": -0.85,
       "beat": 0,
-      "lost": 0,
-      "same": 0
+      "lost": 2,
+      "same": 0,
+      "beat_pct": 0.0
     },
     "picks": [
       {
@@ -152,12 +153,12 @@
         "game": "WYO@SJSU",
         "bet": "Over 43.5",
         "posted_at": "2026-10-05T16:21:06.549520+00:00",
-        "result": null,
-        "actual_total": null,
-        "close_total": null,
-        "clv": null,
-        "pin_close": 42.59,
-        "clv_pin": -0.9
+        "result": "LOSS",
+        "actual_total": 29,
+        "close_total": 42.5,
+        "clv": -1.0,
+        "pin_close": 43.24,
+        "clv_pin": -0.3
       },
       {
         "week": 6,
@@ -169,8 +170,8 @@
         "actual_total": null,
         "close_total": null,
         "clv": null,
-        "pin_close": 52.67,
-        "clv_pin": 0.2
+        "pin_close": 53.29,
+        "clv_pin": 0.8
       },
       {
         "week": 6,
@@ -182,8 +183,8 @@
         "actual_total": null,
         "close_total": null,
         "clv": null,
-        "pin_close": 58.94,
-        "clv_pin": 1.4
+        "pin_close": 58.98,
+        "clv_pin": 1.5
       },
       {
         "week": 6,
@@ -191,12 +192,12 @@
         "game": "IOWA@WASH",
         "bet": "Over 41.5",
         "posted_at": "2026-10-05T16:21:06.549520+00:00",
-        "result": null,
-        "actual_total": null,
-        "close_total": null,
-        "clv": null,
-        "pin_close": 41.85,
-        "clv_pin": 0.4
+        "result": "WIN",
+        "actual_total": 65,
+        "close_total": 41.5,
+        "clv": 0.0,
+        "pin_close": 40.15,
+        "clv_pin": -1.4
       },
       {
         "week": 6,
@@ -208,8 +209,8 @@
         "actual_total": null,
         "close_total": null,
         "clv": null,
-        "pin_close": 52.24,
-        "clv_pin": 5.3
+        "pin_close": 54.0,
+        "clv_pin": 3.5
       }
     ]
   },
@@ -297,6 +298,34 @@
       "units": -3.55,
       "roi": -23.7,
       "se": 12.9
+    },
+    {
+      "week": 6,
+      "published": true,
+      "clv": {
+        "n": 2,
+        "avg": -0.5,
+        "beat": 0,
+        "lost": 1,
+        "same": 1,
+        "beat_pct": 0.0
+      },
+      "clv_first": {
+        "n": 2,
+        "avg": -0.5,
+        "beat": 0,
+        "lost": 1,
+        "same": 1,
+        "beat_pct": 0.0
+      },
+      "w": 1,
+      "l": 1,
+      "push": 0,
+      "n": 2,
+      "pct": 50.0,
+      "units": -0.09,
+      "roi": -4.5,
+      "se": 35.4
     }
   ],
   "picks": [
@@ -1286,17 +1315,17 @@
       "bet": "Over 43.5",
       "edge": 6.76,
       "top3": 1,
-      "result": null,
-      "actual_total": null,
-      "score": null,
+      "result": "LOSS",
+      "actual_total": 29,
+      "score": "Wyoming 16 @ San Jos\u00e9 State 13",
       "published": true,
-      "close_total": null,
-      "clv": null,
+      "close_total": 42.5,
+      "clv": -1.0,
       "first_line": 43.5,
       "first_seen_at": "2026-10-05T11:40:35.902763+00:00",
-      "clv_first": null,
-      "pin_close": 42.59,
-      "clv_pin": -0.9,
+      "clv_first": -1.0,
+      "pin_close": 43.24,
+      "clv_pin": -0.3,
       "gs_flag": false,
       "garbage_share": 0.1067
     },
@@ -1315,8 +1344,8 @@
       "first_line": 52.5,
       "first_seen_at": "2026-10-05T11:40:35.902763+00:00",
       "clv_first": null,
-      "pin_close": 52.67,
-      "clv_pin": 0.2,
+      "pin_close": 53.29,
+      "clv_pin": 0.8,
       "gs_flag": false,
       "garbage_share": 0.2156
     },
@@ -1335,8 +1364,8 @@
       "first_line": 57.5,
       "first_seen_at": "2026-10-05T11:40:35.902763+00:00",
       "clv_first": null,
-      "pin_close": 58.94,
-      "clv_pin": 1.4,
+      "pin_close": 58.98,
+      "clv_pin": 1.5,
       "gs_flag": false,
       "garbage_share": 0.1168
     },
@@ -1346,17 +1375,17 @@
       "bet": "Over 41.5",
       "edge": 5.89,
       "top3": null,
-      "result": null,
-      "actual_total": null,
-      "score": null,
+      "result": "WIN",
+      "actual_total": 65,
+      "score": "Iowa 41 @ Washington 24",
       "published": true,
-      "close_total": null,
-      "clv": null,
+      "close_total": 41.5,
+      "clv": 0.0,
       "first_line": 41.5,
       "first_seen_at": "2026-10-05T11:40:35.902763+00:00",
-      "clv_first": null,
-      "pin_close": 41.85,
-      "clv_pin": 0.4,
+      "clv_first": 0.0,
+      "pin_close": 40.15,
+      "clv_pin": -1.4,
       "gs_flag": false,
       "garbage_share": 0.2037
     },
@@ -1375,8 +1404,8 @@
       "first_line": 58.5,
       "first_seen_at": "2026-10-05T11:40:35.902763+00:00",
       "clv_first": null,
-      "pin_close": 52.24,
-      "clv_pin": 6.3,
+      "pin_close": 54.0,
+      "clv_pin": 4.5,
       "gs_flag": false,
       "garbage_share": 0.1056
     },
@@ -1395,7 +1424,7 @@
       "first_line": 51.5,
       "first_seen_at": "2026-10-05T11:40:35.902763+00:00",
       "clv_first": null,
-      "pin_close": 50.39,
+      "pin_close": 50.44,
       "clv_pin": -1.1,
       "gs_flag": false,
       "garbage_share": 0.1888
@@ -1415,8 +1444,8 @@
       "first_line": 49.5,
       "first_seen_at": "2026-10-05T11:40:35.902763+00:00",
       "clv_first": null,
-      "pin_close": 43.76,
-      "clv_pin": -5.7,
+      "pin_close": 43.85,
+      "clv_pin": -5.6,
       "gs_flag": false,
       "garbage_share": 0.2013
     },
@@ -1435,8 +1464,8 @@
       "first_line": 53.5,
       "first_seen_at": "2026-10-05T11:40:35.902763+00:00",
       "clv_first": null,
-      "pin_close": 54.24,
-      "clv_pin": 0.7,
+      "pin_close": 54.41,
+      "clv_pin": 0.9,
       "gs_flag": false,
       "garbage_share": 0.4422
     },
@@ -1455,8 +1484,8 @@
       "first_line": 46.5,
       "first_seen_at": "2026-10-05T11:40:35.902763+00:00",
       "clv_first": null,
-      "pin_close": 46.91,
-      "clv_pin": 0.4,
+      "pin_close": 47.17,
+      "clv_pin": 0.7,
       "gs_flag": false,
       "garbage_share": 0.2384
     },
@@ -1475,8 +1504,8 @@
       "first_line": 53.5,
       "first_seen_at": "2026-10-05T11:40:35.902763+00:00",
       "clv_first": null,
-      "pin_close": 53.83,
-      "clv_pin": -0.3,
+      "pin_close": 53.44,
+      "clv_pin": 0.1,
       "gs_flag": true,
       "garbage_share": 0.2104
     },
@@ -1495,8 +1524,8 @@
       "first_line": 59.5,
       "first_seen_at": "2026-10-05T11:40:35.902763+00:00",
       "clv_first": null,
-      "pin_close": 58.98,
-      "clv_pin": 0.5,
+      "pin_close": 58.06,
+      "clv_pin": 1.4,
       "gs_flag": true,
       "garbage_share": 0.2437
     },
@@ -1515,8 +1544,8 @@
       "first_line": 43.5,
       "first_seen_at": "2026-10-05T11:40:35.902763+00:00",
       "clv_first": null,
-      "pin_close": 43.67,
-      "clv_pin": 0.2,
+      "pin_close": 43.24,
+      "clv_pin": -0.3,
       "gs_flag": false,
       "garbage_share": 0.2811
     },
@@ -1535,8 +1564,8 @@
       "first_line": 56.5,
       "first_seen_at": "2026-10-05T16:21:06.549907+00:00",
       "clv_first": null,
-      "pin_close": 54.85,
-      "clv_pin": 1.6,
+      "pin_close": 54.98,
+      "clv_pin": 1.5,
       "gs_flag": true,
       "garbage_share": 0.2714
     },
@@ -1575,8 +1604,8 @@
       "first_line": 42.5,
       "first_seen_at": "2026-10-05T11:40:35.902763+00:00",
       "clv_first": null,
-      "pin_close": 43.24,
-      "clv_pin": 0.7,
+      "pin_close": 43.85,
+      "clv_pin": 1.4,
       "gs_flag": false,
       "garbage_share": 0.4663
     },
@@ -1595,8 +1624,8 @@
       "first_line": 53.5,
       "first_seen_at": "2026-10-05T11:40:35.902763+00:00",
       "clv_first": null,
-      "pin_close": 53.35,
-      "clv_pin": -0.1,
+      "pin_close": 53.17,
+      "clv_pin": -0.3,
       "gs_flag": false,
       "garbage_share": 0.2463
     },
@@ -1615,8 +1644,8 @@
       "first_line": 48.5,
       "first_seen_at": "2026-10-05T11:40:35.902763+00:00",
       "clv_first": null,
-      "pin_close": 48.35,
-      "clv_pin": -0.1,
+      "pin_close": 49.39,
+      "clv_pin": 0.9,
       "gs_flag": false,
       "garbage_share": 0.2781
     },
@@ -1635,8 +1664,8 @@
       "first_line": 59.5,
       "first_seen_at": "2026-10-05T11:40:35.902763+00:00",
       "clv_first": null,
-      "pin_close": 55.26,
-      "clv_pin": 4.2,
+      "pin_close": 54.35,
+      "clv_pin": 5.1,
       "gs_flag": false,
       "garbage_share": 0.0933
     }
