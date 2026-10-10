@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-10-10T20:07:07.656835+00:00",
+  "generated_at": "2026-10-10T22:07:12.894676+00:00",
   "week": 6,
   "storms": [
     {
       "name": "Isaias",
       "kind": "PTC",
-      "intensity": "30"
+      "intensity": "25"
     },
     {
       "name": "Rachel",
       "kind": "TS",
-      "intensity": "50"
+      "intensity": "55"
     },
     {
       "name": "Simon",
@@ -20,23 +20,23 @@
   ],
   "games": [
     {
-      "game": "JMU@GASO",
-      "away": "James Madison",
-      "home": "Georgia Southern",
-      "kickoff": "Sat 10/10 07:30 PM",
+      "game": "KU@UTAH",
+      "away": "Kansas",
+      "home": "Utah",
+      "kickoff": "Sat 10/10 10:15 PM",
       "risk": "high",
-      "wind": 15.0,
-      "gust": 31.5,
-      "pop": 70,
+      "wind": 18.8,
+      "gust": 38.9,
+      "pop": 7,
       "storm": {
-        "name": "Isaias",
-        "kind": "PTC",
-        "miles": 293
+        "name": "Rachel",
+        "kind": "TS",
+        "miles": 1019
       },
-      "first_total": 53.5,
-      "total_now": 51.5,
-      "moved": -2.0,
-      "pin_fair": 51.61,
+      "first_total": 52.5,
+      "total_now": 49.5,
+      "moved": -3.0,
+      "pin_fair": 49.3,
       "our_pick": null
     },
     {
@@ -44,39 +44,39 @@
       "away": "LSU",
       "home": "Kentucky",
       "kickoff": "Sat 10/10 07:00 PM",
-      "risk": "watch",
-      "wind": 15.6,
-      "gust": 34.4,
-      "pop": 32,
+      "risk": "high",
+      "wind": 16.2,
+      "gust": 35.3,
+      "pop": 29,
       "storm": {
         "name": "Isaias",
         "kind": "PTC",
-        "miles": 383
+        "miles": 340
       },
       "first_total": 54.5,
       "total_now": 50.5,
       "moved": -4.0,
-      "pin_fair": 50.39,
+      "pin_fair": 50.26,
       "our_pick": null
     },
     {
-      "game": "KU@UTAH",
-      "away": "Kansas",
-      "home": "Utah",
-      "kickoff": "Sat 10/10 10:15 PM",
+      "game": "JMU@GASO",
+      "away": "James Madison",
+      "home": "Georgia Southern",
+      "kickoff": "Sat 10/10 07:30 PM",
       "risk": "watch",
-      "wind": 15.4,
-      "gust": 29.3,
-      "pop": 5,
+      "wind": 11.2,
+      "gust": 25.9,
+      "pop": 80,
       "storm": {
-        "name": "Rachel",
-        "kind": "TS",
-        "miles": 1110
+        "name": "Isaias",
+        "kind": "PTC",
+        "miles": 306
       },
-      "first_total": 52.5,
-      "total_now": 49.5,
-      "moved": -3.0,
-      "pin_fair": 49.35,
+      "first_total": 53.5,
+      "total_now": 51.5,
+      "moved": -2.0,
+      "pin_fair": 51.74,
       "our_pick": null
     }
   ]
