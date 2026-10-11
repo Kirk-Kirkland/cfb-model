@@ -1,7 +1,7 @@
 {
   "meta": {
     "season": 2026,
-    "generated_at": "2026-10-10T23:40:31.001301+00:00",
+    "generated_at": "2026-10-11T12:03:25.497810+00:00",
     "weeks": [
       3,
       4,
@@ -20,72 +20,72 @@
     "reconstruction_warning": "Treat reconstructed weeks as approximate, not as a track record. We tested how far a rebuild drifts by rebuilding week 4, a week we did publish live. The rebuild produced 20 picks going 10-10; the card that actually went out had 17 picks and went 8-9. Five picks appeared that were never bet, two real picks vanished, and eight lines moved by a point. The cause is that the line data available for a past week is not the line the model saw before kickoff. The live-only record above is the number to judge this model on."
   },
   "all_bets": {
-    "w": 33,
-    "l": 31,
+    "w": 34,
+    "l": 33,
     "push": 0,
-    "n": 64,
-    "pct": 51.6,
-    "units": -1.0,
-    "roi": -1.6,
-    "se": 6.2
+    "n": 67,
+    "pct": 50.7,
+    "units": -2.09,
+    "roi": -3.1,
+    "se": 6.1
   },
   "published_only": {
-    "w": 22,
-    "l": 25,
+    "w": 23,
+    "l": 27,
     "push": 0,
-    "n": 47,
-    "pct": 46.8,
-    "units": -5.0,
-    "roi": -10.6,
-    "se": 7.3
+    "n": 50,
+    "pct": 46.0,
+    "units": -6.09,
+    "roi": -12.2,
+    "se": 7.1
   },
   "top3": {
     "w": 8,
-    "l": 3,
+    "l": 4,
     "push": 0,
-    "n": 11,
-    "pct": 72.7,
-    "units": 4.27,
-    "roi": 38.8,
-    "se": 15.1
+    "n": 12,
+    "pct": 66.7,
+    "units": 3.27,
+    "roi": 27.3,
+    "se": 14.4
   },
   "top3_published": {
     "w": 5,
-    "l": 3,
+    "l": 4,
     "push": 0,
-    "n": 8,
-    "pct": 62.5,
-    "units": 1.55,
-    "roi": 19.4,
-    "se": 17.7
+    "n": 9,
+    "pct": 55.6,
+    "units": 0.55,
+    "roi": 6.1,
+    "se": 16.7
   },
   "top5": {
-    "w": 13,
-    "l": 5,
+    "w": 14,
+    "l": 6,
     "push": 0,
-    "n": 18,
-    "pct": 72.2,
-    "units": 6.82,
-    "roi": 37.9,
-    "se": 11.8
+    "n": 20,
+    "pct": 70.0,
+    "units": 6.73,
+    "roi": 33.7,
+    "se": 11.2
   },
   "top5_published": {
-    "w": 8,
-    "l": 5,
+    "w": 9,
+    "l": 6,
     "push": 0,
-    "n": 13,
-    "pct": 61.5,
-    "units": 2.27,
-    "roi": 17.5,
-    "se": 13.9
+    "n": 15,
+    "pct": 60.0,
+    "units": 2.18,
+    "roi": 14.5,
+    "se": 12.9
   },
   "top5_clv": {
-    "n": 13,
-    "avg": 0.31,
-    "beat": 5,
+    "n": 15,
+    "avg": 0.4,
+    "beat": 6,
     "lost": 2,
-    "same": 6,
-    "beat_pct": 38.5
+    "same": 7,
+    "beat_pct": 40.0
   },
   "prediction": {
     "registered": "2026-09-28",
@@ -103,62 +103,34 @@
       "se": 28.9
     },
     "unflagged": {
-      "w": 6,
-      "l": 6,
+      "w": 7,
+      "l": 8,
       "push": 0,
-      "n": 12,
-      "pct": 50.0,
-      "units": -0.55,
-      "roi": -4.6,
-      "se": 14.4
+      "n": 15,
+      "pct": 46.7,
+      "units": -1.64,
+      "roi": -10.9,
+      "se": 12.9
     }
   },
   "clv": {
     "posted": {
-      "n": 47,
-      "avg": 0.43,
-      "beat": 23,
+      "n": 50,
+      "avg": 0.44,
+      "beat": 24,
       "lost": 10,
-      "same": 14,
-      "beat_pct": 48.9
+      "same": 16,
+      "beat_pct": 48.0
     },
     "first": {
-      "n": 15,
-      "avg": 0.47,
-      "beat": 8,
+      "n": 18,
+      "avg": 0.56,
+      "beat": 9,
       "lost": 4,
-      "same": 3,
-      "beat_pct": 53.3
-    },
-    "top3_first": {
-      "n": 2,
-      "avg": 0.0,
-      "beat": 1,
-      "lost": 1,
-      "same": 0,
+      "same": 5,
       "beat_pct": 50.0
     },
-    "pinnacle": {
-      "n": 15,
-      "avg": 0.53,
-      "beat": 8,
-      "lost": 7,
-      "same": 0,
-      "beat_pct": 53.3
-    }
-  },
-  "early5": {
-    "record": {
-      "w": 2,
-      "l": 1,
-      "push": 0,
-      "n": 3,
-      "pct": 66.7,
-      "units": 0.82,
-      "roi": 27.3,
-      "se": 28.9
-    },
-    "clv": {
+    "top3_first": {
       "n": 3,
       "avg": 0.0,
       "beat": 1,
@@ -166,13 +138,41 @@
       "same": 1,
       "beat_pct": 33.3
     },
+    "pinnacle": {
+      "n": 18,
+      "avg": 0.64,
+      "beat": 10,
+      "lost": 8,
+      "same": 0,
+      "beat_pct": 55.6
+    }
+  },
+  "early5": {
+    "record": {
+      "w": 3,
+      "l": 2,
+      "push": 0,
+      "n": 5,
+      "pct": 60.0,
+      "units": 0.73,
+      "roi": 14.6,
+      "se": 22.4
+    },
+    "clv": {
+      "n": 5,
+      "avg": 0.4,
+      "beat": 2,
+      "lost": 1,
+      "same": 2,
+      "beat_pct": 40.0
+    },
     "clv_pin": {
-      "n": 3,
-      "avg": -0.17,
-      "beat": 1,
+      "n": 5,
+      "avg": 0.54,
+      "beat": 3,
       "lost": 2,
       "same": 0,
-      "beat_pct": 33.3
+      "beat_pct": 60.0
     },
     "picks": [
       {
@@ -207,10 +207,10 @@
         "game": "CCU@MRSH",
         "bet": "Over 57.5",
         "posted_at": "2026-10-05T16:21:06.549520+00:00",
-        "result": null,
-        "actual_total": null,
-        "close_total": null,
-        "clv": null,
+        "result": "LOSS",
+        "actual_total": 48,
+        "close_total": 57.5,
+        "clv": 0.0,
         "pin_close": 57.85,
         "clv_pin": 0.4
       },
@@ -233,10 +233,10 @@
         "game": "UAB@MEM",
         "bet": "Under 57.5",
         "posted_at": "2026-10-05T16:21:06.549520+00:00",
-        "result": null,
-        "actual_total": null,
-        "close_total": null,
-        "clv": null,
+        "result": "WIN",
+        "actual_total": 51,
+        "close_total": 55.5,
+        "clv": 2.0,
         "pin_close": 54.74,
         "clv_pin": 2.8
       }
@@ -247,11 +247,11 @@
       "week": 3,
       "published": false,
       "clv": {
-        "n": 17,
+        "n": 16,
         "avg": 0.0,
         "beat": 0,
         "lost": 0,
-        "same": 17,
+        "same": 16,
         "beat_pct": 0.0
       },
       "top5": {
@@ -361,39 +361,39 @@
       "week": 6,
       "published": true,
       "clv": {
-        "n": 15,
-        "avg": 0.4,
-        "beat": 7,
-        "lost": 4,
-        "same": 4,
-        "beat_pct": 46.7
-      },
-      "top5": {
-        "w": 2,
-        "l": 1,
-        "push": 0,
-        "n": 3,
-        "pct": 66.7,
-        "units": 0.82,
-        "roi": 27.3,
-        "se": 28.9
-      },
-      "clv_first": {
-        "n": 15,
-        "avg": 0.47,
+        "n": 18,
+        "avg": 0.44,
         "beat": 8,
         "lost": 4,
-        "same": 3,
-        "beat_pct": 53.3
+        "same": 6,
+        "beat_pct": 44.4
       },
-      "w": 8,
-      "l": 7,
+      "top5": {
+        "w": 3,
+        "l": 2,
+        "push": 0,
+        "n": 5,
+        "pct": 60.0,
+        "units": 0.73,
+        "roi": 14.6,
+        "se": 22.4
+      },
+      "clv_first": {
+        "n": 18,
+        "avg": 0.56,
+        "beat": 9,
+        "lost": 4,
+        "same": 5,
+        "beat_pct": 50.0
+      },
+      "w": 9,
+      "l": 9,
       "push": 0,
-      "n": 15,
-      "pct": 53.3,
-      "units": 0.27,
-      "roi": 1.8,
-      "se": 12.9
+      "n": 18,
+      "pct": 50.0,
+      "units": -0.82,
+      "roi": -4.6,
+      "se": 11.8
     }
   ],
   "picks": [
@@ -408,8 +408,8 @@
       "actual_total": 77,
       "score": "Ohio 36 @ South Alabama 41",
       "published": false,
-      "close_total": 49.5,
-      "clv": 0.0,
+      "close_total": null,
+      "clv": null,
       "first_line": null,
       "first_seen_at": null,
       "clv_first": null,
@@ -1475,15 +1475,15 @@
       "edge": 6.35,
       "top3": 3,
       "top5": 3,
-      "result": null,
-      "actual_total": null,
-      "score": null,
+      "result": "LOSS",
+      "actual_total": 48,
+      "score": "Coastal Carolina 27 @ Marshall 21",
       "published": true,
-      "close_total": null,
-      "clv": null,
+      "close_total": 57.5,
+      "clv": 0.0,
       "first_line": 57.5,
       "first_seen_at": "2026-10-05T11:40:35.902763+00:00",
-      "clv_first": null,
+      "clv_first": 0.0,
       "pin_close": 57.85,
       "clv_pin": 0.4,
       "gs_flag": false,
@@ -1517,15 +1517,15 @@
       "edge": -5.74,
       "top3": null,
       "top5": 5,
-      "result": null,
-      "actual_total": null,
-      "score": null,
+      "result": "WIN",
+      "actual_total": 51,
+      "score": "UAB 13 @ Memphis 38",
       "published": true,
-      "close_total": null,
-      "clv": null,
+      "close_total": 55.5,
+      "clv": 2.0,
       "first_line": 58.5,
       "first_seen_at": "2026-10-05T11:40:35.902763+00:00",
-      "clv_first": null,
+      "clv_first": 3.0,
       "pin_close": 54.74,
       "clv_pin": 3.8,
       "gs_flag": false,
@@ -1538,15 +1538,15 @@
       "edge": 5.6,
       "top3": null,
       "top5": null,
-      "result": null,
-      "actual_total": null,
-      "score": null,
+      "result": "LOSS",
+      "actual_total": 42,
+      "score": "Hawai'i 12 @ Arizona State 30",
       "published": true,
-      "close_total": null,
-      "clv": null,
+      "close_total": 51.5,
+      "clv": 0.0,
       "first_line": 51.5,
       "first_seen_at": "2026-10-05T11:40:35.902763+00:00",
-      "clv_first": null,
+      "clv_first": 0.0,
       "pin_close": 50.91,
       "clv_pin": -0.6,
       "gs_flag": false,
