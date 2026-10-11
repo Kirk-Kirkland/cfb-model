@@ -74,3 +74,19 @@ a date, never applied quietly.
 ## Results
 
 (Appended weekly from `docs/record.json`.)
+
+### Follow-up, 2026-10-11 (same day, before week 7): timing and conference-only
+
+Jason's question: is the trend better mid-season, once non-conference games are
+out of the way? `web/trend_split.py`, output in `data/studies/trend_split.json`.
+
+Model picks the trend fights, 2023-25: weeks 4-6 47.0% (n=66), 7-9 47.8% (46),
+10-14 46.3% (67). Flat across the season. 2022, the one season fully out of
+sample for the model's coefficients: 44.2% (n=52).
+
+Trend fade alone, 2023-25: weeks 4-6 52.3%, 7-9 56.0%, 10-14 56.6%. 2022:
+50.9%, 49.5%, 61.7%. The standalone fade is a week 7+ signal.
+
+Conference games only: no improvement (fade 56.1% vs 55.2%, fights 49.5% vs
+46.9%) and it cannot start until about week 7. Not adopted. The registered
+version above stands unchanged.
