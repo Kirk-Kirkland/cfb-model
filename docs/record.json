@@ -1,12 +1,13 @@
 {
   "meta": {
     "season": 2026,
-    "generated_at": "2026-10-11T12:03:25.497810+00:00",
+    "generated_at": "2026-10-11T12:37:05.201194+00:00",
     "weeks": [
       3,
       4,
       5,
-      6
+      6,
+      7
     ],
     "published_weeks": [
       4,
@@ -111,6 +112,70 @@
       "units": -1.64,
       "roi": -10.9,
       "se": 12.9
+    }
+  },
+  "trend": {
+    "registered": "2026-10-11",
+    "from_week": 7,
+    "threshold": 2.0,
+    "claim": "Model picks where the team totals trend fights the pick hit under 52.4%; picks it agrees with or has no trend on do better.",
+    "backtest": {
+      "fights": 46.9,
+      "fights_n": 179,
+      "agrees": 54.7,
+      "agrees_n": 309,
+      "none": 57.9,
+      "none_n": 299
+    },
+    "fights": {
+      "w": 0,
+      "l": 0,
+      "push": 0,
+      "n": 0,
+      "pct": null,
+      "units": 0.0,
+      "roi": null,
+      "se": null
+    },
+    "agrees": {
+      "w": 0,
+      "l": 0,
+      "push": 0,
+      "n": 0,
+      "pct": null,
+      "units": 0.0,
+      "roi": null,
+      "se": null
+    },
+    "none": {
+      "w": 0,
+      "l": 0,
+      "push": 0,
+      "n": 0,
+      "pct": null,
+      "units": 0.0,
+      "roi": null,
+      "se": null
+    },
+    "top5_fights": {
+      "w": 0,
+      "l": 0,
+      "push": 0,
+      "n": 0,
+      "pct": null,
+      "units": 0.0,
+      "roi": null,
+      "se": null
+    },
+    "top5_other": {
+      "w": 0,
+      "l": 0,
+      "push": 0,
+      "n": 0,
+      "pct": null,
+      "units": 0.0,
+      "roi": null,
+      "se": null
     }
   },
   "clv": {
@@ -247,11 +312,11 @@
       "week": 3,
       "published": false,
       "clv": {
-        "n": 16,
+        "n": 17,
         "avg": 0.0,
         "beat": 0,
         "lost": 0,
-        "same": 16,
+        "same": 17,
         "beat_pct": 0.0
       },
       "top5": {
@@ -408,15 +473,17 @@
       "actual_total": 77,
       "score": "Ohio 36 @ South Alabama 41",
       "published": false,
-      "close_total": null,
-      "clv": null,
+      "close_total": 49.5,
+      "clv": 0.0,
       "first_line": null,
       "first_seen_at": null,
       "clv_first": null,
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": null
+      "garbage_share": null,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 3,
@@ -437,7 +504,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": null
+      "garbage_share": null,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 3,
@@ -458,7 +527,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": null
+      "garbage_share": null,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 3,
@@ -479,7 +550,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": null
+      "garbage_share": null,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 3,
@@ -500,7 +573,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": null
+      "garbage_share": null,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 3,
@@ -521,7 +596,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": null
+      "garbage_share": null,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 3,
@@ -542,7 +619,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": null
+      "garbage_share": null,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 3,
@@ -563,7 +642,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": null
+      "garbage_share": null,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 3,
@@ -584,7 +665,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": null
+      "garbage_share": null,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 3,
@@ -605,7 +688,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": null
+      "garbage_share": null,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 3,
@@ -626,7 +711,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": null
+      "garbage_share": null,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 3,
@@ -647,7 +734,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": null
+      "garbage_share": null,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 3,
@@ -668,7 +757,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": null
+      "garbage_share": null,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 3,
@@ -689,7 +780,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": null
+      "garbage_share": null,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 3,
@@ -710,7 +803,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": null
+      "garbage_share": null,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 3,
@@ -731,7 +826,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": null
+      "garbage_share": null,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 3,
@@ -752,7 +849,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": null
+      "garbage_share": null,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 4,
@@ -773,7 +872,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": null
+      "garbage_share": null,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 4,
@@ -794,7 +895,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": null
+      "garbage_share": null,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 4,
@@ -815,7 +918,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": null
+      "garbage_share": null,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 4,
@@ -836,7 +941,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": null
+      "garbage_share": null,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 4,
@@ -857,7 +964,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": null
+      "garbage_share": null,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 4,
@@ -878,7 +987,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": null
+      "garbage_share": null,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 4,
@@ -899,7 +1010,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": null
+      "garbage_share": null,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 4,
@@ -920,7 +1033,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": null
+      "garbage_share": null,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 4,
@@ -941,7 +1056,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": null
+      "garbage_share": null,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 4,
@@ -962,7 +1079,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": null
+      "garbage_share": null,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 4,
@@ -983,7 +1102,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": null
+      "garbage_share": null,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 4,
@@ -1004,7 +1125,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": null
+      "garbage_share": null,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 4,
@@ -1025,7 +1148,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": null
+      "garbage_share": null,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 4,
@@ -1046,7 +1171,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": null
+      "garbage_share": null,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 4,
@@ -1067,7 +1194,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": null
+      "garbage_share": null,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 4,
@@ -1088,7 +1217,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": null
+      "garbage_share": null,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 4,
@@ -1109,7 +1240,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": null
+      "garbage_share": null,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 5,
@@ -1130,7 +1263,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": 0.26
+      "garbage_share": 0.26,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 5,
@@ -1151,7 +1286,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": 0.2961
+      "garbage_share": 0.2961,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 5,
@@ -1172,7 +1309,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": 0.1538
+      "garbage_share": 0.1538,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 5,
@@ -1193,7 +1332,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": 0.4302
+      "garbage_share": 0.4302,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 5,
@@ -1214,7 +1355,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": 0.2419
+      "garbage_share": 0.2419,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 5,
@@ -1235,7 +1378,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": 0.2876
+      "garbage_share": 0.2876,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 5,
@@ -1256,7 +1401,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": 0.1398
+      "garbage_share": 0.1398,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 5,
@@ -1277,7 +1424,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": 0.1504
+      "garbage_share": 0.1504,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 5,
@@ -1298,7 +1447,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": 0.2364
+      "garbage_share": 0.2364,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 5,
@@ -1319,7 +1470,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": 0.445
+      "garbage_share": 0.445,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 5,
@@ -1340,7 +1493,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": 0.3969
+      "garbage_share": 0.3969,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 5,
@@ -1361,7 +1516,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": true,
-      "garbage_share": 0.2353
+      "garbage_share": 0.2353,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 5,
@@ -1382,7 +1539,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": true,
-      "garbage_share": 0.286
+      "garbage_share": 0.286,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 5,
@@ -1403,7 +1562,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": true,
-      "garbage_share": 0.4671
+      "garbage_share": 0.4671,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 5,
@@ -1424,7 +1585,9 @@
       "pin_close": null,
       "clv_pin": null,
       "gs_flag": false,
-      "garbage_share": 0.2164
+      "garbage_share": 0.2164,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 6,
@@ -1445,7 +1608,9 @@
       "pin_close": 43.24,
       "clv_pin": -0.3,
       "gs_flag": false,
-      "garbage_share": 0.1067
+      "garbage_share": 0.1067,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 6,
@@ -1466,7 +1631,9 @@
       "pin_close": 53.74,
       "clv_pin": 1.2,
       "gs_flag": false,
-      "garbage_share": 0.2156
+      "garbage_share": 0.2156,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 6,
@@ -1487,7 +1654,9 @@
       "pin_close": 57.85,
       "clv_pin": 0.4,
       "gs_flag": false,
-      "garbage_share": 0.1168
+      "garbage_share": 0.1168,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 6,
@@ -1508,7 +1677,9 @@
       "pin_close": 40.15,
       "clv_pin": -1.4,
       "gs_flag": false,
-      "garbage_share": 0.2037
+      "garbage_share": 0.2037,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 6,
@@ -1529,7 +1700,9 @@
       "pin_close": 54.74,
       "clv_pin": 3.8,
       "gs_flag": false,
-      "garbage_share": 0.1056
+      "garbage_share": 0.1056,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 6,
@@ -1550,7 +1723,9 @@
       "pin_close": 50.91,
       "clv_pin": -0.6,
       "gs_flag": false,
-      "garbage_share": 0.1888
+      "garbage_share": 0.1888,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 6,
@@ -1571,7 +1746,9 @@
       "pin_close": 45.26,
       "clv_pin": -4.2,
       "gs_flag": false,
-      "garbage_share": 0.2013
+      "garbage_share": 0.2013,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 6,
@@ -1592,7 +1769,9 @@
       "pin_close": 55.44,
       "clv_pin": 1.9,
       "gs_flag": false,
-      "garbage_share": 0.4422
+      "garbage_share": 0.4422,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 6,
@@ -1613,7 +1792,9 @@
       "pin_close": 47.0,
       "clv_pin": 0.5,
       "gs_flag": false,
-      "garbage_share": 0.2384
+      "garbage_share": 0.2384,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 6,
@@ -1634,7 +1815,9 @@
       "pin_close": 53.74,
       "clv_pin": -0.2,
       "gs_flag": true,
-      "garbage_share": 0.2104
+      "garbage_share": 0.2104,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 6,
@@ -1655,7 +1838,9 @@
       "pin_close": 57.83,
       "clv_pin": 1.7,
       "gs_flag": true,
-      "garbage_share": 0.2437
+      "garbage_share": 0.2437,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 6,
@@ -1676,7 +1861,9 @@
       "pin_close": 43.24,
       "clv_pin": -0.3,
       "gs_flag": false,
-      "garbage_share": 0.2811
+      "garbage_share": 0.2811,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 6,
@@ -1697,7 +1884,9 @@
       "pin_close": 54.91,
       "clv_pin": 1.6,
       "gs_flag": true,
-      "garbage_share": 0.2714
+      "garbage_share": 0.2714,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 6,
@@ -1718,7 +1907,9 @@
       "pin_close": 45.91,
       "clv_pin": -0.6,
       "gs_flag": false,
-      "garbage_share": 0.2523
+      "garbage_share": 0.2523,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 6,
@@ -1739,7 +1930,9 @@
       "pin_close": 43.85,
       "clv_pin": 1.4,
       "gs_flag": false,
-      "garbage_share": 0.4663
+      "garbage_share": 0.4663,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 6,
@@ -1760,7 +1953,9 @@
       "pin_close": 53.17,
       "clv_pin": -0.3,
       "gs_flag": false,
-      "garbage_share": 0.2463
+      "garbage_share": 0.2463,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 6,
@@ -1781,7 +1976,9 @@
       "pin_close": 50.11,
       "clv_pin": 1.6,
       "gs_flag": false,
-      "garbage_share": 0.2781
+      "garbage_share": 0.2781,
+      "trend": null,
+      "trend_read": null
     },
     {
       "week": 6,
@@ -1802,7 +1999,193 @@
       "pin_close": 54.11,
       "clv_pin": 5.4,
       "gs_flag": false,
-      "garbage_share": 0.0933
+      "garbage_share": 0.0933,
+      "trend": null,
+      "trend_read": null
+    },
+    {
+      "week": 7,
+      "game": "FSU@MIA",
+      "bet": "Over 55.5",
+      "edge": 7.72,
+      "top3": 1,
+      "top5": 1,
+      "result": null,
+      "actual_total": null,
+      "score": null,
+      "published": true,
+      "close_total": null,
+      "clv": null,
+      "first_line": 55.5,
+      "first_seen_at": "2026-10-11T12:36:58.492505+00:00",
+      "clv_first": null,
+      "pin_close": null,
+      "clv_pin": null,
+      "gs_flag": false,
+      "garbage_share": 0.3388,
+      "trend": 3.23,
+      "trend_read": "fights"
+    },
+    {
+      "week": 7,
+      "game": "WKU@SHSU",
+      "bet": "Over 51.5",
+      "edge": 5.84,
+      "top3": 2,
+      "top5": 2,
+      "result": null,
+      "actual_total": null,
+      "score": null,
+      "published": true,
+      "close_total": null,
+      "clv": null,
+      "first_line": 51.5,
+      "first_seen_at": "2026-10-11T12:36:58.492505+00:00",
+      "clv_first": null,
+      "pin_close": null,
+      "clv_pin": null,
+      "gs_flag": false,
+      "garbage_share": 0.4147,
+      "trend": -1.17,
+      "trend_read": null
+    },
+    {
+      "week": 7,
+      "game": "AUB@UGA",
+      "bet": "Over 49.5",
+      "edge": 5.6,
+      "top3": 3,
+      "top5": 3,
+      "result": null,
+      "actual_total": null,
+      "score": null,
+      "published": true,
+      "close_total": null,
+      "clv": null,
+      "first_line": 49.5,
+      "first_seen_at": "2026-10-11T12:36:58.492505+00:00",
+      "clv_first": null,
+      "pin_close": null,
+      "clv_pin": null,
+      "gs_flag": false,
+      "garbage_share": 0.3067,
+      "trend": 0.6,
+      "trend_read": null
+    },
+    {
+      "week": 7,
+      "game": "ALA@TENN",
+      "bet": "Under 56.5",
+      "edge": -5.27,
+      "top3": null,
+      "top5": 4,
+      "result": null,
+      "actual_total": null,
+      "score": null,
+      "published": true,
+      "close_total": null,
+      "clv": null,
+      "first_line": 56.5,
+      "first_seen_at": "2026-10-11T12:36:58.492505+00:00",
+      "clv_first": null,
+      "pin_close": null,
+      "clv_pin": null,
+      "gs_flag": false,
+      "garbage_share": 0.1976,
+      "trend": 2.42,
+      "trend_read": "agrees"
+    },
+    {
+      "week": 7,
+      "game": "UK@OU",
+      "bet": "Over 42.5",
+      "edge": 5.05,
+      "top3": null,
+      "top5": 5,
+      "result": null,
+      "actual_total": null,
+      "score": null,
+      "published": true,
+      "close_total": null,
+      "clv": null,
+      "first_line": 42.5,
+      "first_seen_at": "2026-10-11T12:36:58.492505+00:00",
+      "clv_first": null,
+      "pin_close": null,
+      "clv_pin": null,
+      "gs_flag": false,
+      "garbage_share": 0.1903,
+      "trend": 2.93,
+      "trend_read": "fights"
+    },
+    {
+      "week": 7,
+      "game": "WIS@UCLA",
+      "bet": "Under 49.5",
+      "edge": -4.66,
+      "top3": null,
+      "top5": null,
+      "result": null,
+      "actual_total": null,
+      "score": null,
+      "published": true,
+      "close_total": null,
+      "clv": null,
+      "first_line": 49.5,
+      "first_seen_at": "2026-10-11T12:36:58.492505+00:00",
+      "clv_first": null,
+      "pin_close": null,
+      "clv_pin": null,
+      "gs_flag": false,
+      "garbage_share": 0.1773,
+      "trend": 2.4,
+      "trend_read": "agrees"
+    },
+    {
+      "week": 7,
+      "game": "NEB@ORE",
+      "bet": "Under 58.5",
+      "edge": -4.28,
+      "top3": null,
+      "top5": null,
+      "result": null,
+      "actual_total": null,
+      "score": null,
+      "published": true,
+      "close_total": null,
+      "clv": null,
+      "first_line": 58.5,
+      "first_seen_at": "2026-10-11T12:36:58.492505+00:00",
+      "clv_first": null,
+      "pin_close": null,
+      "clv_pin": null,
+      "gs_flag": true,
+      "garbage_share": 0.2269,
+      "trend": 3.65,
+      "trend_read": "agrees"
+    },
+    {
+      "week": 7,
+      "game": "MSST@LSU",
+      "bet": "Under 59.5",
+      "edge": -4.12,
+      "top3": null,
+      "top5": null,
+      "result": null,
+      "actual_total": null,
+      "score": null,
+      "published": true,
+      "close_total": null,
+      "clv": null,
+      "first_line": 59.5,
+      "first_seen_at": "2026-10-11T12:36:58.492505+00:00",
+      "clv_first": null,
+      "pin_close": null,
+      "clv_pin": null,
+      "gs_flag": true,
+      "garbage_share": 0.3737,
+      "trend": 7.65,
+      "trend_read": "agrees"
     }
   ]
 }
