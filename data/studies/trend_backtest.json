@@ -1,0 +1,171 @@
+{
+  "caveat": "Model coefficients were fit on 2023-25; model-alone numbers are flattering. Compare model vs model+trend, not either vs break-even.",
+  "seasons": {
+    "2023": {
+      "k": 0.151,
+      "games": 610,
+      "model_close": {
+        "w": 176,
+        "l": 150,
+        "n": 326,
+        "pct": 54.0
+      },
+      "model_open": {
+        "w": 117,
+        "l": 99,
+        "n": 216,
+        "pct": 54.2
+      },
+      "combo_close": {
+        "w": 172,
+        "l": 151,
+        "n": 323,
+        "pct": 53.3
+      },
+      "combo_open": {
+        "w": 121,
+        "l": 102,
+        "n": 223,
+        "pct": 54.3
+      },
+      "trend_close": {
+        "w": 193,
+        "l": 156,
+        "n": 349,
+        "pct": 55.3
+      },
+      "trend_open": {
+        "w": 139,
+        "l": 115,
+        "n": 254,
+        "pct": 54.7
+      },
+      "mae_model": 13.211,
+      "mae_combo": 13.231
+    },
+    "2024": {
+      "k": 0.066,
+      "games": 622,
+      "model_close": {
+        "w": 136,
+        "l": 113,
+        "n": 249,
+        "pct": 54.6
+      },
+      "model_open": {
+        "w": 8,
+        "l": 2,
+        "n": 10,
+        "pct": 80.0
+      },
+      "combo_close": {
+        "w": 134,
+        "l": 114,
+        "n": 248,
+        "pct": 54.0
+      },
+      "combo_open": {
+        "w": 8,
+        "l": 3,
+        "n": 11,
+        "pct": 72.7
+      },
+      "trend_close": {
+        "w": 200,
+        "l": 153,
+        "n": 353,
+        "pct": 56.7
+      },
+      "trend_open": {
+        "w": 5,
+        "l": 1,
+        "n": 6,
+        "pct": 83.3
+      },
+      "mae_model": 13.251,
+      "mae_combo": 13.265
+    },
+    "2025": {
+      "k": 0.046,
+      "games": 629,
+      "model_close": {
+        "w": 114,
+        "l": 98,
+        "n": 212,
+        "pct": 53.8
+      },
+      "model_open": {
+        "w": 3,
+        "l": 0,
+        "n": 3,
+        "pct": 100.0
+      },
+      "combo_close": {
+        "w": 114,
+        "l": 96,
+        "n": 210,
+        "pct": 54.3
+      },
+      "combo_open": {
+        "w": 3,
+        "l": 0,
+        "n": 3,
+        "pct": 100.0
+      },
+      "trend_close": {
+        "w": 192,
+        "l": 165,
+        "n": 357,
+        "pct": 53.8
+      },
+      "trend_open": {
+        "w": 2,
+        "l": 1,
+        "n": 3,
+        "pct": 66.7
+      },
+      "mae_model": 12.55,
+      "mae_combo": 12.544
+    }
+  },
+  "totals": {
+    "model_close": {
+      "w": 426,
+      "l": 361,
+      "n": 787,
+      "pct": 54.1
+    },
+    "model_open": {
+      "w": 128,
+      "l": 101,
+      "n": 229,
+      "pct": 55.9
+    },
+    "combo_close": {
+      "w": 420,
+      "l": 361,
+      "n": 781,
+      "pct": 53.8
+    },
+    "combo_open": {
+      "w": 132,
+      "l": 105,
+      "n": 237,
+      "pct": 55.7
+    },
+    "trend_close": {
+      "w": 585,
+      "l": 474,
+      "n": 1059,
+      "pct": 55.2
+    },
+    "trend_open": {
+      "w": 146,
+      "l": 117,
+      "n": 263,
+      "pct": 55.5
+    }
+  },
+  "k_final": 0.072,
+  "cfbd_calls": 36
+}
