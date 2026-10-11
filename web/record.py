@@ -119,7 +119,8 @@ def grade_card(card, finals, published, snaps=()):
                         clv_first=clv(side, first_line, close),
                         pin_close=pin_close, clv_pin=clv(side, bet_at, pin_close),
                         gs_flag=bool(b.get('gs_flag')),
-                        garbage_share=b.get('garbage_share')))
+                        garbage_share=b.get('garbage_share'),
+                        trend=b.get('trend'), trend_read=b.get('trend_read')))
     return out
 
 
@@ -234,6 +235,18 @@ def main():
                   '0.20 hit under 50%, against a 52.4% break-even.',
             flagged=tally([p for p in graded if p.get('gs_flag') and p['week'] >= 6]),
             unflagged=tally([p for p in graded if not p.get('gs_flag') and p['week'] >= 6])),
+        # Second standing prediction, registered 2026-10-11. See TREND.md.
+        # Flag only: nothing is removed from the card.
+        trend=dict(
+            registered='2026-10-11', from_week=7, threshold=2.0,
+            claim='Model picks where the team totals trend fights the pick hit under '
+                  '52.4%; picks it agrees with or has no trend on do better.',
+            backtest=dict(fights=46.9, fights_n=179, agrees=54.7, agrees_n=309, none=57.9, none_n=299),
+            fights=tally([p for p in graded if p.get('trend_read') == 'fights' and p['week'] >= 7]),
+            agrees=tally([p for p in graded if p.get('trend_read') == 'agrees' and p['week'] >= 7]),
+            none=tally([p for p in graded if p['week'] >= 7 and p.get('trend_read') is None]),
+            top5_fights=tally([p for p in graded if p.get('top5') and p.get('trend_read') == 'fights' and p['week'] >= 7]),
+            top5_other=tally([p for p in graded if p.get('top5') and p.get('trend_read') != 'fights' and p['week'] >= 7])),
         # Closing line value. Grades how the market moved after the pick, which
         # settles far faster than win/loss: a bettor who keeps beating the
         # close is beating the market, whatever this month's record says.

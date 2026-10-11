@@ -106,6 +106,7 @@ function renderTop3() {
       <div class="sub bet-only-if">Bet only if line is ${p.bet_only_if}</div>
       ${firstLine(p)}
       ${marketLine(p)}
+      ${trendLine(p)}
     </div>`).join('') || '<div class="sub">No qualifying plays this build.</div>';
 }
 
@@ -132,6 +133,13 @@ function marketLine(b) {
   return `<div class="sub">Pinnacle fair ${b.pin_fair}${best} &middot; ${read}</div>`;
 }
 
+function trendLine(b) {
+  if (!b.trend_read) return '';
+  const cls = b.trend_read === 'agrees' ? 'good' : 'bad';
+  const dir = b.trend > 0 ? 'over' : 'under';
+  return `<div class="sub">Team trend: these teams have gone ${dir} the total by ${Math.abs(b.trend).toFixed(1)} a game &middot; <span class="pill ${cls}">trend ${b.trend_read}</span></div>`;
+}
+
 function fmtClv(v) {
   if (v === null || v === undefined) return '&mdash;';
   const cls = v > 0 ? 'good' : v < 0 ? 'bad' : 'neutral';
@@ -153,6 +161,7 @@ function renderBestBets() {
         <div class="bet-sub bet-only-if">Bet only if line is ${b.bet_only_if} &middot; est. hit rate ${fmtConf(b.confidence)}</div>
         ${firstLine(b)}
         ${marketLine(b)}
+        ${trendLine(b)}
       </div>
       <div class="edge">${fmtEdge(b.edge)}</div>
     </div>`).join('');

@@ -413,6 +413,44 @@ def garbage_shares(season, week):
     return out, med
 
 
+def team_trends(D, season, week, min_games=3):
+    """Each team's season-to-date average of (final total - closing total),
+    from games BEFORE `week`. Positive = has been going over the number.
+
+    Why: data/studies/team_trends.json and trend_backtest.json. Teams that have
+    been beating the total by 2-7 go Over only 42% next time; teams that have
+    been falling short go Over 55%. As a weight inside the model it did not
+    help (walk-forward 2023-25). As a check on model picks it split hard:
+    model picks the trend fights hit 46.9% (n=179), picks it agrees with 54.7%.
+    So it is a flag, registered in TREND.md, not part of the edge.
+    """
+    lines = {l['id']: l for l in D['lines']}
+    acc = {}
+    for g in D['games'][season]:
+        if g.get('week') is None or g['week'] >= week:
+            continue
+        if g.get('homePoints') is None or g.get('awayPoints') is None:
+            continue
+        ok = [l for l in (lines.get(g['id']) or {}).get('lines', []) if l.get('overUnder') is not None]
+        if not ok:
+            continue
+        dk = [l for l in ok if l['provider'].replace(' ', '').lower() == 'draftkings']
+        close = (dk or ok)[0]['overUnder']
+        d = g['homePoints'] + g['awayPoints'] - close
+        for t in (g['homeTeam'], g['awayTeam']):
+            acc.setdefault(t, []).append(d)
+    return {t: (sum(v) / len(v), len(v)) for t, v in acc.items() if len(v) >= min_games}
+
+
+def trend_read(side, trend, t=2.0):
+    """'agrees' when the trend fade points the same way as the pick,
+    'fights' when it points the other way, None when |trend| < 2."""
+    if trend is None or abs(trend) < t:
+        return None
+    fade_over = trend < 0           # been going under -> the fade is Over
+    return 'agrees' if (side == 'Over') == fade_over else 'fights'
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--season', type=int, default=2026)
@@ -483,6 +521,23 @@ def main():
             # Best number at any US book for this side
             b['best_us'] = m['us_low'] if side == 'Over' else m['us_high']
 
+    # Team totals trend flag. Dated prediction registered 2026-10-11, see
+    # TREND.md. Shown and graded, never used to add or drop a bet.
+    TR = team_trends(D, a.season, week)
+    for g in games:
+        h, aw = TR.get(g['home']), TR.get(g['away'])
+        g['trend'] = round((h[0] + aw[0]) / 2, 2) if h and aw else None
+        side = (g.get('total_pick') or '').split(' ')[0]
+        g['trend_read'] = trend_read(side, g['trend']) if side in ('Over', 'Under') else None
+    for b in best_bets + top3:
+        m = next((g for g in games if g['matchup'] == b['game']), None)
+        if m:
+            b['trend'] = m['trend']
+            b['trend_read'] = trend_read(b['bet'].split()[0], m['trend'])
+    print(f"  trend flag: {sum(1 for b in best_bets if b.get('trend_read') == 'fights')} fights, "
+          f"{sum(1 for b in best_bets if b.get('trend_read') == 'agrees')} agrees on the card",
+          file=sys.stderr)
+
     rat = build_ratings(ratings, D)
     qb_vals = build_qb_values(qbv)
 
@@ -498,7 +553,7 @@ def main():
                                posted_at=datetime.datetime.now(datetime.timezone.utc).isoformat()),
                      picks=[dict(rank=i + 1, **{k: b.get(k) for k in (
                          'game', 'kickoff', 'bet', 'edge', 'tier', 'bet_only_if',
-                         'pin_fair', 'market', 'best_us', 'gs_flag')})
+                         'pin_fair', 'market', 'best_us', 'gs_flag', 'trend', 'trend_read')})
                             for i, b in enumerate(five)],
                      games=[dict(matchup=g['matchup'], game_id=g['game_id'],
                                  kickoff_iso=g['kickoff_iso'], away=g['away'], home=g['home'])
@@ -511,7 +566,7 @@ def main():
     payload = dict(
         meta=dict(season=a.season, week=week, generated_at=datetime.datetime.now(datetime.timezone.utc).isoformat(),
                    cfbd_calls=E.CALLS[0], games=len(games),
-                   gs_threshold=GS_THRESHOLD, gs_flagged=flagged),
+                   gs_threshold=GS_THRESHOLD, gs_flagged=flagged, trend_from_week=7),
         games=games, best_bets=best_bets, top3=top3, ratings=rat, qb_values=qb_vals,
     )
 
