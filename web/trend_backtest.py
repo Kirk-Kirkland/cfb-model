@@ -165,7 +165,7 @@ def main():
     # Agreement: model 4+ edge AND the trend fade (|trend| >= 2) on the same side,
     # vs model 4+ edge where the trend fights it. Seasons 2023-25, closing total.
     agree = fight = neutral = (0, 0)
-    def add(t, win): return (t[0] + win, t[1] + (not win))
+    def add(t, win): win = bool(win); return (t[0] + int(win), t[1] + int(not win))
     for s in SEASONS[1:]:
         for r in data[s]:
             if r['fcs'] or r['two_opt'] or r['actual'] == r['close']:
