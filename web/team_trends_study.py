@@ -68,6 +68,14 @@ def main():
         out['by_over_rate'][name] = grade([r for r in tested if lo <= r['prior_over_rate'] < hi])
     for name, lo, hi in [('< -7', -99, -7), ('-7 to -2', -7, -2), ('-2 to +2', -2, 2), ('+2 to +7', 2, 7), ('> +7', 7, 99)]:
         out['by_avg_vs_close'][name] = grade([r for r in tested if lo <= r['prior_avg'] < hi])
+    # Stability: the two middle buckets on each side, season by season
+    out['by_season'] = {}
+    for yr in SEASONS:
+        ys = [r for r in tested if r['season'] == yr]
+        out['by_season'][yr] = dict(
+            been_over=grade([r for r in ys if 2 <= r['prior_avg'] < 7]),
+            been_under=grade([r for r in ys if -7 <= r['prior_avg'] < -2]),
+            all=grade(ys))
     # 2026 logs for named teams
     out['logs_2026'] = {}
     for r in season_rows(2026):
