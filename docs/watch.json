@@ -1,6 +1,44 @@
 {
-  "generated_at": "2026-10-11T00:01:42.355372+00:00",
+  "generated_at": "2026-10-11T02:02:50.358825+00:00",
   "week": 6,
-  "storms": [],
-  "games": []
+  "storms": [
+    {
+      "name": "Isaias",
+      "kind": "PTC",
+      "intensity": "25"
+    },
+    {
+      "name": "Rachel",
+      "kind": "TS",
+      "intensity": "55"
+    },
+    {
+      "name": "Simon",
+      "kind": "HU",
+      "intensity": "130"
+    }
+  ],
+  "games": [
+    {
+      "game": "KU@UTAH",
+      "away": "Kansas",
+      "home": "Utah",
+      "kickoff": "Sat 10/10 10:15 PM",
+      "risk": "watch",
+      "news_alert": false,
+      "wind": 14.8,
+      "gust": 25.9,
+      "pop": 5,
+      "storm": {
+        "name": "Rachel",
+        "kind": "TS",
+        "miles": 964
+      },
+      "first_total": 52.5,
+      "total_now": 61.5,
+      "moved": 9.0,
+      "pin_fair": null,
+      "our_pick": null
+    }
+  ]
 }
