@@ -56,6 +56,93 @@
       "avg_vs_close": -0.97
     }
   },
+  "by_season": {
+    "2021": {
+      "been_over": {
+        "n": 95,
+        "over_pct": 34.7,
+        "avg_vs_close": -4.2
+      },
+      "been_under": {
+        "n": 176,
+        "over_pct": 52.9,
+        "avg_vs_close": 2.12
+      },
+      "all": {
+        "n": 527,
+        "over_pct": 47.5,
+        "avg_vs_close": -0.1
+      }
+    },
+    "2022": {
+      "been_over": {
+        "n": 122,
+        "over_pct": 44.6,
+        "avg_vs_close": -1.89
+      },
+      "been_under": {
+        "n": 141,
+        "over_pct": 56.5,
+        "avg_vs_close": 1.77
+      },
+      "all": {
+        "n": 524,
+        "over_pct": 50.1,
+        "avg_vs_close": -0.29
+      }
+    },
+    "2023": {
+      "been_over": {
+        "n": 153,
+        "over_pct": 43.7,
+        "avg_vs_close": -2.0
+      },
+      "been_under": {
+        "n": 110,
+        "over_pct": 56.9,
+        "avg_vs_close": 2.28
+      },
+      "all": {
+        "n": 534,
+        "over_pct": 52.7,
+        "avg_vs_close": 1.66
+      }
+    },
+    "2024": {
+      "been_over": {
+        "n": 171,
+        "over_pct": 45.5,
+        "avg_vs_close": -0.54
+      },
+      "been_under": {
+        "n": 115,
+        "over_pct": 62.3,
+        "avg_vs_close": 4.28
+      },
+      "all": {
+        "n": 552,
+        "over_pct": 53.1,
+        "avg_vs_close": 1.41
+      }
+    },
+    "2025": {
+      "been_over": {
+        "n": 136,
+        "over_pct": 37.5,
+        "avg_vs_close": -2.18
+      },
+      "been_under": {
+        "n": 141,
+        "over_pct": 48.9,
+        "avg_vs_close": 0.86
+      },
+      "all": {
+        "n": 567,
+        "over_pct": 48.0,
+        "avg_vs_close": 0.11
+      }
+    }
+  },
   "logs_2026": {
     "Wyoming": [
       {
