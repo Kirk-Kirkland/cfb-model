@@ -162,6 +162,27 @@ def main():
         w, l = sum(x['w'] for x in v), sum(x['l'] for x in v)
         out['totals'][key] = dict(w=w, l=l, n=w + l, pct=round(w / (w + l) * 100, 1) if w + l else None)
     out['k_final'] = round(fit_k([r for s in SEASONS for r in data[s]]), 3)
+    # Agreement: model 4+ edge AND the trend fade (|trend| >= 2) on the same side,
+    # vs model 4+ edge where the trend fights it. Seasons 2023-25, closing total.
+    agree = fight = neutral = (0, 0)
+    def add(t, win): return (t[0] + win, t[1] + (not win))
+    for s in SEASONS[1:]:
+        for r in data[s]:
+            if r['fcs'] or r['two_opt'] or r['actual'] == r['close']:
+                continue
+            edge = r['adj'] - r['close']
+            if abs(edge) < 4:
+                continue
+            win = (r['actual'] > r['close']) == (edge > 0)
+            if abs(r['trend']) < 2:
+                neutral = add(neutral, win)
+            elif (edge > 0) == (r['trend'] < 0):      # model Over and trend says Over (been under)
+                agree = add(agree, win)
+            else:
+                fight = add(fight, win)
+    pct = lambda t: dict(w=t[0], l=t[1], n=sum(t), pct=round(t[0] / sum(t) * 100, 1) if sum(t) else None)
+    out['model_with_trend'] = dict(agree=pct(agree), fight=pct(fight), no_trend=pct(neutral))
+    print('model x trend', json.dumps(out['model_with_trend']))
     out['cfbd_calls'] = E.CALLS[0]
     d = os.path.join(ROOT, 'data', 'studies')
     os.makedirs(d, exist_ok=True)
