@@ -1,0 +1,105 @@
+{
+  "seasons": [
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "games": 2704,
+  "by_over_rate": {
+    "<35%": {
+      "n": 371,
+      "over_pct": 51.9,
+      "avg_vs_close": 1.5
+    },
+    "35-50%": {
+      "n": 946,
+      "over_pct": 56.0,
+      "avg_vs_close": 1.93
+    },
+    "50-65%": {
+      "n": 1116,
+      "over_pct": 45.8,
+      "avg_vs_close": -0.56
+    },
+    "65%+": {
+      "n": 271,
+      "over_pct": 46.3,
+      "avg_vs_close": -0.85
+    }
+  },
+  "by_avg_vs_close": {
+    "< -7": {
+      "n": 102,
+      "over_pct": 56.6,
+      "avg_vs_close": 2.53
+    },
+    "-7 to -2": {
+      "n": 683,
+      "over_pct": 55.0,
+      "avg_vs_close": 2.18
+    },
+    "-2 to +2": {
+      "n": 1085,
+      "over_pct": 52.4,
+      "avg_vs_close": 1.16
+    },
+    "+2 to +7": {
+      "n": 677,
+      "over_pct": 41.8,
+      "avg_vs_close": -1.96
+    },
+    "> +7": {
+      "n": 157,
+      "over_pct": 47.4,
+      "avg_vs_close": -0.97
+    }
+  },
+  "logs_2026": {
+    "Wyoming": [
+      {
+        "week": 1,
+        "game": "Wyoming @ Colorado State",
+        "close": 45.5,
+        "actual": 48,
+        "result": "Over"
+      },
+      {
+        "week": 2,
+        "game": "Northern Colorado @ Wyoming",
+        "close": 44.5,
+        "actual": 34,
+        "result": "Under"
+      },
+      {
+        "week": 3,
+        "game": "Wyoming @ Central Michigan",
+        "close": 39.5,
+        "actual": 34,
+        "result": "Under"
+      },
+      {
+        "week": 4,
+        "game": "Hawai'i @ Wyoming",
+        "close": 44.5,
+        "actual": 37,
+        "result": "Under"
+      },
+      {
+        "week": 5,
+        "game": "Wyoming @ North Dakota State",
+        "close": 44.5,
+        "actual": 28,
+        "result": "Under"
+      },
+      {
+        "week": 6,
+        "game": "Wyoming @ San Jos\u00e9 State",
+        "close": 42.5,
+        "actual": 29,
+        "result": "Under"
+      }
+    ]
+  }
+}
