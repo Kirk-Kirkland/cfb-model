@@ -1,0 +1,142 @@
+{
+  "meta": {
+    "season": 2026,
+    "week": 7,
+    "kind": "early5",
+    "posted_at": "2026-10-12T11:25:33.123951+00:00"
+  },
+  "picks": [
+    {
+      "rank": 1,
+      "game": "AKR@M-OH",
+      "kickoff": "Sat 10/17 03:30 PM",
+      "bet": "Over 46.5",
+      "edge": 8.64,
+      "tier": "1",
+      "bet_only_if": "at or below 51.0",
+      "pin_fair": 46.92,
+      "market": {
+        "gap": 0.42,
+        "sharp_agrees": false,
+        "sharp_disagrees": false
+      },
+      "best_us": 46.5,
+      "gs_flag": false,
+      "trend": 4.25,
+      "trend_read": "fights"
+    },
+    {
+      "rank": 2,
+      "game": "MASS@BUFF",
+      "kickoff": "Sat 10/17 01:00 PM",
+      "bet": "Over 42.5",
+      "edge": 7.45,
+      "tier": "1",
+      "bet_only_if": "at or below 45.5",
+      "pin_fair": 42.82,
+      "market": {
+        "gap": 0.32,
+        "sharp_agrees": false,
+        "sharp_disagrees": false
+      },
+      "best_us": 42.5,
+      "gs_flag": false,
+      "trend": -1.75,
+      "trend_read": null
+    },
+    {
+      "rank": 3,
+      "game": "RUTG@MD",
+      "kickoff": "Sat 10/17 12:30 PM",
+      "bet": "Under 58.5",
+      "edge": -6.89,
+      "tier": "1",
+      "bet_only_if": "at or above 56.0",
+      "pin_fair": 57.83,
+      "market": {
+        "gap": -0.67,
+        "sharp_agrees": true,
+        "sharp_disagrees": false
+      },
+      "best_us": 58.5,
+      "gs_flag": true,
+      "trend": 5.93,
+      "trend_read": "agrees"
+    },
+    {
+      "rank": 4,
+      "game": "WMU@CMU",
+      "kickoff": "Sat 10/17 01:30 PM",
+      "bet": "Over 42.5",
+      "edge": 6.77,
+      "tier": "1",
+      "bet_only_if": "at or below 45.0",
+      "pin_fair": 42.92,
+      "market": {
+        "gap": 0.42,
+        "sharp_agrees": false,
+        "sharp_disagrees": false
+      },
+      "best_us": 42.5,
+      "gs_flag": false,
+      "trend": -4.33,
+      "trend_read": "agrees"
+    },
+    {
+      "rank": 5,
+      "game": "BALL@BGSU",
+      "kickoff": "Sat 10/17 12:00 PM",
+      "bet": "Over 44.5",
+      "edge": 6.73,
+      "tier": "1",
+      "bet_only_if": "at or below 47.0",
+      "pin_fair": 44.83,
+      "market": {
+        "gap": 0.33,
+        "sharp_agrees": false,
+        "sharp_disagrees": false
+      },
+      "best_us": 44.5,
+      "gs_flag": false,
+      "trend": 2.0,
+      "trend_read": "fights"
+    }
+  ],
+  "games": [
+    {
+      "matchup": "BALL@BGSU",
+      "game_id": 401866441,
+      "kickoff_iso": "2026-10-17T16:00:00.000Z",
+      "away": "Ball State",
+      "home": "Bowling Green"
+    },
+    {
+      "matchup": "RUTG@MD",
+      "game_id": 401858489,
+      "kickoff_iso": "2026-10-17T16:30:00.000Z",
+      "away": "Rutgers",
+      "home": "Maryland"
+    },
+    {
+      "matchup": "MASS@BUFF",
+      "game_id": 401866442,
+      "kickoff_iso": "2026-10-17T17:00:00.000Z",
+      "away": "Massachusetts",
+      "home": "Buffalo"
+    },
+    {
+      "matchup": "WMU@CMU",
+      "game_id": 401866443,
+      "kickoff_iso": "2026-10-17T17:30:00.000Z",
+      "away": "Western Michigan",
+      "home": "Central Michigan"
+    },
+    {
+      "matchup": "AKR@M-OH",
+      "game_id": 401866478,
+      "kickoff_iso": "2026-10-17T19:30:00.000Z",
+      "away": "Akron",
+      "home": "Miami (OH)"
+    }
+  ]
+}
