@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-15T21:26:20.445256+00:00",
+  "generated_at": "2026-10-16T00:29:39.598971+00:00",
   "week": 7,
   "storms": [
     {
@@ -21,7 +21,7 @@
       "kickoff": "Sat 10/17 12:00 PM",
       "risk": "news",
       "news_alert": true,
-      "wind": 10.0,
+      "wind": 10.1,
       "gust": 15.7,
       "pop": 0,
       "storm": {
@@ -42,7 +42,7 @@
       "kickoff": "Sat 10/17 07:30 PM",
       "risk": "news",
       "news_alert": true,
-      "wind": 8.2,
+      "wind": 8.9,
       "gust": 10.5,
       "pop": 0,
       "storm": {
@@ -63,9 +63,9 @@
       "kickoff": "Sat 10/17 10:30 PM",
       "risk": "high",
       "news_alert": false,
-      "wind": 14.3,
-      "gust": 37.8,
-      "pop": 17,
+      "wind": 13.6,
+      "gust": 35.6,
+      "pop": 27,
       "storm": {
         "name": "Simon",
         "kind": "TS",
@@ -86,7 +86,7 @@
       "news_alert": false,
       "wind": 12.3,
       "gust": 30.0,
-      "pop": 36,
+      "pop": 34,
       "storm": {
         "name": "Simon",
         "kind": "TS",
@@ -130,14 +130,14 @@
       "gust": 28.0,
       "pop": 6,
       "storm": {
-        "name": "Simon",
-        "kind": "TS",
-        "miles": 2197
+        "name": "Trudy",
+        "kind": "HU",
+        "miles": 2194
       },
       "first_total": 54.5,
       "total_now": 57.5,
       "moved": 3.0,
-      "pin_fair": 57.76,
+      "pin_fair": 57.59,
       "our_pick": null
     },
     {
@@ -147,13 +147,13 @@
       "kickoff": "Sat 10/17 12:00 PM",
       "risk": "watch",
       "news_alert": false,
-      "wind": 15.3,
+      "wind": 15.1,
       "gust": 26.1,
       "pop": 3,
       "storm": {
-        "name": "Simon",
-        "kind": "TS",
-        "miles": 2680
+        "name": "Trudy",
+        "kind": "HU",
+        "miles": 2676
       },
       "first_total": 46.5,
       "total_now": 42.5,
@@ -193,9 +193,9 @@
       "gust": 24.0,
       "pop": 10,
       "storm": {
-        "name": "Simon",
-        "kind": "TS",
-        "miles": 2306
+        "name": "Trudy",
+        "kind": "HU",
+        "miles": 2296
       },
       "first_total": 58.5,
       "total_now": 56.5,
@@ -214,9 +214,9 @@
       "gust": 23.8,
       "pop": 4,
       "storm": {
-        "name": "Simon",
-        "kind": "TS",
-        "miles": 2419
+        "name": "Trudy",
+        "kind": "HU",
+        "miles": 2409
       },
       "first_total": 49.5,
       "total_now": 46.5,
@@ -231,7 +231,7 @@
       "kickoff": "Sat 10/17 12:00 PM",
       "risk": "watch",
       "news_alert": false,
-      "wind": 13.7,
+      "wind": 14.2,
       "gust": 22.6,
       "pop": 7,
       "storm": {
@@ -246,61 +246,19 @@
       "our_pick": null
     },
     {
-      "game": "KENT@USF",
-      "away": "Kent State",
-      "home": "South Florida",
-      "kickoff": "Sat 10/17 07:00 PM",
-      "risk": "watch",
-      "news_alert": false,
-      "wind": 15.3,
-      "gust": 20.8,
-      "pop": 16,
-      "storm": {
-        "name": "Trudy",
-        "kind": "HU",
-        "miles": 1580
-      },
-      "first_total": 46.5,
-      "total_now": 45.5,
-      "moved": -1.0,
-      "pin_fair": 45.56,
-      "our_pick": null
-    },
-    {
-      "game": "CHSO@CLEM",
-      "away": "Charleston Southern",
-      "home": "Clemson",
-      "kickoff": "Sat 10/17 12:00 PM",
-      "risk": "watch",
-      "news_alert": false,
-      "wind": 12.6,
-      "gust": 20.7,
-      "pop": 5,
-      "storm": {
-        "name": "Trudy",
-        "kind": "HU",
-        "miles": 1867
-      },
-      "first_total": 58.5,
-      "total_now": 58.5,
-      "moved": 0.0,
-      "pin_fair": null,
-      "our_pick": null
-    },
-    {
       "game": "UNC@DUKE",
       "away": "North Carolina",
       "home": "Duke",
       "kickoff": "Sat 10/17 03:30 PM",
       "risk": "watch",
       "news_alert": false,
-      "wind": 12.8,
+      "wind": 12.4,
       "gust": 20.4,
       "pop": 22,
       "storm": {
         "name": "Trudy",
         "kind": "HU",
-        "miles": 2089
+        "miles": 2077
       },
       "first_total": 47.5,
       "total_now": 47.5,
@@ -315,13 +273,13 @@
       "kickoff": "Sat 10/17 07:00 PM",
       "risk": "watch",
       "news_alert": false,
-      "wind": 14.7,
+      "wind": 12.7,
       "gust": 20.1,
       "pop": 91,
       "storm": {
         "name": "Trudy",
         "kind": "HU",
-        "miles": 1628
+        "miles": 1622
       },
       "first_total": 55.5,
       "total_now": 56.5,
@@ -336,7 +294,7 @@
       "kickoff": "Sat 10/17 03:30 PM",
       "risk": "watch",
       "news_alert": false,
-      "wind": 13.0,
+      "wind": 12.3,
       "gust": 19.9,
       "pop": 0,
       "storm": {
@@ -345,8 +303,8 @@
         "miles": 1529
       },
       "first_total": 40.5,
-      "total_now": 40.5,
-      "moved": 0.0,
+      "total_now": 41.5,
+      "moved": 1.0,
       "pin_fair": 40.44,
       "our_pick": null
     },
@@ -357,17 +315,17 @@
       "kickoff": "Sat 10/17 03:30 PM",
       "risk": "watch",
       "news_alert": false,
-      "wind": 13.4,
+      "wind": 12.7,
       "gust": 19.5,
       "pop": 6,
       "storm": {
-        "name": "Simon",
-        "kind": "TS",
-        "miles": 2082
+        "name": "Trudy",
+        "kind": "HU",
+        "miles": 2075
       },
       "first_total": 55.5,
-      "total_now": 55.5,
-      "moved": 0.0,
+      "total_now": 56.5,
+      "moved": 1.0,
       "pin_fair": 55.83,
       "our_pick": null
     },
@@ -389,7 +347,7 @@
       "first_total": 53.5,
       "total_now": 51.5,
       "moved": -2.0,
-      "pin_fair": 51.54,
+      "pin_fair": 51.5,
       "our_pick": null
     },
     {
@@ -399,7 +357,7 @@
       "kickoff": "Sat 10/17 01:00 PM",
       "risk": "watch",
       "news_alert": false,
-      "wind": 12.9,
+      "wind": 12.6,
       "gust": 16.9,
       "pop": 0,
       "storm": {
@@ -420,7 +378,7 @@
       "kickoff": "Sat 10/17 05:00 PM",
       "risk": "watch",
       "news_alert": false,
-      "wind": 13.7,
+      "wind": 15.0,
       "gust": 16.6,
       "pop": 0,
       "storm": {
@@ -431,7 +389,7 @@
       "first_total": 49.5,
       "total_now": 49.5,
       "moved": 0.0,
-      "pin_fair": 49.06,
+      "pin_fair": 49.02,
       "our_pick": null
     },
     {
@@ -441,7 +399,7 @@
       "kickoff": "Sat 10/17 09:00 PM",
       "risk": "watch",
       "news_alert": false,
-      "wind": 13.2,
+      "wind": 12.3,
       "gust": 16.6,
       "pop": 0,
       "storm": {
@@ -450,9 +408,9 @@
         "miles": 868
       },
       "first_total": 48.5,
-      "total_now": 46.5,
-      "moved": -2.0,
-      "pin_fair": 46.26,
+      "total_now": 45.5,
+      "moved": -3.0,
+      "pin_fair": 45.41,
       "our_pick": null
     },
     {
@@ -462,7 +420,7 @@
       "kickoff": "Sat 10/17 03:30 PM",
       "risk": "watch",
       "news_alert": false,
-      "wind": 12.0,
+      "wind": 13.3,
       "gust": 15.0,
       "pop": 1,
       "storm": {
