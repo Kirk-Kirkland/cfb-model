@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-10-16T15:24:10.588579+00:00",
+  "generated_at": "2026-10-16T18:27:33.054185+00:00",
   "week": 7,
   "storms": [
     {
       "name": "Trudy",
       "kind": "HU",
-      "intensity": "105"
+      "intensity": "95"
     },
     {
       "name": "Simon",
@@ -32,7 +32,7 @@
       "first_total": 58.5,
       "total_now": 62.5,
       "moved": 4.0,
-      "pin_fair": 62.35,
+      "pin_fair": 62.39,
       "our_pick": "Under 61.5"
     },
     {
@@ -55,6 +55,27 @@
       "moved": 3.0,
       "pin_fair": 46.67,
       "our_pick": "Over 44.5"
+    },
+    {
+      "game": "WASH@PUR",
+      "away": "Washington",
+      "home": "Purdue",
+      "kickoff": "Fri 10/16 08:00 PM",
+      "risk": "high",
+      "news_alert": false,
+      "wind": 17.1,
+      "gust": 41.6,
+      "pop": 42,
+      "storm": {
+        "name": "Simon",
+        "kind": "TS",
+        "miles": 1908
+      },
+      "first_total": 51.5,
+      "total_now": 50.5,
+      "moved": -1.0,
+      "pin_fair": 50.24,
+      "our_pick": null
     },
     {
       "game": "UNM@HAW",
@@ -86,11 +107,11 @@
       "news_alert": false,
       "wind": 16.3,
       "gust": 29.8,
-      "pop": 3,
+      "pop": 1,
       "storm": {
         "name": "Trudy",
         "kind": "HU",
-        "miles": 2404
+        "miles": 2399
       },
       "first_total": 49.5,
       "total_now": 46.5,
@@ -107,37 +128,16 @@
       "news_alert": false,
       "wind": 16.8,
       "gust": 29.5,
-      "pop": 20,
+      "pop": 23,
       "storm": {
         "name": "Trudy",
         "kind": "HU",
-        "miles": 2074
+        "miles": 2069
       },
       "first_total": 47.5,
       "total_now": 46.5,
       "moved": -1.0,
       "pin_fair": 46.7,
-      "our_pick": null
-    },
-    {
-      "game": "WASH@PUR",
-      "away": "Washington",
-      "home": "Purdue",
-      "kickoff": "Fri 10/16 08:00 PM",
-      "risk": "watch",
-      "news_alert": false,
-      "wind": 13.9,
-      "gust": 28.2,
-      "pop": 37,
-      "storm": {
-        "name": "Simon",
-        "kind": "TS",
-        "miles": 1908
-      },
-      "first_total": 51.5,
-      "total_now": 49.5,
-      "moved": -2.0,
-      "pin_fair": 49.8,
       "our_pick": null
     },
     {
@@ -149,16 +149,16 @@
       "news_alert": false,
       "wind": 15.4,
       "gust": 27.7,
-      "pop": 1,
+      "pop": 0,
       "storm": {
         "name": "Trudy",
         "kind": "HU",
-        "miles": 2518
+        "miles": 2512
       },
       "first_total": 55.5,
-      "total_now": 55.5,
-      "moved": 0.0,
-      "pin_fair": 55.24,
+      "total_now": 54.5,
+      "moved": -1.0,
+      "pin_fair": 55.2,
       "our_pick": "Under 56.5"
     },
     {
@@ -174,7 +174,7 @@
       "storm": {
         "name": "Trudy",
         "kind": "HU",
-        "miles": 1850
+        "miles": 1844
       },
       "first_total": 58.5,
       "total_now": 58.5,
@@ -191,11 +191,11 @@
       "news_alert": false,
       "wind": 16.6,
       "gust": 27.3,
-      "pop": 3,
+      "pop": 2,
       "storm": {
         "name": "Trudy",
         "kind": "HU",
-        "miles": 2188
+        "miles": 2182
       },
       "first_total": 54.5,
       "total_now": 57.5,
@@ -212,11 +212,11 @@
       "news_alert": false,
       "wind": 14.2,
       "gust": 26.2,
-      "pop": 4,
+      "pop": 3,
       "storm": {
         "name": "Trudy",
         "kind": "HU",
-        "miles": 2291
+        "miles": 2286
       },
       "first_total": 58.5,
       "total_now": 56.5,
@@ -233,11 +233,11 @@
       "news_alert": false,
       "wind": 15.6,
       "gust": 25.1,
-      "pop": 2,
+      "pop": 0,
       "storm": {
         "name": "Trudy",
         "kind": "HU",
-        "miles": 2672
+        "miles": 2666
       },
       "first_total": 46.5,
       "total_now": 43.5,
@@ -258,7 +258,7 @@
       "storm": {
         "name": "Trudy",
         "kind": "HU",
-        "miles": 1793
+        "miles": 1787
       },
       "first_total": 49.5,
       "total_now": 49.5,
@@ -279,7 +279,7 @@
       "storm": {
         "name": "Trudy",
         "kind": "HU",
-        "miles": 1308
+        "miles": 1302
       },
       "first_total": 59.5,
       "total_now": 57.5,
@@ -321,7 +321,7 @@
       "storm": {
         "name": "Trudy",
         "kind": "HU",
-        "miles": 2069
+        "miles": 2063
       },
       "first_total": 55.5,
       "total_now": 56.5,
@@ -342,7 +342,7 @@
       "storm": {
         "name": "Trudy",
         "kind": "HU",
-        "miles": 1870
+        "miles": 1864
       },
       "first_total": 56.5,
       "total_now": 50.5,
@@ -363,7 +363,7 @@
       "storm": {
         "name": "Trudy",
         "kind": "HU",
-        "miles": 1267
+        "miles": 1261
       },
       "first_total": 49.5,
       "total_now": 49.5,
@@ -389,7 +389,7 @@
       "first_total": 53.5,
       "total_now": 51.5,
       "moved": -2.0,
-      "pin_fair": 51.5,
+      "pin_fair": 51.59,
       "our_pick": null
     }
   ]
