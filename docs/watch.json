@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-10-17T20:12:17.924730+00:00",
+  "generated_at": "2026-10-17T22:12:52.891155+00:00",
   "week": 7,
   "storms": [
     {
       "name": "Trudy",
       "kind": "HU",
-      "intensity": "80"
+      "intensity": "85"
     }
   ],
   "games": [
@@ -16,18 +16,18 @@
       "kickoff": "Sat 10/17 07:30 PM",
       "risk": "news",
       "news_alert": true,
-      "wind": 9.1,
-      "gust": 13.9,
+      "wind": 8.7,
+      "gust": 13.6,
       "pop": 0,
       "storm": {
         "name": "Trudy",
         "kind": "HU",
-        "miles": 1045
+        "miles": 1041
       },
       "first_total": 58.5,
       "total_now": 62.5,
       "moved": 4.0,
-      "pin_fair": 62.0,
+      "pin_fair": 62.09,
       "our_pick": "Under 61.5"
     },
     {
@@ -37,40 +37,19 @@
       "kickoff": "Sat 10/17 10:30 PM",
       "risk": "watch",
       "news_alert": false,
-      "wind": 12.4,
+      "wind": 12.3,
       "gust": 33.1,
       "pop": 0,
       "storm": {
         "name": "Trudy",
         "kind": "HU",
-        "miles": 3490
+        "miles": 3437
       },
       "first_total": 45.5,
       "total_now": 45.5,
       "moved": 0.0,
-      "pin_fair": 45.59,
+      "pin_fair": 46.15,
       "our_pick": "Over 45.5"
-    },
-    {
-      "game": "TROY@UL",
-      "away": "Troy",
-      "home": "Louisiana",
-      "kickoff": "Sat 10/17 05:00 PM",
-      "risk": "watch",
-      "news_alert": false,
-      "wind": 14.1,
-      "gust": 21.0,
-      "pop": 0,
-      "storm": {
-        "name": "Trudy",
-        "kind": "HU",
-        "miles": 1197
-      },
-      "first_total": 49.5,
-      "total_now": 49.5,
-      "moved": 0.0,
-      "pin_fair": 49.89,
-      "our_pick": null
     },
     {
       "game": "FSU@MIA",
@@ -79,18 +58,18 @@
       "kickoff": "Sat 10/17 07:00 PM",
       "risk": "watch",
       "news_alert": false,
-      "wind": 2.2,
-      "gust": 3.6,
+      "wind": 2.8,
+      "gust": 4.3,
       "pop": 73,
       "storm": {
         "name": "Trudy",
         "kind": "HU",
-        "miles": 1663
+        "miles": 1690
       },
       "first_total": 55.5,
       "total_now": 56.5,
       "moved": 1.0,
-      "pin_fair": 56.63,
+      "pin_fair": 56.75,
       "our_pick": "Over 56.5"
     }
   ]
