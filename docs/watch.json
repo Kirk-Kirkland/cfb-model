@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T14:17:36.004191+00:00",
+  "generated_at": "2026-10-17T16:14:54.069301+00:00",
   "week": 7,
   "storms": [
     {
@@ -16,18 +16,18 @@
       "kickoff": "Sat 10/17 12:30 PM",
       "risk": "watch",
       "news_alert": true,
-      "wind": 15.4,
-      "gust": 26.6,
-      "pop": 9,
+      "wind": 14.7,
+      "gust": 25.1,
+      "pop": 8,
       "storm": {
         "name": "Trudy",
         "kind": "HU",
-        "miles": 2250
+        "miles": 2243
       },
       "first_total": 58.5,
       "total_now": 55.5,
       "moved": -3.0,
-      "pin_fair": 55.61,
+      "pin_fair": 55.65,
       "our_pick": "Under 58.5"
     },
     {
@@ -37,18 +37,18 @@
       "kickoff": "Sat 10/17 07:30 PM",
       "risk": "news",
       "news_alert": true,
-      "wind": 9.1,
-      "gust": 14.3,
+      "wind": 8.8,
+      "gust": 13.4,
       "pop": 0,
       "storm": {
         "name": "Trudy",
         "kind": "HU",
-        "miles": 1068
+        "miles": 1056
       },
       "first_total": 58.5,
       "total_now": 62.5,
       "moved": 4.0,
-      "pin_fair": 62.26,
+      "pin_fair": 62.09,
       "our_pick": "Under 61.5"
     },
     {
@@ -64,7 +64,7 @@
       "storm": {
         "name": "Trudy",
         "kind": "HU",
-        "miles": 3541
+        "miles": 3523
       },
       "first_total": 45.5,
       "total_now": 45.5,
@@ -79,123 +79,18 @@
       "kickoff": "Sat 10/17 03:30 PM",
       "risk": "watch",
       "news_alert": false,
-      "wind": 15.7,
-      "gust": 31.5,
-      "pop": 17,
+      "wind": 14.1,
+      "gust": 29.5,
+      "pop": 16,
       "storm": {
         "name": "Trudy",
         "kind": "HU",
-        "miles": 2040
+        "miles": 2034
       },
       "first_total": 47.5,
       "total_now": 46.5,
       "moved": -1.0,
       "pin_fair": 46.74,
-      "our_pick": null
-    },
-    {
-      "game": "GAST@JMU",
-      "away": "Georgia State",
-      "home": "James Madison",
-      "kickoff": "Sat 10/17 12:00 PM",
-      "risk": "watch",
-      "news_alert": false,
-      "wind": 16.7,
-      "gust": 27.3,
-      "pop": 3,
-      "storm": {
-        "name": "Trudy",
-        "kind": "HU",
-        "miles": 2145
-      },
-      "first_total": 54.5,
-      "total_now": 57.5,
-      "moved": 3.0,
-      "pin_fair": 57.17,
-      "our_pick": null
-    },
-    {
-      "game": "MSST@LSU",
-      "away": "Mississippi State",
-      "home": "LSU",
-      "kickoff": "Sat 10/17 12:00 PM",
-      "risk": "watch",
-      "news_alert": false,
-      "wind": 16.0,
-      "gust": 25.1,
-      "pop": 0,
-      "storm": {
-        "name": "Trudy",
-        "kind": "HU",
-        "miles": 1255
-      },
-      "first_total": 59.5,
-      "total_now": 55.5,
-      "moved": -4.0,
-      "pin_fair": 55.67,
-      "our_pick": null
-    },
-    {
-      "game": "GT@VT",
-      "away": "Georgia Tech",
-      "home": "Virginia Tech",
-      "kickoff": "Sat 10/17 03:30 PM",
-      "risk": "watch",
-      "news_alert": false,
-      "wind": 16.2,
-      "gust": 23.9,
-      "pop": 0,
-      "storm": {
-        "name": "Trudy",
-        "kind": "HU",
-        "miles": 2026
-      },
-      "first_total": 55.5,
-      "total_now": 56.5,
-      "moved": 1.0,
-      "pin_fair": 56.26,
-      "our_pick": null
-    },
-    {
-      "game": "CHSO@CLEM",
-      "away": "Charleston Southern",
-      "home": "Clemson",
-      "kickoff": "Sat 10/17 12:00 PM",
-      "risk": "watch",
-      "news_alert": false,
-      "wind": 14.9,
-      "gust": 23.5,
-      "pop": 0,
-      "storm": {
-        "name": "Trudy",
-        "kind": "HU",
-        "miles": 1810
-      },
-      "first_total": 58.5,
-      "total_now": 56.5,
-      "moved": -2.0,
-      "pin_fair": 55.17,
-      "our_pick": null
-    },
-    {
-      "game": "ALA@TENN",
-      "away": "Alabama",
-      "home": "Tennessee",
-      "kickoff": "Sat 10/17 03:30 PM",
-      "risk": "watch",
-      "news_alert": false,
-      "wind": 15.2,
-      "gust": 23.0,
-      "pop": 0,
-      "storm": {
-        "name": "Trudy",
-        "kind": "HU",
-        "miles": 1822
-      },
-      "first_total": 56.5,
-      "total_now": 50.5,
-      "moved": -6.0,
-      "pin_fair": 50.91,
       "our_pick": null
     },
     {
@@ -205,61 +100,19 @@
       "kickoff": "Sat 10/17 01:00 PM",
       "risk": "watch",
       "news_alert": false,
-      "wind": 13.2,
-      "gust": 22.8,
-      "pop": 5,
+      "wind": 13.7,
+      "gust": 23.7,
+      "pop": 3,
       "storm": {
         "name": "Trudy",
         "kind": "HU",
-        "miles": 2364
+        "miles": 2357
       },
       "first_total": 49.5,
-      "total_now": 46.5,
-      "moved": -3.0,
-      "pin_fair": 46.5,
+      "total_now": 47.5,
+      "moved": -2.0,
+      "pin_fair": 47.29,
       "our_pick": null
-    },
-    {
-      "game": "PITT@BC",
-      "away": "Pittsburgh",
-      "home": "Boston College",
-      "kickoff": "Sat 10/17 12:00 PM",
-      "risk": "watch",
-      "news_alert": false,
-      "wind": 13.9,
-      "gust": 22.1,
-      "pop": 4,
-      "storm": {
-        "name": "Trudy",
-        "kind": "HU",
-        "miles": 2631
-      },
-      "first_total": 46.5,
-      "total_now": 42.5,
-      "moved": -4.0,
-      "pin_fair": 43.0,
-      "our_pick": null
-    },
-    {
-      "game": "FAU@ARMY",
-      "away": "Florida Atlantic",
-      "home": "Army",
-      "kickoff": "Sat 10/17 12:00 PM",
-      "risk": "watch",
-      "news_alert": false,
-      "wind": 12.4,
-      "gust": 21.5,
-      "pop": 1,
-      "storm": {
-        "name": "Trudy",
-        "kind": "HU",
-        "miles": 2475
-      },
-      "first_total": 55.5,
-      "total_now": 55.5,
-      "moved": 0.0,
-      "pin_fair": 55.59,
-      "our_pick": "Under 56.5"
     },
     {
       "game": "AUB@UGA",
@@ -268,60 +121,60 @@
       "kickoff": "Sat 10/17 03:30 PM",
       "risk": "watch",
       "news_alert": false,
-      "wind": 15.4,
-      "gust": 21.5,
+      "wind": 15.7,
+      "gust": 22.4,
       "pop": 0,
       "storm": {
         "name": "Trudy",
         "kind": "HU",
-        "miles": 1755
+        "miles": 1749
       },
       "first_total": 49.5,
       "total_now": 49.5,
       "moved": 0.0,
-      "pin_fair": 50.06,
+      "pin_fair": 50.02,
       "our_pick": "Over 49.5"
     },
     {
-      "game": "MIZ@MISS",
-      "away": "Missouri",
-      "home": "Ole Miss",
+      "game": "GT@VT",
+      "away": "Georgia Tech",
+      "home": "Virginia Tech",
       "kickoff": "Sat 10/17 03:30 PM",
       "risk": "watch",
       "news_alert": false,
-      "wind": 15.0,
-      "gust": 20.8,
+      "wind": 14.7,
+      "gust": 21.7,
       "pop": 0,
       "storm": {
         "name": "Trudy",
         "kind": "HU",
-        "miles": 1526
+        "miles": 2019
       },
-      "first_total": 58.5,
-      "total_now": 58.5,
-      "moved": 0.0,
-      "pin_fair": 58.67,
+      "first_total": 55.5,
+      "total_now": 56.5,
+      "moved": 1.0,
+      "pin_fair": 56.26,
       "our_pick": null
     },
     {
-      "game": "CIN@WVU",
-      "away": "Cincinnati",
-      "home": "West Virginia",
-      "kickoff": "Sat 10/17 12:00 PM",
+      "game": "ALA@TENN",
+      "away": "Alabama",
+      "home": "Tennessee",
+      "kickoff": "Sat 10/17 03:30 PM",
       "risk": "watch",
       "news_alert": false,
-      "wind": 13.7,
-      "gust": 20.6,
-      "pop": 1,
+      "wind": 14.5,
+      "gust": 21.3,
+      "pop": 0,
       "storm": {
         "name": "Trudy",
         "kind": "HU",
-        "miles": 2154
+        "miles": 1814
       },
-      "first_total": 61.5,
-      "total_now": 63.5,
-      "moved": 2.0,
-      "pin_fair": 63.59,
+      "first_total": 56.5,
+      "total_now": 50.5,
+      "moved": -6.0,
+      "pin_fair": 50.91,
       "our_pick": null
     },
     {
@@ -331,40 +184,40 @@
       "kickoff": "Sat 10/17 05:00 PM",
       "risk": "watch",
       "news_alert": false,
-      "wind": 13.8,
+      "wind": 13.7,
       "gust": 20.4,
       "pop": 0,
       "storm": {
         "name": "Trudy",
         "kind": "HU",
-        "miles": 1212
+        "miles": 1203
       },
       "first_total": 49.5,
-      "total_now": 49.5,
-      "moved": 0.0,
+      "total_now": 48.5,
+      "moved": -1.0,
       "pin_fair": 49.02,
       "our_pick": null
     },
     {
-      "game": "FSU@MIA",
-      "away": "Florida State",
-      "home": "Miami",
-      "kickoff": "Sat 10/17 07:00 PM",
+      "game": "MIZ@MISS",
+      "away": "Missouri",
+      "home": "Ole Miss",
+      "kickoff": "Sat 10/17 03:30 PM",
       "risk": "watch",
       "news_alert": false,
-      "wind": 2.4,
-      "gust": 4.0,
-      "pop": 73,
+      "wind": 14.4,
+      "gust": 20.1,
+      "pop": 0,
       "storm": {
         "name": "Trudy",
         "kind": "HU",
-        "miles": 1649
+        "miles": 1516
       },
-      "first_total": 55.5,
-      "total_now": 56.5,
-      "moved": 1.0,
-      "pin_fair": 56.35,
-      "our_pick": "Over 56.5"
+      "first_total": 58.5,
+      "total_now": 58.5,
+      "moved": 0.0,
+      "pin_fair": 58.5,
+      "our_pick": null
     }
   ]
 }
