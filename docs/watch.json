@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T02:14:03.199422+00:00",
+  "generated_at": "2026-10-18T04:14:40.269107+00:00",
   "week": 7,
   "storms": [
     {
@@ -8,27 +8,5 @@
       "intensity": "85"
     }
   ],
-  "games": [
-    {
-      "game": "UNM@HAW",
-      "away": "New Mexico",
-      "home": "Hawai'i",
-      "kickoff": "Sat 10/17 10:30 PM",
-      "risk": "watch",
-      "news_alert": false,
-      "wind": 12.7,
-      "gust": 34.7,
-      "pop": 0,
-      "storm": {
-        "name": "Trudy",
-        "kind": "HU",
-        "miles": 3412
-      },
-      "first_total": 45.5,
-      "total_now": 46.5,
-      "moved": 1.0,
-      "pin_fair": 46.41,
-      "our_pick": "Over 45.5"
-    }
-  ]
+  "games": []
 }
