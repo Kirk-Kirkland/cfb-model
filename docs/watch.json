@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T00:05:39.731819+00:00",
+  "generated_at": "2026-10-18T02:14:03.199422+00:00",
   "week": 7,
   "storms": [
     {
@@ -16,8 +16,8 @@
       "kickoff": "Sat 10/17 10:30 PM",
       "risk": "watch",
       "news_alert": false,
-      "wind": 12.5,
-      "gust": 33.8,
+      "wind": 12.7,
+      "gust": 34.7,
       "pop": 0,
       "storm": {
         "name": "Trudy",
@@ -25,9 +25,9 @@
         "miles": 3412
       },
       "first_total": 45.5,
-      "total_now": 45.5,
-      "moved": 0.0,
-      "pin_fair": 45.85,
+      "total_now": 46.5,
+      "moved": 1.0,
+      "pin_fair": 46.41,
       "our_pick": "Over 45.5"
     }
   ]
