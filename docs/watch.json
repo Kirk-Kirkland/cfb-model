@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T22:12:52.891155+00:00",
+  "generated_at": "2026-10-18T00:05:39.731819+00:00",
   "week": 7,
   "storms": [
     {
@@ -10,67 +10,25 @@
   ],
   "games": [
     {
-      "game": "OKST@HOU",
-      "away": "Oklahoma State",
-      "home": "Houston",
-      "kickoff": "Sat 10/17 07:30 PM",
-      "risk": "news",
-      "news_alert": true,
-      "wind": 8.7,
-      "gust": 13.6,
-      "pop": 0,
-      "storm": {
-        "name": "Trudy",
-        "kind": "HU",
-        "miles": 1041
-      },
-      "first_total": 58.5,
-      "total_now": 62.5,
-      "moved": 4.0,
-      "pin_fair": 62.09,
-      "our_pick": "Under 61.5"
-    },
-    {
       "game": "UNM@HAW",
       "away": "New Mexico",
       "home": "Hawai'i",
       "kickoff": "Sat 10/17 10:30 PM",
       "risk": "watch",
       "news_alert": false,
-      "wind": 12.3,
-      "gust": 33.1,
+      "wind": 12.5,
+      "gust": 33.8,
       "pop": 0,
       "storm": {
         "name": "Trudy",
         "kind": "HU",
-        "miles": 3437
+        "miles": 3412
       },
       "first_total": 45.5,
       "total_now": 45.5,
       "moved": 0.0,
-      "pin_fair": 46.15,
+      "pin_fair": 45.85,
       "our_pick": "Over 45.5"
-    },
-    {
-      "game": "FSU@MIA",
-      "away": "Florida State",
-      "home": "Miami",
-      "kickoff": "Sat 10/17 07:00 PM",
-      "risk": "watch",
-      "news_alert": false,
-      "wind": 2.8,
-      "gust": 4.3,
-      "pop": 73,
-      "storm": {
-        "name": "Trudy",
-        "kind": "HU",
-        "miles": 1690
-      },
-      "first_total": 55.5,
-      "total_now": 56.5,
-      "moved": 1.0,
-      "pin_fair": 56.75,
-      "our_pick": "Over 56.5"
     }
   ]
 }
