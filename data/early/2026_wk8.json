@@ -1,0 +1,122 @@
+{
+  "meta": {
+    "season": 2026,
+    "week": 8,
+    "kind": "early5",
+    "posted_at": "2026-10-19T11:35:20.652311+00:00"
+  },
+  "picks": [
+    {
+      "rank": 1,
+      "game": "IOWA@MINN",
+      "kickoff": "Sat 10/24 03:30 PM",
+      "bet": "Over 40.5",
+      "edge": 7.54,
+      "tier": "1",
+      "bet_only_if": "at or below 44.0",
+      "pin_fair": null,
+      "market": null,
+      "best_us": null,
+      "gs_flag": false,
+      "trend": 2.08,
+      "trend_read": "fights"
+    },
+    {
+      "rank": 2,
+      "game": "PITT@MIA",
+      "kickoff": "Sat 10/24 12:00 PM",
+      "bet": "Over 51.5",
+      "edge": 6.85,
+      "tier": "1",
+      "bet_only_if": "at or below 54.0",
+      "pin_fair": null,
+      "market": null,
+      "best_us": null,
+      "gs_flag": false,
+      "trend": 2.74,
+      "trend_read": "fights"
+    },
+    {
+      "rank": 3,
+      "game": "IU@MICH",
+      "kickoff": "Sat 10/24 12:00 PM",
+      "bet": "Over 41.5",
+      "edge": 6.75,
+      "tier": "1",
+      "bet_only_if": "at or below 44.0",
+      "pin_fair": null,
+      "market": null,
+      "best_us": null,
+      "gs_flag": false,
+      "trend": -5.87,
+      "trend_read": "agrees"
+    },
+    {
+      "rank": 4,
+      "game": "SJSU@NEV",
+      "kickoff": "Sat 10/24 05:00 PM",
+      "bet": "Over 45.5",
+      "edge": 6.65,
+      "tier": "1",
+      "bet_only_if": "at or below 48.0",
+      "pin_fair": null,
+      "market": null,
+      "best_us": null,
+      "gs_flag": false,
+      "trend": -4.15,
+      "trend_read": "agrees"
+    },
+    {
+      "rank": 5,
+      "game": "M-OH@CMU",
+      "kickoff": "Sat 10/24 01:00 PM",
+      "bet": "Over 43.5",
+      "edge": 6.28,
+      "tier": "1",
+      "bet_only_if": "at or below 45.5",
+      "pin_fair": null,
+      "market": null,
+      "best_us": null,
+      "gs_flag": false,
+      "trend": 0.57,
+      "trend_read": null
+    }
+  ],
+  "games": [
+    {
+      "matchup": "IU@MICH",
+      "game_id": 401858496,
+      "kickoff_iso": "2026-10-24T16:00:00.000Z",
+      "away": "Indiana",
+      "home": "Michigan"
+    },
+    {
+      "matchup": "PITT@MIA",
+      "game_id": 401858274,
+      "kickoff_iso": "2026-10-24T16:00:00.000Z",
+      "away": "Pittsburgh",
+      "home": "Miami"
+    },
+    {
+      "matchup": "M-OH@CMU",
+      "game_id": 401866476,
+      "kickoff_iso": "2026-10-24T17:00:00.000Z",
+      "away": "Miami (OH)",
+      "home": "Central Michigan"
+    },
+    {
+      "matchup": "IOWA@MINN",
+      "game_id": 401858497,
+      "kickoff_iso": "2026-10-24T19:30:00.000Z",
+      "away": "Iowa",
+      "home": "Minnesota"
+    },
+    {
+      "matchup": "SJSU@NEV",
+      "game_id": 401864528,
+      "kickoff_iso": "2026-10-24T21:00:00.000Z",
+      "away": "San Jos\u00e9 State",
+      "home": "Nevada"
+    }
+  ]
+}
