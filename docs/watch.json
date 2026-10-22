@@ -1,41 +1,39 @@
 {
-  "generated_at": "2026-10-22T15:27:38.576494+00:00",
+  "generated_at": "2026-10-22T21:14:41.803798+00:00",
   "week": 8,
-  "storms": [],
+  "storms": [
+    {
+      "name": "Josephine",
+      "kind": "PTC",
+      "intensity": "55"
+    },
+    {
+      "name": "Vance",
+      "kind": "TS",
+      "intensity": "55"
+    }
+  ],
   "games": [
     {
       "game": "PITT@MIA",
       "away": "Pittsburgh",
       "home": "Miami",
       "kickoff": "Sat 10/24 12:00 PM",
-      "risk": "news",
+      "risk": "watch",
       "news_alert": true,
-      "wind": null,
-      "gust": null,
-      "pop": null,
-      "storm": null,
+      "wind": 17.1,
+      "gust": 24.2,
+      "pop": 25,
+      "storm": {
+        "name": "Josephine",
+        "kind": "PTC",
+        "miles": 1278
+      },
       "first_total": 51.5,
       "total_now": 48.5,
       "moved": -3.0,
-      "pin_fair": 48.83,
+      "pin_fair": 48.26,
       "our_pick": "Over 51.5"
-    },
-    {
-      "game": "CAL@SMU",
-      "away": "California",
-      "home": "SMU",
-      "kickoff": "Sat 10/24 12:00 PM",
-      "risk": "news",
-      "news_alert": true,
-      "wind": null,
-      "gust": null,
-      "pop": null,
-      "storm": null,
-      "first_total": 52.5,
-      "total_now": 55.5,
-      "moved": 3.0,
-      "pin_fair": 55.41,
-      "our_pick": "Over 53.5"
     },
     {
       "game": "M-OH@CMU",
@@ -44,15 +42,145 @@
       "kickoff": "Sat 10/24 01:00 PM",
       "risk": "news",
       "news_alert": true,
-      "wind": null,
-      "gust": null,
-      "pop": null,
-      "storm": null,
+      "wind": 7.4,
+      "gust": 11.3,
+      "pop": 0,
+      "storm": {
+        "name": "Josephine",
+        "kind": "PTC",
+        "miles": 1006
+      },
       "first_total": 42.5,
       "total_now": 39.5,
       "moved": -3.0,
       "pin_fair": 40.24,
       "our_pick": "Over 43.5"
+    },
+    {
+      "game": "CAL@SMU",
+      "away": "California",
+      "home": "SMU",
+      "kickoff": "Sat 10/24 12:00 PM",
+      "risk": "news",
+      "news_alert": true,
+      "wind": 4.1,
+      "gust": 6.4,
+      "pop": 0,
+      "storm": {
+        "name": "Vance",
+        "kind": "TS",
+        "miles": 1606
+      },
+      "first_total": 52.5,
+      "total_now": 55.5,
+      "moved": 3.0,
+      "pin_fair": 55.41,
+      "our_pick": "Over 53.5"
+    },
+    {
+      "game": "RICE@FAU",
+      "away": "Rice",
+      "home": "Florida Atlantic",
+      "kickoff": "Sat 10/24 12:00 PM",
+      "risk": "watch",
+      "news_alert": false,
+      "wind": 17.3,
+      "gust": 22.1,
+      "pop": 34,
+      "storm": {
+        "name": "Josephine",
+        "kind": "PTC",
+        "miles": 1250
+      },
+      "first_total": 58.5,
+      "total_now": 51.5,
+      "moved": -7.0,
+      "pin_fair": 52.06,
+      "our_pick": null
+    },
+    {
+      "game": "BYU@UCF",
+      "away": "BYU",
+      "home": "UCF",
+      "kickoff": "Sat 10/24 03:30 PM",
+      "risk": "watch",
+      "news_alert": false,
+      "wind": 15.2,
+      "gust": 19.2,
+      "pop": 23,
+      "storm": {
+        "name": "Josephine",
+        "kind": "PTC",
+        "miles": 1176
+      },
+      "first_total": 43.5,
+      "total_now": 43.5,
+      "moved": 0.0,
+      "pin_fair": 43.5,
+      "our_pick": null
+    },
+    {
+      "game": "LSU@AUB",
+      "away": "LSU",
+      "home": "Auburn",
+      "kickoff": "Sat 10/24 12:00 PM",
+      "risk": "watch",
+      "news_alert": false,
+      "wind": 12.5,
+      "gust": 18.5,
+      "pop": 0,
+      "storm": {
+        "name": "Josephine",
+        "kind": "PTC",
+        "miles": 1206
+      },
+      "first_total": 50.5,
+      "total_now": 51.5,
+      "moved": 1.0,
+      "pin_fair": 51.17,
+      "our_pick": null
+    },
+    {
+      "game": "TENN@SC",
+      "away": "Tennessee",
+      "home": "South Carolina",
+      "kickoff": "Sat 10/24 03:30 PM",
+      "risk": "watch",
+      "news_alert": false,
+      "wind": 12.3,
+      "gust": 14.3,
+      "pop": 0,
+      "storm": {
+        "name": "Josephine",
+        "kind": "PTC",
+        "miles": 936
+      },
+      "first_total": 50.5,
+      "total_now": 50.5,
+      "moved": 0.0,
+      "pin_fair": 50.15,
+      "our_pick": null
+    },
+    {
+      "game": "NDSU@UNM",
+      "away": "North Dakota State",
+      "home": "New Mexico",
+      "kickoff": "Sat 10/24 10:00 PM",
+      "risk": "watch",
+      "news_alert": false,
+      "wind": 10.6,
+      "gust": 14.1,
+      "pop": 76,
+      "storm": {
+        "name": "Vance",
+        "kind": "TS",
+        "miles": 1762
+      },
+      "first_total": 45.5,
+      "total_now": 40.5,
+      "moved": -5.0,
+      "pin_fair": 40.94,
+      "our_pick": null
     }
   ]
 }
