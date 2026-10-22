@@ -7,7 +7,9 @@
     "games": 56,
     "gs_threshold": 0.2,
     "gs_flagged": 4,
-    "trend_from_week": 7
+    "trend_from_week": 7,
+    "locked": true,
+    "checked_at": "2026-10-22T13:38:55.415234+00:00"
   },
   "games": [
     {
