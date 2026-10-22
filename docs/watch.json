@@ -1,14 +1,42 @@
 {
-  "generated_at": "2026-10-21T15:25:22.976616+00:00",
+  "generated_at": "2026-10-22T15:27:38.576494+00:00",
   "week": 8,
-  "storms": [
-    {
-      "name": "Twenty-Two-E",
-      "kind": "TD",
-      "intensity": "30"
-    }
-  ],
+  "storms": [],
   "games": [
+    {
+      "game": "PITT@MIA",
+      "away": "Pittsburgh",
+      "home": "Miami",
+      "kickoff": "Sat 10/24 12:00 PM",
+      "risk": "news",
+      "news_alert": true,
+      "wind": null,
+      "gust": null,
+      "pop": null,
+      "storm": null,
+      "first_total": 51.5,
+      "total_now": 48.5,
+      "moved": -3.0,
+      "pin_fair": 48.83,
+      "our_pick": "Over 51.5"
+    },
+    {
+      "game": "CAL@SMU",
+      "away": "California",
+      "home": "SMU",
+      "kickoff": "Sat 10/24 12:00 PM",
+      "risk": "news",
+      "news_alert": true,
+      "wind": null,
+      "gust": null,
+      "pop": null,
+      "storm": null,
+      "first_total": 52.5,
+      "total_now": 55.5,
+      "moved": 3.0,
+      "pin_fair": 55.41,
+      "our_pick": "Over 53.5"
+    },
     {
       "game": "M-OH@CMU",
       "away": "Miami (OH)",
@@ -16,187 +44,15 @@
       "kickoff": "Sat 10/24 01:00 PM",
       "risk": "news",
       "news_alert": true,
-      "wind": 9.0,
-      "gust": 11.4,
-      "pop": 0,
-      "storm": {
-        "name": "Twenty-Two-E",
-        "kind": "TD",
-        "miles": 2512
-      },
+      "wind": null,
+      "gust": null,
+      "pop": null,
+      "storm": null,
       "first_total": 42.5,
       "total_now": 39.5,
       "moved": -3.0,
       "pin_fair": 40.24,
       "our_pick": "Over 43.5"
-    },
-    {
-      "game": "RICE@FAU",
-      "away": "Rice",
-      "home": "Florida Atlantic",
-      "kickoff": "Sat 10/24 12:00 PM",
-      "risk": "watch",
-      "news_alert": false,
-      "wind": 16.4,
-      "gust": 25.7,
-      "pop": 53,
-      "storm": {
-        "name": "Twenty-Two-E",
-        "kind": "TD",
-        "miles": 1713
-      },
-      "first_total": 58.5,
-      "total_now": 51.5,
-      "moved": -7.0,
-      "pin_fair": 51.33,
-      "our_pick": null
-    },
-    {
-      "game": "IOWA@MINN",
-      "away": "Iowa",
-      "home": "Minnesota",
-      "kickoff": "Sat 10/24 03:30 PM",
-      "risk": "watch",
-      "news_alert": false,
-      "wind": 12.2,
-      "gust": 25.3,
-      "pop": 21,
-      "storm": {
-        "name": "Twenty-Two-E",
-        "kind": "TD",
-        "miles": 2478
-      },
-      "first_total": 40.5,
-      "total_now": 40.5,
-      "moved": 0.0,
-      "pin_fair": 40.5,
-      "our_pick": "Over 40.5"
-    },
-    {
-      "game": "BYU@UCF",
-      "away": "BYU",
-      "home": "UCF",
-      "kickoff": "Sat 10/24 03:30 PM",
-      "risk": "watch",
-      "news_alert": false,
-      "wind": 17.8,
-      "gust": 23.7,
-      "pop": 28,
-      "storm": {
-        "name": "Twenty-Two-E",
-        "kind": "TD",
-        "miles": 1767
-      },
-      "first_total": 43.5,
-      "total_now": 43.5,
-      "moved": 0.0,
-      "pin_fair": 43.5,
-      "our_pick": null
-    },
-    {
-      "game": "PITT@MIA",
-      "away": "Pittsburgh",
-      "home": "Miami",
-      "kickoff": "Sat 10/24 12:00 PM",
-      "risk": "watch",
-      "news_alert": false,
-      "wind": 17.5,
-      "gust": 23.5,
-      "pop": 39,
-      "storm": {
-        "name": "Twenty-Two-E",
-        "kind": "TD",
-        "miles": 1689
-      },
-      "first_total": 51.5,
-      "total_now": 49.5,
-      "moved": -2.0,
-      "pin_fair": 48.83,
-      "our_pick": "Over 51.5"
-    },
-    {
-      "game": "NDSU@UNM",
-      "away": "North Dakota State",
-      "home": "New Mexico",
-      "kickoff": "Sat 10/24 10:00 PM",
-      "risk": "watch",
-      "news_alert": false,
-      "wind": 18.5,
-      "gust": 22.1,
-      "pop": 53,
-      "storm": {
-        "name": "Twenty-Two-E",
-        "kind": "TD",
-        "miles": 1826
-      },
-      "first_total": 45.5,
-      "total_now": 41.5,
-      "moved": -4.0,
-      "pin_fair": 40.85,
-      "our_pick": null
-    },
-    {
-      "game": "BAY@KU",
-      "away": "Baylor",
-      "home": "Kansas",
-      "kickoff": "Sat 10/24 01:00 PM",
-      "risk": "watch",
-      "news_alert": false,
-      "wind": 13.1,
-      "gust": 21.0,
-      "pop": 0,
-      "storm": {
-        "name": "Twenty-Two-E",
-        "kind": "TD",
-        "miles": 2051
-      },
-      "first_total": 54.5,
-      "total_now": 52.5,
-      "moved": -2.0,
-      "pin_fair": 53.09,
-      "our_pick": "Under 54.5"
-    },
-    {
-      "game": "USU@TXST",
-      "away": "Utah State",
-      "home": "Texas State",
-      "kickoff": "Sat 10/24 07:30 PM",
-      "risk": "watch",
-      "news_alert": false,
-      "wind": 13.9,
-      "gust": 17.0,
-      "pop": 2,
-      "storm": {
-        "name": "Twenty-Two-E",
-        "kind": "TD",
-        "miles": 1412
-      },
-      "first_total": 58.5,
-      "total_now": 60.5,
-      "moved": 2.0,
-      "pin_fair": 60.44,
-      "our_pick": null
-    },
-    {
-      "game": "TENN@SC",
-      "away": "Tennessee",
-      "home": "South Carolina",
-      "kickoff": "Sat 10/24 03:30 PM",
-      "risk": "watch",
-      "news_alert": false,
-      "wind": 12.4,
-      "gust": 13.9,
-      "pop": 0,
-      "storm": {
-        "name": "Twenty-Two-E",
-        "kind": "TD",
-        "miles": 2050
-      },
-      "first_total": 50.5,
-      "total_now": 50.5,
-      "moved": 0.0,
-      "pin_fair": 51.02,
-      "our_pick": null
     }
   ]
 }
