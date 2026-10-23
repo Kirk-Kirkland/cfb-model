@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-10-23T18:56:42.629460+00:00",
+  "generated_at": "2026-10-23T23:48:30.641630+00:00",
   "week": 8,
   "storms": [
     {
       "name": "Vance",
       "kind": "HU",
-      "intensity": "80"
+      "intensity": "90"
     }
   ],
   "games": [
@@ -14,20 +14,20 @@
       "away": "Pittsburgh",
       "home": "Miami",
       "kickoff": "Sat 10/24 12:00 PM",
-      "risk": "news",
+      "risk": "watch",
       "news_alert": true,
-      "wind": 10.3,
-      "gust": 17.2,
+      "wind": 12.3,
+      "gust": 18.8,
       "pop": 0,
       "storm": {
         "name": "Vance",
         "kind": "HU",
-        "miles": 1775
+        "miles": 1763
       },
       "first_total": 51.5,
       "total_now": 48.5,
       "moved": -3.0,
-      "pin_fair": 48.61,
+      "pin_fair": 48.91,
       "our_pick": "Over 51.5"
     },
     {
@@ -37,40 +37,19 @@
       "kickoff": "Sat 10/24 07:30 PM",
       "risk": "news",
       "news_alert": true,
-      "wind": 5.3,
-      "gust": 11.9,
+      "wind": 7.6,
+      "gust": 13.6,
       "pop": 0,
       "storm": {
         "name": "Vance",
         "kind": "HU",
-        "miles": 2262
+        "miles": 2242
       },
       "first_total": 44.5,
       "total_now": 47.5,
       "moved": 3.0,
-      "pin_fair": 47.26,
+      "pin_fair": 47.52,
       "our_pick": "Over 46.5"
-    },
-    {
-      "game": "WMU@TOL",
-      "away": "Western Michigan",
-      "home": "Toledo",
-      "kickoff": "Sat 10/24 12:00 PM",
-      "risk": "news",
-      "news_alert": true,
-      "wind": 3.2,
-      "gust": 7.4,
-      "pop": 0,
-      "storm": {
-        "name": "Vance",
-        "kind": "HU",
-        "miles": 2415
-      },
-      "first_total": 44.5,
-      "total_now": 47.5,
-      "moved": 3.0,
-      "pin_fair": 47.26,
-      "our_pick": "Over 45.5"
     },
     {
       "game": "CAL@SMU",
@@ -79,19 +58,40 @@
       "kickoff": "Sat 10/24 12:00 PM",
       "risk": "news",
       "news_alert": true,
-      "wind": 2.9,
-      "gust": 4.3,
+      "wind": 3.1,
+      "gust": 8.3,
       "pop": 0,
       "storm": {
         "name": "Vance",
         "kind": "HU",
-        "miles": 1567
+        "miles": 1536
       },
       "first_total": 52.5,
       "total_now": 55.5,
       "moved": 3.0,
-      "pin_fair": 55.85,
+      "pin_fair": 55.06,
       "our_pick": "Over 53.5"
+    },
+    {
+      "game": "WMU@TOL",
+      "away": "Western Michigan",
+      "home": "Toledo",
+      "kickoff": "Sat 10/24 12:00 PM",
+      "risk": "news",
+      "news_alert": true,
+      "wind": 0.6,
+      "gust": 3.4,
+      "pop": 0,
+      "storm": {
+        "name": "Vance",
+        "kind": "HU",
+        "miles": 2389
+      },
+      "first_total": 44.5,
+      "total_now": 47.5,
+      "moved": 3.0,
+      "pin_fair": 47.26,
+      "our_pick": "Over 45.5"
     },
     {
       "game": "BYU@UCF",
@@ -100,40 +100,19 @@
       "kickoff": "Sat 10/24 03:30 PM",
       "risk": "watch",
       "news_alert": false,
-      "wind": 13.2,
-      "gust": 19.5,
-      "pop": 13,
+      "wind": 13.1,
+      "gust": 18.3,
+      "pop": 11,
       "storm": {
         "name": "Vance",
         "kind": "HU",
-        "miles": 1833
+        "miles": 1818
       },
       "first_total": 43.5,
       "total_now": 43.5,
       "moved": 0.0,
-      "pin_fair": 43.63,
+      "pin_fair": 43.5,
       "our_pick": null
-    },
-    {
-      "game": "IOWA@MINN",
-      "away": "Iowa",
-      "home": "Minnesota",
-      "kickoff": "Sat 10/24 03:30 PM",
-      "risk": "watch",
-      "news_alert": false,
-      "wind": 12.7,
-      "gust": 19.0,
-      "pop": 5,
-      "storm": {
-        "name": "Vance",
-        "kind": "HU",
-        "miles": 2426
-      },
-      "first_total": 40.5,
-      "total_now": 40.5,
-      "moved": 0.0,
-      "pin_fair": 41.02,
-      "our_pick": "Over 40.5"
     },
     {
       "game": "TENN@SC",
@@ -142,13 +121,13 @@
       "kickoff": "Sat 10/24 03:30 PM",
       "risk": "watch",
       "news_alert": false,
-      "wind": 12.0,
-      "gust": 16.6,
+      "wind": 12.5,
+      "gust": 17.9,
       "pop": 0,
       "storm": {
         "name": "Vance",
         "kind": "HU",
-        "miles": 2088
+        "miles": 2069
       },
       "first_total": 50.5,
       "total_now": 50.5,
