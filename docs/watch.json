@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-10-24T00:24:52.154624+00:00",
+  "generated_at": "2026-10-24T07:52:26.412288+00:00",
   "week": 8,
   "storms": [
     {
       "name": "Vance",
       "kind": "HU",
-      "intensity": "90"
+      "intensity": "95"
     }
   ],
   "games": [
@@ -14,20 +14,20 @@
       "away": "Pittsburgh",
       "home": "Miami",
       "kickoff": "Sat 10/24 12:00 PM",
-      "risk": "watch",
+      "risk": "news",
       "news_alert": true,
-      "wind": 12.3,
-      "gust": 18.8,
-      "pop": 1,
+      "wind": 10.4,
+      "gust": 15.9,
+      "pop": 2,
       "storm": {
         "name": "Vance",
         "kind": "HU",
-        "miles": 1763
+        "miles": 1746
       },
       "first_total": 51.5,
       "total_now": 48.5,
       "moved": -3.0,
-      "pin_fair": 48.91,
+      "pin_fair": 48.52,
       "our_pick": "Over 51.5"
     },
     {
@@ -37,18 +37,18 @@
       "kickoff": "Sat 10/24 07:30 PM",
       "risk": "news",
       "news_alert": true,
-      "wind": 7.6,
-      "gust": 13.6,
+      "wind": 6.1,
+      "gust": 15.9,
       "pop": 0,
       "storm": {
         "name": "Vance",
         "kind": "HU",
-        "miles": 2242
+        "miles": 2210
       },
       "first_total": 44.5,
       "total_now": 47.5,
       "moved": 3.0,
-      "pin_fair": 47.52,
+      "pin_fair": null,
       "our_pick": "Over 46.5"
     },
     {
@@ -58,13 +58,13 @@
       "kickoff": "Sat 10/24 12:00 PM",
       "risk": "news",
       "news_alert": true,
-      "wind": 3.1,
-      "gust": 8.3,
+      "wind": 7.3,
+      "gust": 11.9,
       "pop": 0,
       "storm": {
         "name": "Vance",
         "kind": "HU",
-        "miles": 1536
+        "miles": 1486
       },
       "first_total": 52.5,
       "total_now": 55.5,
@@ -79,13 +79,13 @@
       "kickoff": "Sat 10/24 12:00 PM",
       "risk": "news",
       "news_alert": true,
-      "wind": 0.6,
-      "gust": 3.4,
+      "wind": 1.5,
+      "gust": 4.7,
       "pop": 0,
       "storm": {
         "name": "Vance",
         "kind": "HU",
-        "miles": 2389
+        "miles": 2348
       },
       "first_total": 44.5,
       "total_now": 47.5,
@@ -100,39 +100,18 @@
       "kickoff": "Sat 10/24 03:30 PM",
       "risk": "watch",
       "news_alert": false,
-      "wind": 13.1,
-      "gust": 18.3,
-      "pop": 12,
+      "wind": 12.4,
+      "gust": 17.2,
+      "pop": 14,
       "storm": {
         "name": "Vance",
         "kind": "HU",
-        "miles": 1818
+        "miles": 1794
       },
       "first_total": 43.5,
       "total_now": 43.5,
       "moved": 0.0,
-      "pin_fair": 43.5,
-      "our_pick": null
-    },
-    {
-      "game": "TENN@SC",
-      "away": "Tennessee",
-      "home": "South Carolina",
-      "kickoff": "Sat 10/24 03:30 PM",
-      "risk": "watch",
-      "news_alert": false,
-      "wind": 12.5,
-      "gust": 17.9,
-      "pop": 0,
-      "storm": {
-        "name": "Vance",
-        "kind": "HU",
-        "miles": 2069
-      },
-      "first_total": 50.5,
-      "total_now": 50.5,
-      "moved": 0.0,
-      "pin_fair": 50.15,
+      "pin_fair": 43.33,
       "our_pick": null
     }
   ]
