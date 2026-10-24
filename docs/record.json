@@ -1,7 +1,7 @@
 {
   "meta": {
     "season": 2026,
-    "generated_at": "2026-10-22T13:39:16.206135+00:00",
+    "generated_at": "2026-10-24T12:26:09.910874+00:00",
     "weeks": [
       3,
       4,
@@ -14,7 +14,8 @@
       4,
       5,
       6,
-      7
+      7,
+      8
     ],
     "reconstructed_weeks": [
       3
@@ -23,24 +24,24 @@
     "reconstruction_warning": "Treat reconstructed weeks as approximate, not as a track record. We tested how far a rebuild drifts by rebuilding week 4, a week we did publish live. The rebuild produced 20 picks going 10-10; the card that actually went out had 17 picks and went 8-9. Five picks appeared that were never bet, two real picks vanished, and eight lines moved by a point. The cause is that the line data available for a past week is not the line the model saw before kickoff. The live-only record above is the number to judge this model on."
   },
   "all_bets": {
-    "w": 43,
-    "l": 43,
+    "w": 44,
+    "l": 45,
     "push": 0,
-    "n": 86,
-    "pct": 50.0,
-    "units": -3.91,
-    "roi": -4.5,
-    "se": 5.4
+    "n": 89,
+    "pct": 49.4,
+    "units": -5.0,
+    "roi": -5.6,
+    "se": 5.3
   },
   "published_only": {
-    "w": 32,
-    "l": 37,
+    "w": 33,
+    "l": 39,
     "push": 0,
-    "n": 69,
-    "pct": 46.4,
-    "units": -7.91,
-    "roi": -11.5,
-    "se": 6.0
+    "n": 72,
+    "pct": 45.8,
+    "units": -9.0,
+    "roi": -12.5,
+    "se": 5.9
   },
   "top3": {
     "w": 10,
@@ -106,14 +107,14 @@
       "se": 18.9
     },
     "unflagged": {
-      "w": 15,
-      "l": 15,
+      "w": 16,
+      "l": 17,
       "push": 0,
-      "n": 30,
-      "pct": 50.0,
-      "units": -1.36,
-      "roi": -4.5,
-      "se": 9.1
+      "n": 33,
+      "pct": 48.5,
+      "units": -2.45,
+      "roi": -7.4,
+      "se": 8.7
     }
   },
   "trend": {
@@ -130,24 +131,24 @@
       "none_n": 299
     },
     "fights": {
-      "w": 4,
+      "w": 5,
       "l": 1,
       "push": 0,
-      "n": 5,
-      "pct": 80.0,
-      "units": 2.64,
-      "roi": 52.8,
-      "se": 22.4
+      "n": 6,
+      "pct": 83.3,
+      "units": 3.55,
+      "roi": 59.2,
+      "se": 20.4
     },
     "agrees": {
       "w": 3,
-      "l": 5,
+      "l": 7,
       "push": 0,
-      "n": 8,
-      "pct": 37.5,
-      "units": -2.27,
-      "roi": -28.4,
-      "se": 17.7
+      "n": 10,
+      "pct": 30.0,
+      "units": -4.27,
+      "roi": -42.7,
+      "se": 15.8
     },
     "none": {
       "w": 2,
@@ -182,20 +183,20 @@
   },
   "clv": {
     "posted": {
-      "n": 69,
-      "avg": 0.58,
+      "n": 72,
+      "avg": 0.54,
       "beat": 38,
-      "lost": 12,
-      "same": 19,
-      "beat_pct": 55.1
+      "lost": 13,
+      "same": 21,
+      "beat_pct": 52.8
     },
     "first": {
-      "n": 37,
-      "avg": 0.81,
+      "n": 40,
+      "avg": 0.7,
       "beat": 23,
-      "lost": 6,
-      "same": 8,
-      "beat_pct": 62.2
+      "lost": 8,
+      "same": 9,
+      "beat_pct": 57.5
     },
     "top3_first": {
       "n": 6,
@@ -206,12 +207,12 @@
       "beat_pct": 66.7
     },
     "pinnacle": {
-      "n": 37,
-      "avg": 0.66,
+      "n": 40,
+      "avg": 0.55,
       "beat": 24,
-      "lost": 13,
+      "lost": 16,
       "same": 0,
-      "beat_pct": 64.9
+      "beat_pct": 60.0
     }
   },
   "early5": {
@@ -382,8 +383,8 @@
         "actual_total": null,
         "close_total": null,
         "clv": null,
-        "pin_close": 40.59,
-        "clv_pin": 0.1
+        "pin_close": 40.98,
+        "clv_pin": 0.5
       },
       {
         "week": 8,
@@ -395,8 +396,8 @@
         "actual_total": null,
         "close_total": null,
         "clv": null,
-        "pin_close": 48.83,
-        "clv_pin": -2.7
+        "pin_close": 48.52,
+        "clv_pin": -3.0
       },
       {
         "week": 8,
@@ -408,8 +409,8 @@
         "actual_total": null,
         "close_total": null,
         "clv": null,
-        "pin_close": 41.41,
-        "clv_pin": -0.1
+        "pin_close": 42.94,
+        "clv_pin": 1.4
       },
       {
         "week": 8,
@@ -629,6 +630,44 @@
       "units": -1.82,
       "roi": -9.6,
       "se": 11.5
+    },
+    {
+      "week": 8,
+      "published": true,
+      "clv": {
+        "n": 3,
+        "avg": -0.33,
+        "beat": 0,
+        "lost": 1,
+        "same": 2,
+        "beat_pct": 0.0
+      },
+      "top5": {
+        "w": 0,
+        "l": 0,
+        "push": 0,
+        "n": 0,
+        "pct": null,
+        "units": 0.0,
+        "roi": null,
+        "se": null
+      },
+      "clv_first": {
+        "n": 3,
+        "avg": -0.67,
+        "beat": 0,
+        "lost": 2,
+        "same": 1,
+        "beat_pct": 0.0
+      },
+      "w": 1,
+      "l": 2,
+      "push": 0,
+      "n": 3,
+      "pct": 33.3,
+      "units": -1.09,
+      "roi": -36.3,
+      "se": 28.9
     }
   ],
   "picks": [
@@ -2626,8 +2665,8 @@
       "first_line": 41.5,
       "first_seen_at": "2026-10-18T16:24:37.105988+00:00",
       "clv_first": null,
-      "pin_close": 40.59,
-      "clv_pin": -0.9,
+      "pin_close": 40.98,
+      "clv_pin": -0.5,
       "gs_flag": false,
       "garbage_share": 0.3308,
       "trend": 2.08,
@@ -2649,8 +2688,8 @@
       "first_line": 51.5,
       "first_seen_at": "2026-10-18T16:24:37.105988+00:00",
       "clv_first": null,
-      "pin_close": 48.83,
-      "clv_pin": -2.7,
+      "pin_close": 48.52,
+      "clv_pin": -3.0,
       "gs_flag": false,
       "garbage_share": 0.3484,
       "trend": 2.74,
@@ -2672,8 +2711,8 @@
       "first_line": 42.5,
       "first_seen_at": "2026-10-18T16:24:37.105988+00:00",
       "clv_first": null,
-      "pin_close": 41.41,
-      "clv_pin": -1.1,
+      "pin_close": 42.94,
+      "clv_pin": 0.4,
       "gs_flag": false,
       "garbage_share": 0.1681,
       "trend": -5.87,
@@ -2732,17 +2771,17 @@
       "edge": -5.74,
       "top3": null,
       "top5": null,
-      "result": null,
-      "actual_total": null,
-      "score": null,
+      "result": "LOSS",
+      "actual_total": 73,
+      "score": "Army 38 @ Tulsa 35",
       "published": true,
-      "close_total": null,
-      "clv": null,
+      "close_total": 53.5,
+      "clv": 0.0,
       "first_line": 52.5,
       "first_seen_at": "2026-10-18T16:24:37.105988+00:00",
-      "clv_first": null,
-      "pin_close": 54.35,
-      "clv_pin": -1.9,
+      "clv_first": -1.0,
+      "pin_close": 53.17,
+      "clv_pin": -0.7,
       "gs_flag": false,
       "garbage_share": 0.1413,
       "trend": 2.21,
@@ -2755,17 +2794,17 @@
       "edge": 5.6,
       "top3": null,
       "top5": null,
-      "result": null,
-      "actual_total": null,
-      "score": null,
+      "result": "LOSS",
+      "actual_total": 35,
+      "score": "Duke 19 @ Virginia 16",
       "published": true,
-      "close_total": null,
-      "clv": null,
+      "close_total": 47.5,
+      "clv": 0.0,
       "first_line": 47.5,
       "first_seen_at": "2026-10-18T16:24:37.105988+00:00",
-      "clv_first": null,
-      "pin_close": 47.52,
-      "clv_pin": 0.0,
+      "clv_first": 0.0,
+      "pin_close": 46.74,
+      "clv_pin": -0.8,
       "gs_flag": false,
       "garbage_share": 0.2605,
       "trend": -2.94,
@@ -2787,8 +2826,8 @@
       "first_line": 61.5,
       "first_seen_at": "2026-10-18T16:24:37.105988+00:00",
       "clv_first": null,
-      "pin_close": 63.91,
-      "clv_pin": -2.4,
+      "pin_close": 62.15,
+      "clv_pin": -0.6,
       "gs_flag": true,
       "garbage_share": 0.2507,
       "trend": 7.67,
@@ -2810,8 +2849,8 @@
       "first_line": 44.5,
       "first_seen_at": "2026-10-18T16:24:37.105988+00:00",
       "clv_first": null,
-      "pin_close": 46.02,
-      "clv_pin": 1.5,
+      "pin_close": 47.26,
+      "clv_pin": 2.8,
       "gs_flag": false,
       "garbage_share": 0.227,
       "trend": 1.57,
@@ -2833,8 +2872,8 @@
       "first_line": 43.5,
       "first_seen_at": "2026-10-18T16:24:37.105988+00:00",
       "clv_first": null,
-      "pin_close": 44.85,
-      "clv_pin": 1.4,
+      "pin_close": 44.59,
+      "clv_pin": 1.1,
       "gs_flag": false,
       "garbage_share": 0.2079,
       "trend": 0.43,
@@ -2856,8 +2895,8 @@
       "first_line": 54.5,
       "first_seen_at": "2026-10-19T00:28:28.857151+00:00",
       "clv_first": null,
-      "pin_close": 53.17,
-      "clv_pin": 1.3,
+      "pin_close": 53.48,
+      "clv_pin": 1.0,
       "gs_flag": true,
       "garbage_share": 0.2569,
       "trend": -2.58,
@@ -2879,8 +2918,8 @@
       "first_line": 52.5,
       "first_seen_at": "2026-10-18T16:24:37.105988+00:00",
       "clv_first": null,
-      "pin_close": 55.41,
-      "clv_pin": 2.9,
+      "pin_close": 55.24,
+      "clv_pin": 2.7,
       "gs_flag": false,
       "garbage_share": 0.1917,
       "trend": -2.83,
@@ -2902,8 +2941,8 @@
       "first_line": 44.5,
       "first_seen_at": "2026-10-18T16:24:37.105988+00:00",
       "clv_first": null,
-      "pin_close": 46.26,
-      "clv_pin": 1.8,
+      "pin_close": 47.74,
+      "clv_pin": 3.2,
       "gs_flag": false,
       "garbage_share": 0.1284,
       "trend": -0.75,
@@ -2916,17 +2955,17 @@
       "edge": 4.29,
       "top3": null,
       "top5": null,
-      "result": null,
-      "actual_total": null,
-      "score": null,
+      "result": "WIN",
+      "actual_total": 59,
+      "score": "NC State 28 @ Stanford 31",
       "published": true,
-      "close_total": null,
-      "clv": null,
+      "close_total": 54.5,
+      "clv": -1.0,
       "first_line": 55.5,
       "first_seen_at": "2026-10-18T16:24:37.105988+00:00",
-      "clv_first": null,
-      "pin_close": 55.35,
-      "clv_pin": -0.1,
+      "clv_first": -1.0,
+      "pin_close": 54.33,
+      "clv_pin": -1.2,
       "gs_flag": false,
       "garbage_share": 0.4359,
       "trend": 5.26,
