@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T23:48:30.641630+00:00",
+  "generated_at": "2026-10-24T00:24:52.154624+00:00",
   "week": 8,
   "storms": [
     {
@@ -18,7 +18,7 @@
       "news_alert": true,
       "wind": 12.3,
       "gust": 18.8,
-      "pop": 0,
+      "pop": 1,
       "storm": {
         "name": "Vance",
         "kind": "HU",
@@ -102,7 +102,7 @@
       "news_alert": false,
       "wind": 13.1,
       "gust": 18.3,
-      "pop": 11,
+      "pop": 12,
       "storm": {
         "name": "Vance",
         "kind": "HU",
