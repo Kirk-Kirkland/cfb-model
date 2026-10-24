@@ -1,35 +1,14 @@
 {
-  "generated_at": "2026-10-24T07:52:26.412288+00:00",
+  "generated_at": "2026-10-24T17:10:37.525347+00:00",
   "week": 8,
   "storms": [
     {
       "name": "Vance",
       "kind": "HU",
-      "intensity": "95"
+      "intensity": "90"
     }
   ],
   "games": [
-    {
-      "game": "PITT@MIA",
-      "away": "Pittsburgh",
-      "home": "Miami",
-      "kickoff": "Sat 10/24 12:00 PM",
-      "risk": "news",
-      "news_alert": true,
-      "wind": 10.4,
-      "gust": 15.9,
-      "pop": 2,
-      "storm": {
-        "name": "Vance",
-        "kind": "HU",
-        "miles": 1746
-      },
-      "first_total": 51.5,
-      "total_now": 48.5,
-      "moved": -3.0,
-      "pin_fair": 48.52,
-      "our_pick": "Over 51.5"
-    },
     {
       "game": "SYR@UNC",
       "away": "Syracuse",
@@ -37,61 +16,40 @@
       "kickoff": "Sat 10/24 07:30 PM",
       "risk": "news",
       "news_alert": true,
-      "wind": 6.1,
-      "gust": 15.9,
+      "wind": 5.4,
+      "gust": 11.0,
       "pop": 0,
       "storm": {
         "name": "Vance",
         "kind": "HU",
-        "miles": 2210
+        "miles": 2178
       },
       "first_total": 44.5,
-      "total_now": 47.5,
-      "moved": 3.0,
-      "pin_fair": null,
+      "total_now": 49.5,
+      "moved": 5.0,
+      "pin_fair": 49.0,
       "our_pick": "Over 46.5"
     },
     {
-      "game": "CAL@SMU",
-      "away": "California",
-      "home": "SMU",
-      "kickoff": "Sat 10/24 12:00 PM",
-      "risk": "news",
-      "news_alert": true,
-      "wind": 7.3,
-      "gust": 11.9,
-      "pop": 0,
+      "game": "NDSU@UNM",
+      "away": "North Dakota State",
+      "home": "New Mexico",
+      "kickoff": "Sat 10/24 10:00 PM",
+      "risk": "watch",
+      "news_alert": false,
+      "wind": 15.2,
+      "gust": 27.5,
+      "pop": 26,
       "storm": {
         "name": "Vance",
         "kind": "HU",
-        "miles": 1486
+        "miles": 1548
       },
-      "first_total": 52.5,
-      "total_now": 55.5,
-      "moved": 3.0,
-      "pin_fair": 55.06,
-      "our_pick": "Over 53.5"
-    },
-    {
-      "game": "WMU@TOL",
-      "away": "Western Michigan",
-      "home": "Toledo",
-      "kickoff": "Sat 10/24 12:00 PM",
-      "risk": "news",
-      "news_alert": true,
-      "wind": 1.5,
-      "gust": 4.7,
-      "pop": 0,
-      "storm": {
-        "name": "Vance",
-        "kind": "HU",
-        "miles": 2348
-      },
-      "first_total": 44.5,
-      "total_now": 47.5,
-      "moved": 3.0,
-      "pin_fair": 47.26,
-      "our_pick": "Over 45.5"
+      "first_total": 45.5,
+      "total_now": 39.5,
+      "moved": -6.0,
+      "pin_fair": 40.39,
+      "our_pick": null
     },
     {
       "game": "BYU@UCF",
@@ -100,18 +58,18 @@
       "kickoff": "Sat 10/24 03:30 PM",
       "risk": "watch",
       "news_alert": false,
-      "wind": 12.4,
-      "gust": 17.2,
-      "pop": 14,
+      "wind": 14.0,
+      "gust": 19.2,
+      "pop": 11,
       "storm": {
         "name": "Vance",
         "kind": "HU",
-        "miles": 1794
+        "miles": 1773
       },
       "first_total": 43.5,
       "total_now": 43.5,
       "moved": 0.0,
-      "pin_fair": 43.33,
+      "pin_fair": 43.24,
       "our_pick": null
     }
   ]
