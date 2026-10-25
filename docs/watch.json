@@ -1,12 +1,60 @@
 {
-  "generated_at": "2026-10-25T07:01:23.233237+00:00",
-  "week": 8,
+  "generated_at": "2026-10-25T18:05:08.789052+00:00",
+  "week": 9,
   "storms": [
     {
       "name": "Vance",
       "kind": "HU",
-      "intensity": "80"
+      "intensity": "65"
+    },
+    {
+      "name": "Three-C",
+      "kind": "TD",
+      "intensity": "30"
     }
   ],
-  "games": []
+  "games": [
+    {
+      "game": "WIS@IOWA",
+      "away": "Wisconsin",
+      "home": "Iowa",
+      "kickoff": "Sat 10/31 12:00 PM",
+      "risk": "watch",
+      "news_alert": false,
+      "wind": 12.0,
+      "gust": 27.3,
+      "pop": 48,
+      "storm": {
+        "name": "Vance",
+        "kind": "HU",
+        "miles": 2028
+      },
+      "first_total": 38.5,
+      "total_now": 37.5,
+      "moved": -1.0,
+      "pin_fair": null,
+      "our_pick": "Over 39.5"
+    },
+    {
+      "game": "UAB@USF",
+      "away": "UAB",
+      "home": "South Florida",
+      "kickoff": "Sat 10/31 12:00 PM",
+      "risk": "watch",
+      "news_alert": false,
+      "wind": 15.7,
+      "gust": 19.9,
+      "pop": 2,
+      "storm": {
+        "name": "Vance",
+        "kind": "HU",
+        "miles": 1662
+      },
+      "first_total": 46.5,
+      "total_now": 44.5,
+      "moved": -2.0,
+      "pin_fair": null,
+      "our_pick": null
+    }
+  ]
 }
