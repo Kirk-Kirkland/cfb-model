@@ -39,6 +39,8 @@ jobs:
       - run: pip install -r requirements.txt
 
       - name: Run model
+        # A CFBD outage must not block grading: record.py only needs ESPN finals.
+        continue-on-error: true
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
