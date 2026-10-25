@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T00:06:44.987164+00:00",
+  "generated_at": "2026-10-25T07:01:23.233237+00:00",
   "week": 8,
   "storms": [
     {
@@ -8,27 +8,5 @@
       "intensity": "80"
     }
   ],
-  "games": [
-    {
-      "game": "NDSU@UNM",
-      "away": "North Dakota State",
-      "home": "New Mexico",
-      "kickoff": "Sat 10/24 10:00 PM",
-      "risk": "watch",
-      "news_alert": false,
-      "wind": 12.7,
-      "gust": 23.9,
-      "pop": 32,
-      "storm": {
-        "name": "Vance",
-        "kind": "HU",
-        "miles": 1518
-      },
-      "first_total": 45.5,
-      "total_now": 39.5,
-      "moved": -6.0,
-      "pin_fair": 39.59,
-      "our_pick": null
-    }
-  ]
+  "games": []
 }
