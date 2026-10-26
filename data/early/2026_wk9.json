@@ -1,0 +1,142 @@
+{
+  "meta": {
+    "season": 2026,
+    "week": 9,
+    "kind": "early5",
+    "posted_at": "2026-10-26T11:41:25.084609+00:00"
+  },
+  "picks": [
+    {
+      "rank": 1,
+      "game": "WIS@IOWA",
+      "kickoff": "Sat 10/31 12:00 PM",
+      "bet": "Over 36.5",
+      "edge": 8.3,
+      "tier": "1",
+      "bet_only_if": "at or below 40.5",
+      "pin_fair": 37.0,
+      "market": {
+        "gap": 0.5,
+        "sharp_agrees": true,
+        "sharp_disagrees": false
+      },
+      "best_us": 36.5,
+      "gs_flag": false,
+      "trend": -2.43,
+      "trend_read": "agrees"
+    },
+    {
+      "rank": 2,
+      "game": "UNM@SJSU",
+      "kickoff": "Sat 10/31 04:00 PM",
+      "bet": "Over 41.5",
+      "edge": 7.36,
+      "tier": "1",
+      "bet_only_if": "at or below 44.5",
+      "pin_fair": 42.1,
+      "market": {
+        "gap": 0.6,
+        "sharp_agrees": true,
+        "sharp_disagrees": false
+      },
+      "best_us": 41.5,
+      "gs_flag": false,
+      "trend": -3.45,
+      "trend_read": "agrees"
+    },
+    {
+      "rank": 3,
+      "game": "FAU@UNT",
+      "kickoff": "Thu 10/29 07:30 PM",
+      "bet": "Under 75.5",
+      "edge": -6.62,
+      "tier": "1",
+      "bet_only_if": "at or above 73.0",
+      "pin_fair": 76.0,
+      "market": {
+        "gap": 0.5,
+        "sharp_agrees": false,
+        "sharp_disagrees": true
+      },
+      "best_us": 76.0,
+      "gs_flag": true,
+      "trend": 13.36,
+      "trend_read": "agrees"
+    },
+    {
+      "rank": 4,
+      "game": "MIA@UNC",
+      "kickoff": "Sat 10/31 07:30 PM",
+      "bet": "Over 52.5",
+      "edge": 6.61,
+      "tier": "1",
+      "bet_only_if": "at or below 55.0",
+      "pin_fair": 52.83,
+      "market": {
+        "gap": 0.33,
+        "sharp_agrees": false,
+        "sharp_disagrees": false
+      },
+      "best_us": 51.5,
+      "gs_flag": false,
+      "trend": 3.71,
+      "trend_read": "fights"
+    },
+    {
+      "rank": 5,
+      "game": "MINN@IU",
+      "kickoff": "Sat 10/31 03:30 PM",
+      "bet": "Over 42.5",
+      "edge": 6.14,
+      "tier": "1",
+      "bet_only_if": "at or below 44.5",
+      "pin_fair": 41.75,
+      "market": {
+        "gap": -0.75,
+        "sharp_agrees": false,
+        "sharp_disagrees": true
+      },
+      "best_us": 41.5,
+      "gs_flag": false,
+      "trend": -4.37,
+      "trend_read": "agrees"
+    }
+  ],
+  "games": [
+    {
+      "matchup": "FAU@UNT",
+      "game_id": 401862812,
+      "kickoff_iso": "2026-10-29T23:30:00.000Z",
+      "away": "Florida Atlantic",
+      "home": "North Texas"
+    },
+    {
+      "matchup": "WIS@IOWA",
+      "game_id": 401858502,
+      "kickoff_iso": "2026-10-31T16:00:00.000Z",
+      "away": "Wisconsin",
+      "home": "Iowa"
+    },
+    {
+      "matchup": "MINN@IU",
+      "game_id": 401858501,
+      "kickoff_iso": "2026-10-31T19:30:00.000Z",
+      "away": "Minnesota",
+      "home": "Indiana"
+    },
+    {
+      "matchup": "UNM@SJSU",
+      "game_id": 401864529,
+      "kickoff_iso": "2026-10-31T20:00:00.000Z",
+      "away": "New Mexico",
+      "home": "San Jos\u00e9 State"
+    },
+    {
+      "matchup": "MIA@UNC",
+      "game_id": 401858282,
+      "kickoff_iso": "2026-10-31T23:30:00.000Z",
+      "away": "Miami",
+      "home": "North Carolina"
+    }
+  ]
+}
