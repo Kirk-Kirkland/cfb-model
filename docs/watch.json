@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-27T19:49:12.465224+00:00",
+  "generated_at": "2026-10-28T20:03:33.666780+00:00",
   "week": 9,
   "storms": [
     {
@@ -16,18 +16,18 @@
       "kickoff": "Sat 10/31 08:00 PM",
       "risk": "news",
       "news_alert": true,
-      "wind": 7.0,
-      "gust": 15.4,
-      "pop": 39,
+      "wind": 5.4,
+      "gust": 19.2,
+      "pop": 33,
       "storm": {
         "name": "Vance",
         "kind": "TS",
-        "miles": 1699
+        "miles": 1609
       },
       "first_total": 56.5,
-      "total_now": 59.5,
-      "moved": 3.0,
-      "pin_fair": 59.93,
+      "total_now": 60.5,
+      "moved": 4.0,
+      "pin_fair": 59.85,
       "our_pick": "Under 58.5"
     },
     {
@@ -37,40 +37,61 @@
       "kickoff": "Thu 10/29 07:30 PM",
       "risk": "news",
       "news_alert": true,
-      "wind": 7.8,
-      "gust": 13.9,
-      "pop": 5,
+      "wind": 7.7,
+      "gust": 11.9,
+      "pop": 6,
       "storm": {
         "name": "Vance",
         "kind": "TS",
-        "miles": 1340
+        "miles": 1220
       },
       "first_total": 71.5,
-      "total_now": 77.5,
-      "moved": 6.0,
-      "pin_fair": 77.13,
+      "total_now": 76.5,
+      "moved": 5.0,
+      "pin_fair": 76.44,
       "our_pick": "Under 75.5"
     },
     {
-      "game": "DEL@WKU",
-      "away": "Delaware",
-      "home": "Western Kentucky",
-      "kickoff": "Tue 10/27 07:00 PM",
+      "game": "MRSH@ODU",
+      "away": "Marshall",
+      "home": "Old Dominion",
+      "kickoff": "Sat 10/31 01:00 PM",
       "risk": "news",
       "news_alert": true,
-      "wind": 4.0,
-      "gust": 4.5,
+      "wind": 9.2,
+      "gust": 11.2,
       "pop": 0,
       "storm": {
         "name": "Vance",
         "kind": "TS",
-        "miles": 1930
+        "miles": 2331
       },
-      "first_total": 58.5,
-      "total_now": 55.5,
+      "first_total": 46.5,
+      "total_now": 43.5,
       "moved": -3.0,
-      "pin_fair": 55.5,
-      "our_pick": "Over 55.5"
+      "pin_fair": 44.11,
+      "our_pick": "Over 45.5"
+    },
+    {
+      "game": "CONN@AFA",
+      "away": "UConn",
+      "home": "Air Force",
+      "kickoff": "Sat 10/31 03:00 PM",
+      "risk": "news",
+      "news_alert": true,
+      "wind": 7.1,
+      "gust": 10.3,
+      "pop": 11,
+      "storm": {
+        "name": "Vance",
+        "kind": "TS",
+        "miles": 1392
+      },
+      "first_total": 55.5,
+      "total_now": 51.5,
+      "moved": -4.0,
+      "pin_fair": 51.94,
+      "our_pick": "Under 53.5"
     },
     {
       "game": "TROY@JMU",
@@ -79,18 +100,18 @@
       "kickoff": "Thu 10/29 07:30 PM",
       "risk": "news",
       "news_alert": true,
-      "wind": 1.3,
-      "gust": 1.3,
-      "pop": 0,
+      "wind": 6.0,
+      "gust": 6.5,
+      "pop": 1,
       "storm": {
         "name": "Vance",
         "kind": "TS",
-        "miles": 2320
+        "miles": 2249
       },
       "first_total": 52.5,
       "total_now": 49.5,
       "moved": -3.0,
-      "pin_fair": 49.22,
+      "pin_fair": 49.3,
       "our_pick": "Over 52.5"
     },
     {
@@ -107,7 +128,7 @@
       "first_total": 47.5,
       "total_now": 42.5,
       "moved": -5.0,
-      "pin_fair": 42.91,
+      "pin_fair": 42.74,
       "our_pick": "Over 43.5"
     },
     {
@@ -117,39 +138,18 @@
       "kickoff": "Sat 10/31 06:30 PM",
       "risk": "watch",
       "news_alert": false,
-      "wind": 13.4,
-      "gust": 23.7,
-      "pop": 20,
+      "wind": 13.5,
+      "gust": 21.7,
+      "pop": 12,
       "storm": {
         "name": "Vance",
         "kind": "TS",
-        "miles": 1966
+        "miles": 1926
       },
       "first_total": 54.5,
-      "total_now": 56.5,
-      "moved": 2.0,
+      "total_now": 55.5,
+      "moved": 1.0,
       "pin_fair": 55.83,
-      "our_pick": null
-    },
-    {
-      "game": "SC@OU",
-      "away": "South Carolina",
-      "home": "Oklahoma",
-      "kickoff": "Sat 10/31 04:15 PM",
-      "risk": "watch",
-      "news_alert": false,
-      "wind": 12.2,
-      "gust": 20.4,
-      "pop": 9,
-      "storm": {
-        "name": "Vance",
-        "kind": "TS",
-        "miles": 1452
-      },
-      "first_total": 44.5,
-      "total_now": 44.5,
-      "moved": 0.0,
-      "pin_fair": 44.26,
       "our_pick": null
     },
     {
@@ -159,13 +159,13 @@
       "kickoff": "Sat 10/31 12:00 PM",
       "risk": "watch",
       "news_alert": false,
-      "wind": 14.4,
-      "gust": 17.2,
-      "pop": 4,
+      "wind": 15.9,
+      "gust": 19.9,
+      "pop": 3,
       "storm": {
         "name": "Vance",
         "kind": "TS",
-        "miles": 1798
+        "miles": 1791
       },
       "first_total": 46.5,
       "total_now": 42.5,
@@ -174,25 +174,25 @@
       "our_pick": null
     },
     {
-      "game": "TEM@ECU",
-      "away": "Temple",
-      "home": "East Carolina",
-      "kickoff": "Sat 10/31 03:00 PM",
+      "game": "TXST@BOIS",
+      "away": "Texas State",
+      "home": "Boise State",
+      "kickoff": "Sat 10/31 10:00 PM",
       "risk": "watch",
       "news_alert": false,
-      "wind": 12.1,
-      "gust": 11.9,
-      "pop": 1,
+      "wind": 2.3,
+      "gust": 6.7,
+      "pop": 75,
       "storm": {
         "name": "Vance",
         "kind": "TS",
-        "miles": 2293
+        "miles": 1734
       },
-      "first_total": 49.5,
-      "total_now": 49.5,
-      "moved": 0.0,
-      "pin_fair": 50.09,
-      "our_pick": "Over 49.5"
+      "first_total": 65.5,
+      "total_now": 63.5,
+      "moved": -2.0,
+      "pin_fair": 64.0,
+      "our_pick": null
     }
   ]
 }
