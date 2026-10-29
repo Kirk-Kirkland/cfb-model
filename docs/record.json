@@ -1,7 +1,7 @@
 {
   "meta": {
     "season": 2026,
-    "generated_at": "2026-10-26T11:41:51.904642+00:00",
+    "generated_at": "2026-10-29T18:46:23.710408+00:00",
     "weeks": [
       3,
       4,
@@ -16,7 +16,8 @@
       5,
       6,
       7,
-      8
+      8,
+      9
     ],
     "reconstructed_weeks": [
       3
@@ -25,23 +26,23 @@
     "reconstruction_warning": "Treat reconstructed weeks as approximate, not as a track record. We tested how far a rebuild drifts by rebuilding week 4, a week we did publish live. The rebuild produced 20 picks going 10-10; the card that actually went out had 17 picks and went 8-9. Five picks appeared that were never bet, two real picks vanished, and eight lines moved by a point. The cause is that the line data available for a past week is not the line the model saw before kickoff. The live-only record above is the number to judge this model on."
   },
   "all_bets": {
-    "w": 51,
+    "w": 52,
     "l": 49,
     "push": 0,
-    "n": 100,
-    "pct": 51.0,
-    "units": -2.64,
-    "roi": -2.6,
+    "n": 101,
+    "pct": 51.5,
+    "units": -1.73,
+    "roi": -1.7,
     "se": 5.0
   },
   "published_only": {
-    "w": 40,
+    "w": 41,
     "l": 43,
     "push": 0,
-    "n": 83,
-    "pct": 48.2,
-    "units": -6.64,
-    "roi": -8.0,
+    "n": 84,
+    "pct": 48.8,
+    "units": -5.73,
+    "roi": -6.8,
     "se": 5.5
   },
   "top3": {
@@ -108,14 +109,14 @@
       "se": 16.7
     },
     "unflagged": {
-      "w": 22,
+      "w": 23,
       "l": 20,
       "push": 0,
-      "n": 42,
-      "pct": 52.4,
-      "units": 0.0,
-      "roi": 0.0,
-      "se": 7.7
+      "n": 43,
+      "pct": 53.5,
+      "units": 0.91,
+      "roi": 2.1,
+      "se": 7.6
     }
   },
   "trend": {
@@ -152,14 +153,14 @@
       "se": 13.4
     },
     "none": {
-      "w": 6,
+      "w": 7,
       "l": 4,
       "push": 0,
-      "n": 10,
-      "pct": 60.0,
-      "units": 1.45,
-      "roi": 14.5,
-      "se": 15.8
+      "n": 11,
+      "pct": 63.6,
+      "units": 2.36,
+      "roi": 21.5,
+      "se": 15.1
     },
     "top5_fights": {
       "w": 3,
@@ -184,20 +185,20 @@
   },
   "clv": {
     "posted": {
-      "n": 83,
-      "avg": 0.57,
+      "n": 84,
+      "avg": 0.56,
       "beat": 43,
       "lost": 15,
-      "same": 25,
-      "beat_pct": 51.8
+      "same": 26,
+      "beat_pct": 51.2
     },
     "first": {
-      "n": 51,
-      "avg": 0.8,
+      "n": 52,
+      "avg": 0.79,
       "beat": 30,
       "lost": 11,
-      "same": 10,
-      "beat_pct": 58.8
+      "same": 11,
+      "beat_pct": 57.7
     },
     "top3_first": {
       "n": 9,
@@ -208,12 +209,12 @@
       "beat_pct": 55.6
     },
     "pinnacle": {
-      "n": 51,
-      "avg": 0.58,
+      "n": 52,
+      "avg": 0.57,
       "beat": 32,
       "lost": 19,
-      "same": 0,
-      "beat_pct": 62.7
+      "same": 1,
+      "beat_pct": 61.5
     }
   },
   "early5": {
@@ -449,8 +450,8 @@
         "actual_total": null,
         "close_total": null,
         "clv": null,
-        "pin_close": 37.0,
-        "clv_pin": 0.5
+        "pin_close": 36.26,
+        "clv_pin": -0.2
       },
       {
         "week": 9,
@@ -462,8 +463,8 @@
         "actual_total": null,
         "close_total": null,
         "clv": null,
-        "pin_close": 42.1,
-        "clv_pin": 0.6
+        "pin_close": 42.02,
+        "clv_pin": 0.5
       },
       {
         "week": 9,
@@ -475,8 +476,8 @@
         "actual_total": null,
         "close_total": null,
         "clv": null,
-        "pin_close": 76.0,
-        "clv_pin": -0.5
+        "pin_close": 77.83,
+        "clv_pin": -2.3
       },
       {
         "week": 9,
@@ -488,8 +489,8 @@
         "actual_total": null,
         "close_total": null,
         "clv": null,
-        "pin_close": 52.83,
-        "clv_pin": 0.3
+        "pin_close": 52.65,
+        "clv_pin": 0.1
       },
       {
         "week": 9,
@@ -501,8 +502,8 @@
         "actual_total": null,
         "close_total": null,
         "clv": null,
-        "pin_close": 41.75,
-        "clv_pin": -0.8
+        "pin_close": 40.98,
+        "clv_pin": -1.5
       }
     ]
   },
@@ -734,6 +735,44 @@
       "units": 1.27,
       "roi": 9.1,
       "se": 13.4
+    },
+    {
+      "week": 9,
+      "published": true,
+      "clv": {
+        "n": 1,
+        "avg": 0.0,
+        "beat": 0,
+        "lost": 0,
+        "same": 1,
+        "beat_pct": 0.0
+      },
+      "top5": {
+        "w": 0,
+        "l": 0,
+        "push": 0,
+        "n": 0,
+        "pct": null,
+        "units": 0.0,
+        "roi": null,
+        "se": null
+      },
+      "clv_first": {
+        "n": 1,
+        "avg": 0.0,
+        "beat": 0,
+        "lost": 0,
+        "same": 1,
+        "beat_pct": 0.0
+      },
+      "w": 1,
+      "l": 0,
+      "push": 0,
+      "n": 1,
+      "pct": 100.0,
+      "units": 0.91,
+      "roi": 91.0,
+      "se": 50.0
     }
   ],
   "picks": [
@@ -3053,8 +3092,8 @@
       "first_line": 39.5,
       "first_seen_at": "2026-10-25T16:27:46.490216+00:00",
       "clv_first": null,
-      "pin_close": 37.0,
-      "clv_pin": -2.5,
+      "pin_close": 36.26,
+      "clv_pin": -3.2,
       "gs_flag": false,
       "garbage_share": 0.2244,
       "trend": -2.43,
@@ -3076,8 +3115,8 @@
       "first_line": 41.5,
       "first_seen_at": "2026-10-26T00:35:56.758656+00:00",
       "clv_first": null,
-      "pin_close": 42.1,
-      "clv_pin": 0.6,
+      "pin_close": 42.02,
+      "clv_pin": 0.5,
       "gs_flag": false,
       "garbage_share": 0.2052,
       "trend": -3.45,
@@ -3099,8 +3138,8 @@
       "first_line": 73.5,
       "first_seen_at": "2026-10-26T00:35:56.758656+00:00",
       "clv_first": null,
-      "pin_close": 76.0,
-      "clv_pin": -2.5,
+      "pin_close": 77.83,
+      "clv_pin": -4.3,
       "gs_flag": true,
       "garbage_share": 0.3986,
       "trend": 13.36,
@@ -3122,8 +3161,8 @@
       "first_line": 51.5,
       "first_seen_at": "2026-10-25T16:27:46.490216+00:00",
       "clv_first": null,
-      "pin_close": 52.83,
-      "clv_pin": 1.3,
+      "pin_close": 52.65,
+      "clv_pin": 1.1,
       "gs_flag": false,
       "garbage_share": 0.2742,
       "trend": 3.71,
@@ -3145,8 +3184,8 @@
       "first_line": 42.5,
       "first_seen_at": "2026-10-25T16:27:46.490216+00:00",
       "clv_first": null,
-      "pin_close": 41.75,
-      "clv_pin": -0.8,
+      "pin_close": 40.98,
+      "clv_pin": -1.5,
       "gs_flag": false,
       "garbage_share": 0.2567,
       "trend": -4.37,
@@ -3168,8 +3207,8 @@
       "first_line": 55.5,
       "first_seen_at": "2026-10-25T16:27:46.490216+00:00",
       "clv_first": null,
-      "pin_close": 54.16,
-      "clv_pin": 1.3,
+      "pin_close": 54.33,
+      "clv_pin": 1.2,
       "gs_flag": true,
       "garbage_share": 0.2141,
       "trend": 0.5,
@@ -3191,8 +3230,8 @@
       "first_line": 58.5,
       "first_seen_at": "2026-10-26T00:35:56.758656+00:00",
       "clv_first": null,
-      "pin_close": 58.08,
-      "clv_pin": 0.4,
+      "pin_close": 59.85,
+      "clv_pin": -1.4,
       "gs_flag": false,
       "garbage_share": 0.1383,
       "trend": 6.19,
@@ -3214,8 +3253,8 @@
       "first_line": 52.5,
       "first_seen_at": "2026-10-25T16:27:46.490216+00:00",
       "clv_first": null,
-      "pin_close": 53.58,
-      "clv_pin": 1.1,
+      "pin_close": 54.24,
+      "clv_pin": 1.7,
       "gs_flag": false,
       "garbage_share": 0.2122,
       "trend": 2.75,
@@ -3237,8 +3276,8 @@
       "first_line": 63.5,
       "first_seen_at": "2026-10-26T00:35:56.758656+00:00",
       "clv_first": null,
-      "pin_close": 63.17,
-      "clv_pin": 0.3,
+      "pin_close": 63.09,
+      "clv_pin": 0.4,
       "gs_flag": true,
       "garbage_share": 0.204,
       "trend": 5.0,
@@ -3260,8 +3299,8 @@
       "first_line": 43.5,
       "first_seen_at": "2026-10-26T00:35:56.758656+00:00",
       "clv_first": null,
-      "pin_close": 44.0,
-      "clv_pin": 0.5,
+      "pin_close": 44.35,
+      "clv_pin": 0.9,
       "gs_flag": false,
       "garbage_share": 0.2351,
       "trend": 1.12,
@@ -3283,8 +3322,8 @@
       "first_line": 49.5,
       "first_seen_at": "2026-10-26T00:35:56.758656+00:00",
       "clv_first": null,
-      "pin_close": 50.08,
-      "clv_pin": 0.6,
+      "pin_close": 49.91,
+      "clv_pin": 0.4,
       "gs_flag": false,
       "garbage_share": 0.1666,
       "trend": 1.21,
@@ -3306,8 +3345,8 @@
       "first_line": 50.5,
       "first_seen_at": "2026-10-25T16:27:46.490216+00:00",
       "clv_first": null,
-      "pin_close": 49.42,
-      "clv_pin": -1.1,
+      "pin_close": 48.17,
+      "clv_pin": -2.3,
       "gs_flag": false,
       "garbage_share": 0.27,
       "trend": 5.57,
@@ -3329,8 +3368,8 @@
       "first_line": 43.5,
       "first_seen_at": "2026-10-26T00:35:56.758656+00:00",
       "clv_first": null,
-      "pin_close": 43.78,
-      "clv_pin": 0.3,
+      "pin_close": 42.91,
+      "clv_pin": -0.6,
       "gs_flag": false,
       "garbage_share": 0.355,
       "trend": -2.21,
@@ -3352,8 +3391,8 @@
       "first_line": 44.5,
       "first_seen_at": "2026-10-26T00:35:56.758656+00:00",
       "clv_first": null,
-      "pin_close": 45.25,
-      "clv_pin": 0.8,
+      "pin_close": 43.3,
+      "clv_pin": -1.2,
       "gs_flag": false,
       "garbage_share": 0.2047,
       "trend": -4.75,
@@ -3375,8 +3414,8 @@
       "first_line": 53.5,
       "first_seen_at": "2026-10-26T00:35:56.758656+00:00",
       "clv_first": null,
-      "pin_close": 54.2,
-      "clv_pin": -0.7,
+      "pin_close": 51.94,
+      "clv_pin": 1.6,
       "gs_flag": false,
       "garbage_share": 0.1363,
       "trend": 3.21,
@@ -3398,8 +3437,8 @@
       "first_line": 55.5,
       "first_seen_at": "2026-10-25T16:27:46.490216+00:00",
       "clv_first": null,
-      "pin_close": 58.3,
-      "clv_pin": 2.8,
+      "pin_close": 56.76,
+      "clv_pin": 1.3,
       "gs_flag": false,
       "garbage_share": 0.2394,
       "trend": 1.79,
@@ -3421,8 +3460,8 @@
       "first_line": 52.5,
       "first_seen_at": "2026-10-25T16:27:46.490216+00:00",
       "clv_first": null,
-      "pin_close": 52.25,
-      "clv_pin": -0.2,
+      "pin_close": 51.09,
+      "clv_pin": -1.4,
       "gs_flag": false,
       "garbage_share": 0.1096,
       "trend": 2.23,
@@ -3444,8 +3483,8 @@
       "first_line": 44.5,
       "first_seen_at": "2026-10-26T00:35:56.758656+00:00",
       "clv_first": null,
-      "pin_close": 44.92,
-      "clv_pin": 0.4,
+      "pin_close": 44.33,
+      "clv_pin": -0.2,
       "gs_flag": false,
       "garbage_share": 0.0899,
       "trend": -1.07,
@@ -3467,8 +3506,8 @@
       "first_line": 49.5,
       "first_seen_at": "2026-10-25T16:27:46.490216+00:00",
       "clv_first": null,
-      "pin_close": 49.42,
-      "clv_pin": -0.1,
+      "pin_close": 49.15,
+      "clv_pin": -0.4,
       "gs_flag": false,
       "garbage_share": 0.293,
       "trend": -0.5,
@@ -3490,8 +3529,8 @@
       "first_line": 46.5,
       "first_seen_at": "2026-10-26T00:35:56.758656+00:00",
       "clv_first": null,
-      "pin_close": 46.25,
-      "clv_pin": -0.2,
+      "pin_close": 47.02,
+      "clv_pin": 0.5,
       "gs_flag": false,
       "garbage_share": 0.1464,
       "trend": 0.29,
@@ -3504,17 +3543,17 @@
       "edge": 4.04,
       "top3": null,
       "top5": null,
-      "result": null,
-      "actual_total": null,
-      "score": null,
+      "result": "WIN",
+      "actual_total": 56,
+      "score": "Delaware 35 @ Western Kentucky 21",
       "published": true,
-      "close_total": null,
-      "clv": null,
+      "close_total": 55.5,
+      "clv": 0.0,
       "first_line": 55.5,
       "first_seen_at": "2026-10-26T00:35:56.758656+00:00",
-      "clv_first": null,
-      "pin_close": 55.75,
-      "clv_pin": 0.2,
+      "clv_first": 0.0,
+      "pin_close": 55.5,
+      "clv_pin": 0.0,
       "gs_flag": false,
       "garbage_share": 0.3688,
       "trend": -0.43,
@@ -3536,8 +3575,8 @@
       "first_line": 47.5,
       "first_seen_at": "2026-10-25T16:27:46.490216+00:00",
       "clv_first": null,
-      "pin_close": 48.0,
-      "clv_pin": 0.5,
+      "pin_close": 45.52,
+      "clv_pin": -2.0,
       "gs_flag": false,
       "garbage_share": 0.1863,
       "trend": -1.5,
