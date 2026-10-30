@@ -1,13 +1,7 @@
 {
-  "generated_at": "2026-10-30T04:51:58.577507+00:00",
+  "generated_at": "2026-10-30T19:53:45.709366+00:00",
   "week": 9,
-  "storms": [
-    {
-      "name": "Vance",
-      "kind": "PTC",
-      "intensity": "25"
-    }
-  ],
+  "storms": [],
   "games": [
     {
       "game": "ARMY@MEM",
@@ -16,14 +10,10 @@
       "kickoff": "Sat 10/31 08:00 PM",
       "risk": "news",
       "news_alert": true,
-      "wind": 7.8,
-      "gust": 21.4,
-      "pop": 28,
-      "storm": {
-        "name": "Vance",
-        "kind": "PTC",
-        "miles": 1466
-      },
+      "wind": 5.3,
+      "gust": 12.5,
+      "pop": 16,
+      "storm": null,
       "first_total": 56.5,
       "total_now": 60.5,
       "moved": 4.0,
@@ -37,19 +27,32 @@
       "kickoff": "Sat 10/31 03:00 PM",
       "risk": "news",
       "news_alert": true,
-      "wind": 9.2,
-      "gust": 9.8,
-      "pop": 10,
-      "storm": {
-        "name": "Vance",
-        "kind": "PTC",
-        "miles": 1276
-      },
+      "wind": 10.0,
+      "gust": 11.6,
+      "pop": 5,
+      "storm": null,
       "first_total": 55.5,
       "total_now": 51.5,
       "moved": -4.0,
       "pin_fair": 51.94,
       "our_pick": "Under 53.5"
+    },
+    {
+      "game": "CSU@USU",
+      "away": "Colorado State",
+      "home": "Utah State",
+      "kickoff": "Sat 10/31 03:30 PM",
+      "risk": "news",
+      "news_alert": true,
+      "wind": 4.7,
+      "gust": 9.4,
+      "pop": 10,
+      "storm": null,
+      "first_total": 64.5,
+      "total_now": 61.5,
+      "moved": -3.0,
+      "pin_fair": 62.0,
+      "our_pick": "Under 63.5"
     },
     {
       "game": "NEV@UCLA",
@@ -58,18 +61,14 @@
       "kickoff": "Sat 10/31 04:15 PM",
       "risk": "news",
       "news_alert": true,
-      "wind": 6.6,
-      "gust": 8.9,
-      "pop": 31,
-      "storm": {
-        "name": "Vance",
-        "kind": "PTC",
-        "miles": 1129
-      },
+      "wind": 2.6,
+      "gust": 8.7,
+      "pop": 8,
+      "storm": null,
       "first_total": 46.5,
       "total_now": 43.5,
       "moved": -3.0,
-      "pin_fair": 43.56,
+      "pin_fair": 43.35,
       "our_pick": "Over 44.5"
     },
     {
@@ -84,10 +83,27 @@
       "pop": null,
       "storm": null,
       "first_total": 47.5,
-      "total_now": 43.5,
-      "moved": -4.0,
-      "pin_fair": 43.17,
+      "total_now": 42.5,
+      "moved": -5.0,
+      "pin_fair": 42.17,
       "our_pick": "Over 43.5"
+    },
+    {
+      "game": "CLEM@FSU",
+      "away": "Clemson",
+      "home": "Florida State",
+      "kickoff": "Sat 10/31 07:00 PM",
+      "risk": "watch",
+      "news_alert": false,
+      "wind": 12.8,
+      "gust": 24.8,
+      "pop": 4,
+      "storm": null,
+      "first_total": 50.5,
+      "total_now": 49.5,
+      "moved": -1.0,
+      "pin_fair": 49.76,
+      "our_pick": null
     },
     {
       "game": "CCU@GAST",
@@ -99,11 +115,7 @@
       "wind": 14.1,
       "gust": 23.7,
       "pop": 1,
-      "storm": {
-        "name": "Vance",
-        "kind": "PTC",
-        "miles": 1685
-      },
+      "storm": null,
       "first_total": 57.5,
       "total_now": 55.5,
       "moved": -2.0,
@@ -117,60 +129,31 @@
       "kickoff": "Sat 10/31 12:00 PM",
       "risk": "watch",
       "news_alert": false,
-      "wind": 12.5,
-      "gust": 20.6,
-      "pop": 16,
-      "storm": {
-        "name": "Vance",
-        "kind": "PTC",
-        "miles": 1660
-      },
+      "wind": 13.2,
+      "gust": 21.9,
+      "pop": 3,
+      "storm": null,
       "first_total": 46.5,
-      "total_now": 42.5,
-      "moved": -4.0,
+      "total_now": 41.5,
+      "moved": -5.0,
       "pin_fair": 42.11,
       "our_pick": null
     },
     {
-      "game": "MRSH@ODU",
-      "away": "Marshall",
-      "home": "Old Dominion",
-      "kickoff": "Sat 10/31 01:00 PM",
+      "game": "LT@USA",
+      "away": "Louisiana Tech",
+      "home": "South Alabama",
+      "kickoff": "Sat 10/31 03:00 PM",
       "risk": "watch",
       "news_alert": false,
-      "wind": 12.6,
-      "gust": 17.7,
-      "pop": 0,
-      "storm": {
-        "name": "Vance",
-        "kind": "PTC",
-        "miles": 2190
-      },
-      "first_total": 46.5,
-      "total_now": 45.5,
-      "moved": -1.0,
-      "pin_fair": 45.17,
-      "our_pick": "Over 45.5"
-    },
-    {
-      "game": "TXST@BOIS",
-      "away": "Texas State",
-      "home": "Boise State",
-      "kickoff": "Sat 10/31 10:00 PM",
-      "risk": "watch",
-      "news_alert": false,
-      "wind": 4.0,
-      "gust": 9.4,
-      "pop": 71,
-      "storm": {
-        "name": "Vance",
-        "kind": "PTC",
-        "miles": 1657
-      },
-      "first_total": 65.5,
-      "total_now": 63.5,
-      "moved": -2.0,
-      "pin_fair": 63.83,
+      "wind": 13.2,
+      "gust": 18.3,
+      "pop": 16,
+      "storm": null,
+      "first_total": 56.5,
+      "total_now": 58.5,
+      "moved": 2.0,
+      "pin_fair": 58.44,
       "our_pick": null
     }
   ]
