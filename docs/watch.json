@@ -1,24 +1,6 @@
 {
-  "generated_at": "2026-10-31T22:59:28.352513+00:00",
+  "generated_at": "2026-11-01T02:42:37.475386+00:00",
   "week": 9,
   "storms": [],
-  "games": [
-    {
-      "game": "MIZ@ARK",
-      "away": "Missouri",
-      "home": "Arkansas",
-      "kickoff": "Sat 10/31 07:45 PM",
-      "risk": "watch",
-      "news_alert": false,
-      "wind": 3.0,
-      "gust": 8.9,
-      "pop": 79,
-      "storm": null,
-      "first_total": 47.5,
-      "total_now": 48.5,
-      "moved": 1.0,
-      "pin_fair": 48.83,
-      "our_pick": null
-    }
-  ]
+  "games": []
 }
