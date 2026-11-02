@@ -1,0 +1,142 @@
+{
+  "meta": {
+    "season": 2026,
+    "week": 10,
+    "kind": "early5",
+    "posted_at": "2026-11-02T04:53:42.717509+00:00"
+  },
+  "picks": [
+    {
+      "rank": 1,
+      "game": "USF@ECU",
+      "kickoff": "Fri 11/06 08:30 PM",
+      "bet": "Over 40.5",
+      "edge": 8.33,
+      "tier": "1",
+      "bet_only_if": "at or below 44.5",
+      "pin_fair": 40.67,
+      "market": {
+        "gap": 0.17,
+        "sharp_agrees": false,
+        "sharp_disagrees": false
+      },
+      "best_us": 40.5,
+      "gs_flag": false,
+      "trend": -6.12,
+      "trend_read": "agrees"
+    },
+    {
+      "rank": 2,
+      "game": "UTSA@FAU",
+      "kickoff": "Thu 11/05 08:30 PM",
+      "bet": "Under 71.5",
+      "edge": -7.99,
+      "tier": "1",
+      "bet_only_if": "at or above 68.0",
+      "pin_fair": 72.0,
+      "market": {
+        "gap": 0.5,
+        "sharp_agrees": false,
+        "sharp_disagrees": true
+      },
+      "best_us": 73.5,
+      "gs_flag": true,
+      "trend": 7.56,
+      "trend_read": "agrees"
+    },
+    {
+      "rank": 3,
+      "game": "BUFF@M-OH",
+      "kickoff": "Tue 11/03 09:00 PM",
+      "bet": "Over 44.5",
+      "edge": 7.97,
+      "tier": "1",
+      "bet_only_if": "at or below 48.0",
+      "pin_fair": 43.92,
+      "market": {
+        "gap": -0.58,
+        "sharp_agrees": false,
+        "sharp_disagrees": true
+      },
+      "best_us": 44.5,
+      "gs_flag": false,
+      "trend": 3.44,
+      "trend_read": "fights"
+    },
+    {
+      "rank": 4,
+      "game": "UNM@NEV",
+      "kickoff": "Fri 11/06 10:00 PM",
+      "bet": "Over 38.5",
+      "edge": 7.71,
+      "tier": "1",
+      "bet_only_if": "at or below 42.0",
+      "pin_fair": 38.67,
+      "market": {
+        "gap": 0.17,
+        "sharp_agrees": false,
+        "sharp_disagrees": false
+      },
+      "best_us": 38.5,
+      "gs_flag": false,
+      "trend": -1.06,
+      "trend_read": null
+    },
+    {
+      "rank": 5,
+      "game": "BYU@UTAH",
+      "kickoff": "Sat 11/07 01:00 PM",
+      "bet": "Over 47.5",
+      "edge": 7.58,
+      "tier": "1",
+      "bet_only_if": "at or below 51.0",
+      "pin_fair": 47.5,
+      "market": {
+        "gap": 0.0,
+        "sharp_agrees": false,
+        "sharp_disagrees": false
+      },
+      "best_us": 47.5,
+      "gs_flag": false,
+      "trend": 1.12,
+      "trend_read": null
+    }
+  ],
+  "games": [
+    {
+      "matchup": "BUFF@M-OH",
+      "game_id": 401866454,
+      "kickoff_iso": "2026-11-04T01:00:00.000Z",
+      "away": "Buffalo",
+      "home": "Miami (OH)"
+    },
+    {
+      "matchup": "UTSA@FAU",
+      "game_id": 401862817,
+      "kickoff_iso": "2026-11-06T00:30:00.000Z",
+      "away": "UTSA",
+      "home": "Florida Atlantic"
+    },
+    {
+      "matchup": "USF@ECU",
+      "game_id": 401862818,
+      "kickoff_iso": "2026-11-07T00:30:00.000Z",
+      "away": "South Florida",
+      "home": "East Carolina"
+    },
+    {
+      "matchup": "UNM@NEV",
+      "game_id": 401864533,
+      "kickoff_iso": "2026-11-07T02:00:00.000Z",
+      "away": "New Mexico",
+      "home": "Nevada"
+    },
+    {
+      "matchup": "BYU@UTAH",
+      "game_id": 401856849,
+      "kickoff_iso": "2026-11-07T17:00:00.000Z",
+      "away": "BYU",
+      "home": "Utah"
+    }
+  ]
+}
