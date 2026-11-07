@@ -1,7 +1,13 @@
 {
-  "generated_at": "2026-11-06T20:45:45.853784+00:00",
+  "generated_at": "2026-11-07T00:41:59.655781+00:00",
   "week": 10,
-  "storms": [],
+  "storms": [
+    {
+      "name": "Pena",
+      "kind": "TS",
+      "intensity": "40"
+    }
+  ],
   "games": [
     {
       "game": "TXST@ORST",
@@ -10,10 +16,14 @@
       "kickoff": "Sat 11/07 11:30 PM",
       "risk": "news",
       "news_alert": true,
-      "wind": 6.3,
-      "gust": 20.8,
-      "pop": 5,
-      "storm": null,
+      "wind": 5.6,
+      "gust": 19.7,
+      "pop": 6,
+      "storm": {
+        "name": "Pena",
+        "kind": "TS",
+        "miles": 2795
+      },
       "first_total": 67.5,
       "total_now": 71.5,
       "moved": 4.0,
@@ -27,15 +37,40 @@
       "kickoff": "Sat 11/07 04:30 PM",
       "risk": "news",
       "news_alert": true,
-      "wind": 8.4,
-      "gust": 14.1,
+      "wind": 8.5,
+      "gust": 16.6,
       "pop": 1,
-      "storm": null,
+      "storm": {
+        "name": "Pena",
+        "kind": "TS",
+        "miles": 4509
+      },
       "first_total": 48.5,
       "total_now": 45.5,
       "moved": -3.0,
       "pin_fair": 45.26,
       "our_pick": "Over 46.5"
+    },
+    {
+      "game": "NEB@ILL",
+      "away": "Nebraska",
+      "home": "Illinois",
+      "kickoff": "Fri 11/06 09:00 PM",
+      "risk": "news",
+      "news_alert": true,
+      "wind": 4.3,
+      "gust": 8.7,
+      "pop": 0,
+      "storm": {
+        "name": "Pena",
+        "kind": "TS",
+        "miles": 4237
+      },
+      "first_total": 48.5,
+      "total_now": 52.5,
+      "moved": 4.0,
+      "pin_fair": 52.06,
+      "our_pick": "Over 49.5"
     },
     {
       "game": "TEX@MIZ",
@@ -44,15 +79,40 @@
       "kickoff": "Sat 11/07 01:00 PM",
       "risk": "news",
       "news_alert": true,
-      "wind": 5.8,
-      "gust": 6.9,
+      "wind": 4.4,
+      "gust": 5.4,
       "pop": 0,
-      "storm": null,
+      "storm": {
+        "name": "Pena",
+        "kind": "TS",
+        "miles": 4007
+      },
       "first_total": 45.5,
       "total_now": 42.5,
       "moved": -3.0,
-      "pin_fair": 42.33,
+      "pin_fair": 41.94,
       "our_pick": "Over 43.5"
+    },
+    {
+      "game": "BYU@UTAH",
+      "away": "BYU",
+      "home": "Utah",
+      "kickoff": "Sat 11/07 01:00 PM",
+      "risk": "news",
+      "news_alert": true,
+      "wind": 2.3,
+      "gust": 2.5,
+      "pop": 0,
+      "storm": {
+        "name": "Pena",
+        "kind": "TS",
+        "miles": 3086
+      },
+      "first_total": 46.5,
+      "total_now": 49.5,
+      "moved": 3.0,
+      "pin_fair": 49.35,
+      "our_pick": "Over 48.5"
     },
     {
       "game": "TEM@NAVY",
@@ -64,7 +124,11 @@
       "wind": 13.1,
       "gust": 22.8,
       "pop": 1,
-      "storm": null,
+      "storm": {
+        "name": "Pena",
+        "kind": "TS",
+        "miles": 4851
+      },
       "first_total": 52.5,
       "total_now": 54.5,
       "moved": 2.0,
@@ -81,7 +145,11 @@
       "wind": 12.5,
       "gust": 21.9,
       "pop": 0,
-      "storm": null,
+      "storm": {
+        "name": "Pena",
+        "kind": "TS",
+        "miles": 4560
+      },
       "first_total": 57.5,
       "total_now": 54.5,
       "moved": -3.0,
@@ -95,10 +163,14 @@
       "kickoff": "Sat 11/07 04:30 PM",
       "risk": "watch",
       "news_alert": false,
-      "wind": 12.5,
-      "gust": 17.7,
+      "wind": 13.0,
+      "gust": 18.6,
       "pop": 0,
-      "storm": null,
+      "storm": {
+        "name": "Pena",
+        "kind": "TS",
+        "miles": 4639
+      },
       "first_total": 58.5,
       "total_now": 58.5,
       "moved": 0.0,
