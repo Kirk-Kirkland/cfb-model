@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T00:41:59.655781+00:00",
+  "generated_at": "2026-11-07T04:19:52.654877+00:00",
   "week": 10,
   "storms": [
     {
@@ -16,17 +16,17 @@
       "kickoff": "Sat 11/07 11:30 PM",
       "risk": "news",
       "news_alert": true,
-      "wind": 5.6,
-      "gust": 19.7,
-      "pop": 6,
+      "wind": 5.9,
+      "gust": 27.1,
+      "pop": 7,
       "storm": {
         "name": "Pena",
         "kind": "TS",
-        "miles": 2795
+        "miles": 2835
       },
       "first_total": 67.5,
-      "total_now": 71.5,
-      "moved": 4.0,
+      "total_now": 70.5,
+      "moved": 3.0,
       "pin_fair": 71.0,
       "our_pick": "Under 71.5"
     },
@@ -37,40 +37,19 @@
       "kickoff": "Sat 11/07 04:30 PM",
       "risk": "news",
       "news_alert": true,
-      "wind": 8.5,
-      "gust": 16.6,
+      "wind": 9.4,
+      "gust": 17.4,
       "pop": 1,
       "storm": {
         "name": "Pena",
         "kind": "TS",
-        "miles": 4509
+        "miles": 4566
       },
       "first_total": 48.5,
       "total_now": 45.5,
       "moved": -3.0,
-      "pin_fair": 45.26,
+      "pin_fair": 45.17,
       "our_pick": "Over 46.5"
-    },
-    {
-      "game": "NEB@ILL",
-      "away": "Nebraska",
-      "home": "Illinois",
-      "kickoff": "Fri 11/06 09:00 PM",
-      "risk": "news",
-      "news_alert": true,
-      "wind": 4.3,
-      "gust": 8.7,
-      "pop": 0,
-      "storm": {
-        "name": "Pena",
-        "kind": "TS",
-        "miles": 4237
-      },
-      "first_total": 48.5,
-      "total_now": 52.5,
-      "moved": 4.0,
-      "pin_fair": 52.06,
-      "our_pick": "Over 49.5"
     },
     {
       "game": "TEX@MIZ",
@@ -79,13 +58,13 @@
       "kickoff": "Sat 11/07 01:00 PM",
       "risk": "news",
       "news_alert": true,
-      "wind": 4.4,
-      "gust": 5.4,
+      "wind": 6.1,
+      "gust": 7.4,
       "pop": 0,
       "storm": {
         "name": "Pena",
         "kind": "TS",
-        "miles": 4007
+        "miles": 4064
       },
       "first_total": 45.5,
       "total_now": 42.5,
@@ -100,13 +79,13 @@
       "kickoff": "Sat 11/07 01:00 PM",
       "risk": "news",
       "news_alert": true,
-      "wind": 2.3,
-      "gust": 2.5,
+      "wind": 2.4,
+      "gust": 2.2,
       "pop": 0,
       "storm": {
         "name": "Pena",
         "kind": "TS",
-        "miles": 3086
+        "miles": 3137
       },
       "first_total": 46.5,
       "total_now": 49.5,
@@ -115,66 +94,24 @@
       "our_pick": "Over 48.5"
     },
     {
-      "game": "TEM@NAVY",
-      "away": "Temple",
-      "home": "Navy",
-      "kickoff": "Sat 11/07 04:30 PM",
-      "risk": "watch",
-      "news_alert": false,
-      "wind": 13.1,
-      "gust": 22.8,
-      "pop": 1,
-      "storm": {
-        "name": "Pena",
-        "kind": "TS",
-        "miles": 4851
-      },
-      "first_total": 52.5,
-      "total_now": 54.5,
-      "moved": 2.0,
-      "pin_fair": 54.24,
-      "our_pick": "Under 54.5"
-    },
-    {
       "game": "GAST@APP",
       "away": "Georgia State",
       "home": "App State",
       "kickoff": "Sat 11/07 03:30 PM",
       "risk": "watch",
       "news_alert": false,
-      "wind": 12.5,
-      "gust": 21.9,
+      "wind": 13.1,
+      "gust": 21.5,
       "pop": 0,
       "storm": {
         "name": "Pena",
         "kind": "TS",
-        "miles": 4560
+        "miles": 4620
       },
       "first_total": 57.5,
       "total_now": 54.5,
       "moved": -3.0,
       "pin_fair": 54.06,
-      "our_pick": null
-    },
-    {
-      "game": "MRMK@WAKE",
-      "away": "Merrimack",
-      "home": "Wake Forest",
-      "kickoff": "Sat 11/07 04:30 PM",
-      "risk": "watch",
-      "news_alert": false,
-      "wind": 13.0,
-      "gust": 18.6,
-      "pop": 0,
-      "storm": {
-        "name": "Pena",
-        "kind": "TS",
-        "miles": 4639
-      },
-      "first_total": 58.5,
-      "total_now": 58.5,
-      "moved": 0.0,
-      "pin_fair": null,
       "our_pick": null
     }
   ]
