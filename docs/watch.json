@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-11-07T04:19:52.654877+00:00",
+  "generated_at": "2026-11-07T18:27:05.927925+00:00",
   "week": 10,
   "storms": [
     {
       "name": "Pena",
       "kind": "TS",
-      "intensity": "40"
+      "intensity": "45"
     }
   ],
   "games": [
@@ -16,19 +16,40 @@
       "kickoff": "Sat 11/07 11:30 PM",
       "risk": "news",
       "news_alert": true,
-      "wind": 5.9,
-      "gust": 27.1,
-      "pop": 7,
+      "wind": 6.0,
+      "gust": 20.4,
+      "pop": 5,
       "storm": {
         "name": "Pena",
         "kind": "TS",
-        "miles": 2835
+        "miles": 2900
       },
       "first_total": 67.5,
-      "total_now": 70.5,
-      "moved": 3.0,
-      "pin_fair": 71.0,
+      "total_now": 71.5,
+      "moved": 4.0,
+      "pin_fair": 71.61,
       "our_pick": "Under 71.5"
+    },
+    {
+      "game": "IOWA@NU",
+      "away": "Iowa",
+      "home": "Northwestern",
+      "kickoff": "Sat 11/07 08:30 PM",
+      "risk": "news",
+      "news_alert": true,
+      "wind": 6.2,
+      "gust": 14.8,
+      "pop": 0,
+      "storm": {
+        "name": "Pena",
+        "kind": "TS",
+        "miles": 4446
+      },
+      "first_total": 45.5,
+      "total_now": 42.5,
+      "moved": -3.0,
+      "pin_fair": 42.15,
+      "our_pick": "Over 45.5"
     },
     {
       "game": "ORE@OSU",
@@ -37,61 +58,40 @@
       "kickoff": "Sat 11/07 04:30 PM",
       "risk": "news",
       "news_alert": true,
-      "wind": 9.4,
-      "gust": 17.4,
-      "pop": 1,
+      "wind": 7.4,
+      "gust": 12.8,
+      "pop": 0,
       "storm": {
         "name": "Pena",
         "kind": "TS",
-        "miles": 4566
+        "miles": 4674
       },
       "first_total": 48.5,
-      "total_now": 45.5,
-      "moved": -3.0,
-      "pin_fair": 45.17,
+      "total_now": 44.5,
+      "moved": -4.0,
+      "pin_fair": 45.09,
       "our_pick": "Over 46.5"
     },
     {
-      "game": "TEX@MIZ",
-      "away": "Texas",
-      "home": "Missouri",
-      "kickoff": "Sat 11/07 01:00 PM",
+      "game": "WVU@TTU",
+      "away": "West Virginia",
+      "home": "Texas Tech",
+      "kickoff": "Sat 11/07 10:30 PM",
       "risk": "news",
       "news_alert": true,
-      "wind": 6.1,
-      "gust": 7.4,
-      "pop": 0,
+      "wind": 4.5,
+      "gust": 10.7,
+      "pop": 5,
       "storm": {
         "name": "Pena",
         "kind": "TS",
-        "miles": 4064
+        "miles": 3579
       },
-      "first_total": 45.5,
-      "total_now": 42.5,
-      "moved": -3.0,
-      "pin_fair": 41.94,
-      "our_pick": "Over 43.5"
-    },
-    {
-      "game": "BYU@UTAH",
-      "away": "BYU",
-      "home": "Utah",
-      "kickoff": "Sat 11/07 01:00 PM",
-      "risk": "news",
-      "news_alert": true,
-      "wind": 2.4,
-      "gust": 2.2,
-      "pop": 0,
-      "storm": {
-        "name": "Pena",
-        "kind": "TS",
-        "miles": 3137
-      },
-      "first_total": 46.5,
-      "total_now": 49.5,
+      "first_total": 63.5,
+      "total_now": 66.5,
       "moved": 3.0,
-      "pin_fair": 49.35,
-      "our_pick": "Over 48.5"
+      "pin_fair": 66.59,
+      "our_pick": "Under 65.5"
     },
     {
       "game": "GAST@APP",
@@ -100,19 +100,40 @@
       "kickoff": "Sat 11/07 03:30 PM",
       "risk": "watch",
       "news_alert": false,
-      "wind": 13.1,
-      "gust": 21.5,
+      "wind": 14.7,
+      "gust": 23.5,
       "pop": 0,
       "storm": {
         "name": "Pena",
         "kind": "TS",
-        "miles": 4620
+        "miles": 4734
       },
       "first_total": 57.5,
-      "total_now": 54.5,
-      "moved": -3.0,
-      "pin_fair": 54.06,
+      "total_now": 53.5,
+      "moved": -4.0,
+      "pin_fair": 53.71,
       "our_pick": null
+    },
+    {
+      "game": "TEM@NAVY",
+      "away": "Temple",
+      "home": "Navy",
+      "kickoff": "Sat 11/07 04:30 PM",
+      "risk": "watch",
+      "news_alert": false,
+      "wind": 12.5,
+      "gust": 20.6,
+      "pop": 0,
+      "storm": {
+        "name": "Pena",
+        "kind": "TS",
+        "miles": 5019
+      },
+      "first_total": 52.5,
+      "total_now": 54.5,
+      "moved": 2.0,
+      "pin_fair": 54.76,
+      "our_pick": "Under 54.5"
     }
   ]
 }
