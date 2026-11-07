@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T18:27:05.927925+00:00",
+  "generated_at": "2026-11-07T23:22:00.730619+00:00",
   "week": 10,
   "storms": [
     {
@@ -16,18 +16,18 @@
       "kickoff": "Sat 11/07 11:30 PM",
       "risk": "news",
       "news_alert": true,
-      "wind": 6.0,
-      "gust": 20.4,
+      "wind": 6.5,
+      "gust": 17.2,
       "pop": 5,
       "storm": {
         "name": "Pena",
         "kind": "TS",
-        "miles": 2900
+        "miles": 2916
       },
       "first_total": 67.5,
       "total_now": 71.5,
       "moved": 4.0,
-      "pin_fair": 71.61,
+      "pin_fair": 71.52,
       "our_pick": "Under 71.5"
     },
     {
@@ -37,40 +37,19 @@
       "kickoff": "Sat 11/07 08:30 PM",
       "risk": "news",
       "news_alert": true,
-      "wind": 6.2,
-      "gust": 14.8,
+      "wind": 6.0,
+      "gust": 15.7,
       "pop": 0,
       "storm": {
         "name": "Pena",
         "kind": "TS",
-        "miles": 4446
+        "miles": 4472
       },
       "first_total": 45.5,
       "total_now": 42.5,
       "moved": -3.0,
-      "pin_fair": 42.15,
+      "pin_fair": 42.33,
       "our_pick": "Over 45.5"
-    },
-    {
-      "game": "ORE@OSU",
-      "away": "Oregon",
-      "home": "Ohio State",
-      "kickoff": "Sat 11/07 04:30 PM",
-      "risk": "news",
-      "news_alert": true,
-      "wind": 7.4,
-      "gust": 12.8,
-      "pop": 0,
-      "storm": {
-        "name": "Pena",
-        "kind": "TS",
-        "miles": 4674
-      },
-      "first_total": 48.5,
-      "total_now": 44.5,
-      "moved": -4.0,
-      "pin_fair": 45.09,
-      "our_pick": "Over 46.5"
     },
     {
       "game": "WVU@TTU",
@@ -79,61 +58,19 @@
       "kickoff": "Sat 11/07 10:30 PM",
       "risk": "news",
       "news_alert": true,
-      "wind": 4.5,
-      "gust": 10.7,
-      "pop": 5,
+      "wind": 2.6,
+      "gust": 6.0,
+      "pop": 8,
       "storm": {
         "name": "Pena",
         "kind": "TS",
-        "miles": 3579
+        "miles": 3609
       },
       "first_total": 63.5,
       "total_now": 66.5,
       "moved": 3.0,
       "pin_fair": 66.59,
       "our_pick": "Under 65.5"
-    },
-    {
-      "game": "GAST@APP",
-      "away": "Georgia State",
-      "home": "App State",
-      "kickoff": "Sat 11/07 03:30 PM",
-      "risk": "watch",
-      "news_alert": false,
-      "wind": 14.7,
-      "gust": 23.5,
-      "pop": 0,
-      "storm": {
-        "name": "Pena",
-        "kind": "TS",
-        "miles": 4734
-      },
-      "first_total": 57.5,
-      "total_now": 53.5,
-      "moved": -4.0,
-      "pin_fair": 53.71,
-      "our_pick": null
-    },
-    {
-      "game": "TEM@NAVY",
-      "away": "Temple",
-      "home": "Navy",
-      "kickoff": "Sat 11/07 04:30 PM",
-      "risk": "watch",
-      "news_alert": false,
-      "wind": 12.5,
-      "gust": 20.6,
-      "pop": 0,
-      "storm": {
-        "name": "Pena",
-        "kind": "TS",
-        "miles": 5019
-      },
-      "first_total": 52.5,
-      "total_now": 54.5,
-      "moved": 2.0,
-      "pin_fair": 54.76,
-      "our_pick": "Under 54.5"
     }
   ]
 }
