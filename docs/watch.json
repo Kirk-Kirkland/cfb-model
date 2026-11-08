@@ -1,34 +1,12 @@
 {
-  "generated_at": "2026-11-08T02:49:12.433680+00:00",
+  "generated_at": "2026-11-08T10:48:08.619167+00:00",
   "week": 10,
   "storms": [
     {
       "name": "Pena",
       "kind": "TS",
-      "intensity": "50"
+      "intensity": "40"
     }
   ],
-  "games": [
-    {
-      "game": "TXST@ORST",
-      "away": "Texas State",
-      "home": "Oregon State",
-      "kickoff": "Sat 11/07 11:30 PM",
-      "risk": "news",
-      "news_alert": true,
-      "wind": 5.0,
-      "gust": 12.8,
-      "pop": 5,
-      "storm": {
-        "name": "Pena",
-        "kind": "TS",
-        "miles": 2944
-      },
-      "first_total": 67.5,
-      "total_now": 72.5,
-      "moved": 5.0,
-      "pin_fair": 71.83,
-      "our_pick": "Under 71.5"
-    }
-  ]
+  "games": []
 }
