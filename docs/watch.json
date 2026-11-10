@@ -1,12 +1,349 @@
 {
-  "generated_at": "2026-11-08T19:17:59.160186+00:00",
-  "week": 10,
+  "generated_at": "2026-11-10T21:12:13.346079+00:00",
+  "week": 11,
   "storms": [
     {
       "name": "Pena",
       "kind": "TS",
-      "intensity": "40"
+      "intensity": "35"
     }
   ],
-  "games": []
+  "games": [
+    {
+      "game": "FAU@TLSA",
+      "away": "Florida Atlantic",
+      "home": "Tulsa",
+      "kickoff": "Sat 11/14 04:30 PM",
+      "risk": "news",
+      "news_alert": true,
+      "wind": 6.8,
+      "gust": 12.1,
+      "pop": 1,
+      "storm": {
+        "name": "Pena",
+        "kind": "TS",
+        "miles": 4626
+      },
+      "first_total": 71.5,
+      "total_now": 74.5,
+      "moved": 3.0,
+      "pin_fair": 74.3,
+      "our_pick": "Under 74.5"
+    },
+    {
+      "game": "WMU@AKR",
+      "away": "Western Michigan",
+      "home": "Akron",
+      "kickoff": "Tue 11/10 08:00 PM",
+      "risk": "news",
+      "news_alert": true,
+      "wind": 2.0,
+      "gust": 4.3,
+      "pop": 0,
+      "storm": {
+        "name": "Pena",
+        "kind": "TS",
+        "miles": 5403
+      },
+      "first_total": 46.5,
+      "total_now": 49.5,
+      "moved": 3.0,
+      "pin_fair": 49.26,
+      "our_pick": "Over 48.5"
+    },
+    {
+      "game": "NDSU@HAW",
+      "away": "North Dakota State",
+      "home": "Hawai'i",
+      "kickoff": "Sun 11/15 12:00 AM",
+      "risk": "high",
+      "news_alert": false,
+      "wind": 13.2,
+      "gust": 36.2,
+      "pop": 15,
+      "storm": {
+        "name": "Pena",
+        "kind": "TS",
+        "miles": 875
+      },
+      "first_total": 38.5,
+      "total_now": 38.5,
+      "moved": 0.0,
+      "pin_fair": 38.33,
+      "our_pick": "Over 38.5"
+    },
+    {
+      "game": "WYO@UTEP",
+      "away": "Wyoming",
+      "home": "UTEP",
+      "kickoff": "Sat 11/14 11:00 PM",
+      "risk": "watch",
+      "news_alert": false,
+      "wind": 17.9,
+      "gust": 24.6,
+      "pop": 7,
+      "storm": {
+        "name": "Pena",
+        "kind": "TS",
+        "miles": 3995
+      },
+      "first_total": 41.5,
+      "total_now": 39.5,
+      "moved": -2.0,
+      "pin_fair": 39.66,
+      "our_pick": "Over 39.5"
+    },
+    {
+      "game": "WIS@MD",
+      "away": "Wisconsin",
+      "home": "Maryland",
+      "kickoff": "Sat 11/14 01:00 PM",
+      "risk": "watch",
+      "news_alert": false,
+      "wind": 14.2,
+      "gust": 21.7,
+      "pop": 0,
+      "storm": {
+        "name": "Pena",
+        "kind": "TS",
+        "miles": 5658
+      },
+      "first_total": 43.5,
+      "total_now": 43.5,
+      "moved": 0.0,
+      "pin_fair": 43.0,
+      "our_pick": null
+    },
+    {
+      "game": "UTAH@ARIZ",
+      "away": "Utah",
+      "home": "Arizona",
+      "kickoff": "Sat 11/14 08:30 PM",
+      "risk": "watch",
+      "news_alert": false,
+      "wind": 13.0,
+      "gust": 20.1,
+      "pop": 10,
+      "storm": {
+        "name": "Pena",
+        "kind": "TS",
+        "miles": 3743
+      },
+      "first_total": 54.5,
+      "total_now": 54.5,
+      "moved": 0.0,
+      "pin_fair": 54.74,
+      "our_pick": null
+    },
+    {
+      "game": "TULN@RICE",
+      "away": "Tulane",
+      "home": "Rice",
+      "kickoff": "Sat 11/14 03:00 PM",
+      "risk": "watch",
+      "news_alert": false,
+      "wind": 15.4,
+      "gust": 19.9,
+      "pop": 9,
+      "storm": {
+        "name": "Pena",
+        "kind": "TS",
+        "miles": 4643
+      },
+      "first_total": 48.5,
+      "total_now": 48.5,
+      "moved": 0.0,
+      "pin_fair": 47.77,
+      "our_pick": null
+    },
+    {
+      "game": "UAB@TEM",
+      "away": "UAB",
+      "home": "Temple",
+      "kickoff": "Sat 11/14 02:00 PM",
+      "risk": "watch",
+      "news_alert": false,
+      "wind": 12.9,
+      "gust": 19.0,
+      "pop": 6,
+      "storm": {
+        "name": "Pena",
+        "kind": "TS",
+        "miles": 5743
+      },
+      "first_total": 49.5,
+      "total_now": 48.5,
+      "moved": -1.0,
+      "pin_fair": 48.26,
+      "our_pick": null
+    },
+    {
+      "game": "NEB@RUTG",
+      "away": "Nebraska",
+      "home": "Rutgers",
+      "kickoff": "Sat 11/14 01:30 PM",
+      "risk": "watch",
+      "news_alert": false,
+      "wind": 12.3,
+      "gust": 18.8,
+      "pop": 4,
+      "storm": {
+        "name": "Pena",
+        "kind": "TS",
+        "miles": 5774
+      },
+      "first_total": 53.5,
+      "total_now": 52.5,
+      "moved": -1.0,
+      "pin_fair": 51.83,
+      "our_pick": null
+    },
+    {
+      "game": "TENN@TA&M",
+      "away": "Tennessee",
+      "home": "Texas A&M",
+      "kickoff": "Sat 11/14 04:00 PM",
+      "risk": "watch",
+      "news_alert": false,
+      "wind": 13.7,
+      "gust": 18.8,
+      "pop": 8,
+      "storm": {
+        "name": "Pena",
+        "kind": "TS",
+        "miles": 4588
+      },
+      "first_total": 42.5,
+      "total_now": 43.5,
+      "moved": 1.0,
+      "pin_fair": 43.59,
+      "our_pick": "Over 42.5"
+    },
+    {
+      "game": "MISS@OU",
+      "away": "Ole Miss",
+      "home": "Oklahoma",
+      "kickoff": "Sat 11/14 05:15 PM",
+      "risk": "watch",
+      "news_alert": false,
+      "wind": 13.1,
+      "gust": 18.1,
+      "pop": 4,
+      "storm": {
+        "name": "Pena",
+        "kind": "TS",
+        "miles": 4538
+      },
+      "first_total": 49.5,
+      "total_now": 49.5,
+      "moved": 0.0,
+      "pin_fair": 49.16,
+      "our_pick": null
+    },
+    {
+      "game": "FRES@TXST",
+      "away": "Fresno State",
+      "home": "Texas State",
+      "kickoff": "Sat 11/14 05:00 PM",
+      "risk": "watch",
+      "news_alert": false,
+      "wind": 14.7,
+      "gust": 17.7,
+      "pop": 36,
+      "storm": {
+        "name": "Pena",
+        "kind": "TS",
+        "miles": 4492
+      },
+      "first_total": 58.5,
+      "total_now": 59.5,
+      "moved": 1.0,
+      "pin_fair": 59.77,
+      "our_pick": null
+    },
+    {
+      "game": "UNLV@UNM",
+      "away": "UNLV",
+      "home": "New Mexico",
+      "kickoff": "Sat 11/14 08:30 PM",
+      "risk": "watch",
+      "news_alert": false,
+      "wind": 13.7,
+      "gust": 16.6,
+      "pop": 35,
+      "storm": {
+        "name": "Pena",
+        "kind": "TS",
+        "miles": 4022
+      },
+      "first_total": 47.5,
+      "total_now": 46.5,
+      "moved": -1.0,
+      "pin_fair": 46.67,
+      "our_pick": null
+    },
+    {
+      "game": "CAL@UVA",
+      "away": "California",
+      "home": "Virginia",
+      "kickoff": "Sat 11/14 04:30 PM",
+      "risk": "watch",
+      "news_alert": false,
+      "wind": 12.2,
+      "gust": 15.4,
+      "pop": 0,
+      "storm": {
+        "name": "Pena",
+        "kind": "TS",
+        "miles": 5582
+      },
+      "first_total": 47.5,
+      "total_now": 47.5,
+      "moved": 0.0,
+      "pin_fair": 47.07,
+      "our_pick": "Over 47.5"
+    },
+    {
+      "game": "KSU@TCU",
+      "away": "Kansas State",
+      "home": "TCU",
+      "kickoff": "Sat 11/14 03:00 PM",
+      "risk": "watch",
+      "news_alert": false,
+      "wind": 12.4,
+      "gust": 15.2,
+      "pop": 4,
+      "storm": {
+        "name": "Pena",
+        "kind": "TS",
+        "miles": 4533
+      },
+      "first_total": 45.5,
+      "total_now": 45.5,
+      "moved": 0.0,
+      "pin_fair": 46.1,
+      "our_pick": "Over 45.5"
+    },
+    {
+      "game": "BAY@BYU",
+      "away": "Baylor",
+      "home": "BYU",
+      "kickoff": "Sat 11/14 04:30 PM",
+      "risk": "watch",
+      "news_alert": false,
+      "wind": 3.7,
+      "gust": 8.1,
+      "pop": 70,
+      "storm": {
+        "name": "Pena",
+        "kind": "TS",
+        "miles": 3834
+      },
+      "first_total": 49.5,
+      "total_now": 49.5,
+      "moved": 0.0,
+      "pin_fair": 48.76,
+      "our_pick": null
+    }
+  ]
 }
