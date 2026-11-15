@@ -1,24 +1,6 @@
 {
-  "generated_at": "2026-11-15T03:18:59.974544+00:00",
+  "generated_at": "2026-11-15T11:34:38.094352+00:00",
   "week": 11,
   "storms": [],
-  "games": [
-    {
-      "game": "NDSU@HAW",
-      "away": "North Dakota State",
-      "home": "Hawai'i",
-      "kickoff": "Sun 11/15 12:00 AM",
-      "risk": "watch",
-      "news_alert": false,
-      "wind": 12.4,
-      "gust": 30.9,
-      "pop": 7,
-      "storm": null,
-      "first_total": 38.5,
-      "total_now": 39.5,
-      "moved": 1.0,
-      "pin_fair": 39.85,
-      "our_pick": "Over 38.5"
-    }
-  ]
+  "games": []
 }
