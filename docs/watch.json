@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-14T23:35:36.842735+00:00",
+  "generated_at": "2026-11-15T03:18:59.974544+00:00",
   "week": 11,
   "storms": [],
   "games": [
@@ -10,32 +10,15 @@
       "kickoff": "Sun 11/15 12:00 AM",
       "risk": "watch",
       "news_alert": false,
-      "wind": 12.5,
-      "gust": 30.6,
+      "wind": 12.4,
+      "gust": 30.9,
       "pop": 7,
       "storm": null,
       "first_total": 38.5,
       "total_now": 39.5,
       "moved": 1.0,
-      "pin_fair": 39.5,
+      "pin_fair": 39.85,
       "our_pick": "Over 38.5"
-    },
-    {
-      "game": "STAN@VT",
-      "away": "Stanford",
-      "home": "Virginia Tech",
-      "kickoff": "Sat 11/14 08:30 PM",
-      "risk": "watch",
-      "news_alert": false,
-      "wind": 12.0,
-      "gust": 29.3,
-      "pop": 0,
-      "storm": null,
-      "first_total": 58.5,
-      "total_now": 57.5,
-      "moved": -1.0,
-      "pin_fair": 57.74,
-      "our_pick": null
     }
   ]
 }
