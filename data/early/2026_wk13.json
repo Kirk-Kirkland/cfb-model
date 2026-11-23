@@ -1,0 +1,142 @@
+{
+  "meta": {
+    "season": 2026,
+    "week": 13,
+    "kind": "early5",
+    "posted_at": "2026-11-23T06:10:19.690630+00:00"
+  },
+  "picks": [
+    {
+      "rank": 1,
+      "game": "SAC@HAW",
+      "kickoff": "Sun 11/29 12:00 AM",
+      "bet": "Over 38.5",
+      "edge": 10.17,
+      "tier": "1",
+      "bet_only_if": "at or below 44.5",
+      "pin_fair": 39.08,
+      "market": {
+        "gap": 0.58,
+        "sharp_agrees": true,
+        "sharp_disagrees": false
+      },
+      "best_us": 38.5,
+      "gs_flag": false,
+      "trend": -5.09,
+      "trend_read": "agrees"
+    },
+    {
+      "rank": 2,
+      "game": "MICH@OSU",
+      "kickoff": "Sat 11/28 01:00 PM",
+      "bet": "Over 38.5",
+      "edge": 9.57,
+      "tier": "1",
+      "bet_only_if": "at or below 44.0",
+      "pin_fair": 38.33,
+      "market": {
+        "gap": -0.17,
+        "sharp_agrees": false,
+        "sharp_disagrees": false
+      },
+      "best_us": 37.5,
+      "gs_flag": false,
+      "trend": -1.86,
+      "trend_read": null
+    },
+    {
+      "rank": 3,
+      "game": "SC@CLEM",
+      "kickoff": "Sat 11/28 04:00 PM",
+      "bet": "Over 40.5",
+      "edge": 8.82,
+      "tier": "1",
+      "bet_only_if": "at or below 45.0",
+      "pin_fair": 41.0,
+      "market": {
+        "gap": 0.5,
+        "sharp_agrees": true,
+        "sharp_disagrees": false
+      },
+      "best_us": 40.5,
+      "gs_flag": false,
+      "trend": -3.64,
+      "trend_read": "agrees"
+    },
+    {
+      "rank": 4,
+      "game": "KU@OKST",
+      "kickoff": "Sat 11/28 07:15 PM",
+      "bet": "Under 66.5",
+      "edge": -8.32,
+      "tier": "1",
+      "bet_only_if": "at or above 62.5",
+      "pin_fair": 67.0,
+      "market": {
+        "gap": 0.5,
+        "sharp_agrees": false,
+        "sharp_disagrees": true
+      },
+      "best_us": 67.5,
+      "gs_flag": false,
+      "trend": 5.5,
+      "trend_read": "agrees"
+    },
+    {
+      "rank": 5,
+      "game": "TEX@TA&M",
+      "kickoff": "Fri 11/27 08:30 PM",
+      "bet": "Over 40.5",
+      "edge": 8.27,
+      "tier": "1",
+      "bet_only_if": "at or below 44.5",
+      "pin_fair": 40.5,
+      "market": {
+        "gap": 0.0,
+        "sharp_agrees": false,
+        "sharp_disagrees": false
+      },
+      "best_us": 40.5,
+      "gs_flag": false,
+      "trend": -5.14,
+      "trend_read": "agrees"
+    }
+  ],
+  "games": [
+    {
+      "matchup": "TEX@TA&M",
+      "game_id": 401856756,
+      "kickoff_iso": "2026-11-28T00:30:00.000Z",
+      "away": "Texas",
+      "home": "Texas A&M"
+    },
+    {
+      "matchup": "MICH@OSU",
+      "game_id": 401858540,
+      "kickoff_iso": "2026-11-28T17:00:00.000Z",
+      "away": "Michigan",
+      "home": "Ohio State"
+    },
+    {
+      "matchup": "SC@CLEM",
+      "game_id": 401856764,
+      "kickoff_iso": "2026-11-28T20:00:00.000Z",
+      "away": "South Carolina",
+      "home": "Clemson"
+    },
+    {
+      "matchup": "KU@OKST",
+      "game_id": 401856877,
+      "kickoff_iso": "2026-11-28T23:15:00.000Z",
+      "away": "Kansas",
+      "home": "Oklahoma State"
+    },
+    {
+      "matchup": "SAC@HAW",
+      "game_id": 401864547,
+      "kickoff_iso": "2026-11-29T04:00:00.000Z",
+      "away": "Sacramento State",
+      "home": "Hawai'i"
+    }
+  ]
+}
